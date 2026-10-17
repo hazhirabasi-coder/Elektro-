@@ -1,0 +1,312 @@
+{
+  "schemaVersion": 1,
+  "id": "LF04",
+  "title": {
+    "de": "Informationstechnische Systeme bereitstellen",
+    "fa": "راه‌اندازی سیستم‌های فناوری اطلاعات"
+  },
+  "level": "Grundlagen bis Prüfungsvorbereitung",
+  "languages": [
+    "de",
+    "fa"
+  ],
+  "disclaimer": {
+    "de": "Lernmaterial zur Prüfungsvorbereitung. Netzwerke und elektrische Anschlüsse nach geltenden Normen, Herstellerangaben und betrieblichen Vorgaben ausführen.",
+    "fa": "این محتوا برای آمادگی آزمون است. شبکه‌ها و اتصالات الکتریکی باید طبق استانداردهای جاری، دستورالعمل سازنده و مقررات محل کار اجرا شوند."
+  },
+  "objectives": [
+    {
+      "de": "Grundlagen von Netzwerk, Ethernet und IP beschreiben.",
+      "fa": "مبانی شبکه، اترنت و IP را توضیح دهد."
+    },
+    {
+      "de": "Passive und aktive Netzwerkkomponenten unterscheiden.",
+      "fa": "تجهیزات پسیو و اکتیو شبکه را تشخیص دهد."
+    },
+    {
+      "de": "Einfache Netzwerkfehler strukturiert eingrenzen.",
+      "fa": "خطاهای ساده شبکه را روشمند بررسی کند."
+    }
+  ],
+  "lessons": [
+    {
+      "id": "LF04-01",
+      "title": {
+        "de": "Netzwerkgrundlagen",
+        "fa": "مبانی شبکه"
+      },
+      "explanation": {
+        "de": "Ein lokales Netzwerk verbindet Endgeräte und Dienste. Ethernet wird häufig für kabelgebundene Verbindungen eingesetzt. Ein Switch verbindet Geräte innerhalb eines lokalen Netzwerks; ein Router verbindet unterschiedliche IP-Netze und leitet Daten zwischen ihnen weiter.",
+        "fa": "شبکه محلی دستگاه‌ها و سرویس‌ها را به هم متصل می‌کند. اترنت معمولاً برای اتصال سیمی به کار می‌رود. سوئیچ دستگاه‌های یک شبکه محلی را متصل می‌کند؛ روتر شبکه‌های IP متفاوت را به هم وصل می‌کند و داده‌ها را میان آن‌ها هدایت می‌کند."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Welche Aufgabe hat ein Switch typischerweise?",
+            "fa": "وظیفه معمول سوئیچ چیست؟"
+          },
+          "options": [
+            "Geräte in einem LAN verbinden",
+            "230-V-Strom erzeugen",
+            "Immer IP-Adressen ausgeben"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Ein Switch verbindet Endgeräte innerhalb eines lokalen Netzwerks.",
+            "fa": "سوئیچ دستگاه‌ها را در شبکه محلی به هم متصل می‌کند."
+          }
+        },
+        {
+          "q": {
+            "de": "Wofür wird ein Router eingesetzt?",
+            "fa": "روتر برای چه کاری استفاده می‌شود؟"
+          },
+          "options": [
+            "Zum Verbinden unterschiedlicher IP-Netze",
+            "Als Ersatz für jede Sicherung",
+            "Nur zum Messen von Widerstand"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Router leiten Daten zwischen IP-Netzen weiter.",
+            "fa": "روترها داده‌ها را میان شبکه‌های IP هدایت می‌کنند."
+          }
+        }
+      ]
+    },
+    {
+      "id": "LF04-02",
+      "title": {
+        "de": "IP-Adresse und DHCP",
+        "fa": "آدرس IP و DHCP"
+      },
+      "explanation": {
+        "de": "Eine IP-Adresse identifiziert eine Netzwerkschnittstelle innerhalb eines IP-Netzes. Die Subnetzmaske bzw. Präfixlänge beschreibt den Netzanteil. DHCP kann IP-Konfigurationen wie Adresse, Gateway und DNS automatisch bereitstellen. Bei Fehlern sind Konfiguration und Netzplan zu prüfen.",
+        "fa": "آدرس IP رابط شبکه را در شبکه IP مشخص می‌کند. ماسک زیرشبکه یا طول پیشوند، بخش شبکه را تعیین می‌کند. DHCP می‌تواند آدرس، دروازه و DNS را به‌صورت خودکار ارائه کند. هنگام خطا باید پیکربندی و نقشه شبکه بررسی شود."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Was macht DHCP in einem typischen Netzwerk?",
+            "fa": "DHCP در شبکه معمولاً چه کاری انجام می‌دهد؟"
+          },
+          "options": [
+            "Weist automatisch Netzwerkkonfiguration zu",
+            "Prüft den Schutzleiter",
+            "Ersetzt den Switch"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "DHCP verteilt beispielsweise IP-Adresse, Gateway und DNS-Informationen.",
+            "fa": "DHCP برای نمونه آدرس IP، دروازه و اطلاعات DNS را ارائه می‌کند."
+          }
+        },
+        {
+          "q": {
+            "de": "Ein Gerät hat keine Verbindung. Was ist ein sinnvoller erster Check?",
+            "fa": "دستگاهی اتصال ندارد. اولین بررسی مناسب چیست؟"
+          },
+          "options": [
+            "Netzwerkverbindung und IP-Konfiguration prüfen",
+            "Sofort alle Geräte austauschen",
+            "Die Schutzfunktion abschalten"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Verbindung, Link-Anzeige und IP-Konfiguration helfen, den Fehler einzugrenzen.",
+            "fa": "اتصال، چراغ لینک و پیکربندی IP به محدود کردن علت خطا کمک می‌کنند."
+          }
+        }
+      ]
+    },
+    {
+      "id": "LF04-03",
+      "title": {
+        "de": "Passive und aktive Komponenten",
+        "fa": "تجهیزات پسیو و اکتیو"
+      },
+      "explanation": {
+        "de": "Zu passiven Komponenten zählen beispielsweise Datenleitungen, Anschlussdosen und Patchfelder. Aktive Komponenten wie Switches und Router verarbeiten oder leiten Signale weiter und benötigen eine passende Versorgung. Ports, Beschriftung und Kabelwege sollten nachvollziehbar dokumentiert werden.",
+        "fa": "تجهیزات پسیو شامل کابل داده، پریز شبکه و پچ‌پنل هستند. تجهیزات اکتیو مانند سوئیچ و روتر سیگنال‌ها را پردازش یا هدایت می‌کنند و به تغذیه مناسب نیاز دارند. پورت‌ها، برچسب‌ها و مسیر کابل‌ها باید قابل پیگیری ثبت شوند."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Welche Komponente ist typischerweise passiv?",
+            "fa": "کدام قطعه معمولاً پسیو است؟"
+          },
+          "options": [
+            "Patchpanel",
+            "Router",
+            "Aktiver Switch"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Ein Patchpanel dient dem strukturierten Auflegen und Verteilen von Leitungen und verarbeitet keine Daten aktiv.",
+            "fa": "پچ‌پنل برای مرتب‌سازی و توزیع کابل‌هاست و داده را به‌صورت فعال پردازش نمی‌کند."
+          }
+        },
+        {
+          "q": {
+            "de": "Warum sollten Netzwerkports beschriftet werden?",
+            "fa": "چرا باید پورت‌های شبکه برچسب‌گذاری شوند؟"
+          },
+          "options": [
+            "Zur leichteren Zuordnung und Fehlersuche",
+            "Damit kein Netzplan nötig ist",
+            "Damit Kabel länger werden"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Eine klare Beschriftung vereinfacht Wartung und systematische Fehlersuche.",
+            "fa": "برچسب‌گذاری روشن، نگهداری و عیب‌یابی روشمند را آسان‌تر می‌کند."
+          }
+        }
+      ]
+    },
+    {
+      "id": "LF04-04",
+      "title": {
+        "de": "Netzwerk prüfen und Fehler eingrenzen",
+        "fa": "آزمون شبکه و محدود کردن خطا"
+      },
+      "explanation": {
+        "de": "Bei einer Störung werden zuerst Fehlerbild, betroffene Geräte und Änderungen erfasst. Danach prüft man schrittweise Kabel und Steckverbindungen, Link-Status, Portzuordnung und IP-Konfiguration. Messergebnisse und Änderungen werden dokumentiert; Arbeiten an Installationen erfolgen fachgerecht.",
+        "fa": "در صورت اختلال، ابتدا نوع خطا، دستگاه‌های درگیر و تغییرات اخیر ثبت می‌شوند. سپس کابل و سوکت، وضعیت لینک، تخصیص پورت و پیکربندی IP مرحله‌به‌مرحله بررسی می‌شوند. نتایج اندازه‌گیری و تغییرات ثبت می‌شوند و کار نصب باید تخصصی انجام شود."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Ein PC hat keinen Link am Ethernet-Port. Was prüfst du zuerst?",
+            "fa": "کامپیوتر روی پورت اترنت لینک ندارد. ابتدا چه چیزی را بررسی می‌کنی؟"
+          },
+          "options": [
+            "Kabel, Steckverbindungen und Link-Anzeige",
+            "Nur die Bildschirmhelligkeit",
+            "Die Raumtemperaturregelung"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Physische Verbindung und Link-Status sind grundlegende erste Prüfpunkte.",
+            "fa": "اتصال فیزیکی و وضعیت لینک از بررسی‌های اولیه مهم‌اند."
+          }
+        },
+        {
+          "q": {
+            "de": "Warum sollten Änderungen an der Netzwerkkonfiguration dokumentiert werden?",
+            "fa": "چرا تغییرات پیکربندی شبکه باید ثبت شوند؟"
+          },
+          "options": [
+            "Damit spätere Fehlersuche nachvollziehbar bleibt",
+            "Damit IP-Adressen unwichtig werden",
+            "Damit kein Passwortschutz nötig ist"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Dokumentation hilft, Änderungen zuzuordnen und den vorherigen Zustand wiederherzustellen.",
+            "fa": "مستندسازی کمک می‌کند تغییرات شناسایی شوند و وضعیت قبلی قابل بازیابی باشد."
+          }
+        }
+      ]
+    }
+  ],
+  "examTasks": [
+    {
+      "id": "LF04-E1",
+      "level": "Basis",
+      "prompt": {
+        "de": "Nenne zwei Unterschiede zwischen Switch und Router.",
+        "fa": "دو تفاوت میان سوئیچ و روتر نام ببر."
+      },
+      "solution": "Ein Switch verbindet Geräte innerhalb eines LAN; ein Router leitet Daten zwischen unterschiedlichen IP-Netzen weiter."
+    },
+    {
+      "id": "LF04-E2",
+      "level": "Prüfung",
+      "prompt": {
+        "de": "Ein PC erhält keine Netzwerkverbindung. Nenne eine sinnvolle Reihenfolge von vier Prüfschritten.",
+        "fa": "یک کامپیوتر به شبکه وصل نمی‌شود. ترتیب مناسبی شامل چهار مرحله بررسی بنویس."
+      },
+      "solution": "1. Fehlerbild und Link-LED prüfen. 2. Kabel und Steckverbindungen kontrollieren. 3. Portzuordnung/Switch-Port prüfen. 4. IP-Adresse, Gateway und DHCP-Konfiguration kontrollieren; Ergebnisse dokumentieren."
+    },
+    {
+      "id": "LF04-E3",
+      "level": "Prüfung",
+      "prompt": {
+        "de": "Ordne Patchpanel, Switch und Router den typischen Kategorien passiv oder aktiv zu.",
+        "fa": "پچ‌پنل، سوئیچ و روتر را در دسته معمول پسیو یا اکتیو قرار بده."
+      },
+      "solution": "Patchpanel: passiv. Switch: aktiv. Router: aktiv."
+    }
+  ],
+  "glossary": [
+    {
+      "de": "das lokale Netzwerk (LAN)",
+      "fa": "شبکه محلی"
+    },
+    {
+      "de": "der Switch",
+      "fa": "سوئیچ"
+    },
+    {
+      "de": "der Router",
+      "fa": "روتر"
+    },
+    {
+      "de": "die IP-Adresse",
+      "fa": "آدرس IP"
+    },
+    {
+      "de": "die Subnetzmaske",
+      "fa": "ماسک زیرشبکه"
+    },
+    {
+      "de": "DHCP",
+      "fa": "تخصیص خودکار تنظیمات IP"
+    },
+    {
+      "de": "das Patchpanel",
+      "fa": "پچ‌پنل"
+    },
+    {
+      "de": "die Netzwerkdose",
+      "fa": "پریز شبکه"
+    },
+    {
+      "de": "die Steckverbindung",
+      "fa": "اتصال سوکتی"
+    },
+    {
+      "de": "die Fehlersuche",
+      "fa": "عیب‌یابی"
+    }
+  ],
+  "completionChecklist": [
+    {
+      "de": "Ich kann Switch und Router unterscheiden.",
+      "fa": "می‌توانم سوئیچ و روتر را تشخیص دهم."
+    },
+    {
+      "de": "Ich kann die Aufgabe von DHCP erklären.",
+      "fa": "می‌توانم وظیفه DHCP را توضیح دهم."
+    },
+    {
+      "de": "Ich kann passive und aktive Komponenten zuordnen.",
+      "fa": "می‌توانم تجهیزات پسیو و اکتیو را دسته‌بندی کنم."
+    },
+    {
+      "de": "Ich kann Netzwerkfehler schrittweise eingrenzen.",
+      "fa": "می‌توانم خطاهای شبکه را مرحله‌به‌مرحله بررسی کنم."
+    }
+  ],
+  "sources": [
+    {
+      "title": "ElektroAusbildungsverordnung",
+      "url": "https://www.gesetze-im-internet.de/elekausbv_2021/"
+    },
+    {
+      "title": "KMK – Rahmenlehrpläne für die Berufsschule",
+      "url": "https://www.kmk.org/themen/berufliche-schulen/duale-berufsausbildung/rahmenlehrplaene-fuer-die-berufsschule.html"
+    }
+  ]
+}
