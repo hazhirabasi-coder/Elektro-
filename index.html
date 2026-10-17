@@ -27,6 +27,7 @@ button.secondary{background:#e5edf7;color:var(--blue)}
 button.active{background:var(--blue);color:white}
 nav{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}
 nav button{font-size:14px}
+.language-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:14px 0}.language-stat{background:#eaf2fc;border:1px solid var(--border);border-radius:12px;padding:12px 6px;text-align:center;display:flex;flex-direction:column}.language-stat b{font-size:24px;color:var(--blue)}.language-stat span{font-size:12px;line-height:1.35}.language-card-top{display:flex;justify-content:space-between;gap:10px;align-items:center}.language-again{background:#b9382d}.language-hard{background:#b87516}.language-good{background:#16834a}#languageRecallInput,#languageSentenceInput{width:100%;padding:12px;border:1px solid var(--border);border-radius:10px;margin:8px 0}.language-card h3{overflow-wrap:anywhere}@media(max-width:520px){.language-stats{gap:5px}.language-stat{padding:9px 3px}.language-stat b{font-size:20px}.language-stat span{font-size:11px}}
 .panel{background:white;border:1px solid var(--border);border-radius:14px;padding:20px;margin:14px 0;box-shadow:0 2px 8px #16365b0b}
 h2{color:var(--blue);margin-top:0}
 h3{margin-bottom:6px;color:#204c7c}
@@ -297,31 +298,56 @@ th{background:#edf4fc}
 
  <section id="language" class="page hidden">
   <div class="panel" id="languageTrainer">
-   <h2>🗣️ Deutsch trainieren / تقویت زبان آلمانی</h2>
-   <p>Trainiere Deutsch für die Elektro-Ausbildung, die Berufsschule und die Gesellenprüfung – mit persischer Übersetzung.</p>
-   <p class="fa">آلمانی را برای دورهٔ برق، مدرسهٔ فنی و امتحان پایان دوره با ترجمهٔ فارسی تمرین کن.</p>
+   <h2>🧠 Deutsch-Master / تقویت هوشمند زبان آلمانی</h2>
+   <p>Ein persönlicher Trainingsbereich für B1–B2, Berufsschule und Elektro-Gesellenprüfung. Kurze Einheiten, aktive Erinnerung und Wiederholung zum richtigen Zeitpunkt.</p>
+   <p class="fa">برنامه‌ای شخصی برای تقویت زبان در سطح B1 تا B2، مدرسهٔ فنی و امتحان برق؛ با تمرین کوتاه، یادآوری فعال و مرور در زمان مناسب.</p>
+   <div class="language-stats">
+    <div class="language-stat"><b id="languageDueCount">0</b><span>Heute fällig / مرور امروز</span></div>
+    <div class="language-stat"><b id="languageLearnedCount">0</b><span>Gelernt / یادگرفته</span></div>
+    <div class="language-stat"><b id="languageAccuracy">0%</b><span>Quiz richtig / پاسخ درست</span></div>
+   </div>
+   <div class="notice"><b>Dein 10-Minuten-Plan / برنامهٔ ۱۰ دقیقه‌ای</b><p>3 Min. Wörter erinnern · 3 Min. Sätze sprechen · 4 Min. Mini-Test.</p><p class="fa">۳ دقیقه واژه‌ها، ۳ دقیقه بلند گفتن جمله‌ها، ۴ دقیقه آزمون کوتاه.</p></div>
    <div class="toolbar">
     <label>Bereich / بخش
-     <select id="languageCategory">
+     <select id="languageCategory" onchange="startLanguageTraining()">
       <option value="all">Alle Bereiche / همه</option>
-      <option value="fach">Elektro-Fachwörter / اصطلاحات برق</option>
-      <option value="pruefung">Prüfungssätze / جمله‌های امتحانی</option>
-      <option value="schule">Berufsschule & Alltag / مدرسه و روزمره</option>
+      <option value="fach">Elektro-Fachwortschatz / واژگان برق</option>
+      <option value="pruefung">Prüfung & Sicherheit / امتحان و ایمنی</option>
+      <option value="grammatik">Grammatik / گرامر</option>
+      <option value="schule">Schule & Alltag / مدرسه و روزمره</option>
      </select>
     </label>
-    <button type="button" onclick="startLanguageTraining()">Üben / شروع تمرین</button>
+    <label>Übungsrichtung / جهت تمرین
+     <select id="languageDirection" onchange="renderLanguageCard()">
+      <option value="de-fa">Deutsch → فارسی</option>
+      <option value="fa-de">فارسی → Deutsch</option>
+     </select>
+    </label>
    </div>
-   <div class="tile">
-    <span class="tag" id="languageTag">Wortschatz</span>
-    <h3 id="languageGerman">die Spannung</h3>
-    <p class="fa" id="languagePersian">ولتاژ</p>
-    <p id="languageExample">Die Spannung beträgt 230 Volt.</p>
-    <p class="fa" id="languageExampleFa">ولتاژ ۲۳۰ ولت است.</p>
-    <button type="button" id="languageReveal" onclick="revealLanguageCard()">Bedeutung & Beispiel / معنی و مثال</button>
-    <div id="languageExtra" class="hidden">
-     <hr>
-     <p><b>Merksatz / نکته:</b> <span id="languageTip"></span></p>
-     <p class="fa" id="languageTipFa"></p>
+   <div class="toolbar">
+    <button type="button" onclick="startLanguageTraining(true)">Fällige Karten üben / مرور کارت‌های موعددار</button>
+    <button type="button" class="secondary" onclick="startLanguageTraining(false)">Alle Karten / همهٔ کارت‌ها</button>
+   </div>
+   <div class="tile language-card">
+    <div class="language-card-top"><span class="tag" id="languageTag">B1 · Fachwort</span><span id="languageCardNumber">1 / 24</span></div>
+    <h3 id="languagePrompt">die Spannung</h3>
+    <p id="languagePromptFa" class="fa"></p>
+    <div class="toolbar">
+     <button type="button" class="secondary" onclick="speakLanguageCard()">🔊 Anhören / شنیدن</button>
+     <button type="button" class="secondary" onclick="revealLanguageCard()">Antwort zeigen / نمایش پاسخ</button>
+    </div>
+    <div id="languageAnswerArea" class="hidden">
+     <h3 id="languageGerman">die Spannung</h3>
+     <p class="fa" id="languagePersian">ولتاژ</p>
+     <p><b>Beispiel:</b> <span id="languageExample"></span></p>
+     <p class="fa" id="languageExampleFa"></p>
+     <div class="notice"><b>Merke / نکته:</b> <span id="languageTip"></span><p class="fa" id="languageTipFa"></p></div>
+     <p class="small muted">Wie gut konntest du dich erinnern? / چقدر یادت بود؟</p>
+     <div class="toolbar">
+      <button type="button" class="language-again" onclick="rateLanguageCard('again')">Nochmal / دوباره</button>
+      <button type="button" class="language-hard" onclick="rateLanguageCard('hard')">Schwierig / سخت</button>
+      <button type="button" class="language-good" onclick="rateLanguageCard('good')">Gewusst / بلد بودم</button>
+     </div>
     </div>
    </div>
    <div class="toolbar">
@@ -329,17 +355,28 @@ th{background:#edf4fc}
     <button type="button" onclick="nextLanguageCard()">Nächste Karte →</button>
    </div>
    <div class="panel">
-    <h3>Mini-Test / آزمون کوتاه</h3>
-    <p id="languageQuizQuestion">Was bedeutet „Schutzleiter“?</p>
-    <div id="languageQuizAnswers"></div>
+    <h3>✍️ Aktiv erinnern / از حافظه جواب بده</h3>
+    <p id="languageRecallQuestion">Wie heißt „ولتاژ“ auf Deutsch?</p>
+    <input id="languageRecallInput" type="text" placeholder="Deine Antwort auf Deutsch …" autocomplete="off">
+    <div class="toolbar"><button type="button" onclick="checkLanguageRecall()">Antwort prüfen / بررسی پاسخ</button><button type="button" class="secondary" onclick="showLanguageRecallAnswer()">Lösung anzeigen / نمایش جواب</button></div>
+    <p id="languageRecallFeedback" aria-live="polite"></p>
+   </div>
+   <div class="panel">
+    <h3>⚡ Mini-Test / آزمون کوتاه</h3>
+    <p id="languageQuizQuestion"></p><div id="languageQuizAnswers"></div>
     <p id="languageQuizFeedback" aria-live="polite"></p>
-    <button type="button" class="secondary" onclick="nextLanguageQuestion()">Nächste Frage / سؤال بعدی</button>
+    <div class="toolbar"><button type="button" onclick="nextLanguageQuestion()">Nächste Frage / سؤال بعدی</button><button type="button" class="secondary" onclick="resetLanguageQuiz()">Test neu starten / شروع دوباره</button></div>
     <p id="languageQuizScore" class="muted small"></p>
    </div>
-   <div class="notice">
-    <b>Prüfungstipp / نکتهٔ امتحانی:</b> Übe, technische Entscheidungen mit „Zuerst …, danach …, anschließend …, zum Schluss …“ zu erklären.
-    <p class="fa">تمرین کن مراحل فنی را با «ابتدا…، سپس…، بعد از آن…، در پایان…» توضیح بدهی.</p>
+   <div class="panel">
+    <h3>🧩 Satzbau / جمله‌سازی</h3>
+    <p>Ordne den Satz richtig: <b>weil / geeignet / das Messgerät / ist</b></p>
+    <p class="fa">کلمات را به ترتیب درست بچین: چون دستگاه اندازه‌گیری مناسب است.</p>
+    <input id="languageSentenceInput" type="text" placeholder="Schreibe den ganzen Satz …">
+    <div class="toolbar"><button type="button" onclick="checkLanguageSentence()">Prüfen / بررسی</button></div>
+    <p id="languageSentenceFeedback" aria-live="polite"></p>
    </div>
+   <p class="small muted">Dein Lernfortschritt wird auf diesem Gerät gespeichert. / پیشرفت یادگیری روی همین دستگاه ذخیره می‌شود.</p>
   </div>
  </section>
 
@@ -626,36 +663,63 @@ function finishMockExam(timeUp){
 function showMockHistory(){const root=document.getElementById("mockExamHistory");let h=[];try{h=JSON.parse(localStorage.getItem("elektroMockExamHistory")||"[]")}catch(e){}root.innerHTML="<h3>Letzte Ergebnisse / نتایج قبلی</h3>";if(!h.length){root.innerHTML+="<p>Noch keine Ergebnisse gespeichert. / هنوز نتیجه‌ای ثبت نشده است.</p>";return}h.forEach(x=>{const p=document.createElement("p");p.textContent=new Date(x.date).toLocaleString("de-DE")+" — "+x.correct+"/"+x.total+" ("+x.pct+" %)";root.appendChild(p)})}
 
 const languageItems = [
- {c:"fach",tag:"Fachwort",de:"die Spannung",fa:"ولتاژ",ex:"Die Spannung beträgt 230 Volt.",exfa:"ولتاژ ۲۳۰ ولت است.",tip:"Spannung wird in Volt (V) gemessen.",tipfa:"ولتاژ با واحد ولت (V) اندازه‌گیری می‌شود."},
- {c:"fach",tag:"Fachwort",de:"der Strom",fa:"جریان الکتریکی",ex:"Der Strom fließt durch den Stromkreis.",exfa:"جریان از مدار عبور می‌کند.",tip:"Die Stromstärke wird in Ampere (A) gemessen.",tipfa:"شدت جریان با آمپر (A) اندازه‌گیری می‌شود."},
- {c:"fach",tag:"Fachwort",de:"der Schutzleiter (PE)",fa:"هادی حفاظتی",ex:"Der Schutzleiter ist grün-gelb gekennzeichnet.",exfa:"هادی حفاظتی با رنگ سبز-زرد مشخص می‌شود.",tip:"Der PE dient dem Schutz gegen elektrischen Schlag.",tipfa:"هادی PE برای حفاظت در برابر برق‌گرفتگی است."},
- {c:"fach",tag:"Fachwort",de:"der Fehlerstrom-Schutzschalter (RCD)",fa:"کلید محافظ جان",ex:"Der RCD löst bei einem Fehlerstrom aus.",exfa:"کلید RCD هنگام جریان خطا قطع می‌کند.",tip:"Der Bemessungsdifferenzstrom steht auf dem Gerät.",tipfa:"جریان تفاضلی نامی روی دستگاه درج شده است."},
- {c:"fach",tag:"Fachwort",de:"die Isolationsmessung",fa:"اندازه‌گیری مقاومت عایقی",ex:"Vor der Messung müssen die erforderlichen Sicherheitsmaßnahmen eingehalten werden.",exfa:"پیش از اندازه‌گیری باید اقدامات ایمنی لازم رعایت شوند.",tip:"Messverfahren und Grenzwerte richten sich nach Anlage und geltenden Regeln.",tipfa:"روش اندازه‌گیری و حدود مجاز به تأسیسات و مقررات معتبر بستگی دارند."},
- {c:"pruefung",tag:"Prüfungssatz",de:"Zuerst schalte ich die Anlage frei.",fa:"ابتدا تأسیسات را بی‌برق می‌کنم.",ex:"Danach sichere ich sie gegen Wiedereinschalten.",exfa:"سپس آن را در برابر وصل مجدد ایمن می‌کنم.",tip:"„zuerst“ = ابتدا; „danach“ = سپس.",tipfa:"«zuerst» یعنی ابتدا و «danach» یعنی سپس."},
- {c:"pruefung",tag:"Prüfungssatz",de:"Ich überprüfe die Spannungsfreiheit mit einem geeigneten Prüfgerät.",fa:"بی‌برق بودن را با دستگاه تست مناسب بررسی می‌کنم.",ex:"Anschließend dokumentiere ich die Messwerte.",exfa:"پس از آن مقادیر اندازه‌گیری‌شده را ثبت می‌کنم.",tip:"„überprüfen“ ist ein häufiges Verb in Prüfungsaufgaben.",tipfa:"فعل «überprüfen» در سؤال‌های امتحانی زیاد استفاده می‌شود."},
- {c:"pruefung",tag:"Prüfungssatz",de:"Ich habe dieses Betriebsmittel ausgewählt, weil …",fa:"این وسیله را انتخاب کرده‌ام، چون…",ex:"Ich begründe meine Auswahl mit den technischen Anforderungen.",exfa:"انتخابم را با نیازهای فنی توضیح می‌دهم.",tip:"Nach „weil“ steht das konjugierte Verb am Satzende.",tipfa:"در جملهٔ وابسته با «weil»، فعل صرف‌شده در پایان می‌آید."},
- {c:"pruefung",tag:"Prüfungssatz",de:"Die Anlage ist geprüft und betriebsbereit.",fa:"تأسیسات آزمایش شده و آمادهٔ بهره‌برداری است.",ex:"Ich übergebe die Dokumentation an den Kunden.",exfa:"مدارک را به مشتری تحویل می‌دهم.",tip:"„betriebsbereit“ bedeutet: bereit für den Betrieb.",tipfa:"«betriebsbereit» یعنی آمادهٔ کار و بهره‌برداری."},
- {c:"schule",tag:"Berufsschule",de:"Könnten Sie die Aufgabe bitte noch einmal erklären?",fa:"ممکن است لطفاً تمرین را یک بار دیگر توضیح دهید؟",ex:"Ich habe den Rechenweg noch nicht ganz verstanden.",exfa:"هنوز روش حل مسئله را کاملاً متوجه نشده‌ام.",tip:"Höfliche Fragen beginnen oft mit „Könnten Sie …?“",tipfa:"درخواست مؤدبانه اغلب با «Könnten Sie …?» شروع می‌شود."},
- {c:"schule",tag:"Berufsschule",de:"Welche Seiten müssen wir für die Prüfung lernen?",fa:"برای امتحان باید کدام صفحه‌ها را بخوانیم؟",ex:"Können Sie mir bitte die Seitenzahl nennen?",exfa:"ممکن است لطفاً شمارهٔ صفحه را بگویید؟",tip:"„die Seitenzahl“ bedeutet شمارهٔ صفحه.",tipfa:"«die Seitenzahl» یعنی شمارهٔ صفحه."},
- {c:"schule",tag:"Arbeitsalltag",de:"Ich brauche noch das passende Messgerät.",fa:"هنوز به دستگاه اندازه‌گیری مناسب نیاز دارم.",ex:"Bitte prüfen Sie, ob das Gerät für die Messung geeignet ist.",exfa:"لطفاً بررسی کنید آیا دستگاه برای این اندازه‌گیری مناسب است.",tip:"„geeignet“ bedeutet passend oder dafür verwendbar.",tipfa:"«geeignet» یعنی مناسب یا قابل استفاده برای آن کار."}
+ {id:"v01",c:"fach",level:"A2",tag:"Fachwort",de:"die Spannung",fa:"ولتاژ",ex:"Die Spannung beträgt 230 Volt.",exfa:"ولتاژ ۲۳۰ ولت است.",tip:"Spannung wird in Volt (V) gemessen.",tipfa:"ولتاژ با واحد ولت (V) اندازه‌گیری می‌شود."},
+ {id:"v02",c:"fach",level:"A2",tag:"Fachwort",de:"die Stromstärke",fa:"شدت جریان",ex:"Die Stromstärke beträgt 5 Ampere.",exfa:"شدت جریان ۵ آمپر است.",tip:"Die Einheit ist Ampere (A).",tipfa:"واحد آن آمپر (A) است."},
+ {id:"v03",c:"fach",level:"A2",tag:"Fachwort",de:"der Widerstand",fa:"مقاومت",ex:"Der Widerstand wird in Ohm angegeben.",exfa:"مقاومت با اهم بیان می‌شود.",tip:"Formelzeichen: R; Einheit: Ohm (Ω).",tipfa:"نماد R و واحد اهم (Ω) است."},
+ {id:"v04",c:"fach",level:"B1",tag:"Fachwort",de:"der Schutzleiter (PE)",fa:"هادی حفاظتی",ex:"Der Schutzleiter ist grün-gelb gekennzeichnet.",exfa:"هادی حفاظتی با رنگ سبز-زرد مشخص می‌شود.",tip:"Der PE dient dem Schutz gegen elektrischen Schlag.",tipfa:"PE برای حفاظت در برابر برق‌گرفتگی است."},
+ {id:"v05",c:"fach",level:"B1",tag:"Fachwort",de:"der Fehlerstrom-Schutzschalter (RCD)",fa:"کلید محافظ جان",ex:"Der RCD löst bei einem Fehlerstrom aus.",exfa:"RCD در صورت جریان خطا قطع می‌کند.",tip:"Die Auslösebedingungen hängen vom Gerät und der Anlage ab.",tipfa:"شرایط قطع به دستگاه و تأسیسات بستگی دارد."},
+ {id:"v06",c:"fach",level:"B1",tag:"Fachwort",de:"die Isolationsmessung",fa:"اندازه‌گیری مقاومت عایقی",ex:"Vor der Isolationsmessung beachte ich die Sicherheitsmaßnahmen.",exfa:"قبل از اندازه‌گیری مقاومت عایقی، اقدامات ایمنی را رعایت می‌کنم.",tip:"Messverfahren und Grenzwerte richten sich nach Anlage und geltenden Regeln.",tipfa:"روش و حدود مجاز طبق تأسیسات و مقررات معتبر تعیین می‌شوند."},
+ {id:"v07",c:"fach",level:"B1",tag:"Fachwort",de:"die Leitungsverlegung",fa:"مسیرگذاری و نصب سیم و کابل",ex:"Ich dokumentiere die Leitungsverlegung.",exfa:"مسیرگذاری کابل را مستندسازی می‌کنم.",tip:"„verlegen“ = کابل یا لوله را در مسیر نصب کردن.",tipfa:"«verlegen» یعنی کابل یا لوله را در مسیر نصب کردن."},
+ {id:"v08",c:"fach",level:"B1",tag:"Fachwort",de:"die Inbetriebnahme",fa:"راه‌اندازی",ex:"Vor der Inbetriebnahme prüfe ich die Anlage.",exfa:"پیش از راه‌اندازی، تأسیسات را آزمایش می‌کنم.",tip:"Inbetriebnahme ist die kontrollierte Aufnahme des Betriebs.",tipfa:"راه‌اندازی یعنی آغاز کار پس از بررسی‌های لازم."},
+ {id:"v09",c:"fach",level:"B1",tag:"Fachwort",de:"die Messabweichung",fa:"خطای اندازه‌گیری",ex:"Ich vergleiche den Messwert mit dem erwarteten Wert.",exfa:"مقدار اندازه‌گیری‌شده را با مقدار مورد انتظار مقایسه می‌کنم.",tip:"Dokumentiere Messgerät, Messwert und Bedingungen.",tipfa:"دستگاه، مقدار و شرایط اندازه‌گیری را ثبت کن."},
+ {id:"v10",c:"fach",level:"B1",tag:"Fachwort",de:"die Betriebsmittel",fa:"تجهیزات و وسایل برقی",ex:"Ich kontrolliere die Betriebsmittel vor der Verwendung.",exfa:"پیش از استفاده تجهیزات را بررسی می‌کنم.",tip:"Singular: das Betriebsmittel.",tipfa:"مفرد آن «das Betriebsmittel» است."},
+ {id:"v11",c:"pruefung",level:"B1",tag:"Sicherheit",de:"freischalten",fa:"از برق جدا کردن / بی‌برق کردن",ex:"Zuerst schalte ich die Anlage frei.",exfa:"ابتدا تأسیسات را بی‌برق می‌کنم.",tip:"Freischalten ist der erste Schritt der fünf Sicherheitsregeln.",tipfa:"بی‌برق کردن نخستین مرحله از پنج قاعدهٔ ایمنی است."},
+ {id:"v12",c:"pruefung",level:"B1",tag:"Sicherheit",de:"gegen Wiedereinschalten sichern",fa:"جلوگیری از وصل مجدد",ex:"Danach sichere ich die Anlage gegen Wiedereinschalten.",exfa:"سپس مانع وصل مجدد تأسیسات می‌شوم.",tip:"Die Sicherheitsregeln müssen passend zur Situation vollständig beachtet werden.",tipfa:"قواعد ایمنی متناسب با شرایط باید کامل رعایت شوند."},
+ {id:"v13",c:"pruefung",level:"B1",tag:"Prüfungssatz",de:"die Spannungsfreiheit feststellen",fa:"بی‌برق بودن را احراز کردن",ex:"Ich stelle die Spannungsfreiheit mit einem geeigneten Prüfgerät fest.",exfa:"بی‌برق بودن را با دستگاه تست مناسب احراز می‌کنم.",tip:"Nicht nur auf eine ausgeschaltete Anzeige vertrauen.",tipfa:"فقط به خاموش بودن نمایشگر اعتماد نکن."},
+ {id:"v14",c:"pruefung",level:"B1",tag:"Prüfungssatz",de:"die Messwerte dokumentieren",fa:"مقادیر اندازه‌گیری را ثبت کردن",ex:"Anschließend dokumentiere ich alle Messwerte.",exfa:"پس از آن همهٔ مقادیر اندازه‌گیری را ثبت می‌کنم.",tip:"Eine gute Dokumentation ist nachvollziehbar und vollständig.",tipfa:"مستندات خوب باید کامل و قابل پیگیری باشند."},
+ {id:"v15",c:"pruefung",level:"B1",tag:"Prüfungssatz",de:"Ich begründe meine Auswahl, weil …",fa:"انتخابم را توجیه می‌کنم، چون…",ex:"Ich wähle dieses Gerät, weil es für die Aufgabe geeignet ist.",exfa:"این دستگاه را انتخاب می‌کنم، چون برای کار مناسب است.",tip:"Nach „weil“ steht das konjugierte Verb am Ende.",tipfa:"در جمله با «weil»، فعل صرف‌شده در پایان می‌آید."},
+ {id:"v16",c:"pruefung",level:"B1",tag:"Prüfungssatz",de:"Die Anlage ist geprüft und betriebsbereit.",fa:"تأسیسات آزمایش شده و آمادهٔ بهره‌برداری است.",ex:"Ich übergebe die Dokumentation an den Kunden.",exfa:"مستندات را به مشتری تحویل می‌دهم.",tip:"„betriebsbereit“ = bereit für den Betrieb.",tipfa:"«betriebsbereit» یعنی آمادهٔ بهره‌برداری."},
+ {id:"v17",c:"grammatik",level:"B1",tag:"Grammatik",de:"weil + Verb am Satzende",fa:"weil + فعل در پایان جمله",ex:"Ich messe erneut, weil der erste Wert unklar ist.",exfa:"دوباره اندازه می‌گیرم، چون مقدار اول نامشخص است.",tip:"weil der Wert unklar ist — nicht: weil ist der Wert unklar.",tipfa:"درست: weil der Wert unklar ist؛ فعل آخر می‌آید."},
+ {id:"v18",c:"grammatik",level:"B1",tag:"Grammatik",de:"obwohl + Verb am Satzende",fa:"obwohl + فعل در پایان جمله",ex:"Obwohl die Aufgabe schwierig ist, bleibe ich ruhig.",exfa:"با اینکه تمرین دشوار است، آرام می‌مانم.",tip:"„obwohl“ drückt einen Gegensatz aus.",tipfa:"«obwohl» برای بیان تضاد به کار می‌رود."},
+ {id:"v19",c:"grammatik",level:"B1",tag:"Grammatik",de:"zuerst – danach – anschließend – zum Schluss",fa:"ابتدا – سپس – پس از آن – در پایان",ex:"Zuerst prüfe ich, danach messe ich und zum Schluss dokumentiere ich.",exfa:"ابتدا بررسی می‌کنم، سپس اندازه می‌گیرم و در پایان ثبت می‌کنم.",tip:"Diese Wörter strukturieren eine technische Erklärung.",tipfa:"این واژه‌ها توضیح مراحل فنی را منظم می‌کنند."},
+ {id:"v20",c:"grammatik",level:"B1",tag:"Grammatik",de:"Passiv: Die Anlage wird geprüft.",fa:"مجهول: تأسیسات آزمایش می‌شود.",ex:"Der Stromkreis wird vor der Arbeit freigeschaltet.",exfa:"مدار پیش از کار بی‌برق می‌شود.",tip:"Passiv: werden + Partizip II.",tipfa:"ساختار مجهول: werden + قسمت سوم فعل."},
+ {id:"v21",c:"schule",level:"A2",tag:"Berufsschule",de:"Könnten Sie die Aufgabe bitte noch einmal erklären?",fa:"ممکن است لطفاً تمرین را دوباره توضیح دهید؟",ex:"Ich habe den Rechenweg noch nicht ganz verstanden.",exfa:"هنوز روش حل مسئله را کامل متوجه نشده‌ام.",tip:"„Könnten Sie … bitte?“ ist höflich.",tipfa:"«Könnten Sie … bitte?» درخواست مؤدبانه است."},
+ {id:"v22",c:"schule",level:"A2",tag:"Berufsschule",de:"Welche Seiten müssen wir für die Prüfung lernen?",fa:"برای امتحان باید کدام صفحه‌ها را بخوانیم؟",ex:"Können Sie mir bitte die Seitenzahl nennen?",exfa:"ممکن است لطفاً شمارهٔ صفحه را بگویید؟",tip:"Seitenzahl = شمارهٔ صفحه.",tipfa:"«Seitenzahl» یعنی شمارهٔ صفحه."},
+ {id:"v23",c:"schule",level:"B1",tag:"Arbeitsalltag",de:"Ich brauche noch das passende Messgerät.",fa:"هنوز به دستگاه اندازه‌گیری مناسب نیاز دارم.",ex:"Bitte prüfen Sie, ob das Gerät geeignet ist.",exfa:"لطفاً بررسی کنید که دستگاه مناسب است یا نه.",tip:"„ob“ leitet eine indirekte Ja/Nein-Frage ein.",tipfa:"«ob» پرسش غیرمستقیم بله/خیر را معرفی می‌کند."},
+ {id:"v24",c:"schule",level:"B1",tag:"Arbeitsalltag",de:"Könnten Sie mir bitte zeigen, wie das funktioniert?",fa:"ممکن است لطفاً نشان دهید این چگونه کار می‌کند؟",ex:"Ich möchte den Arbeitsschritt korrekt ausführen.",exfa:"می‌خواهم مرحلهٔ کار را درست انجام دهم.",tip:"Nach „wie“ steht das Verb im Nebensatz am Ende.",tipfa:"در جملهٔ وابسته با «wie»، فعل در پایان می‌آید."}
 ];
-let languageDeck=[],languageIndex=0,languageQuizIndex=0,languageCorrect=0,languageAnswered=false;
 const languageQuestions=[
- {q:"Was bedeutet „Schutzleiter“?",p:"«Schutzleiter» یعنی چه؟",a:["هادی حفاظتی","جریان الکتریکی","مقاومت"],c:0,e:"Der Schutzleiter (PE) ist ein Schutzleiter im elektrischen System."},
  {q:"Welche Einheit hat die Spannung?",p:"واحد ولتاژ چیست؟",a:["Ampere","Volt","Ohm"],c:1,e:"Spannung wird in Volt (V) angegeben."},
- {q:"Was bedeutet „anschließend“?",p:"«anschließend» یعنی چه؟",a:["قبل از آن","در پایان هفته","پس از آن"],c:2,e:"„Anschließend“ bedeutet: danach."},
- {q:"Welcher Satz ist höflich?",p:"کدام جمله مؤدبانه است؟",a:["Erklär das!","Könnten Sie das bitte erklären?","Du musst erklären."],c:1,e:"„Könnten Sie … bitte?“ ist eine höfliche Bitte."},
- {q:"Was bedeutet „Messwerte dokumentieren“?",p:"«Messwerte dokumentieren» یعنی چه؟",a:["ثبت مقادیر اندازه‌گیری","خاموش کردن دستگاه","تعویض کابل"],c:0,e:"Dokumentieren bedeutet, Ergebnisse schriftlich festzuhalten."},
- {q:"Ergänze: Ich wähle das Gerät, weil es …",p:"جمله را کامل کن: دستگاه را انتخاب می‌کنم چون…",a:["geeignet ist","ist geeignet","geeignet"],c:0,e:"Nach „weil“ steht das konjugierte Verb am Ende: „weil es geeignet ist“."}
+ {q:"Was bedeutet „Schutzleiter“?",p:"«Schutzleiter» یعنی چه؟",a:["هادی حفاظتی","جریان الکتریکی","مقاومت"],c:0,e:"Der Schutzleiter (PE) dient dem Schutz gegen elektrischen Schlag."},
+ {q:"Wo steht das Verb nach „weil“?",p:"بعد از weil فعل کجا می‌آید؟",a:["Am Satzanfang","Direkt nach weil","Am Ende des Nebensatzes"],c:2,e:"Beispiel: weil das Gerät geeignet ist."},
+ {q:"Was bedeutet „anschließend“?",p:"«anschließend» یعنی چه؟",a:["قبل از آن","پس از آن","هرگز"],c:1,e:"„Anschließend“ bedeutet: danach."},
+ {q:"Welche Form ist höflich?",p:"کدام جمله مؤدبانه است؟",a:["Erklär das!","Könnten Sie das bitte erklären?","Du musst erklären."],c:1,e:"„Könnten Sie … bitte?“ ist eine höfliche Bitte."},
+ {q:"Was bedeutet „Messwerte dokumentieren“?",p:"«Messwerte dokumentieren» یعنی چه؟",a:["ثبت مقادیر اندازه‌گیری","خاموش کردن دستگاه","تعویض کابل"],c:0,e:"Dokumentieren heißt, Ergebnisse schriftlich festzuhalten."},
+ {q:"Welche Form ist Passiv?",p:"کدام جمله مجهول است؟",a:["Ich prüfe die Anlage.","Die Anlage wird geprüft.","Ich habe die Anlage geprüft."],c:1,e:"Passiv: werden + Partizip II."},
+ {q:"Was bedeutet „geeignet“?",p:"«geeignet» یعنی چه؟",a:["مناسب","خطرناک","خراب"],c:0,e:"Geeignet bedeutet passend für einen bestimmten Zweck."}
 ];
-function startLanguageTraining(){languageDeck=languageItems.filter(x=>{const v=document.getElementById("languageCategory").value;return v==="all"||x.c===v});languageIndex=0;renderLanguageCard();renderLanguageQuestion();}
-function renderLanguageCard(){if(!languageDeck.length)languageDeck=languageItems.slice();const x=languageDeck[languageIndex%languageDeck.length];document.getElementById("languageTag").textContent=x.tag;document.getElementById("languageGerman").textContent=x.de;document.getElementById("languagePersian").textContent=x.fa;document.getElementById("languageExample").textContent=x.ex;document.getElementById("languageExampleFa").textContent=x.exfa;document.getElementById("languageTip").textContent=x.tip;document.getElementById("languageTipFa").textContent=x.tipfa;document.getElementById("languageExtra").classList.add("hidden");document.getElementById("languageReveal").classList.remove("hidden");}
-function revealLanguageCard(){document.getElementById("languageExtra").classList.remove("hidden");document.getElementById("languageReveal").classList.add("hidden");}
-function nextLanguageCard(){if(!languageDeck.length)startLanguageTraining();languageIndex=(languageIndex+1)%languageDeck.length;renderLanguageCard();}
-function prevLanguageCard(){if(!languageDeck.length)startLanguageTraining();languageIndex=(languageIndex-1+languageDeck.length)%languageDeck.length;renderLanguageCard();}
+const LANGUAGE_STORE="elektroLanguageSRSv2";
+let languageProgress=loadLanguageProgress(),languageDeck=[],languageIndex=0,languageQuizIndex=0,languageCorrect=0,languageAnswered=false,languageDueOnly=false,languageRecallChecked=false;
+function loadLanguageProgress(){try{return JSON.parse(localStorage.getItem(LANGUAGE_STORE))||{cards:{},correct:0,answered:0};}catch(e){return {cards:{},correct:0,answered:0};}}
+function saveLanguageProgress(){try{localStorage.setItem(LANGUAGE_STORE,JSON.stringify(languageProgress));}catch(e){}renderLanguageStats();}
+function languageCardState(id){return languageProgress.cards[id]||{reps:0,interval:0,due:0,seen:0};}
+function renderLanguageStats(){const now=Date.now();const due=languageItems.filter(x=>(languageCardState(x.id).due||0)<=now).length;const learned=languageItems.filter(x=>languageCardState(x.id).reps>=2).length;document.getElementById("languageDueCount").textContent=due;document.getElementById("languageLearnedCount").textContent=learned;document.getElementById("languageAccuracy").textContent=(languageProgress.answered?Math.round(100*languageProgress.correct/languageProgress.answered):0)+"%";}
+function startLanguageTraining(dueOnly){languageDueOnly=!!dueOnly;const cat=document.getElementById("languageCategory").value,now=Date.now();languageDeck=languageItems.filter(x=>(cat==="all"||x.c===cat)&&(!languageDueOnly||(languageCardState(x.id).due||0)<=now));if(!languageDeck.length){languageDueOnly=false;languageDeck=languageItems.filter(x=>cat==="all"||x.c===cat);document.getElementById("languageRecallFeedback").textContent="Keine fälligen Karten – du wiederholst jetzt alle Karten dieser Kategorie. / کارت موعدداری نبود؛ همهٔ کارت‌های این بخش را مرور کن.";}languageIndex=0;renderLanguageCard();renderLanguageRecall();renderLanguageQuestion();renderLanguageStats();}
+function renderLanguageCard(){if(!languageDeck.length)languageDeck=languageItems.slice();const x=languageDeck[languageIndex%languageDeck.length],dir=document.getElementById("languageDirection").value;document.getElementById("languageTag").textContent=x.level+" · "+x.tag;document.getElementById("languageCardNumber").textContent=(languageIndex%languageDeck.length+1)+" / "+languageDeck.length;document.getElementById("languagePrompt").textContent=dir==="de-fa"?x.de:x.fa;document.getElementById("languagePromptFa").textContent=dir==="de-fa"?x.fa:"ترجمه یا جملهٔ آلمانی را به یاد بیاور.";document.getElementById("languageGerman").textContent=x.de;document.getElementById("languagePersian").textContent=x.fa;document.getElementById("languageExample").textContent=x.ex;document.getElementById("languageExampleFa").textContent=x.exfa;document.getElementById("languageTip").textContent=x.tip;document.getElementById("languageTipFa").textContent=x.tipfa;document.getElementById("languageAnswerArea").classList.add("hidden");}
+function revealLanguageCard(){document.getElementById("languageAnswerArea").classList.remove("hidden");}
+function speakLanguageCard(){const x=languageDeck[languageIndex%languageDeck.length];if("speechSynthesis" in window){window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(x.de+" . "+x.ex);u.lang="de-DE";u.rate=0.86;window.speechSynthesis.speak(u);}else{document.getElementById("languageRecallFeedback").textContent="Die Sprachausgabe wird in diesem Browser nicht unterstützt. / پخش صدا در این مرورگر پشتیبانی نمی‌شود.";}}
+function rateLanguageCard(rating){const x=languageDeck[languageIndex%languageDeck.length],st=languageCardState(x.id),day=86400000;st.seen=(st.seen||0)+1;if(rating==="again"){st.reps=0;st.interval=0;st.due=Date.now()+10*60000;}else if(rating==="hard"){st.reps=(st.reps||0)+1;st.interval=Math.max(1,Math.round((st.interval||1)*1.3));st.due=Date.now()+st.interval*day;}else{st.reps=(st.reps||0)+1;st.interval=st.reps===1?1:st.reps===2?3:st.reps===3?7:Math.min(60,Math.round((st.interval||7)*1.8));st.due=Date.now()+st.interval*day;}languageProgress.cards[x.id]=st;saveLanguageProgress();nextLanguageCard();}
+function nextLanguageCard(){languageIndex=(languageIndex+1)%languageDeck.length;renderLanguageCard();renderLanguageRecall();}
+function prevLanguageCard(){languageIndex=(languageIndex-1+languageDeck.length)%languageDeck.length;renderLanguageCard();renderLanguageRecall();}
+function renderLanguageRecall(){const x=languageDeck[languageIndex%languageDeck.length],dir=document.getElementById("languageDirection").value;document.getElementById("languageRecallQuestion").textContent=dir==="de-fa"?"Wie heißt „"+x.fa+"“ auf Deutsch? / این واژه به آلمانی چیست؟":"Was bedeutet „"+x.de+"“? / معنی این عبارت چیست؟";document.getElementById("languageRecallInput").value="";document.getElementById("languageRecallFeedback").textContent="";languageRecallChecked=false;}
+function normalizeLanguage(s){return (s||"").toLocaleLowerCase("de-DE").replace(/[.,!?;:()]/g,"").replace(/\s+/g," ").trim();}
+function checkLanguageRecall(){if(languageRecallChecked)return;const x=languageDeck[languageIndex%languageDeck.length],dir=document.getElementById("languageDirection").value,answer=normalizeLanguage(document.getElementById("languageRecallInput").value),expected=normalizeLanguage(dir==="de-fa"?x.de:x.fa);languageRecallChecked=true;languageProgress.answered++;const ok=answer===expected||answer===normalizeLanguage(x.de.replace(/^der |^die |^das /,""))&&dir==="de-fa";if(ok)languageProgress.correct++;saveLanguageProgress();const el=document.getElementById("languageRecallFeedback");el.className=ok?"success":"error";el.textContent=(ok?"Sehr gut! / آفرین! ":"Noch nicht ganz. / هنوز دقیق نیست. ")+(dir==="de-fa"?x.de+" = "+x.fa:x.de+" = "+x.fa);}
+function showLanguageRecallAnswer(){const x=languageDeck[languageIndex%languageDeck.length];document.getElementById("languageRecallFeedback").textContent=x.de+" = "+x.fa+" · "+x.ex;}
 function renderLanguageQuestion(){const q=languageQuestions[languageQuizIndex%languageQuestions.length];languageAnswered=false;document.getElementById("languageQuizQuestion").textContent=q.q+" / "+q.p;document.getElementById("languageQuizFeedback").textContent="";document.getElementById("languageQuizScore").textContent="Richtig / درست: "+languageCorrect;const root=document.getElementById("languageQuizAnswers");root.innerHTML="";q.a.forEach((a,i)=>{const b=document.createElement("button");b.type="button";b.className="choice";b.textContent=String.fromCharCode(65+i)+") "+a;b.onclick=()=>answerLanguageQuestion(i);root.appendChild(b);});}
-function answerLanguageQuestion(i){if(languageAnswered)return;languageAnswered=true;const q=languageQuestions[languageQuizIndex%languageQuestions.length];document.querySelectorAll("#languageQuizAnswers button").forEach((b,j)=>{b.disabled=true;if(j===q.c)b.classList.add("correct");if(j===i&&i!==q.c)b.classList.add("wrong")});if(i===q.c)languageCorrect++;const f=document.getElementById("languageQuizFeedback");f.className=i===q.c?"success":"error";f.textContent=(i===q.c?"Richtig! / درست است. ":"Noch einmal lernen / دوباره مرور کن. ")+q.e;document.getElementById("languageQuizScore").textContent="Richtig / درست: "+languageCorrect;}
+function answerLanguageQuestion(i){if(languageAnswered)return;languageAnswered=true;const q=languageQuestions[languageQuizIndex%languageQuestions.length];languageProgress.answered++;if(i===q.c){languageCorrect++;languageProgress.correct++;}saveLanguageProgress();document.querySelectorAll("#languageQuizAnswers button").forEach((b,j)=>{b.disabled=true;if(j===q.c)b.classList.add("correct");if(j===i&&i!==q.c)b.classList.add("wrong")});const f=document.getElementById("languageQuizFeedback");f.className=i===q.c?"success":"error";f.textContent=(i===q.c?"Richtig! / درست است. ":"Lerne den Satz noch einmal. / جمله را دوباره مرور کن. ")+q.e;document.getElementById("languageQuizScore").textContent="Richtig / درست: "+languageCorrect;}
 function nextLanguageQuestion(){languageQuizIndex++;renderLanguageQuestion();}
+function resetLanguageQuiz(){languageQuizIndex=0;languageCorrect=0;renderLanguageQuestion();}
+function checkLanguageSentence(){const v=normalizeLanguage(document.getElementById("languageSentenceInput").value).replace(/[.!?]$/,""),el=document.getElementById("languageSentenceFeedback"),ok=v==="weil das messgerät geeignet ist"||v==="weil das messgeraet geeignet ist";el.className=ok?"success":"error";el.textContent=ok?"Richtig! Nach „weil“ steht das Verb am Ende. / درست است؛ بعد از weil فعل در پایان می‌آید.":"Noch nicht. Tipp: weil + das Messgerät + geeignet + ist. / راهنما: فعل «ist» در پایان جمله می‌آید.";}
 
 async function loadStructuredLF01(){
  const files=[{index:0,path:"content/lernfeld-01.json",id:"LF01"},{index:1,path:"content/lernfeld-02.json",id:"LF02"},{index:2,path:"content/lernfeld-03.json",id:"LF03"},{index:3,path:"content/lernfeld-04.json",id:"LF04"},
