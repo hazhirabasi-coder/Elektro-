@@ -346,7 +346,31 @@ input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-vis
    <div class="toolbar"><label>Fragen / سؤال‌ها <select id="mockExamCount"><option value="10">10 · 20 Min.</option><option value="15" selected>15 · 30 Min.</option><option value="20">20 · 40 Min.</option></select></label><button type="button" onclick="startMockExam()">Prüfung starten / شروع</button><button class="secondary" type="button" onclick="showMockHistory()">Letzte Ergebnisse / نتایج قبلی</button></div>
    <div id="mockExamStatus" aria-live="polite"></div><div id="mockExamQuestion"></div><div id="mockExamResult"></div><div id="mockExamHistory"></div>
   </div>
- </section>
+ 
+  <div class="panel" id="finalExamLearning">
+   <h2>📘 Vertiefte Prüfungsvorbereitung EGT / آمادگی جامع آزمون پایانی</h2>
+   <p id="finalExamNote"></p><p class="fa" id="finalExamNoteFa"></p>
+   <div class="notice"><b>So lernst du damit / روش استفاده:</b> Lies zuerst die deutsche Erklärung, versuche sie mit eigenen Worten zu erklären und öffne dann die persische Unterstützung. Die Fragen dienen dem Verständnis, nicht dem Auswendiglernen.</div>
+   <div class="language-stats">
+    <div class="language-stat"><b id="finalExamModulesDone">0</b><span>Themen abgeschlossen / موضوع تکمیل‌شده</span></div>
+    <div class="language-stat"><b id="finalExamChecksDone">0</b><span>Wissensfragen / پرسش پاسخ‌داده‌شده</span></div>
+    <div class="language-stat"><b id="finalExamChecklistDone">0</b><span>Lernziele / هدف یادگیری</span></div>
+   </div>
+   <h3>Prüfungsbereiche lernen / حوزه‌های آزمون</h3>
+   <div id="finalExamModules" class="resource-grid"></div>
+   <h3>Formeln und Rechenwege / فرمول‌ها و روش محاسبه</h3>
+   <p class="muted small">Die Formel allein reicht nicht: Einheiten, Voraussetzungen und technische Randbedingungen nennen.</p>
+   <div id="finalExamFormulas" class="resource-grid"></div>
+   <h3>Praxisfälle und Kundenaufträge / سناریوهای عملی</h3>
+   <div id="finalExamCases" class="resource-grid"></div>
+   <h3>Fachgespräch: Fragen zum laut Üben / تمرین گفت‌وگوی تخصصی با صدای بلند</h3>
+   <div id="finalExamOral" class="resource-grid"></div>
+   <h3>Persönliche Lernziel-Checkliste / چک‌لیست هدف‌های یادگیری</h3>
+   <div id="finalExamChecklist" class="resource-grid"></div>
+   <h3>Offizielle und fachliche Quellen / منابع رسمی و تخصصی</h3>
+   <ul id="finalExamSources"></ul>
+  </div>
+</section>
 
  <section id="language" class="page hidden">
   <div class="panel" id="languageTrainer">
@@ -1384,7 +1408,26 @@ function renderB2Readings(items){const root=document.getElementById("b2ReadingCa
 function renderB2Speaking(items){const root=document.getElementById("b2SpeakingCards");root.innerHTML="";items.forEach((item,i)=>{const card=document.createElement("article");card.className="resource-card";card.appendChild(b2Node("span","Sprechsituation "+(i+1),"tag"));card.appendChild(b2Node("h3",item.title.de));card.appendChild(b2Node("p",item.title.fa,"fa"));card.appendChild(b2Node("p",item.situation.de));card.appendChild(b2Node("p",item.situation.fa,"fa"));card.appendChild(b2Node("p",item.roles.de,"muted"));card.appendChild(b2Node("p",item.roles.fa,"fa muted"));card.appendChild(b2Node("h4","So übst du / روش تمرین"));const list=document.createElement("ol");item.steps.forEach((step,j)=>list.appendChild(b2Node("li",step+" / "+item.stepsFa[j])));card.appendChild(list);card.appendChild(b2Node("h4","Nützliche Redemittel / عبارت‌های کاربردی"));const phrases=document.createElement("ul");item.phrases.forEach(p=>phrases.appendChild(b2Node("li",p[0]+" — "+p[1])));card.appendChild(phrases);const btn=document.createElement("button");btn.type="button";btn.textContent="🔊 Situation anhören";btn.addEventListener("click",()=>b2SpeakGerman(item.situation.de+" "+item.steps.join(". ")));card.appendChild(btn);const label=b2Node("label","Stichpunkte oder zweite Version / نکات یا نسخهٔ دوم پاسخ");label.style.display="block";label.style.marginTop="10px";card.appendChild(label);const ta=document.createElement("textarea");ta.rows=3;ta.placeholder="Meiner Ansicht nach … / Zunächst … / Ein möglicher Grund ist …";ta.value=localStorage.getItem("elektroB2Practice-speaking-"+item.id)||"";ta.addEventListener("input",()=>b2SaveText("speaking-"+item.id,ta.value));card.appendChild(ta);card.appendChild(b2Node("p","Sprich zuerst 60–120 Sekunden frei. Wiederhole danach deine Antwort und verwende mindestens zwei Redemittel.","muted small"));root.appendChild(card)})}
 
 
+
+let finalExamData=null;
+const finalExamStoreKey="elektroFinalExam2026";
+function finalExamProgress(){try{return JSON.parse(localStorage.getItem(finalExamStoreKey)||'{"answers":{},"done":{},"checklist":{}}')}catch(e){return {answers:{},done:{},checklist:{}}}}
+function saveFinalExamProgress(p){try{localStorage.setItem(finalExamStoreKey,JSON.stringify(p))}catch(e){}}
+function finalExamNode(tag,text,cls){const n=document.createElement(tag);n.textContent=text;if(cls)n.className=cls;return n}
+async function loadFinalExamContent(){try{const r=await fetch("content/final-exam-egt.json",{cache:"no-cache"});if(!r.ok)throw new Error("HTTP "+r.status);finalExamData=await r.json();document.getElementById("finalExamNote").textContent=finalExamData.note.de;document.getElementById("finalExamNoteFa").textContent=finalExamData.note.fa;renderFinalExamContent()}catch(e){const n=document.getElementById("finalExamNote");if(n)n.textContent="Die vertiefte Prüfungsvorbereitung konnte nicht geladen werden. Bitte die Website über GitHub Pages öffnen. / مجموعهٔ آمادگی آزمون بارگذاری نشد؛ سایت را از GitHub Pages باز کن.";console.warn(e)}}
+function renderFinalExamContent(){if(!finalExamData)return;const p=finalExamProgress();const root=document.getElementById("finalExamModules");root.innerHTML="";
+finalExamData.modules.forEach((m,mi)=>{const card=document.createElement("article");card.className="resource-card";card.appendChild(finalExamNode("span","Lernbereich "+(mi+1),"tag"));card.appendChild(finalExamNode("h3",m.title.de));card.appendChild(finalExamNode("p",m.title.fa,"fa"));card.appendChild(finalExamNode("p",m.goal.de));card.appendChild(finalExamNode("p",m.goal.fa,"fa"));const details=document.createElement("details");details.open=mi===0;details.appendChild(finalExamNode("summary","Erklärung und Kernpunkte / توضیح و نکات اصلی"));m.points.forEach(pt=>{details.appendChild(finalExamNode("p","• "+pt.de));details.appendChild(finalExamNode("p",pt.fa,"fa"))});details.appendChild(finalExamNode("h4","Praxisbeispiel / مثال عملی"));details.appendChild(finalExamNode("p",m.example.de));details.appendChild(finalExamNode("p",m.example.fa,"fa"));card.appendChild(details);
+m.checks.forEach((q,qi)=>{const key=m.id+"-"+qi;const prior=p.answers[key];const block=document.createElement("div");block.className="lf-question";block.appendChild(finalExamNode("strong",q.q.de));block.appendChild(finalExamNode("p",q.q.fa,"fa"));q.options.forEach((op,oi)=>{const btn=document.createElement("button");btn.type="button";btn.className="lf-answer";btn.textContent=String.fromCharCode(65+oi)+") "+op;if(prior){btn.disabled=true;if(oi===q.answer)btn.classList.add("correct");if(oi===prior.selected&&prior.selected!==q.answer)btn.classList.add("wrong")}btn.addEventListener("click",()=>{if(p.answers[key])return;p.answers[key]={selected:oi,correct:oi===q.answer};saveFinalExamProgress(p);renderFinalExamContent()});block.appendChild(btn)});if(prior){block.appendChild(finalExamNode("p",(prior.correct?"Richtig. / درست است. ":"Noch einmal wiederholen. / دوباره مرور کن. ")+q.why.de));block.appendChild(finalExamNode("p",q.why.fa,"fa"))}card.appendChild(block)});const done=document.createElement("label");done.style.display="flex";done.style.gap="8px";done.style.marginTop="12px";const cb=document.createElement("input");cb.type="checkbox";cb.checked=!!p.done[m.id];cb.addEventListener("change",()=>{p.done[m.id]=cb.checked;saveFinalExamProgress(p);renderFinalExamContent()});done.appendChild(cb);done.appendChild(finalExamNode("span","Thema verstanden und laut erklärt / موضوع را فهمیدم و با صدای بلند توضیح دادم"));card.appendChild(done);root.appendChild(card)});
+const fr=document.getElementById("finalExamFormulas");fr.innerHTML="";finalExamData.formulas.forEach(f=>{const c=document.createElement("article");c.className="resource-card";c.appendChild(finalExamNode("h3",f.title));c.appendChild(finalExamNode("div",f.formula,"formula"));c.appendChild(finalExamNode("p",f.fa,"fa"));c.appendChild(finalExamNode("p",f.note,"muted small"));fr.appendChild(c)});
+const cr=document.getElementById("finalExamCases");cr.innerHTML="";finalExamData.scenarios.forEach((s,i)=>{const c=document.createElement("article");c.className="resource-card";c.appendChild(finalExamNode("span","Praxisfall "+(i+1),"tag"));c.appendChild(finalExamNode("h3",s.title.de));c.appendChild(finalExamNode("p",s.title.fa,"fa"));c.appendChild(finalExamNode("p",s.situation.de));c.appendChild(finalExamNode("p",s.situation.fa,"fa"));const ol=document.createElement("ol");s.steps.forEach(step=>{ol.appendChild(finalExamNode("li",step.de));ol.appendChild(finalExamNode("li",step.fa,"fa"))});c.appendChild(ol);c.appendChild(finalExamNode("h4","Fachgespräch / گفت‌وگوی تخصصی"));c.appendChild(finalExamNode("p",s.oral.de));c.appendChild(finalExamNode("p",s.oral.fa,"fa"));const ta=document.createElement("textarea");ta.rows=3;ta.placeholder="Meine Antwort: Zuerst … Danach … Ich prüfe … Abschließend dokumentiere ich …";ta.value=localStorage.getItem("elektroFinalCase-"+i)||"";ta.addEventListener("input",()=>{try{localStorage.setItem("elektroFinalCase-"+i,ta.value)}catch(e){}});c.appendChild(ta);cr.appendChild(c)});
+const or=document.getElementById("finalExamOral");or.innerHTML="";finalExamData.oralQuestions.forEach((q,i)=>{const c=document.createElement("article");c.className="resource-card";c.appendChild(finalExamNode("h3",(i+1)+". "+q.de));c.appendChild(finalExamNode("p",q.fa,"fa"));const ta=document.createElement("textarea");ta.rows=2;ta.placeholder="Antworte laut und notiere danach Stichwörter …";ta.value=localStorage.getItem("elektroFinalOral-"+i)||"";ta.addEventListener("input",()=>{try{localStorage.setItem("elektroFinalOral-"+i,ta.value)}catch(e){}});c.appendChild(ta);const speak=document.createElement("button");speak.type="button";speak.className="secondary";speak.textContent="🔊 Frage vorlesen";speak.addEventListener("click",()=>b2SpeakGerman(q.de));c.appendChild(speak);or.appendChild(c)});
+const cl=document.getElementById("finalExamChecklist");cl.innerHTML="";finalExamData.checklist.forEach((item,i)=>{const label=document.createElement("label");label.className="resource-card";label.style.display="flex";label.style.gap="10px";label.style.alignItems="flex-start";const cb=document.createElement("input");cb.type="checkbox";cb.checked=!!p.checklist[i];cb.addEventListener("change",()=>{p.checklist[i]=cb.checked;saveFinalExamProgress(p);renderFinalExamContent()});label.appendChild(cb);const body=document.createElement("div");body.appendChild(finalExamNode("div",item.de));body.appendChild(finalExamNode("div",item.fa,"fa"));label.appendChild(body);cl.appendChild(label)});
+const sr=document.getElementById("finalExamSources");sr.innerHTML="";finalExamData.sources.forEach(s=>{const li=document.createElement("li");const a=document.createElement("a");a.href=s.url;a.target="_blank";a.rel="noopener";a.textContent=s.title;li.appendChild(a);sr.appendChild(li)});
+document.getElementById("finalExamModulesDone").textContent=Object.values(p.done).filter(Boolean).length+"/"+finalExamData.modules.length;document.getElementById("finalExamChecksDone").textContent=Object.keys(p.answers).length;document.getElementById("finalExamChecklistDone").textContent=Object.values(p.checklist).filter(Boolean).length+"/"+finalExamData.checklist.length;
+}
+
 loadB2ProContent();
+loadFinalExamContent();
 loadStructuredLF01();
 updateProgress();
 renderLessons();

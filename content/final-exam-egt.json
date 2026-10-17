@@ -1,0 +1,881 @@
+{
+  "schemaVersion": 1,
+  "title": {
+    "de": "Abschlussprüfung EGT – kompletter Lernbereich",
+    "fa": "آزمون پایانی برق ساختمان ـ مجموعه یادگیری"
+  },
+  "note": {
+    "de": "Eigene zweisprachige Lernhilfe auf Grundlage der Ausbildungsordnung und der BIBB/KMK-Rahmenpläne. Keine offiziellen Originalprüfungsaufgaben. Normen, Grenzwerte und konkrete Prüfabläufe immer anhand der aktuellen Vorgaben, Anlagenbedingungen und Herstellerunterlagen verifizieren.",
+    "fa": "این مجموعه آموزشی دوزبانه بر پایه مقررات آموزش حرفه‌ای و برنامه‌های BIBB/KMK تهیه شده و سؤال رسمی اصلی نیست. استانداردها، حدود مجاز و روند آزمون را همیشه با مقررات روز، شرایط تأسیسات و دستورالعمل سازنده بررسی کن."
+  },
+  "modules": [
+    {
+      "id": "KA",
+      "title": {
+        "de": "Kundenauftrag: planen, ausführen, prüfen, übergeben",
+        "fa": "سفارش مشتری: برنامه‌ریزی، اجرا، آزمایش و تحویل"
+      },
+      "goal": {
+        "de": "Den Auftrag vom Kundengespräch bis zum Prüfprotokoll strukturiert bearbeiten.",
+        "fa": "سفارش را از گفت‌وگو با مشتری تا گزارش آزمون ساختاریافته انجام بده."
+      },
+      "points": [
+        {
+          "de": "Auftrag und Kundenwunsch klären; Bestand, Schnittstellen, Termine und Zugänglichkeit aufnehmen.",
+          "fa": "سفارش و خواسته مشتری را روشن کن؛ وضعیت موجود، رابط‌ها، زمان‌بندی و دسترسی را بررسی کن."
+        },
+        {
+          "de": "Varianten technisch, wirtschaftlich und ökologisch vergleichen; Auswahl begründen.",
+          "fa": "راه‌حل‌ها را از نظر فنی، اقتصادی و زیست‌محیطی مقایسه و انتخاب را توجیه کن."
+        },
+        {
+          "de": "Material, Werkzeug, Messgerät, PSA, Arbeitsschritte und Zuständigkeiten planen.",
+          "fa": "مواد، ابزار، دستگاه اندازه‌گیری، تجهیزات حفاظت فردی، مراحل و مسئولیت‌ها را برنامه‌ریزی کن."
+        },
+        {
+          "de": "Sicher arbeiten, nach Vorgaben montieren, Funktion und Schutzmaßnahmen prüfen; Ergebnisse dokumentieren.",
+          "fa": "ایمن کار کن، طبق دستورالعمل نصب کن، عملکرد و حفاظت را آزمایش و نتایج را ثبت کن."
+        },
+        {
+          "de": "Mängel nicht verdecken: Anlage sicher halten, Ursache klären, Korrektur prüfen und erst dann übergeben.",
+          "fa": "نقص را پنهان نکن: وضعیت ایمن را حفظ کن، علت را پیدا کن، اصلاح را دوباره آزمایش کن و سپس تحویل بده."
+        }
+      ],
+      "example": {
+        "de": "Beispiel: Ein Kunde möchte zusätzliche Beleuchtung. Prüfe zuerst Bedarf, vorhandene Stromkreise, Belastung, Leitungsweg, Steuerung, Schutzkonzept, Kosten und Dokumentationsbedarf.",
+        "fa": "مثال: مشتری روشنایی اضافه می‌خواهد. ابتدا نیاز، مدارهای موجود، بار، مسیر کابل، کنترل، حفاظت، هزینه و مستندات لازم را بررسی کن."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Was gehört vor Arbeitsbeginn zur Auftragsplanung?",
+            "fa": "پیش از شروع کار چه چیزی جزو برنامه‌ریزی سفارش است؟"
+          },
+          "options": [
+            "Auftrag, Gefährdungen, Material, Ablauf und Schnittstellen klären",
+            "Sofort ohne Prüfung beginnen",
+            "Prüfprotokoll im Voraus unterschreiben"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Eine nachvollziehbare Planung verbessert Sicherheit, Qualität und Terminzuverlässigkeit.",
+            "fa": "برنامه‌ریزی روشن ایمنی، کیفیت و رعایت زمان را بهتر می‌کند."
+          }
+        },
+        {
+          "q": {
+            "de": "Wann darf ein Mangel als erledigt gelten?",
+            "fa": "چه زمانی می‌توان نقص را رفع‌شده دانست؟"
+          },
+          "options": [
+            "Wenn er nicht mehr sichtbar ist",
+            "Wenn Ursache behoben, Ergebnis geprüft und dokumentiert ist",
+            "Wenn der Kunde nicht fragt"
+          ],
+          "answer": 1,
+          "why": {
+            "de": "Die Korrektur muss wirksam geprüft und nachvollziehbar dokumentiert werden.",
+            "fa": "اصلاح باید مؤثر آزمایش و قابل پیگیری ثبت شود."
+          }
+        }
+      ]
+    },
+    {
+      "id": "SYS",
+      "title": {
+        "de": "Systementwurf und technische Auswahl",
+        "fa": "طراحی سیستم و انتخاب فنی"
+      },
+      "goal": {
+        "de": "Aus einer technischen Anforderung ein begründetes und dokumentiertes Lösungskonzept entwickeln.",
+        "fa": "از نیاز فنی، راه‌حل مستدل و مستند بساز."
+      },
+      "points": [
+        {
+          "de": "Anforderung, Randbedingungen und vorhandene Anlage erfassen; Pläne und Herstellerdaten auswerten.",
+          "fa": "نیازها، محدودیت‌ها و تأسیسات موجود را ثبت کن؛ نقشه و اطلاعات سازنده را بررسی کن."
+        },
+        {
+          "de": "Leitungen, Schutzorgane, Betriebsmittel und Steuerung nicht pauschal, sondern anhand der Randbedingungen auswählen.",
+          "fa": "کابل، حفاظت، تجهیزات و کنترل را بر اساس شرایط واقعی انتخاب کن، نه با حدس کلی."
+        },
+        {
+          "de": "Belastbarkeit, Spannungsfall, Abschaltbedingungen, Verlegeart, Umgebung und Erweiterbarkeit berücksichtigen.",
+          "fa": "جریان مجاز، افت ولتاژ، شرایط قطع، روش نصب، محیط و امکان توسعه را در نظر بگیر."
+        },
+        {
+          "de": "Schaltplan, Stromkreisverzeichnis, Materialliste, Kennzeichnung und Prüfbedarf passend aktualisieren.",
+          "fa": "نقشه مدار، فهرست مدارها، لیست مواد، برچسب‌ها و نیاز آزمون را به‌روز کن."
+        },
+        {
+          "de": "Datenschutz und Informationssicherheit bei vernetzten Anlagen berücksichtigen.",
+          "fa": "در سیستم‌های متصل، حفاظت داده و امنیت اطلاعات را رعایت کن."
+        }
+      ],
+      "example": {
+        "de": "Bei einer Änderung zuerst die tatsächlichen Lasten, Leitungsdaten, Verlegeart, Schutzorgane und Herstelleranforderungen prüfen. Konkrete Querschnitte oder Schutzgeräte erst nach vollständiger Berechnung und geltenden Regeln festlegen.",
+        "fa": "در تغییر سیستم ابتدا بار واقعی، مشخصات کابل، روش نصب، حفاظت و الزامات سازنده را بررسی کن. سطح مقطع و تجهیزات حفاظتی را فقط پس از محاسبه کامل و طبق مقررات معتبر تعیین کن."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Worauf basiert eine fachgerechte Betriebsmittelauswahl?",
+            "fa": "انتخاب اصولی تجهیزات بر چه اساسی است؟"
+          },
+          "options": [
+            "Nur auf dem niedrigsten Preis",
+            "Auf Anforderungen, Umgebungsbedingungen, Sicherheit und technischen Daten",
+            "Auf dem Aussehen"
+          ],
+          "answer": 1,
+          "why": {
+            "de": "Technische Eignung und Sicherheit müssen vor Preis oder Optik bewertet werden.",
+            "fa": "تناسب فنی و ایمنی پیش از قیمت یا ظاهر ارزیابی می‌شوند."
+          }
+        },
+        {
+          "q": {
+            "de": "Was ist nach einer Anlagenänderung zu aktualisieren?",
+            "fa": "پس از تغییر تأسیسات چه چیزهایی باید به‌روز شوند؟"
+          },
+          "options": [
+            "Relevante Pläne, Kennzeichnungen und Dokumentation",
+            "Nichts, wenn die Anlage funktioniert",
+            "Nur der Kalender"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Die Unterlagen müssen den tatsächlichen Zustand wiedergeben.",
+            "fa": "مدارک باید وضعیت واقعی سیستم را نشان دهند."
+          }
+        }
+      ]
+    },
+    {
+      "id": "MESS",
+      "title": {
+        "de": "Messen, Prüfen und Schutzmaßnahmen",
+        "fa": "اندازه‌گیری، آزمون و اقدامات حفاظتی"
+      },
+      "goal": {
+        "de": "Prüfungen sicher planen, geeignete Messverfahren auswählen und Ergebnisse bewerten.",
+        "fa": "آزمون را ایمن برنامه‌ریزی کن، روش مناسب را انتخاب و نتایج را ارزیابی کن."
+      },
+      "points": [
+        {
+          "de": "Prüfumfang und Grenzwerte aus Anlage, Auftrag, geltenden Normen und Herstellerangaben bestimmen.",
+          "fa": "دامنه آزمون و حدود مجاز را بر اساس تأسیسات، سفارش، استانداردهای معتبر و دستورالعمل سازنده تعیین کن."
+        },
+        {
+          "de": "Sichtprüfung: Beschädigungen, Berührungsschutz, Kennzeichnung, Leiteranschlüsse, Zugentlastung und passende Auswahl prüfen.",
+          "fa": "بازدید ظاهری: آسیب، حفاظت تماس، برچسب، اتصالات هادی، مهار کابل و تناسب تجهیزات را بررسی کن."
+        },
+        {
+          "de": "Je nach Anlage geeignete Prüfungen wählen: Schutzleiterdurchgängigkeit, Isolationswiderstand, Polarität, Schleifen-/Netzimpedanz, RCD-Prüfung und Funktion.",
+          "fa": "بر اساس سیستم آزمون مناسب انتخاب کن: پیوستگی PE، مقاومت عایقی، قطبیت، امپدانس حلقه/شبکه، آزمون RCD و عملکرد."
+        },
+        {
+          "de": "Messgerät, Messbereich, Zustand, Prüfbedingungen und sichere Arbeitsweise kontrollieren.",
+          "fa": "دستگاه، محدوده اندازه‌گیری، وضعیت، شرایط آزمون و روش ایمن را بررسی کن."
+        },
+        {
+          "de": "Messwerte mit Anforderungen vergleichen; Abweichungen fachlich bewerten und dokumentieren.",
+          "fa": "مقادیر را با الزامات مقایسه کن؛ انحراف‌ها را فنی ارزیابی و ثبت کن."
+        }
+      ],
+      "example": {
+        "de": "Ein ausgelöster RCD beweist allein nicht, dass die gesamte Anlage korrekt geprüft ist. Ursache, Schutzleiter, Isolationszustand, Stromkreis und vorgeschriebene Prüfungen sind fachgerecht zu beurteilen.",
+        "fa": "عمل‌کردن RCD به‌تنهایی ثابت نمی‌کند که کل تأسیسات درست آزمایش شده است. علت، PE، وضعیت عایق، مدار و آزمون‌های لازم باید اصولی ارزیابی شوند."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Was ist bei auffälligen Messwerten richtig?",
+            "fa": "در صورت مشاهده مقدار اندازه‌گیری غیرعادی چه کار درست است؟"
+          },
+          "options": [
+            "Wert ignorieren, wenn die Anlage läuft",
+            "Prüfbedingungen kontrollieren, Ursache eingrenzen und dokumentieren",
+            "Grenzwert selbst ändern"
+          ],
+          "answer": 1,
+          "why": {
+            "de": "Messwerte müssen unter passenden Bedingungen geprüft und fachlich bewertet werden.",
+            "fa": "شرایط اندازه‌گیری باید بررسی و نتیجه فنی ارزیابی شود."
+          }
+        },
+        {
+          "q": {
+            "de": "Welche Reihenfolge ist sinnvoll?",
+            "fa": "کدام ترتیب منطقی است؟"
+          },
+          "options": [
+            "Sichtprüfung, passende Messungen, Funktionsprüfung und Dokumentation nach Vorgaben",
+            "Erst einschalten und dann improvisieren",
+            "Nur Sichtprüfung"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Der Prüfablauf richtet sich nach Anlage und geltenden Anforderungen; die Sichtprüfung ist ein wichtiger Einstieg.",
+            "fa": "روند آزمون به سیستم و الزامات بستگی دارد؛ بازدید ظاهری شروع مهمی است."
+          }
+        }
+      ]
+    },
+    {
+      "id": "FEHLER",
+      "title": {
+        "de": "Funktions- und Systemanalyse / Fehlersuche",
+        "fa": "تحلیل عملکرد و سیستم / عیب‌یابی"
+      },
+      "goal": {
+        "de": "Fehlerbilder systematisch eingrenzen statt Teile auf Verdacht zu tauschen.",
+        "fa": "به‌جای تعویض حدسی قطعات، خطا را سیستماتیک محدود کن."
+      },
+      "points": [
+        {
+          "de": "Sollfunktion und tatsächliches Fehlerbild präzise beschreiben.",
+          "fa": "عملکرد مورد انتظار و نشانه واقعی خطا را دقیق توصیف کن."
+        },
+        {
+          "de": "Schaltplan, Klemmenplan, Datenblätter, Meldungen und Anlagenhistorie heranziehen.",
+          "fa": "نقشه مدار، نقشه ترمینال، برگه مشخصات، پیام‌ها و سابقه سیستم را بررسی کن."
+        },
+        {
+          "de": "Mögliche Ursachen nach Versorgung, Schutz, Verbindung, Steuerung, Sensor/Aktor und Parametrierung ordnen.",
+          "fa": "علت‌های احتمالی را بر اساس تغذیه، حفاظت، اتصال، کنترل، حسگر/عملگر و پارامترها دسته‌بندی کن."
+        },
+        {
+          "de": "Risiko beurteilen und nur geeignete, sichere Prüfungen im eigenen Kompetenzbereich durchführen.",
+          "fa": "خطر را ارزیابی کن و فقط آزمون ایمن و مناسب در محدوده صلاحیت انجام بده."
+        },
+        {
+          "de": "Nach der Reparatur Funktion, Sicherheit und betroffene Schnittstellen erneut prüfen.",
+          "fa": "پس از تعمیر، عملکرد، ایمنی و رابط‌های تحت تأثیر را دوباره آزمایش کن."
+        }
+      ],
+      "example": {
+        "de": "Beleuchtung reagiert nicht: zuerst Auftrag und Schaltfunktion verstehen, dann Versorgungs-/Schutzkonzept und Steuerweg anhand der Unterlagen nachvollziehen. Keine spannungsführenden Teile berühren; erforderliche Messungen nur nach sicheren Arbeitsverfahren.",
+        "fa": "روشنایی کار نمی‌کند: ابتدا سفارش و عملکرد کلید را بفهم، سپس مسیر تغذیه، حفاظت و کنترل را با نقشه دنبال کن. به قسمت برق‌دار دست نزن؛ اندازه‌گیری لازم فقط طبق روش ایمن انجام شود."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Was ist der erste Schritt bei der Fehlersuche?",
+            "fa": "اولین مرحله عیب‌یابی چیست؟"
+          },
+          "options": [
+            "Ohne Diagnose Teile ersetzen",
+            "Sollfunktion und Fehlerbild erfassen",
+            "Alle Schutzorgane überbrücken"
+          ],
+          "answer": 1,
+          "why": {
+            "de": "Ein klares Fehlerbild verhindert unnötige und riskante Eingriffe.",
+            "fa": "شرح دقیق خطا از مداخله غیرضروری و خطرناک جلوگیری می‌کند."
+          }
+        },
+        {
+          "q": {
+            "de": "Was muss nach einer Fehlerbehebung folgen?",
+            "fa": "پس از رفع خطا چه باید انجام شود؟"
+          },
+          "options": [
+            "Nur Werkzeug einpacken",
+            "Betroffene Funktion und Sicherheit prüfen und Ergebnis dokumentieren",
+            "Keine weitere Prüfung"
+          ],
+          "answer": 1,
+          "why": {
+            "de": "Die Wirksamkeit der Maßnahme muss nachgewiesen werden.",
+            "fa": "اثر اقدام باید اثبات شود."
+          }
+        }
+      ]
+    },
+    {
+      "id": "SCHUTZ",
+      "title": {
+        "de": "Schutz, Arbeitssicherheit und Normen",
+        "fa": "حفاظت، ایمنی کار و استانداردها"
+      },
+      "goal": {
+        "de": "Gefährdungen erkennen und Schutzmaßnahmen begründen.",
+        "fa": "خطرها را بشناس و اقدامات حفاظتی را توجیه کن."
+      },
+      "points": [
+        {
+          "de": "Die fünf Sicherheitsregeln kennen und die betriebliche Umsetzung beachten: freischalten, gegen Wiedereinschalten sichern, Spannungsfreiheit feststellen, erden und kurzschließen soweit erforderlich, benachbarte unter Spannung stehende Teile abdecken oder abschranken.",
+          "fa": "پنج قاعده ایمنی را بشناس و طبق روش محل کار اجرا کن: قطع، جلوگیری از وصل مجدد، اثبات بی‌برقی، زمین و اتصال کوتاه در موارد لازم، پوشاندن یا محصورکردن قسمت‌های مجاور برق‌دار."
+        },
+        {
+          "de": "PE, N und PEN unterscheiden; Schutzleiter nicht als Betriebsleiter verwenden.",
+          "fa": "PE، N و PEN را از هم تشخیص بده؛ از PE به‌عنوان هادی کاری استفاده نکن."
+        },
+        {
+          "de": "RCD, Leitungsschutz, Überstromschutz, Potentialausgleich und Überspannungsschutz nach Funktion unterscheiden.",
+          "fa": "عملکرد RCD، کلید مینیاتوری، حفاظت اضافه‌جریان، هم‌بندی و حفاظت اضافه‌ولتاژ را تفکیک کن."
+        },
+        {
+          "de": "Schutzmaßnahme und Abschaltbedingungen nicht nur nennen, sondern anhand der Anlage und geltenden Regeln bewerten.",
+          "fa": "اقدام حفاظتی و شرایط قطع را فقط نام نبر؛ با توجه به سیستم و مقررات معتبر ارزیابی کن."
+        },
+        {
+          "de": "Bei Unsicherheit Arbeit stoppen und verantwortliche Elektrofachkraft hinzuziehen.",
+          "fa": "در صورت تردید کار را متوقف کن و از فرد متخصص مسئول کمک بگیر."
+        }
+      ],
+      "example": {
+        "de": "Eine Spannungsfreiheit darf nicht aus einer ausgeschalteten Leuchte oder einem ausgeschalteten Schalter abgeleitet werden; sie ist nach dem vorgeschriebenen Verfahren mit geeignetem Prüfmittel festzustellen.",
+        "fa": "خاموش بودن چراغ یا کلید به معنی بی‌برقی نیست؛ بی‌برقی باید طبق روش مقرر با ابزار مناسب اثبات شود."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Welche Aussage zur Spannungsfreiheit stimmt?",
+            "fa": "کدام جمله درباره بی‌برقی درست است؟"
+          },
+          "options": [
+            "Schalterstellung allein reicht",
+            "Spannungsfreiheit muss mit geeignetem Prüfmittel nach vorgeschriebenem Verfahren festgestellt werden",
+            "Nur die Kontrollleuchte prüfen"
+          ],
+          "answer": 1,
+          "why": {
+            "de": "Der sichere Zustand muss zuverlässig festgestellt werden.",
+            "fa": "وضعیت ایمن باید به‌طور قابل اعتماد اثبات شود."
+          }
+        },
+        {
+          "q": {
+            "de": "Was ist bei fehlender Kompetenz oder unklarer Gefahr zu tun?",
+            "fa": "در نبود صلاحیت یا نامشخص بودن خطر چه باید کرد؟"
+          },
+          "options": [
+            "Weiterarbeiten und hoffen",
+            "Arbeit sichern/stoppen und verantwortliche Fachkraft einbeziehen",
+            "Schutzmaßnahmen umgehen"
+          ],
+          "answer": 1,
+          "why": {
+            "de": "Arbeiten müssen innerhalb der Qualifikation und nach sicherem Verfahren erfolgen.",
+            "fa": "کار باید در محدوده صلاحیت و طبق روش ایمن انجام شود."
+          }
+        }
+      ]
+    },
+    {
+      "id": "ANTRIEB",
+      "title": {
+        "de": "Steuerungen, Motoren und Gebäudesysteme",
+        "fa": "کنترل‌ها، موتور و سیستم‌های ساختمان"
+      },
+      "goal": {
+        "de": "Steuerungsabläufe und typische Gebäudeanlagen erklären und prüfen.",
+        "fa": "روند کنترل و سیستم‌های رایج ساختمان را توضیح بده و آزمایش کن."
+      },
+      "points": [
+        {
+          "de": "Stromlaufpläne lesen; Schütz, Relais, Taster, Sensor, Aktor, Verriegelung und Selbsthaltung unterscheiden.",
+          "fa": "نقشه مدار را بخوان؛ کنتاکتور، رله، شستی، حسگر، عملگر، اینترلاک و خودنگهدار را تشخیص بده."
+        },
+        {
+          "de": "Bei Motoren Typenschild, Betriebsart, Schutz, Anlauf, Drehrichtung und Herstellerangaben berücksichtigen.",
+          "fa": "در موتور، پلاک، نوع کار، حفاظت، راه‌اندازی، جهت چرخش و اطلاعات سازنده را در نظر بگیر."
+        },
+        {
+          "de": "Bei KNX/Bussystemen Topologie, Versorgung, Adressierung, Parametrierung und Diagnose nachvollziehen.",
+          "fa": "در KNX و باس، توپولوژی، تغذیه، آدرس‌دهی، پارامترگذاری و عیب‌یابی را دنبال کن."
+        },
+        {
+          "de": "Bei PV, Speicher und Ladeinfrastruktur Systemgrenzen, Herstellerangaben, Schutzkonzept und Schnittstellen beachten.",
+          "fa": "در PV، ذخیره‌ساز و شارژ خودرو، مرز سیستم، دستورالعمل سازنده، حفاظت و رابط‌ها را در نظر بگیر."
+        },
+        {
+          "de": "Funktionstest nach festgelegtem Ablauf durchführen und Konfiguration dokumentieren.",
+          "fa": "آزمون عملکرد را طبق روند مشخص انجام بده و پیکربندی را ثبت کن."
+        }
+      ],
+      "example": {
+        "de": "Wenn ein Bewegungsmelder nicht schaltet, prüfe zuerst Sollfunktion, Einstellungen, Erfassungsbereich, Versorgung und angeschlossene Last anhand der Herstellerangaben; danach geeignete Funktions- und Messprüfungen.",
+        "fa": "اگر حسگر حرکتی عمل نمی‌کند، ابتدا عملکرد مورد انتظار، تنظیمات، محدوده تشخیص، تغذیه و بار متصل را طبق دستورالعمل سازنده بررسی کن؛ سپس آزمون عملکرد و اندازه‌گیری مناسب انجام بده."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Was hilft bei der Analyse einer Steuerung?",
+            "fa": "چه چیزی در تحلیل کنترل کمک می‌کند؟"
+          },
+          "options": [
+            "Stromlaufplan, Signalzustände und Sollfunktion",
+            "Nur Kabelfarbe raten",
+            "Sensoren ohne Prüfung ersetzen"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Plan und Signale zeigen den vorgesehenen Ablauf und mögliche Fehlerstellen.",
+            "fa": "نقشه و سیگنال‌ها روند مورد انتظار و محل‌های احتمالی خطا را نشان می‌دهند."
+          }
+        },
+        {
+          "q": {
+            "de": "Was muss bei Änderungen an vernetzten Systemen berücksichtigt werden?",
+            "fa": "در تغییر سیستم‌های متصل چه باید در نظر گرفته شود؟"
+          },
+          "options": [
+            "Adressierung, Parameter, Sicherheit und Dokumentation",
+            "Nur die Gehäusefarbe",
+            "Keine Schnittstellen"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Vernetzte Komponenten hängen von Konfiguration und Schnittstellen ab.",
+            "fa": "اجزای شبکه‌ای به پیکربندی و رابط‌ها وابسته‌اند."
+          }
+        }
+      ]
+    },
+    {
+      "id": "WISO",
+      "title": {
+        "de": "WiSo: Arbeit, Ausbildung, Wirtschaft und Recht",
+        "fa": "اقتصاد و اجتماع: کار، آموزش، اقتصاد و حقوق"
+      },
+      "goal": {
+        "de": "Praxisbezogene Zusammenhänge der Arbeits- und Berufswelt verstehen.",
+        "fa": "ارتباط‌های کاربردی دنیای کار و حرفه را بفهم."
+      },
+      "points": [
+        {
+          "de": "Ausbildungsvertrag, Pflichten von Auszubildenden und Ausbildenden, Ausbildungsnachweis und zuständige Stellen kennen.",
+          "fa": "قرارداد آموزش، وظایف کارآموز و کارفرما، گزارش آموزش و نهادهای مسئول را بشناس."
+        },
+        {
+          "de": "Arbeitszeit, Pausen, Urlaub, Entgeltfortzahlung und Jugendarbeitsschutz im passenden persönlichen Kontext einordnen.",
+          "fa": "ساعات کار، استراحت، مرخصی، ادامه پرداخت حقوق در بیماری و حمایت از کار جوانان را در زمینه مناسب بشناس."
+        },
+        {
+          "de": "Brutto/Netto, Sozialversicherung, Lohnabrechnung und grundlegende Steuerbegriffe unterscheiden.",
+          "fa": "حقوق ناخالص و خالص، بیمه اجتماعی، فیش حقوق و اصطلاحات پایه مالیاتی را تشخیص بده."
+        },
+        {
+          "de": "Betriebsrat, Tarifvertrag, Gewerkschaft, Sozialpartner und Mitbestimmung unterscheiden.",
+          "fa": "شورای کار، قرارداد جمعی، اتحادیه، شرکای اجتماعی و مشارکت در تصمیم‌گیری را تفکیک کن."
+        },
+        {
+          "de": "Nachhaltigkeit, Energieeffizienz, Datenschutz, Informationssicherheit und Umweltschutz in Arbeitsentscheidungen berücksichtigen.",
+          "fa": "پایداری، بهره‌وری انرژی، حفاظت داده، امنیت اطلاعات و محیط زیست را در تصمیم کاری لحاظ کن."
+        }
+      ],
+      "example": {
+        "de": "Bei einer Frage zu Arbeitsrecht erst den Sachverhalt lesen, Beteiligte und Regelungsbereich erkennen und dann die passende Regel anwenden. Nicht jede Regel gilt identisch für Minderjährige und Volljährige.",
+        "fa": "در سؤال حقوق کار، ابتدا متن را بخوان، افراد و حوزه مقررات را تشخیص بده و سپس قاعده مرتبط را به کار ببر. همه مقررات برای افراد زیر و بالای سن قانونی یکسان نیستند."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Was ist die Aufgabe der Sozialversicherung?",
+            "fa": "وظیفه بیمه اجتماعی چیست؟"
+          },
+          "options": [
+            "Absicherung bestimmter Lebensrisiken nach den jeweiligen Regeln",
+            "Nur Finanzierung von Freizeit",
+            "Ersatz für jeden privaten Vertrag"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Die Sozialversicherung sichert bestimmte Risiken wie Krankheit, Pflege, Arbeitslosigkeit, Alter und Arbeitsunfälle ab.",
+            "fa": "بیمه اجتماعی طبق مقررات از خطرهایی مانند بیماری، مراقبت، بیکاری، سالمندی و حوادث کاری حمایت می‌کند."
+          }
+        },
+        {
+          "q": {
+            "de": "Was ist bei Datenschutz im Betrieb wichtig?",
+            "fa": "در حفاظت داده در محل کار چه مهم است؟"
+          },
+          "options": [
+            "Nur erforderliche Daten zweckgebunden und sicher verarbeiten",
+            "Alle Kundendaten öffentlich teilen",
+            "Passwörter auf dem Schaltschrank notieren"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Daten sind zweckgebunden und angemessen geschützt zu verarbeiten.",
+            "fa": "داده‌ها باید برای هدف مشخص و با حفاظت مناسب پردازش شوند."
+          }
+        }
+      ]
+    },
+    {
+      "id": "DOKU",
+      "title": {
+        "de": "Dokumentation, Qualität und Kundengespräch",
+        "fa": "مستندسازی، کیفیت و گفت‌وگو با مشتری"
+      },
+      "goal": {
+        "de": "Arbeitsergebnisse verständlich erklären und vollständig festhalten.",
+        "fa": "نتایج کار را روشن توضیح بده و کامل ثبت کن."
+      },
+      "points": [
+        {
+          "de": "Arbeitsumfang, verwendete Betriebsmittel, Änderungen und offene Punkte nachvollziehbar festhalten.",
+          "fa": "دامنه کار، تجهیزات استفاده‌شده، تغییرات و موارد باز را قابل پیگیری ثبت کن."
+        },
+        {
+          "de": "Messgerät, Prüfverfahren, Prüfbedingungen, Messwerte, Bewertung und Abweichungen im Protokoll festhalten.",
+          "fa": "دستگاه، روش و شرایط آزمون، مقادیر، ارزیابی و انحراف‌ها را در گزارش ثبت کن."
+        },
+        {
+          "de": "Pläne, Kennzeichnungen, Stromkreisverzeichnis und Gerätedaten nach tatsächlichem Anlagenzustand pflegen.",
+          "fa": "نقشه‌ها، برچسب‌ها، فهرست مدارها و مشخصات دستگاه را مطابق وضعیت واقعی به‌روز کن."
+        },
+        {
+          "de": "Dem Kunden Funktion, sichere Bedienung, Grenzen, Wartung und festgestellte Mängel erklären.",
+          "fa": "عملکرد، استفاده ایمن، محدودیت‌ها، نگهداری و نقص‌های پیدا شده را برای مشتری توضیح بده."
+        },
+        {
+          "de": "Fachgespräch: Vorgehen, Auswahl, Schutzmaßnahme, Prüfung und Ergebnis in klarer Reihenfolge begründen.",
+          "fa": "در گفت‌وگوی تخصصی، روند کار، انتخاب تجهیزات، حفاظت، آزمون و نتیجه را به ترتیب روشن توجیه کن."
+        }
+      ],
+      "example": {
+        "de": "Antwortstruktur im Fachgespräch: 1. Auftrag/Ziel, 2. technische Auswahl und Begründung, 3. Sicherheit, 4. Durchführung, 5. Prüfung und Bewertung, 6. Dokumentation und Übergabe.",
+        "fa": "ساختار پاسخ در گفت‌وگوی تخصصی: ۱. سفارش و هدف، ۲. انتخاب فنی و دلیل، ۳. ایمنی، ۴. اجرا، ۵. آزمون و ارزیابی، ۶. مستندسازی و تحویل."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Was gehört in ein aussagekräftiges Prüfprotokoll?",
+            "fa": "چه چیزهایی در گزارش آزمون مفید و کامل است؟"
+          },
+          "options": [
+            "Prüfbedingungen, Messverfahren, Ergebnisse, Bewertung und Abweichungen",
+            "Nur „alles gut“",
+            "Nur Name des Kunden"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Das Protokoll muss den Prüfumfang und die Ergebnisse nachvollziehbar machen.",
+            "fa": "گزارش باید دامنه آزمون و نتایج را قابل پیگیری نشان دهد."
+          }
+        },
+        {
+          "q": {
+            "de": "Wie begründest du eine technische Entscheidung?",
+            "fa": "چگونه تصمیم فنی را توجیه می‌کنی؟"
+          },
+          "options": [
+            "Mit Anforderungen, technischen Daten, Sicherheit und geltenden Vorgaben",
+            "Mit „weil ich das immer so mache“",
+            "Ohne Bezug zur Anlage"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Eine gute Begründung verbindet Anforderung, Auswahl und Sicherheit.",
+            "fa": "توجیه خوب نیاز، انتخاب و ایمنی را به هم پیوند می‌دهد."
+          }
+        }
+      ]
+    }
+  ],
+  "formulas": [
+    {
+      "id": "F0",
+      "title": "Ohmsches Gesetz",
+      "formula": "U = R × I",
+      "fa": "ولتاژ = مقاومت × جریان",
+      "note": "Nur bei passenden Gleichstrom-/Bauteilbedingungen direkt anwenden."
+    },
+    {
+      "id": "F1",
+      "title": "Leistung Gleichstrom",
+      "formula": "P = U × I",
+      "fa": "توان = ولتاژ × جریان",
+      "note": "Bei Wechselstrom sind Phasenlage und Leistungsfaktor zu beachten."
+    },
+    {
+      "id": "F2",
+      "title": "Wirkleistung 1-phasig",
+      "formula": "P = U × I × cos φ",
+      "fa": "توان اکتیو تک‌فاز",
+      "note": "Für sinusförmige Wechselgrößen unter den üblichen Voraussetzungen."
+    },
+    {
+      "id": "F3",
+      "title": "Wirkleistung 3-phasig",
+      "formula": "P = √3 × U_LL × I_L × cos φ",
+      "fa": "توان اکتیو سه‌فاز",
+      "note": "U_LL ist die Leiterspannung; Schaltung und Messbedingungen beachten."
+    },
+    {
+      "id": "F4",
+      "title": "Elektrische Arbeit",
+      "formula": "W = P × t",
+      "fa": "انرژی الکتریکی = توان × زمان",
+      "note": "Einheiten beachten: kW × h = kWh."
+    },
+    {
+      "id": "F5",
+      "title": "Widerstände in Reihe",
+      "formula": "R_ges = R₁ + R₂ + …",
+      "fa": "مقاومت سری: جمع مقاومت‌ها",
+      "note": "Strom ist in einer idealen Reihenschaltung gleich."
+    },
+    {
+      "id": "F6",
+      "title": "Widerstände parallel",
+      "formula": "1/R_ges = 1/R₁ + 1/R₂ + …",
+      "fa": "مقاومت موازی",
+      "note": "Bei zwei Widerständen: R_ges = R₁R₂/(R₁+R₂)."
+    },
+    {
+      "id": "F7",
+      "title": "Wirkungsgrad",
+      "formula": "η = P_ab / P_zu × 100 %",
+      "fa": "بازده = توان خروجی تقسیم بر ورودی",
+      "note": "Leistungsgrößen müssen vergleichbar sein."
+    },
+    {
+      "id": "F8",
+      "title": "Drehzahlfrequenz Motor",
+      "formula": "n_s = 60 × f / p",
+      "fa": "سرعت سنکرون؛ p تعداد جفت قطب است",
+      "note": "n_s in min⁻¹; Schlupf eines Asynchronmotors zusätzlich berücksichtigen."
+    },
+    {
+      "id": "F9",
+      "title": "Spannungsfall",
+      "formula": "ΔU abhängig von Leitung, Strom, Länge, Material und System",
+      "fa": "افت ولتاژ وابسته به کابل و شرایط",
+      "note": "Für die Berechnung die richtige Formel für Ein-/Drehstrom und Leiteranordnung nutzen."
+    }
+  ],
+  "scenarios": [
+    {
+      "title": {
+        "de": "Zusätzliche Steckdose im Wohnraum",
+        "fa": "افزودن پریز در اتاق"
+      },
+      "situation": {
+        "de": "Ein Kunde möchte eine zusätzliche Steckdose an einer bestehenden Wand. Du sollst den Auftrag vorbereiten.",
+        "fa": "مشتری پریز اضافه‌ای روی دیوار موجود می‌خواهد و باید سفارش را آماده کنی."
+      },
+      "steps": [
+        {
+          "de": "Kundenwunsch, Nutzung und Bestand aufnehmen.",
+          "fa": "خواسته، نوع استفاده و وضعیت موجود را بررسی کن."
+        },
+        {
+          "de": "Stromkreis, Belastung, Leitungsweg, Schutz und bauliche Randbedingungen prüfen.",
+          "fa": "مدار، بار، مسیر کابل، حفاظت و شرایط ساختمان را بررسی کن."
+        },
+        {
+          "de": "Material und Ablauf planen; Risiken und Abschaltverfahren klären.",
+          "fa": "مواد و مراحل را برنامه‌ریزی کن؛ خطرها و روش قطع را روشن کن."
+        },
+        {
+          "de": "Nach Ausführung erforderliche Prüfungen, Dokumentation und Übergabe durchführen.",
+          "fa": "پس از اجرا آزمون‌های لازم، مستندسازی و تحویل را انجام بده."
+        }
+      ],
+      "oral": {
+        "de": "Begründe, warum eine vorhandene Steckdose nicht automatisch als geeignete Einspeisung angenommen werden darf.",
+        "fa": "توضیح بده چرا پریز موجود را نمی‌توان خودکار منبع تغذیه مناسب فرض کرد."
+      }
+    },
+    {
+      "title": {
+        "de": "RCD löst wiederholt aus",
+        "fa": "RCD مرتب قطع می‌کند"
+      },
+      "situation": {
+        "de": "Nach Anschluss eines Geräts löst der RCD aus. Die Ursache ist noch unbekannt.",
+        "fa": "پس از اتصال دستگاه، RCD قطع می‌کند و علت مشخص نیست."
+      },
+      "steps": [
+        {
+          "de": "Fehlerbild und Zeitpunkt erfassen; Anlage sicher halten.",
+          "fa": "نشانه خطا و زمان وقوع را ثبت کن؛ وضعیت را ایمن نگه دار."
+        },
+        {
+          "de": "Keine Schutzorgane überbrücken; Stromkreis und angeschlossene Verbraucher systematisch eingrenzen.",
+          "fa": "هیچ حفاظت را پل نزن؛ مدار و مصرف‌کننده‌ها را سیستماتیک بررسی کن."
+        },
+        {
+          "de": "Geeignete Prüfungen nach Vorgaben und innerhalb der Qualifikation durchführen.",
+          "fa": "آزمون‌های مناسب را طبق مقررات و در محدوده صلاحیت انجام بده."
+        },
+        {
+          "de": "Ursache, Korrektur und Wiederholungsprüfung dokumentieren.",
+          "fa": "علت، اصلاح و آزمون مجدد را ثبت کن."
+        }
+      ],
+      "oral": {
+        "de": "Warum beweist das Auslösen allein weder einen Defekt des RCD noch die Fehlerfreiheit der Anlage?",
+        "fa": "چرا قطع‌کردن به‌تنهایی نه خرابی RCD را ثابت می‌کند و نه سالم‌بودن کل تأسیسات را؟"
+      }
+    },
+    {
+      "title": {
+        "de": "Bewegungsmelder schaltet nicht",
+        "fa": "حسگر حرکتی روشن نمی‌کند"
+      },
+      "situation": {
+        "de": "Eine Beleuchtung mit Bewegungsmelder reagiert nicht wie vorgesehen.",
+        "fa": "روشنایی مجهز به حسگر حرکتی مطابق انتظار عمل نمی‌کند."
+      },
+      "steps": [
+        {
+          "de": "Sollfunktion, Zeit-/Dämmerungseinstellung und Erfassungsbereich verstehen.",
+          "fa": "عملکرد مورد انتظار، تنظیم زمان/تاریکی و محدوده تشخیص را بفهم."
+        },
+        {
+          "de": "Herstellerunterlagen, Versorgung, Verdrahtung und Lastdaten prüfen.",
+          "fa": "دستورالعمل سازنده، تغذیه، سیم‌بندی و مشخصات بار را بررسی کن."
+        },
+        {
+          "de": "Sichere und geeignete Mess- und Funktionstests festlegen.",
+          "fa": "آزمون‌های ایمن و مناسب اندازه‌گیری و عملکرد را تعیین کن."
+        },
+        {
+          "de": "Ursache eingrenzen, Funktion testen und Dokumentation aktualisieren.",
+          "fa": "علت را محدود کن، عملکرد را آزمایش و مستندات را به‌روز کن."
+        }
+      ],
+      "oral": {
+        "de": "Welche Ursachen würdest du zuerst prüfen und warum?",
+        "fa": "کدام علت‌ها را اول بررسی می‌کنی و چرا؟"
+      }
+    },
+    {
+      "title": {
+        "de": "Anlage nach Änderung übergeben",
+        "fa": "تحویل سیستم پس از تغییر"
+      },
+      "situation": {
+        "de": "Eine gebäudetechnische Anlage wurde geändert. Vor der Freigabe müssen Prüfungen und Dokumentation geklärt werden.",
+        "fa": "تأسیسات ساختمان تغییر کرده و پیش از تحویل باید آزمون‌ها و مستندات مشخص شوند."
+      },
+      "steps": [
+        {
+          "de": "Änderungsumfang und betroffene Funktionen festlegen.",
+          "fa": "دامنه تغییر و عملکردهای تحت تأثیر را مشخص کن."
+        },
+        {
+          "de": "Erforderliche Sicht-, Mess- und Funktionsprüfungen anhand geltender Regeln bestimmen.",
+          "fa": "بازدید، اندازه‌گیری و آزمون عملکرد لازم را طبق مقررات معتبر تعیین کن."
+        },
+        {
+          "de": "Ergebnisse, Abweichungen und Maßnahmen protokollieren.",
+          "fa": "نتایج، انحراف‌ها و اقدامات را ثبت کن."
+        },
+        {
+          "de": "Pläne, Kennzeichnungen und Kundeneinweisung aktualisieren.",
+          "fa": "نقشه، برچسب و آموزش مشتری را به‌روز کن."
+        }
+      ],
+      "oral": {
+        "de": "Welche Unterlagen würdest du dem Kunden bzw. Betrieb übergeben?",
+        "fa": "چه مدارکی را به مشتری یا شرکت تحویل می‌دهی؟"
+      }
+    }
+  ],
+  "oralQuestions": [
+    {
+      "de": "Beschreiben Sie den Auftrag und die wichtigsten Randbedingungen.",
+      "fa": "سفارش و مهم‌ترین شرایط محدودکننده را توضیح دهید."
+    },
+    {
+      "de": "Warum haben Sie dieses Betriebsmittel gewählt?",
+      "fa": "چرا این تجهیز را انتخاب کردید؟"
+    },
+    {
+      "de": "Welche Gefährdungen bestehen und welche Schutzmaßnahmen treffen Sie?",
+      "fa": "چه خطرهایی وجود دارد و چه اقدام حفاظتی انجام می‌دهید؟"
+    },
+    {
+      "de": "Wie weisen Sie die sichere Funktion der Anlage nach?",
+      "fa": "چگونه عملکرد ایمن سیستم را اثبات می‌کنید؟"
+    },
+    {
+      "de": "Welche Messungen sind erforderlich und wie bewerten Sie die Ergebnisse?",
+      "fa": "چه اندازه‌گیری‌هایی لازم است و نتایج را چگونه ارزیابی می‌کنید؟"
+    },
+    {
+      "de": "Was tun Sie, wenn ein Messwert außerhalb der Vorgabe liegt?",
+      "fa": "اگر مقدار اندازه‌گیری خارج از محدوده باشد چه می‌کنید؟"
+    },
+    {
+      "de": "Welche Dokumente müssen aktualisiert oder übergeben werden?",
+      "fa": "کدام مدارک باید به‌روز یا تحویل شوند؟"
+    },
+    {
+      "de": "Wie erklären Sie dem Kunden die Bedienung und notwendige Wartung?",
+      "fa": "عملکرد و نگهداری لازم را چگونه برای مشتری توضیح می‌دهید؟"
+    },
+    {
+      "de": "Welche wirtschaftlichen und ökologischen Aspekte beeinflussen die Lösung?",
+      "fa": "چه عوامل اقتصادی و زیست‌محیطی بر راه‌حل اثر دارند؟"
+    },
+    {
+      "de": "Wie gehen Sie systematisch bei einer unbekannten Störung vor?",
+      "fa": "برای خطای ناشناخته چگونه سیستماتیک عمل می‌کنید؟"
+    }
+  ],
+  "checklist": [
+    {
+      "de": "Ich kann den Kundenauftrag in eigenen Worten zusammenfassen.",
+      "fa": "می‌توانم سفارش مشتری را با کلمات خودم خلاصه کنم."
+    },
+    {
+      "de": "Ich kann meine Material- und Betriebsmittelauswahl fachlich begründen.",
+      "fa": "می‌توانم انتخاب مواد و تجهیزات را فنی توجیه کنم."
+    },
+    {
+      "de": "Ich kann Gefährdungen und sichere Arbeitsverfahren benennen.",
+      "fa": "می‌توانم خطرها و روش‌های کار ایمن را بیان کنم."
+    },
+    {
+      "de": "Ich kann Schaltpläne und Herstellerunterlagen lesen.",
+      "fa": "می‌توانم نقشه مدار و دستورالعمل سازنده را بخوانم."
+    },
+    {
+      "de": "Ich kann Messverfahren auswählen und Messwerte fachlich einordnen.",
+      "fa": "می‌توانم روش اندازه‌گیری انتخاب و نتایج را فنی ارزیابی کنم."
+    },
+    {
+      "de": "Ich kann Fehler systematisch eingrenzen, statt Teile zu tauschen.",
+      "fa": "می‌توانم خطا را سیستماتیک محدود کنم، نه اینکه قطعات را حدسی عوض کنم."
+    },
+    {
+      "de": "Ich kann die Prüfung dokumentieren und die Anlage verständlich übergeben.",
+      "fa": "می‌توانم آزمون را مستند و سیستم را روشن تحویل بدهم."
+    },
+    {
+      "de": "Ich kann Grundbegriffe aus WiSo auf Praxisfälle anwenden.",
+      "fa": "می‌توانم مفاهیم پایه WiSo را روی موقعیت‌های واقعی اعمال کنم."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Elektronikerausbildungsverordnung (ElekAusbV), insbesondere §§ 6–16",
+      "url": "https://www.gesetze-im-internet.de/elekausbv_2021/"
+    },
+    {
+      "title": "BIBB – Elektroniker/Elektronikerin: Umsetzungshilfe und Prüfungsvorbereitung",
+      "url": "https://www.bibb.de/dienst/publikationen/de/17455"
+    },
+    {
+      "title": "KMK – Rahmenlehrpläne für berufliche Schulen",
+      "url": "https://www.kmk.org/themen/berufliche-schulen/duale-berufsausbildung/downloadbereich-rahmenlehrplaene.html"
+    },
+    {
+      "title": "DGUV – Vorschriften und Informationen zur Arbeitssicherheit",
+      "url": "https://www.dguv.de/"
+    },
+    {
+      "title": "VDE – Elektrotechnische Normen und Sicherheit",
+      "url": "https://www.vde.com/"
+    }
+  ]
+}
