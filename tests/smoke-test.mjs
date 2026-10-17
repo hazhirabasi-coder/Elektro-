@@ -60,7 +60,7 @@ test('PWA shell and service worker are configured for offline use', () => {
 });
 
 test('HTML element IDs are unique to avoid broken controls and navigation', () => {
-  const ids = [...html.matchAll(/\\bid=["']([^"']+)["']/g)].map(match => match[1]);
+  const ids = [...html.matchAll(/\bid=["']([^"']+)["']/g)].map(match => match[1]);
   const seen = new Set();
   const duplicates = new Set();
   for (const id of ids) {
