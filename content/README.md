@@ -22,6 +22,10 @@ Dieser Ordner enthält strukturierte Lerninhalte, getrennt von der Benutzeroberf
 
 `lernfeld-03.json` ergänzt zweisprachige Inhalte zu Steuerung und Regelung, Sensoren und Aktoren, Schaltlogik und systematischer Fehlersuche. Enthalten sind vier Module, acht Verständnisfragen, drei Prüfungsaufgaben und zehn Fachbegriffe. Das Lernfeld ist in der App-Navigation unter dem dritten Lernfeld aufrufbar.
 
+## Lernfeld 4
+
+`lernfeld-04.json` behandelt Netzwerkgrundlagen, IP/DHCP, passive und aktive Komponenten sowie systematische Netzwerkdiagnose. Enthalten sind vier zweisprachige Module, acht Verständnisfragen, drei Prüfungsaufgaben und zehn Fachbegriffe. Das Lernfeld ist in der App-Navigation aufrufbar.
+
 ## Datenstruktur
 
 - `schemaVersion`: Version des Datenformats
