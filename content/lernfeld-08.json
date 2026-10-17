@@ -1,0 +1,295 @@
+{
+  "schemaVersion": 1,
+  "id": "LF08",
+  "title": {
+    "de": "Energiewandlungssysteme integrieren",
+    "fa": "یکپارچه‌سازی سیستم‌های تبدیل انرژی"
+  },
+  "level": "Grundlagen bis Prüfungsvorbereitung",
+  "languages": [
+    "de",
+    "fa"
+  ],
+  "disclaimer": {
+    "de": "Lernmaterial zur Prüfungsvorbereitung, keine verbindliche Arbeitsanweisung. Elektrische Anlagen nur im Rahmen der Qualifikation, nach Gefährdungsbeurteilung, geltenden Normen und betrieblichen Vorgaben bearbeiten.",
+    "fa": "این مطالب برای آمادگی آزمون است و دستورالعمل اجرایی الزام‌آور نیست. کار روی تأسیسات برقی فقط در محدوده صلاحیت، پس از ارزیابی خطر و طبق استانداردها و دستورالعمل‌های محل کار انجام شود."
+  },
+  "objectives": [
+    {
+      "de": "Wirk-, Blind- und Scheinleistung unterscheiden.",
+      "fa": "توان اکتیو، راکتیو و ظاهری را تشخیص دهد."
+    },
+    {
+      "de": "Grundprinzipien von Transformator, Motor und PV-System erklären.",
+      "fa": "اصول ترانسفورماتور، موتور و سامانه خورشیدی را توضیح دهد."
+    },
+    {
+      "de": "Technische Daten und Energieeffizienz für die Auswahl nutzen.",
+      "fa": "از مشخصات فنی و بازده انرژی برای انتخاب استفاده کند."
+    }
+  ],
+  "lessons": [
+    {
+      "id": "LF08-01",
+      "title": {
+        "de": "Wirk-, Blind- und Scheinleistung",
+        "fa": "توان اکتیو، راکتیو و ظاهری"
+      },
+      "explanation": {
+        "de": "In Wechselstromsystemen beschreibt P die Wirkleistung in W, Q die Blindleistung in var und S die Scheinleistung in VA. Für sinusförmige Größen gilt S=U·I und P=U·I·cos φ; bei Drehstrom sind Leiterspannung und symmetrische Belastung zu beachten.",
+        "fa": "در سیستم AC، توان اکتیو P با وات، توان راکتیو Q با وار و توان ظاهری S با ولت‌آمپر بیان می‌شود. برای کمیت‌های سینوسی S=U·I و P=U·I·cos φ است؛ در سه‌فاز باید ولتاژ خط و متعادل بودن بار را در نظر گرفت."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": [
+              "Welche Einheit hat die Wirkleistung P?",
+              "واحد توان اکتیو P چیست؟",
+              [
+                "Watt (W)",
+                "var",
+                "VA ausschließlich"
+              ],
+              0,
+              "Wirkleistung wird in Watt angegeben.",
+              "توان اکتیو با وات بیان می‌شود."
+            ],
+            "fa": [
+              "Welche Größe beschreibt cos φ?",
+              "cos φ چه کمیتی را توصیف می‌کند؟",
+              [
+                "Leistungsfaktor im entsprechenden Wechselstrommodell",
+                "Leiterquerschnitt",
+                "Isolationswiderstand"
+              ],
+              0,
+              "cos φ hängt mit dem Verhältnis von Wirk- zu Scheinleistung zusammen.",
+              "cos φ با نسبت توان اکتیو به توان ظاهری ارتباط دارد."
+            ]
+          },
+          "why": {}
+        },
+        {
+          "q": {},
+          "why": {}
+        }
+      ]
+    },
+    {
+      "id": "LF08-02",
+      "title": {
+        "de": "Transformator und Motor",
+        "fa": "ترانسفورماتور و موتور"
+      },
+      "explanation": {
+        "de": "Ein Transformator überträgt Energie über ein magnetisches Wechselfeld; das Spannungsverhältnis hängt idealisiert vom Windungsverhältnis ab. Motoren wandeln elektrische Energie in mechanische Energie um. Typenschild, Betriebsart, Kühlung, Schutz und Herstellerangaben sind für die Auswahl wichtig.",
+        "fa": "ترانسفورماتور انرژی را از طریق میدان مغناطیسی متغیر منتقل می‌کند و نسبت ولتاژ ایده‌آل به نسبت دورها وابسته است. موتور انرژی الکتریکی را به مکانیکی تبدیل می‌کند. پلاک، نوع کار، خنک‌کاری، حفاظت و مشخصات سازنده برای انتخاب مهم‌اند."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": [
+              "Wozu dient ein Transformator typischerweise?",
+              "ترانسفورماتور معمولاً چه کاربردی دارد؟",
+              [
+                "Spannungsanpassung durch elektromagnetische Induktion",
+                "Mechanische Drehzahl direkt messen",
+                "Leitungen gegen Überlast schützen"
+              ],
+              0,
+              "Der Transformator überträgt Energie zwischen Wicklungen über ein magnetisches Feld.",
+              "ترانسفورماتور از طریق میدان مغناطیسی انرژی را بین سیم‌پیچ‌ها منتقل می‌کند."
+            ],
+            "fa": [
+              "Welche Angabe ist für die Motorauswahl wichtig?",
+              "کدام مشخصه برای انتخاب موتور مهم است؟",
+              [
+                "Typenschilddaten und Betriebsbedingungen",
+                "Nur die Gehäusefarbe",
+                "Nur das Herstellungsjahr"
+              ],
+              0,
+              "Leistungs-, Spannungs- und Betriebsdaten müssen zur Anwendung passen.",
+              "توان، ولتاژ و شرایط کاری باید با کاربرد متناسب باشند."
+            ]
+          },
+          "why": {}
+        },
+        {
+          "q": {},
+          "why": {}
+        }
+      ]
+    },
+    {
+      "id": "LF08-03",
+      "title": {
+        "de": "Photovoltaik und Effizienz",
+        "fa": "فتوولتائیک و بازده"
+      },
+      "explanation": {
+        "de": "PV-Module erzeugen Gleichstrom; ein Wechselrichter wandelt ihn für geeignete Anwendungen in Wechselstrom um. Auslegung, Netzanschluss, Schutz, Überspannungsschutz und Inbetriebnahme müssen nach gültigen Regeln und Herstellerunterlagen erfolgen. Wirkungsgrad ist Nutzleistung geteilt durch zugeführte Leistung.",
+        "fa": "پنل خورشیدی جریان مستقیم تولید می‌کند و اینورتر آن را برای کاربرد مناسب به AC تبدیل می‌کند. طراحی، اتصال به شبکه، حفاظت، حفاظت اضافه‌ولتاژ و راه‌اندازی باید مطابق مقررات معتبر و دستورالعمل سازنده انجام شود. بازده برابر توان مفید تقسیم بر توان ورودی است."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": [
+              "Welche Stromart liefert ein PV-Modul typischerweise?",
+              "پنل خورشیدی معمولاً چه نوع جریانی تولید می‌کند؟",
+              [
+                "Gleichstrom",
+                "Drehstrom direkt",
+                "Nur Blindstrom"
+              ],
+              0,
+              "PV-Zellen liefern Gleichstrom; der Wechselrichter übernimmt die Umwandlung.",
+              "سلول خورشیدی DC تولید می‌کند و اینورتر تبدیل را انجام می‌دهد."
+            ],
+            "fa": [
+              "Wie wird der Wirkungsgrad definiert?",
+              "بازده چگونه تعریف می‌شود؟",
+              [
+                "Nutzleistung / zugeführte Leistung",
+                "Spannung × Frequenz",
+                "Widerstand / Strom"
+              ],
+              0,
+              "Der Wirkungsgrad ist das Verhältnis von Nutz- zu zugeführter Leistung.",
+              "بازده نسبت توان مفید به توان ورودی است."
+            ]
+          },
+          "why": {}
+        },
+        {
+          "q": {},
+          "why": {}
+        }
+      ]
+    }
+  ],
+  "examTasks": [
+    {
+      "title": {
+        "de": "Aufgabe 1 – Fachverständnis",
+        "fa": "تمرین ۱ ـ درک فنی"
+      },
+      "question": {
+        "de": "Erkläre die wichtigsten Planungs- und Sicherheitsaspekte zum Thema „Energiewandlungssysteme integrieren“.",
+        "fa": "مهم‌ترین نکات طراحی و ایمنی درباره «یکپارچه‌سازی سیستم‌های تبدیل انرژی» را توضیح بده."
+      },
+      "solution": {
+        "de": "Beschreibe zuerst Zweck und Randbedingungen, nenne relevante Komponenten und Herstellerangaben, berücksichtige Schutzmaßnahmen und geltende Regeln und dokumentiere die erforderlichen Prüfungen. Die konkrete Ausführung hängt von Anlage, Auftrag und aktuellen Vorgaben ab.",
+        "fa": "ابتدا هدف و شرایط را شرح بده، اجزای مرتبط و دستورالعمل سازنده را نام ببر، اقدامات حفاظتی و مقررات جاری را لحاظ کن و آزمون‌های لازم را مستند کن. اجرای دقیق به تأسیسات، سفارش و الزامات جاری بستگی دارد."
+      }
+    },
+    {
+      "title": {
+        "de": "Aufgabe 2 – Fehlersuche",
+        "fa": "تمرین ۲ ـ عیب‌یابی"
+      },
+      "question": {
+        "de": "Eine Funktion arbeitet nicht wie vorgesehen. Beschreibe einen sicheren, nachvollziehbaren Ablauf zur Fehlersuche.",
+        "fa": "یک عملکرد مطابق انتظار کار نمی‌کند. روند ایمن و قابل پیگیری عیب‌یابی را توضیح بده."
+      },
+      "solution": {
+        "de": "Fehlerbild und Sollfunktion erfassen, Unterlagen prüfen, Gefährdungen beurteilen, geeignete sichere Prüfschritte festlegen, Ergebnisse mit Sollwerten vergleichen, Ursache eingrenzen und Maßnahmen sowie Prüfergebnis dokumentieren. Arbeiten nur im Rahmen der Qualifikation durchführen.",
+        "fa": "نشانه خطا و عملکرد مورد انتظار را ثبت کن، مدارک را بررسی کن، خطرها را ارزیابی کن، مراحل ایمن آزمون را تعیین کن، نتایج را مقایسه و علت را محدود کن و اقدامات و نتیجه را مستند ساز. کار فقط در محدوده صلاحیت انجام شود."
+      }
+    },
+    {
+      "title": {
+        "de": "Aufgabe 3 – Dokumentation und Übergabe",
+        "fa": "تمرین ۳ ـ مستندسازی و تحویل"
+      },
+      "question": {
+        "de": "Welche Informationen gehören in eine nachvollziehbare Dokumentation nach Planung, Prüfung oder Änderung?",
+        "fa": "پس از طراحی، آزمون یا تغییر، چه اطلاعاتی باید در مستندات قابل پیگیری ثبت شود؟"
+      },
+      "solution": {
+        "de": "Auftrag und Umfang, verwendete Unterlagen, relevante Komponenten und Einstellungen, Prüfverfahren und Ergebnisse, festgestellte Abweichungen, durchgeführte Maßnahmen, offene Punkte und verständliche Kundenübergabe festhalten.",
+        "fa": "سفارش و دامنه کار، مدارک استفاده‌شده، اجزا و تنظیمات مهم، روش و نتایج آزمون، مغایرت‌ها، اقدامات انجام‌شده، موارد باز و تحویل روشن به مشتری را ثبت کن."
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "de": "Schutzmaßnahme",
+      "fa": "اقدام حفاظتی",
+      "definition": {
+        "de": "Maßnahme zur Verringerung elektrischer Gefährdungen.",
+        "fa": "اقدامی برای کاهش خطرهای الکتریکی."
+      }
+    },
+    {
+      "de": "Prüfprotokoll",
+      "fa": "گزارش آزمون",
+      "definition": {
+        "de": "Dokumentation von Prüfbedingungen und Ergebnissen.",
+        "fa": "ثبت شرایط و نتایج آزمون."
+      }
+    },
+    {
+      "de": "Inbetriebnahme",
+      "fa": "راه‌اندازی",
+      "definition": {
+        "de": "Kontrollierter Übergang in den vorgesehenen Betrieb.",
+        "fa": "ورود کنترل‌شده به وضعیت کاری موردنظر."
+      }
+    },
+    {
+      "de": "Herstellerangabe",
+      "fa": "دستورالعمل سازنده",
+      "definition": {
+        "de": "Technische Information des Herstellers.",
+        "fa": "اطلاعات فنی سازنده."
+      }
+    },
+    {
+      "de": "Fehleranalyse",
+      "fa": "تحلیل خطا",
+      "definition": {
+        "de": "Systematisches Ermitteln möglicher Ursachen.",
+        "fa": "یافتن سیستماتیک علت‌های احتمالی."
+      }
+    },
+    {
+      "de": "Wartung",
+      "fa": "نگهداری",
+      "definition": {
+        "de": "Geplante Maßnahmen zur Erhaltung der Funktion.",
+        "fa": "اقدامات برنامه‌ریزی‌شده برای حفظ عملکرد."
+      }
+    },
+    {
+      "de": "Dokumentation",
+      "fa": "مستندسازی",
+      "definition": {
+        "de": "Nachvollziehbare Aufzeichnung von Arbeiten und Ergebnissen.",
+        "fa": "ثبت قابل پیگیری کارها و نتایج."
+      }
+    },
+    {
+      "de": "Randbedingung",
+      "fa": "شرط محدودکننده",
+      "definition": {
+        "de": "Technische oder organisatorische Vorgabe für eine Lösung.",
+        "fa": "شرط فنی یا سازمانی مؤثر بر راه‌حل."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "Ausbildungsordnung Elektroniker/Elektronikerin (ElekAusbV)",
+      "url": "https://www.gesetze-im-internet.de/elekausbv_2021/"
+    },
+    {
+      "title": "DGUV – Elektrische Gefährdungen",
+      "url": "https://www.dguv.de/"
+    },
+    {
+      "title": "VDE – Normen und Sicherheit",
+      "url": "https://www.vde.com/"
+    }
+  ]
+}
