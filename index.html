@@ -139,6 +139,10 @@ input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-vis
 .lab-marker{font-size:11px;font-weight:800;display:inline-block;padding:2px 6px;border-radius:5px;margin:2px}.lab-marker.red{background:#fee2e2;color:#991b1b}.lab-marker.black{background:#dbeafe;color:#1d4ed8}
 @media(max-width:600px){.lab-terminals{gap:6px}.lab-terminal{min-height:105px;padding:8px 3px}.lab-rail{align-items:flex-start;flex-direction:column}.lab-probes{grid-template-columns:1fr}.lab-meter{padding:13px;border-width:5px}}
 
+
+/* Drag-and-drop visual lab: stylized tester, board, leads and movable probes */
+.lab-drag-intro{max-width:900px;margin:16px auto 8px}.lab-drag-stage{max-width:900px;margin:0 auto 18px;border:1px solid #cbd5e1;border-radius:16px;overflow:hidden;background:linear-gradient(145deg,#f8fafc,#e2e8f0);touch-action:pan-y}.lab-drag-stage svg{display:block;width:100%;height:auto;touch-action:pan-y}.lab-drag-tip{cursor:grab;touch-action:none;filter:drop-shadow(0 2px 2px #475569);stroke:#fff}.lab-drag-tip:active{cursor:grabbing}.lab-drag-tip:focus{outline:none;stroke:#38bdf8;stroke-width:7}.lab-svg-target{cursor:pointer}.lab-svg-target.active circle{stroke:#fbbf24;stroke-width:7}.lab-svg-target.connected circle{stroke:#fff;stroke-width:7}.lab-svg-target text{pointer-events:none}
+@media(max-width:600px){.lab-drag-stage{border-radius:10px}.lab-drag-intro b{font-size:14px}}
 </style>
 </head>
 <body>
@@ -722,6 +726,50 @@ input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-vis
   <h2>2. Verteilung und Messspitzen / تابلو و پراب‌ها</h2>
   <p>Wähle zuerst eine Messspitze, dann einen Messpunkt auf der Tafel. Wiederhole das für die zweite Spitze.</p>
   <p class="fa">ابتدا یک پراب را انتخاب کن، سپس نقطهٔ اندازه‌گیری روی تابلو را لمس کن. برای پراب دوم نیز همین کار را انجام بده.</p>
+  <div class="lab-drag-intro">
+   <b>Ziehe die Prüfspitzen mit dem Finger / انگشتت را روی پراب نگه دار و آن را بکش</b>
+   <p class="small muted">Die Spitzen lassen sich frei bewegen. Auf L, N oder PE loslassen, um sie anzuschließen. / نوک پراب را روی L یا N یا PE رها کن تا وصل شود.</p>
+  </div>
+  <div class="lab-drag-stage" id="labDragStage">
+   <svg id="labDragSvg" viewBox="0 0 900 430" role="img" aria-label="Interaktive Übungstafel mit LS, RCD, L/N/PE und Installationstester">
+    <defs>
+     <linearGradient id="labCase" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffcf4a"/><stop offset="1" stop-color="#e8a900"/></linearGradient>
+     <linearGradient id="labScreen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#243c30"/><stop offset="1" stop-color="#0b1711"/></linearGradient>
+     <filter id="labShadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="2" dy="5" stdDeviation="5" flood-opacity=".22"/></filter>
+    </defs>
+    <rect x="16" y="18" width="530" height="390" rx="18" fill="#e5ebf2" stroke="#8a9aab" stroke-width="3"/>
+    <text x="34" y="48" font-size="17" font-weight="800" fill="#334155">VERTEILUNG / تابلو برق</text>
+    <rect x="32" y="65" width="498" height="64" rx="8" fill="#fff" stroke="#bac6d3"/>
+    <text x="48" y="88" font-size="13" font-weight="700" fill="#334155">HAUPTSCHALTER Q0</text><rect x="45" y="97" width="45" height="22" rx="4" fill="#475569"/><rect x="53" y="100" width="27" height="16" rx="3" fill="#d1d5db"/>
+    <rect x="32" y="140" width="498" height="82" rx="8" fill="#fff" stroke="#bac6d3"/>
+    <text x="48" y="163" font-size="13" font-weight="700" fill="#334155">FI / RCD · 30 mA</text><rect x="48" y="173" width="64" height="36" rx="5" fill="#dce5ee" stroke="#718096"/><rect x="57" y="181" width="23" height="20" rx="3" fill="#fff" stroke="#718096"/><circle cx="96" cy="191" r="5" fill="#d33"/>
+    <rect x="125" y="140" width="405" height="82" rx="8" fill="#fff" stroke="#bac6d3"/>
+    <text x="143" y="163" font-size="13" font-weight="700" fill="#334155">LS / Leitungsschutz · B16</text>
+    <g fill="#e2e8f0" stroke="#718096" stroke-width="1.5"><rect x="145" y="174" width="56" height="36" rx="4"/><rect x="211" y="174" width="56" height="36" rx="4"/><rect x="277" y="174" width="56" height="36" rx="4"/></g>
+    <g fill="#475569"><rect x="165" y="179" width="15" height="24" rx="3"/><rect x="231" y="179" width="15" height="24" rx="3"/><rect x="297" y="179" width="15" height="24" rx="3"/></g>
+    <text x="34" y="252" font-size="14" font-weight="800" fill="#334155">MESSPUNKTE / نقاط اندازه‌گیری</text>
+    <g id="labTargetL" class="lab-svg-target" data-point="L"><circle cx="130" cy="300" r="25" fill="#c83e3e" stroke="#8e1d1d" stroke-width="4"/><text x="130" y="307" text-anchor="middle" font-size="21" font-weight="900" fill="#fff">L</text><text x="130" y="345" text-anchor="middle" font-size="13" fill="#334155">Phase / فاز</text></g>
+    <g id="labTargetN" class="lab-svg-target" data-point="N"><circle cx="280" cy="300" r="25" fill="#2c75c9" stroke="#174a86" stroke-width="4"/><text x="280" y="307" text-anchor="middle" font-size="21" font-weight="900" fill="#fff">N</text><text x="280" y="345" text-anchor="middle" font-size="13" fill="#334155">Neutral / نول</text></g>
+    <g id="labTargetPE" class="lab-svg-target" data-point="PE"><circle cx="430" cy="300" r="25" fill="#27945a" stroke="#17663b" stroke-width="4"/><text x="430" y="307" text-anchor="middle" font-size="18" font-weight="900" fill="#fff">PE</text><text x="430" y="345" text-anchor="middle" font-size="13" fill="#334155">Schutzleiter / ارت</text></g>
+    <text x="34" y="385" font-size="12" fill="#475569">Nur Simulation · keine echte Spannung / فقط شبیه‌سازی</text>
+    <g filter="url(#labShadow)">
+     <path d="M570 45 Q570 25 590 25 H837 Q860 25 860 48 V380 Q860 402 838 402 H592 Q570 402 570 380 Z" fill="url(#labCase)" stroke="#b88700" stroke-width="3"/>
+     <rect x="595" y="49" width="240" height="53" rx="8" fill="#fff0b5" stroke="#b88700"/><text x="715" y="71" text-anchor="middle" font-size="17" font-weight="900" fill="#3d3420">FLUKE</text><text x="715" y="89" text-anchor="middle" font-size="12" fill="#3d3420">INSTALLATION TESTER</text>
+     <rect x="610" y="116" width="210" height="100" rx="8" fill="url(#labScreen)" stroke="#4b5c50" stroke-width="4"/>
+     <text x="625" y="140" font-size="11" fill="#a8d7b5">SIMULATION / MODELL</text><text id="labSvgReadout" x="625" y="179" font-size="31" font-family="monospace" font-weight="900" fill="#c2ffd0">----</text><text x="625" y="200" font-size="12" fill="#a8d7b5">V / Ω / MΩ</text>
+     <g fill="#334155" stroke="#fff1b8" stroke-width="2"><circle cx="635" cy="252" r="15"/><circle cx="684" cy="252" r="15"/><circle cx="733" cy="252" r="15"/><circle cx="782" cy="252" r="15"/></g>
+     <g fill="#fff"><circle cx="635" cy="252" r="5"/><circle cx="684" cy="252" r="5"/><circle cx="733" cy="252" r="5"/><circle cx="782" cy="252" r="5"/></g>
+     <text x="715" y="292" text-anchor="middle" font-size="13" font-weight="800" fill="#3d3420">COM / L · PE · N</text>
+     <circle cx="675" cy="322" r="12" fill="#d52b2b" stroke="#8b1515" stroke-width="3"/><circle cx="675" cy="355" r="12" fill="#222" stroke="#eee" stroke-width="3"/>
+     <text x="700" y="326" font-size="12" font-weight="800" fill="#3d3420">ROT / قرمز</text><text x="700" y="359" font-size="12" font-weight="800" fill="#3d3420">SCHWARZ / مشکی</text>
+    </g>
+    <path id="labRedWire" d="M675 322 C600 322 500 320 130 300" fill="none" stroke="#d62929" stroke-width="7" stroke-linecap="round"/>
+    <path id="labBlackWire" d="M675 355 C610 380 520 360 280 300" fill="none" stroke="#242424" stroke-width="7" stroke-linecap="round"/>
+    <circle id="labRedTip" class="lab-drag-tip" data-probe="red" cx="650" cy="135" r="17" fill="#e43131" stroke="#fff" stroke-width="4" tabindex="0" role="button" aria-label="Rote Prüfspitze ziehen"/>
+    <circle id="labBlackTip" class="lab-drag-tip" data-probe="black" cx="650" cy="265" r="17" fill="#171717" stroke="#fff" stroke-width="4" tabindex="0" role="button" aria-label="Schwarze Prüfspitze ziehen"/>
+    <text x="650" y="415" text-anchor="middle" font-size="12" fill="#334155">Tippen & ziehen / لمس و جابه‌جا کن</text>
+   </svg>
+  </div>
   <div class="lab-board">
    <div class="lab-rail"><b>HAUPTSCHALTER</b><span>Q0</span><span class="lab-toggle" id="labMainState">EIN</span></div>
    <div class="lab-rail"><b>RCD / FI</b><span>F1 · 30 mA (Beispiel)</span><button id="labRcdToggle" class="secondary" type="button">RCD EIN/AUS</button><span id="labRcdState" class="lab-toggle">EIN</span></div>
@@ -1552,15 +1600,43 @@ loadFinalExamContent();
 /* Offline virtual installation-tester lab. All values are illustrative simulations. */
 (function initVirtualLab(){
  const $=id=>document.getElementById(id); if(!$('lab'))return;
- const state={active:'red',red:null,black:null,measurements:[],mcbOn:true,rcdOn:true,mainOn:true};
+ const state={active:'red',red:null,black:null,measurements:[],mcbOn:true,rcdOn:true,mainOn:true,tipRed:{x:650,y:135},tipBlack:{x:650,y:265}};
  const points={L:'L / Außenleiter / فاز',N:'N / Neutralleiter / نول',PE:'PE / Schutzleiter / ارت'};
  const modes={voltage:'Spannung L–N',lpe:'Spannung L–PE',npe:'Spannung N–PE',continuity:'PE-Durchgängigkeit',insulation:'Isolationswiderstand',loop:'Schleifenimpedanz Zs',rcd:'RCD-Prüfung',polarity:'Polarität'};
  function fault(){return $('labFault').value}
+ function renderDragStage(){
+  const targets={L:{x:130,y:300},N:{x:280,y:300},PE:{x:430,y:300}};
+  [['red',state.tipRed,state.red],['black',state.tipBlack,state.black]].forEach(([color,pos,point])=>{
+   const tip=$('lab'+(color==='red'?'Red':'Black')+'Tip'),wire=$('lab'+(color==='red'?'Red':'Black')+'Wire');
+   tip.setAttribute('cx',pos.x);tip.setAttribute('cy',pos.y);
+   const sx=675,sy=color==='red'?322:355;
+   const bendX=(sx+pos.x)/2;
+   wire.setAttribute('d',`M${sx} ${sy} C${bendX} ${sy+((pos.y-sy)*.15)} ${bendX} ${pos.y} ${pos.x} ${pos.y}`);
+   tip.setAttribute('aria-label',(color==='red'?'Rote':'Schwarze')+' Prüfspitze: '+(point?points[point]:'nicht angeschlossen'));
+  });
+  ['L','N','PE'].forEach(p=>{const t=$('labTarget'+p);if(t){t.classList.toggle('connected',state.red===p||state.black===p);t.classList.toggle('active',state.active==='red'||state.active==='black')}});
+  const display=$('labDisplay');if(display&&$('labSvgReadout'))$('labSvgReadout').textContent=(display.textContent||'----').slice(0,9);
+ }
  function updateProbes(){
   $('labRedPoint').textContent=state.red?points[state.red]:'Nicht angeschlossen / وصل نشده';
   $('labBlackPoint').textContent=state.black?points[state.black]:'Nicht angeschlossen / وصل نشده';
   ['L','N','PE'].forEach(p=>{const r=$('labRed'+p),b=$('labBlack'+p);r.innerHTML=state.red===p?'<span class="lab-marker red">ROT</span>':'';b.innerHTML=state.black===p?'<span class="lab-marker black">SCHWARZ</span>':'';const btn=document.querySelector('.lab-terminal[data-point="'+p+'"]');btn.classList.toggle('selected',(state.red===p||state.black===p));});
   $('labChooseRed').classList.toggle('active',state.active==='red');$('labChooseBlack').classList.toggle('active',state.active==='black');
+  renderDragStage();
+ }
+ function setupDragProbes(){
+  const svg=$('labDragSvg');if(!svg)return;
+  const targets=[{p:'L',x:130,y:300},{p:'N',x:280,y:300},{p:'PE',x:430,y:300}];
+  let dragging=null;
+  function coords(e){const r=svg.getBoundingClientRect();return{x:(e.clientX-r.left)*900/r.width,y:(e.clientY-r.top)*430/r.height}}
+  ['red','black'].forEach(color=>{
+   const tip=$(color==='red'?'labRedTip':'labBlackTip');
+   tip.addEventListener('pointerdown',e=>{dragging=color;state.active=color;tip.setPointerCapture(e.pointerId);e.preventDefault();});
+   tip.addEventListener('pointermove',e=>{if(dragging!==color)return;const p=coords(e);const pos=color==='red'?state.tipRed:state.tipBlack;pos.x=Math.max(20,Math.min(880,p.x));pos.y=Math.max(20,Math.min(410,p.y));if(color==='red')state.red=null;else state.black=null;updateProbes();});
+   tip.addEventListener('pointerup',e=>{if(dragging!==color)return;const p=coords(e);let closest=null,dist=Infinity;targets.forEach(t=>{const d=Math.hypot(p.x-t.x,p.y-t.y);if(d<dist){dist=d;closest=t}});if(closest&&dist<65){if(color==='red'){state.red=closest.p;state.tipRed={x:closest.x,y:closest.y}}else{state.black=closest.p;state.tipBlack={x:closest.x,y:closest.y}}}else{if(color==='red')state.red=null;else state.black=null}dragging=null;updateProbes();});
+   tip.addEventListener('pointercancel',()=>{dragging=null});
+  });
+  targets.forEach(t=>$('labTarget'+t.p).addEventListener('click',()=>{const color=state.active;if(color==='red'){state.red=t.p;state.tipRed={x:t.x,y:t.y}}else{state.black=t.p;state.tipBlack={x:t.x,y:t.y}}updateProbes()}));
  }
  function switchUI(){[['labMcbState',state.mcbOn],['labRcdState',state.rcdOn],['labMainState',state.mainOn]].forEach(([id,on])=>{const el=$(id);el.textContent=on?'EIN':'AUS';el.classList.toggle('off',!on)});}
  function record(title,value,unit,ok,de,fa){state.measurements.unshift({title,value,unit,ok,de,fa});renderLog();$('labDisplay').textContent=value;$('labUnit').textContent=unit;$('labResult').textContent=de;$('labResultFa').textContent=fa;$('labMeter').style.borderColor=ok===false?'#c0392b':ok===true?'#16834a':'#334155';}
@@ -1599,8 +1675,9 @@ loadFinalExamContent();
   }[fault()];
   $('labDiagnosis').innerHTML='';const h=document.createElement('h3');h.textContent='Befund / نتیجه';$('labDiagnosis').appendChild(h);const de=document.createElement('p');de.textContent=d[0];$('labDiagnosis').appendChild(de);const fa=document.createElement('p');fa.className='fa';fa.textContent=d[1];$('labDiagnosis').appendChild(fa);const note=document.createElement('p');note.className='small';note.textContent='Simulator-Hinweis: Diagnose bezieht sich auf das ausgewählte Übungsszenario, nicht auf eine echte Anlage.';$('labDiagnosis').appendChild(note);
  }
- function reset(){state.red=null;state.black=null;state.active='red';state.measurements=[];state.mcbOn=true;state.rcdOn=true;state.mainOn=true;$('labDiagnosis').textContent='Diagnose noch gesperrt: erst mindestens eine Messung durchführen. / عیب‌یابی هنوز قفل است؛ ابتدا حداقل یک اندازه‌گیری انجام بده.';$('labDisplay').textContent='Bereit / آماده';$('labUnit').textContent='Messfunktion auswählen';$('labResult').textContent='Messspitzen setzen und Messung starten.';$('labResultFa').textContent='پراب‌ها را وصل کن و اندازه‌گیری را شروع کن.';$('labMeter').style.borderColor='#334155';$('labMcbFeedback').textContent='';$('labRcdFeedback').textContent='';updateProbes();switchUI();renderLog()}
+ function reset(){state.red=null;state.black=null;state.active='red';state.tipRed={x:650,y:135};state.tipBlack={x:650,y:265};state.measurements=[];state.mcbOn=true;state.rcdOn=true;state.mainOn=true;$('labDiagnosis').textContent='Diagnose noch gesperrt: erst mindestens eine Messung durchführen. / عیب‌یابی هنوز قفل است؛ ابتدا حداقل یک اندازه‌گیری انجام بده.';$('labDisplay').textContent='Bereit / آماده';$('labUnit').textContent='Messfunktion auswählen';$('labResult').textContent='Messspitzen setzen und Messung starten.';$('labResultFa').textContent='پراب‌ها را وصل کن و اندازه‌گیری را شروع کن.';$('labMeter').style.borderColor='#334155';$('labMcbFeedback').textContent='';$('labRcdFeedback').textContent='';updateProbes();switchUI();renderLog()}
  $('labChooseRed').addEventListener('click',()=>{state.active='red';updateProbes()});$('labChooseBlack').addEventListener('click',()=>{state.active='black';updateProbes()});
+ setupDragProbes();
  document.querySelectorAll('.lab-terminal').forEach(b=>b.addEventListener('click',()=>{state[state.active]=b.dataset.point;updateProbes()}));
  $('labMeasure').addEventListener('click',measure);$('labDiagnose').addEventListener('click',diagnose);$('labClear').addEventListener('click',()=>{state.red=null;state.black=null;updateProbes()});$('labReset').addEventListener('click',reset);
  $('labMcbToggle').addEventListener('click',()=>{state.mcbOn=!state.mcbOn;switchUI()});$('labRcdToggle').addEventListener('click',()=>{state.rcdOn=!state.rcdOn;switchUI()});
