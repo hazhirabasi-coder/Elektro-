@@ -1,0 +1,316 @@
+{
+  "schemaVersion": 1,
+  "id": "LF03",
+  "title": {
+    "de": "Steuerungen und Regelungen analysieren",
+    "fa": "تحلیل سیستم‌های کنترل و تنظیم"
+  },
+  "level": "Grundlagen bis Prüfungsvorbereitung",
+  "languages": [
+    "de",
+    "fa"
+  ],
+  "disclaimer": {
+    "de": "Lernmaterial zur Prüfungsvorbereitung. Arbeiten an elektrischen Anlagen nur nach aktuellen Normen, Freischaltregeln und betrieblichen Vorgaben durchführen.",
+    "fa": "این محتوا برای آمادگی آزمون است. کار روی تأسیسات برقی فقط طبق استانداردهای جاری، قواعد قطع ایمن برق و دستورالعمل‌های محل کار انجام شود."
+  },
+  "objectives": [
+    {
+      "de": "Steuerung und Regelung unterscheiden.",
+      "fa": "تفاوت کنترل و تنظیم را تشخیص دهد."
+    },
+    {
+      "de": "Sensoren, Aktoren und Signalwege beschreiben.",
+      "fa": "حسگرها، عملگرها و مسیر سیگنال را توضیح دهد."
+    },
+    {
+      "de": "Einfache Schaltfunktionen und Fehler systematisch analysieren.",
+      "fa": "عملکردهای ساده مدار و خطاها را به‌صورت روشمند تحلیل کند."
+    }
+  ],
+  "lessons": [
+    {
+      "id": "LF03-01",
+      "title": {
+        "de": "Steuerung oder Regelung?",
+        "fa": "کنترل یا تنظیم؟"
+      },
+      "explanation": {
+        "de": "Bei einer Steuerung beeinflusst eine Eingangsgröße den Ablauf, ohne dass die Wirkung zwingend zurückgemeldet wird. Bei einer Regelung wird die tatsächliche Regelgröße gemessen und mit dem Sollwert verglichen; die Abweichung beeinflusst die Stellgröße.",
+        "fa": "در سیستم کنترل، ورودی روند را تعیین می‌کند و الزاماً بازخوردی از نتیجه وجود ندارد. در سیستم تنظیم، مقدار واقعی اندازه‌گیری و با مقدار مطلوب مقایسه می‌شود؛ اختلاف، فرمان اصلاحی را تعیین می‌کند."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Was ist typisch für einen geschlossenen Regelkreis?",
+            "fa": "ویژگی حلقه بسته تنظیم چیست؟"
+          },
+          "options": [
+            "Es gibt keine Rückmeldung",
+            "Istwert wird erfasst und mit Sollwert verglichen",
+            "Der Ausgang kann nie beeinflusst werden"
+          ],
+          "answer": 1,
+          "why": {
+            "de": "Die Rückführung des Istwerts ist ein wesentliches Merkmal der Regelung.",
+            "fa": "بازخورد مقدار واقعی یکی از ویژگی‌های اصلی سیستم تنظیم است."
+          }
+        },
+        {
+          "q": {
+            "de": "Ein Treppenlicht wird nach Tastendruck für eine feste Zeit eingeschaltet. Was ist das am ehesten?",
+            "fa": "چراغ راه‌پله پس از فشردن شستی برای زمان ثابت روشن می‌شود. این بیشتر چه نوع سیستمی است؟"
+          },
+          "options": [
+            "Eine zeitgesteuerte Steuerung",
+            "Eine Temperaturregelung",
+            "Eine Rückkopplungsregelung"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Der Ablauf folgt dem Tastendruck und einer vorgegebenen Zeit; eine Rückmeldung der Lichtwirkung ist nicht erforderlich.",
+            "fa": "عملکرد طبق شستی و زمان از پیش تعیین‌شده است و بازخورد از روشنایی لازم نیست."
+          }
+        }
+      ]
+    },
+    {
+      "id": "LF03-02",
+      "title": {
+        "de": "Sensoren und Aktoren",
+        "fa": "حسگرها و عملگرها"
+      },
+      "explanation": {
+        "de": "Sensoren erfassen physikalische Größen oder Zustände, etwa Temperatur, Licht, Bewegung oder Position. Aktoren setzen Steuersignale in eine Wirkung um, etwa durch Schalten eines Relais, Bewegen eines Ventils oder Ansteuern eines Motors. Versorgung, Signalart und zulässige elektrische Werte müssen zum Gerät passen.",
+        "fa": "حسگرها کمیت‌ها یا وضعیت‌های فیزیکی مانند دما، نور، حرکت یا موقعیت را تشخیص می‌دهند. عملگرها سیگنال کنترلی را به اثر تبدیل می‌کنند؛ مثلاً رله را وصل می‌کنند، شیر را حرکت می‌دهند یا موتور را راه‌اندازی می‌کنند. تغذیه، نوع سیگنال و مقادیر الکتریکی باید با دستگاه سازگار باشند."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Welches Bauteil ist typischerweise ein Sensor?",
+            "fa": "کدام قطعه معمولاً حسگر است؟"
+          },
+          "options": [
+            "Temperaturfühler",
+            "Schützspule",
+            "Leuchte"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Ein Temperaturfühler erfasst eine Temperatur und liefert ein entsprechendes Signal.",
+            "fa": "حسگر دما، دما را اندازه می‌گیرد و سیگنال متناسب تولید می‌کند."
+          }
+        },
+        {
+          "q": {
+            "de": "Welche Aufgabe hat ein Aktor?",
+            "fa": "وظیفه عملگر چیست؟"
+          },
+          "options": [
+            "Nur Messwerte archivieren",
+            "Ein Signal in eine physische Wirkung umsetzen",
+            "Immer die Netzspannung messen"
+          ],
+          "answer": 1,
+          "why": {
+            "de": "Aktoren bewirken zum Beispiel Bewegung, Schalten oder Öffnen und Schließen.",
+            "fa": "عملگرها برای نمونه حرکت، کلیدزنی یا باز و بسته شدن ایجاد می‌کنند."
+          }
+        }
+      ]
+    },
+    {
+      "id": "LF03-03",
+      "title": {
+        "de": "Schaltlogik und Funktionsanalyse",
+        "fa": "منطق مدار و تحلیل عملکرد"
+      },
+      "explanation": {
+        "de": "Logische Verknüpfungen helfen, Bedingungen für einen Ausgang zu beschreiben. Bei einer UND-Funktion müssen alle Bedingungen erfüllt sein; bei ODER genügt mindestens eine. Öffner- und Schließerkontakte sind anhand des definierten Ruhezustands und des konkreten Schaltplans zu beurteilen.",
+        "fa": "ترکیب‌های منطقی برای بیان شرط‌های خروجی استفاده می‌شوند. در تابع AND همه شرط‌ها باید برقرار باشند؛ در OR برقرار بودن حداقل یک شرط کافی است. کنتاکت باز و بسته باید بر اساس وضعیت تعریف‌شده در حالت عادی و نقشه واقعی بررسی شوند."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Wann ist eine UND-Funktion bei zwei Eingängen aktiv?",
+            "fa": "تابع AND با دو ورودی چه زمانی فعال است؟"
+          },
+          "options": [
+            "Wenn beide Eingänge aktiv sind",
+            "Wenn mindestens einer aktiv ist",
+            "Nur wenn beide inaktiv sind"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Bei UND müssen alle Eingangsvoraussetzungen erfüllt sein.",
+            "fa": "در AND تمام شرط‌های ورودی باید برقرار باشند."
+          }
+        },
+        {
+          "q": {
+            "de": "Wann ist eine ODER-Funktion bei zwei Eingängen aktiv?",
+            "fa": "تابع OR با دو ورودی چه زمانی فعال است؟"
+          },
+          "options": [
+            "Nur wenn beide aktiv sind",
+            "Wenn mindestens einer aktiv ist",
+            "Nur bei identischen Eingangszuständen"
+          ],
+          "answer": 1,
+          "why": {
+            "de": "Bei ODER genügt mindestens ein aktiver Eingang.",
+            "fa": "در OR فعال بودن حداقل یک ورودی کافی است."
+          }
+        }
+      ]
+    },
+    {
+      "id": "LF03-04",
+      "title": {
+        "de": "Fehlersuche in Steuerungen",
+        "fa": "عیب‌یابی در مدارهای کنترلی"
+      },
+      "explanation": {
+        "de": "Eine systematische Fehlersuche beginnt mit einer sicheren Arbeitsumgebung, einer klaren Fehlerbeschreibung und dem Vergleich von Soll- und Ist-Funktion. Danach werden Unterlagen geprüft und mögliche Ursachen schrittweise eingegrenzt. Messungen an elektrischen Anlagen dürfen nur durch entsprechend qualifizierte Personen und mit geeignetem Verfahren erfolgen.",
+        "fa": "عیب‌یابی روشمند با ایمن‌سازی محیط کار، توصیف روشن خطا و مقایسه عملکرد مورد انتظار و واقعی آغاز می‌شود. سپس مدارک بررسی و علت‌های احتمالی مرحله‌به‌مرحله محدود می‌شوند. اندازه‌گیری روی تأسیسات برقی فقط باید توسط افراد واجد صلاحیت و با روش مناسب انجام شود."
+      },
+      "safety": {
+        "de": "Nicht durch Überbrücken von Schutzfunktionen oder unkontrolliertes Arbeiten unter Spannung nach Fehlern suchen.",
+        "fa": "برای یافتن خطا، حفاظت‌ها را پل نزن و بدون کنترل و مجوز زیر ولتاژ کار نکن."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Was ist ein sinnvoller erster Schritt bei einer Fehlersuche?",
+            "fa": "اولین گام مناسب در عیب‌یابی چیست؟"
+          },
+          "options": [
+            "Bauteile wahllos austauschen",
+            "Fehlerbild erfassen und Anlage sicher beurteilen",
+            "Schutzgeräte überbrücken"
+          ],
+          "answer": 1,
+          "why": {
+            "de": "Eine strukturierte Analyse spart Zeit und vermeidet zusätzliche Gefahren.",
+            "fa": "تحلیل منظم زمان را کاهش می‌دهد و از خطرهای اضافی جلوگیری می‌کند."
+          }
+        },
+        {
+          "q": {
+            "de": "Warum ist das Überbrücken einer Schutzfunktion keine zulässige Standardlösung?",
+            "fa": "چرا پل زدن روی حفاظت راه‌حل استاندارد مجاز نیست؟"
+          },
+          "options": [
+            "Es kann die Schutzwirkung außer Kraft setzen",
+            "Es verbessert immer die Sicherheit",
+            "Es ersetzt die Dokumentation"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Schutzfunktionen dienen der Sicherheit und dürfen nicht leichtfertig außer Kraft gesetzt werden.",
+            "fa": "حفاظت‌ها برای ایمنی هستند و نباید بی‌دلیل از مدار خارج شوند."
+          }
+        }
+      ]
+    }
+  ],
+  "examTasks": [
+    {
+      "id": "LF03-E1",
+      "level": "Basis",
+      "prompt": {
+        "de": "Erkläre den Unterschied zwischen Steuerung und Regelung anhand eines Beispiels aus dem Gebäude.",
+        "fa": "تفاوت کنترل و تنظیم را با یک مثال از ساختمان توضیح بده."
+      },
+      "solution": "Steuerung: Treppenlicht schaltet nach Tastendruck für eine feste Zeit. Regelung: Raumtemperatur wird gemessen, mit dem Sollwert verglichen und die Heizleistung entsprechend angepasst."
+    },
+    {
+      "id": "LF03-E2",
+      "level": "Prüfung",
+      "prompt": {
+        "de": "Ein Lüfter läuft trotz niedriger Raumtemperatur weiter. Nenne drei mögliche Prüfpunkte für eine fachgerechte Fehlersuche.",
+        "fa": "فن با وجود پایین بودن دمای اتاق همچنان کار می‌کند. سه مورد برای عیب‌یابی اصولی نام ببر."
+      },
+      "solution": "Zum Beispiel: Sollwert und Betriebsart prüfen; Sensorwert und Sensoranschluss anhand der Dokumentation prüfen; Ausgangssignal/Relais bzw. Aktor und Schaltplan prüfen. Sichere Arbeitsbedingungen und Qualifikation beachten."
+    },
+    {
+      "id": "LF03-E3",
+      "level": "Prüfung",
+      "prompt": {
+        "de": "Eine Anlage soll nur starten, wenn Freigabe und Türkontakt aktiv sind. Welche logische Verknüpfung beschreibt diese Bedingung?",
+        "fa": "یک دستگاه فقط وقتی باید راه‌اندازی شود که اجازه کار و کنتاکت در هر دو فعال باشند. کدام تابع منطقی مناسب است؟"
+      },
+      "solution": "UND-Funktion: Beide Bedingungen müssen erfüllt sein, damit der Start freigegeben wird."
+    }
+  ],
+  "glossary": [
+    {
+      "de": "die Steuerung",
+      "fa": "سیستم کنترل"
+    },
+    {
+      "de": "die Regelung",
+      "fa": "سیستم تنظیم"
+    },
+    {
+      "de": "der Sollwert",
+      "fa": "مقدار مطلوب"
+    },
+    {
+      "de": "der Istwert",
+      "fa": "مقدار واقعی"
+    },
+    {
+      "de": "die Rückführung",
+      "fa": "بازخورد"
+    },
+    {
+      "de": "der Sensor",
+      "fa": "حسگر"
+    },
+    {
+      "de": "der Aktor",
+      "fa": "عملگر"
+    },
+    {
+      "de": "der Schließer",
+      "fa": "کنتاکت باز در حالت عادی"
+    },
+    {
+      "de": "der Öffner",
+      "fa": "کنتاکت بسته در حالت عادی"
+    },
+    {
+      "de": "die Fehlersuche",
+      "fa": "عیب‌یابی"
+    }
+  ],
+  "completionChecklist": [
+    {
+      "de": "Ich kann Steuerung und Regelung unterscheiden.",
+      "fa": "می‌توانم کنترل و تنظیم را تشخیص دهم."
+    },
+    {
+      "de": "Ich kann Sensor und Aktor erklären.",
+      "fa": "می‌توانم حسگر و عملگر را توضیح دهم."
+    },
+    {
+      "de": "Ich kann UND und ODER unterscheiden.",
+      "fa": "می‌توانم AND و OR را تشخیص دهم."
+    },
+    {
+      "de": "Ich kann eine Fehlersuche sicher strukturieren.",
+      "fa": "می‌توانم عیب‌یابی را به‌صورت ایمن و منظم انجام دهم."
+    }
+  ],
+  "sources": [
+    {
+      "title": "ElektroAusbildungsverordnung",
+      "url": "https://www.gesetze-im-internet.de/elekausbv_2021/"
+    },
+    {
+      "title": "KMK – Rahmenlehrpläne für die Berufsschule",
+      "url": "https://www.kmk.org/themen/berufliche-schulen/duale-berufsausbildung/rahmenlehrplaene-fuer-die-berufsschule.html"
+    }
+  ]
+}
