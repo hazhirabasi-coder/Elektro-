@@ -855,10 +855,14 @@ const mockExamBank = [
 
 ].map(x=>({topic:x[0],q:x[1],p:x[2],a:x[3],c:x[4],e:x[5],fa:x[6]}));
 let mockExam=null,mockExamTimer=null;
+const mockExamWeights={teil1:30,kundenauftrag:36,systementwurf:12,funktionsanalyse:12,wiso:10};
+const mockExamAreaNames={teil1:"Teil 1 · Anlagen und Betriebsmittel",kundenauftrag:"Kundenauftrag",systementwurf:"Systementwurf",funktionsanalyse:"Funktions- und Systemanalyse",wiso:"WiSo"};
+function mockExamArea(q){const t=q.topic.toLowerCase();if(t==="wiso")return "wiso";if(["kundenauftrag","dokumentation","netzwerk","pv","steuerung","schütz","motor"].includes(t))return "kundenauftrag";if(["fehlersuche","messung","messgerät","rcd","ls","prüfung"].includes(t))return "funktionsanalyse";if(["grundlagen","leistung","schaltungen","leitung","drehstrom","energie"].includes(t))return "systementwurf";return "teil1"}
+function pickMockExamQuestions(count){const targets=count===10?{teil1:3,kundenauftrag:3,systementwurf:1,funktionsanalyse:1,wiso:2}:count===15?{teil1:4,kundenauftrag:5,systementwurf:2,funktionsanalyse:2,wiso:2}:{teil1:6,kundenauftrag:7,systementwurf:3,funktionsanalyse:2,wiso:2};const buckets={};Object.keys(mockExamWeights).forEach(k=>buckets[k]=mockExamBank.filter(q=>mockExamArea(q)===k).sort(()=>Math.random()-.5));const picked=[];for(const area of Object.keys(targets)){picked.push(...buckets[area].slice(0,targets[area]))}if(picked.length<count){const rest=mockExamBank.filter(q=>!picked.includes(q)).sort(()=>Math.random()-.5);picked.push(...rest.slice(0,count-picked.length))}return picked.sort(()=>Math.random()-.5).slice(0,count)}
 function startMockExam(){
  if(mockExamTimer)clearInterval(mockExamTimer);
  const count=Number(document.getElementById("mockExamCount").value)||15;
- mockExam={questions:mockExamBank.slice().sort(()=>Math.random()-.5).slice(0,count),answers:{},seconds:count*120,finished:false};
+ mockExam={questions:pickMockExamQuestions(count),answers:{},seconds:count*120,finished:false};
  document.getElementById("mockExamResult").innerHTML="";document.getElementById("mockExamHistory").innerHTML="";
  renderMockExamQuestion();updateMockExamClock();
  mockExamTimer=setInterval(()=>{if(!mockExam||mockExam.finished){clearInterval(mockExamTimer);return;}mockExam.seconds--;updateMockExamClock();if(mockExam.seconds<=0)finishMockExam(true)},1000);
@@ -876,11 +880,12 @@ function renderMockExamQuestion(){
 }
 function finishMockExam(timeUp){
  if(!mockExam||mockExam.finished)return;mockExam.finished=true;if(mockExamTimer)clearInterval(mockExamTimer);
- const qs=mockExam.questions,correct=qs.filter((q,i)=>mockExam.answers[i]===q.c).length,total=qs.length,pct=Math.round(correct/total*100),topics={};
- qs.forEach((q,i)=>{topics[q.topic]??={ok:0,n:0};topics[q.topic].n++;if(mockExam.answers[i]===q.c)topics[q.topic].ok++});
- const hist=(()=>{try{return JSON.parse(localStorage.getItem("elektroMockExamHistory")||"[]")}catch(e){return []}})();hist.unshift({date:new Date().toISOString(),correct,total,pct});localStorage.setItem("elektroMockExamHistory",JSON.stringify(hist.slice(0,10)));
- document.getElementById("mockExamStatus").innerHTML="<p class='"+(pct>=80?"success":"error")+"'>"+(timeUp?"Zeit abgelaufen · زمان تمام شد":"Abgeschlossen · پایان")+" — "+correct+"/"+total+" ("+pct+" %)</p>";
- const out=document.getElementById("mockExamResult");out.innerHTML="<h3>Ergebnis und Themenanalyse / نتیجه و تحلیل موضوعی</h3><table><thead><tr><th>Thema</th><th>Richtig</th><th>Quote</th></tr></thead><tbody>"+Object.entries(topics).map(([t,v])=>"<tr><td>"+t+"</td><td>"+v.ok+"/"+v.n+"</td><td>"+Math.round(v.ok/v.n*100)+" %</td></tr>").join("")+"</tbody></table><h3>Fehleranalyse / بررسی اشتباه‌ها</h3>";
+ const qs=mockExam.questions,correct=qs.filter((q,i)=>mockExam.answers[i]===q.c).length,total=qs.length,pct=Math.round(correct/total*100),topics={},areas={};
+ qs.forEach((q,i)=>{topics[q.topic]??={ok:0,n:0};topics[q.topic].n++;if(mockExam.answers[i]===q.c)topics[q.topic].ok++;const area=mockExamArea(q);areas[area]??={ok:0,n:0,weight:mockExamWeights[area]};areas[area].n++;if(mockExam.answers[i]===q.c)areas[area].ok++});
+ const representedWeight=Object.values(areas).reduce((n,v)=>n+v.weight,0),weightedPct=Math.round(Object.values(areas).reduce((n,v)=>n+(v.ok/v.n)*v.weight,0)/(representedWeight||100));
+ const hist=(()=>{try{return JSON.parse(localStorage.getItem("elektroMockExamHistory")||"[]")}catch(e){return []}})();hist.unshift({date:new Date().toISOString(),correct,total,pct,weightedPct});localStorage.setItem("elektroMockExamHistory",JSON.stringify(hist.slice(0,10)));
+ document.getElementById("mockExamStatus").innerHTML="<p class='"+(pct>=80?"success":"error")+"'>"+(timeUp?"Zeit abgelaufen · زمان تمام شد":"Abgeschlossen · پایان")+" — "+correct+"/"+total+" ("+pct+" %)</p><p><b>Gewichteter Trainingsindex / امتیاز تمرینی وزنی: "+weightedPct+" %</b></p><p class='muted small'>Orientierung an den Gewichten der Ausbildungsordnung; kein offizieller Prüfungspunktestand. Nur vertretene Bereiche fließen in diesen Trainingsindex ein. / این فقط شاخص تمرینی است، نه نمره رسمی؛ فقط حوزه‌های حاضر در این آزمون محاسبه می‌شوند.</p>";
+ const out=document.getElementById("mockExamResult");out.innerHTML="<h3>Ergebnis und Themenanalyse / نتیجه و تحلیل موضوعی</h3><table><thead><tr><th>Prüfungsbereich</th><th>Richtig</th><th>Quote</th><th>Gewicht</th></tr></thead><tbody>"+Object.entries(areas).map(([key,v])=>"<tr><td>"+mockExamAreaNames[key]+"</td><td>"+v.ok+"/"+v.n+"</td><td>"+Math.round(v.ok/v.n*100)+" %</td><td>"+v.weight+" %</td></tr>").join("")+"</tbody></table><p class='muted small'>Gewichtung laut Ausbildungsordnung: Teil 1 30 %, Kundenauftrag 36 %, Systementwurf 12 %, Funktions- und Systemanalyse 12 %, WiSo 10 %.</p><h3>Fehleranalyse / بررسی اشتباه‌ها</h3>";
  const mistakes=qs.map((q,i)=>({q,ans:mockExam.answers[i]})).filter(x=>x.ans!==x.q.c);
  if(!mistakes.length)out.innerHTML+="<p class='success'>Alle Antworten richtig! / همه پاسخ‌ها درست‌اند!</p>";
  mistakes.forEach(({q,ans})=>{const d=document.createElement("div");d.className="lf-module";const h=document.createElement("strong");h.textContent=q.topic+": "+q.q;const p=document.createElement("p");p.className="error";p.textContent="Deine Antwort: "+(ans===undefined?"Keine Antwort":ans===-1?"Übersprungen":q.a[ans]);const a=document.createElement("p");a.className="success";a.textContent="Richtig: "+q.a[q.c];const e=document.createElement("p");e.textContent=q.e+" / "+q.fa;d.append(h,p,a,e);out.appendChild(d)});
