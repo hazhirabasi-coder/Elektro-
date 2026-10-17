@@ -42,36 +42,35 @@
       "checks": [
         {
           "q": {
-            "de": [
-              "Was ist vor der technischen Planung zuerst zu klären?",
-              "پیش از طراحی فنی چه چیزی باید روشن شود؟",
-              [
-                "Auftrag, Nutzung und Randbedingungen",
-                "Nur die Farbe der Schalter",
-                "Nur der Lieferant"
-              ],
-              0,
-              "Eine belastbare Planung beginnt mit geklärten Anforderungen.",
-              "طراحی قابل اتکا با نیازهای روشن شروع می‌شود."
-            ],
-            "fa": [
-              "Wie sollen unklare Anforderungen behandelt werden?",
-              "نیازهای نامشخص چگونه باید رسیدگی شوند؟",
-              [
-                "Vor der Ausführung klären und dokumentieren",
-                "Einfach raten",
-                "Ignorieren"
-              ],
-              0,
-              "Unklarheiten können zu Fehlplanung und Nacharbeit führen.",
-              "ابهام می‌تواند باعث طراحی اشتباه و دوباره‌کاری شود."
-            ]
+            "de": "Was ist vor der technischen Planung zuerst zu klären?",
+            "fa": "پیش از طراحی فنی چه چیزی باید روشن شود؟"
           },
-          "why": {}
+          "options": [
+            "Auftrag, Nutzung und Randbedingungen",
+            "Nur die Farbe der Schalter",
+            "Nur der Lieferant"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Eine belastbare Planung beginnt mit geklärten Anforderungen.",
+            "fa": "طراحی قابل اتکا با نیازهای روشن شروع می‌شود."
+          }
         },
         {
-          "q": {},
-          "why": {}
+          "q": {
+            "de": "Wie sollen unklare Anforderungen behandelt werden?",
+            "fa": "نیازهای نامشخص چگونه باید رسیدگی شوند؟"
+          },
+          "options": [
+            "Vor der Ausführung klären und dokumentieren",
+            "Einfach raten",
+            "Ignorieren"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Unklarheiten können zu Fehlplanung und Nacharbeit führen.",
+            "fa": "ابهام می‌تواند باعث طراحی اشتباه و دوباره‌کاری شود."
+          }
         }
       ]
     },
@@ -88,36 +87,35 @@
       "checks": [
         {
           "q": {
-            "de": [
-              "Worauf beruht eine fachgerechte Komponentenauswahl?",
-              "انتخاب حرفه‌ای تجهیزات بر چه اساسی است؟",
-              [
-                "Technische Daten, Eignung und Anlagenbedingungen",
-                "Nur auf dem niedrigsten Preis",
-                "Nur auf der Gehäusefarbe"
-              ],
-              0,
-              "Die Komponente muss zur Anwendung und den Randbedingungen passen.",
-              "تجهیز باید با کاربرد و شرایط نصب متناسب باشد."
-            ],
-            "fa": [
-              "Reicht eine Faustregel allein zur Leitungsdimensionierung?",
-              "آیا قاعده سرانگشتی به‌تنهایی برای تعیین مقطع کابل کافی است؟",
-              [
-                "Nein, relevante Bedingungen und Regeln müssen geprüft werden",
-                "Ja, immer",
-                "Nur bei langen Leitungen"
-              ],
-              0,
-              "Mehrere elektrische und thermische Bedingungen beeinflussen die Dimensionierung.",
-              "چندین شرط الکتریکی و حرارتی بر تعیین مقطع اثر دارند."
-            ]
+            "de": "Worauf beruht eine fachgerechte Komponentenauswahl?",
+            "fa": "انتخاب حرفه‌ای تجهیزات بر چه اساسی است؟"
           },
-          "why": {}
+          "options": [
+            "Technische Daten, Eignung und Anlagenbedingungen",
+            "Nur auf dem niedrigsten Preis",
+            "Nur auf der Gehäusefarbe"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Die Komponente muss zur Anwendung und den Randbedingungen passen.",
+            "fa": "تجهیز باید با کاربرد و شرایط نصب متناسب باشد."
+          }
         },
         {
-          "q": {},
-          "why": {}
+          "q": {
+            "de": "Reicht eine Faustregel allein zur Leitungsdimensionierung?",
+            "fa": "آیا قاعده سرانگشتی به‌تنهایی برای تعیین مقطع کابل کافی است؟"
+          },
+          "options": [
+            "Nein, relevante Bedingungen und Regeln müssen geprüft werden",
+            "Ja, immer",
+            "Nur bei langen Leitungen"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Mehrere elektrische und thermische Bedingungen beeinflussen die Dimensionierung.",
+            "fa": "چندین شرط الکتریکی و حرارتی بر تعیین مقطع اثر دارند."
+          }
         }
       ]
     },
@@ -134,36 +132,35 @@
       "checks": [
         {
           "q": {
-            "de": [
-              "Warum wird ein Prüfplan bereits bei der Planung erstellt?",
-              "چرا برنامه آزمون از مرحله طراحی تهیه می‌شود؟",
-              [
-                "Damit notwendige Prüfungen, Mittel und Zuständigkeiten vorbereitet sind",
-                "Damit keine Messungen nötig sind",
-                "Nur um den Auftrag zu verlängern"
-              ],
-              0,
-              "Frühe Planung verhindert, dass notwendige Prüfungen vergessen werden.",
-              "برنامه‌ریزی زودهنگام مانع فراموش‌شدن آزمون‌های لازم می‌شود."
-            ],
-            "fa": [
-              "Wie sind abweichende Prüfergebnisse zu behandeln?",
-              "با نتیجه آزمون نامنطبق چه باید کرد؟",
-              [
-                "Bewerten, Ursache klären, Maßnahmen durchführen und dokumentieren",
-                "Einfach löschen",
-                "Trotz Sicherheitsmangel immer übergeben"
-              ],
-              0,
-              "Abweichungen müssen fachgerecht behandelt und dokumentiert werden.",
-              "مغایرت‌ها باید اصولی رسیدگی و مستند شوند."
-            ]
+            "de": "Warum wird ein Prüfplan bereits bei der Planung erstellt?",
+            "fa": "چرا برنامه آزمون از مرحله طراحی تهیه می‌شود؟"
           },
-          "why": {}
+          "options": [
+            "Damit notwendige Prüfungen, Mittel und Zuständigkeiten vorbereitet sind",
+            "Damit keine Messungen nötig sind",
+            "Nur um den Auftrag zu verlängern"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Frühe Planung verhindert, dass notwendige Prüfungen vergessen werden.",
+            "fa": "برنامه‌ریزی زودهنگام مانع فراموش‌شدن آزمون‌های لازم می‌شود."
+          }
         },
         {
-          "q": {},
-          "why": {}
+          "q": {
+            "de": "Wie sind abweichende Prüfergebnisse zu behandeln?",
+            "fa": "با نتیجه آزمون نامنطبق چه باید کرد؟"
+          },
+          "options": [
+            "Bewerten, Ursache klären, Maßnahmen durchführen und dokumentieren",
+            "Einfach löschen",
+            "Trotz Sicherheitsmangel immer übergeben"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Abweichungen müssen fachgerecht behandelt und dokumentiert werden.",
+            "fa": "مغایرت‌ها باید اصولی رسیدگی و مستند شوند."
+          }
         }
       ]
     }
