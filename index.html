@@ -589,9 +589,12 @@ function openLesson(i){
  <div class="notice"><b>Lernmethode:</b> Lies das Thema, erkläre es mit eigenen Worten, rechne passende Aufgaben und begründe deine Entscheidungen.
  <p class="fa">روش یادگیری: موضوع را بخوان، با زبان خودت توضیح بده، مسئله حل کن و دلیل انتخاب‌هایت را بیان کن.</p></div>
  <button onclick="markLesson(${i})">${completed.includes(i)?"Als nicht gelernt markieren":"Als gelernt markieren"}</button>`;
- if(i===0){
+ if(i===0||i===1){
   const existing=document.getElementById("structuredCurrent");if(existing)existing.remove();
-  const section=document.createElement("section");section.id="structuredCurrent";d.appendChild(section);renderStructuredLF01(section);
+  const section=document.createElement("section");section.id="structuredCurrent";d.appendChild(section);
+  structuredCurrent=structuredContentByIndex[i]||null;
+  if(structuredCurrent)renderStructuredLF01(section);
+  else {const msg=document.createElement("p");msg.className="notice";msg.textContent="Lerninhalte konnten nicht geladen werden. Bitte die Anwendung über GitHub Pages oder einen Webserver öffnen. / محتوای درس بارگذاری نشد؛ برنامه را از طریق GitHub Pages یا وب‌سرور باز کن.";section.appendChild(msg);}
  }
  d.scrollIntoView({behavior:"smooth",block:"start"});
 }
