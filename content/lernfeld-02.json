@@ -1,0 +1,330 @@
+{
+  "schemaVersion": 1,
+  "id": "LF02",
+  "title": {
+    "de": "Elektrische Systeme planen und installieren",
+    "fa": "طراحی و نصب سیستم‌های الکتریکی"
+  },
+  "level": "Grundlagen bis Prüfungsvorbereitung",
+  "languages": [
+    "de",
+    "fa"
+  ],
+  "disclaimer": {
+    "de": "Lernmaterial zur Prüfungsvorbereitung. Reale Arbeiten nur nach aktuellen Normen, Gefährdungsbeurteilung und betrieblichen Vorgaben durchführen.",
+    "fa": "این محتوا برای آمادگی آزمون است. کار واقعی فقط طبق استانداردهای جاری، ارزیابی خطر و دستورالعمل‌های محل کار انجام شود."
+  },
+  "objectives": [
+    {
+      "de": "Einfache Stromkreise planen und Schutzmaßnahmen begründen.",
+      "fa": "مدارهای ساده را طراحی و اقدامات حفاظتی را توضیح دهد."
+    },
+    {
+      "de": "Leitungs-, Schalt- und Installationspläne lesen.",
+      "fa": "نقشه‌های سیم‌کشی، مدار و نصب را بخواند."
+    },
+    {
+      "de": "Arbeitsabläufe, Material und Prüfungen dokumentieren.",
+      "fa": "مراحل کار، مصالح و آزمون‌ها را مستند کند."
+    }
+  ],
+  "lessons": [
+    {
+      "id": "LF02-01",
+      "title": {
+        "de": "Auftrag analysieren und planen",
+        "fa": "تحلیل سفارش کار و برنامه‌ریزی"
+      },
+      "explanation": {
+        "de": "Vor Beginn werden Kundenanforderungen, Nutzungsbedingungen, Umgebungsbedingungen und vorhandene Anlagen erfasst. Daraus entstehen Arbeitsablauf, Materialliste, Zeitplanung und Prüfschritte.",
+        "fa": "پیش از شروع، خواسته‌های مشتری، شرایط استفاده و محیط و تأسیسات موجود بررسی می‌شوند. سپس ترتیب کار، فهرست مصالح، زمان‌بندی و مراحل آزمون تعیین می‌شوند."
+      },
+      "steps": [
+        {
+          "de": "Anforderungen und Randbedingungen aufnehmen.",
+          "fa": "نیازها و محدودیت‌ها را ثبت کن."
+        },
+        {
+          "de": "Plan und Materialbedarf prüfen.",
+          "fa": "نقشه و نیاز مصالح را بررسی کن."
+        },
+        {
+          "de": "Risiken, Abschaltungen und Prüfungen festlegen.",
+          "fa": "خطرها، قطع برق و آزمون‌ها را مشخص کن."
+        }
+      ],
+      "checks": [
+        {
+          "q": {
+            "de": "Was sollte vor der Installation zuerst erfolgen?",
+            "fa": "پیش از نصب، اولین کار چیست؟"
+          },
+          "options": [
+            "Sofort Leitungen verlegen",
+            "Auftrag, Bedingungen und Risiken analysieren",
+            "Erst nach Fertigstellung planen"
+          ],
+          "answer": 1,
+          "why": {
+            "de": "Eine fachgerechte Planung reduziert Risiken und vermeidet Fehler.",
+            "fa": "برنامه‌ریزی اصولی خطرها و خطاها را کاهش می‌دهد."
+          }
+        },
+        {
+          "q": {
+            "de": "Wozu dient eine Materialliste?",
+            "fa": "فهرست مصالح چه کاربردی دارد؟"
+          },
+          "options": [
+            "Sie dokumentiert benötigte Bauteile und Mengen",
+            "Sie ersetzt die Prüfung",
+            "Sie beweist automatisch die Sicherheit"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Die Materialliste unterstützt Vorbereitung, Bestellung und Vollständigkeitskontrolle.",
+            "fa": "فهرست مصالح به آماده‌سازی، سفارش و کنترل کامل بودن کمک می‌کند."
+          }
+        }
+      ]
+    },
+    {
+      "id": "LF02-02",
+      "title": {
+        "de": "Schalt- und Installationspläne lesen",
+        "fa": "خواندن نقشه مدار و نصب"
+      },
+      "explanation": {
+        "de": "Schaltpläne zeigen elektrische Funktionen und Verbindungen; Installationspläne zeigen unter anderem Einbauorte und Leitungswege. Symbole und Kennzeichnungen müssen anhand der Legende und der geltenden Dokumentation gelesen werden.",
+        "fa": "نقشه مدار عملکردها و اتصال‌های الکتریکی را نشان می‌دهد؛ نقشه نصب محل تجهیزات و مسیر سیم‌ها را مشخص می‌کند. علائم باید با استفاده از راهنما و مستندات معتبر خوانده شوند."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Was zeigt ein Installationsplan typischerweise?",
+            "fa": "نقشه نصب معمولاً چه چیزی را نشان می‌دهد؟"
+          },
+          "options": [
+            "Nur die Rechnung",
+            "Einbauorte und Leitungswege",
+            "Nur die Seriennummer des Werkzeugs"
+          ],
+          "answer": 1,
+          "why": {
+            "de": "Installationspläne unterstützen die räumliche Umsetzung der Anlage.",
+            "fa": "نقشه نصب برای اجرای مکانی تأسیسات استفاده می‌شود."
+          }
+        },
+        {
+          "q": {
+            "de": "Was ist bei unbekannten Symbolen sinnvoll?",
+            "fa": "هنگام دیدن نماد ناشناخته چه باید کرد؟"
+          },
+          "options": [
+            "Symbol erraten",
+            "Legende und gültige Unterlagen prüfen",
+            "Symbol ignorieren"
+          ],
+          "answer": 1,
+          "why": {
+            "de": "Die Legende und technische Unterlagen verhindern Fehlinterpretationen.",
+            "fa": "راهنما و مدارک فنی از برداشت اشتباه جلوگیری می‌کنند."
+          }
+        }
+      ]
+    },
+    {
+      "id": "LF02-03",
+      "title": {
+        "de": "Leitungen und Betriebsmittel auswählen",
+        "fa": "انتخاب کابل و تجهیزات"
+      },
+      "explanation": {
+        "de": "Die Auswahl hängt unter anderem von Belastung, Verlegeart, Leitungslänge, Umgebung, mechanischer Beanspruchung und Schutzkonzept ab. Querschnitt und Schutzorgane dürfen nicht allein nach Faustregeln gewählt werden; maßgeblich sind die geltenden Normen und die konkrete Planung.",
+        "fa": "انتخاب به جریان بار، روش نصب، طول کابل، شرایط محیط، تنش مکانیکی و طرح حفاظتی بستگی دارد. سطح مقطع و تجهیزات حفاظتی را نباید فقط با قواعد سرانگشتی انتخاب کرد؛ استانداردهای جاری و طراحی واقعی ملاک‌اند."
+      },
+      "safety": {
+        "de": "Sicherheitsregel: Leiterquerschnitt, Überstromschutz und Abschaltbedingungen müssen zusammenpassen und fachgerecht nachgewiesen werden.",
+        "fa": "نکته ایمنی: سطح مقطع هادی، حفاظت اضافه‌جریان و شرایط قطع باید با هم سازگار باشند و به‌صورت تخصصی بررسی شوند."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Welche Aussage zur Leitungswahl stimmt?",
+            "fa": "کدام جمله درباره انتخاب کابل درست است؟"
+          },
+          "options": [
+            "Nur die Farbe entscheidet",
+            "Mehrere Randbedingungen und Normen sind zu beachten",
+            "Die Länge ist immer egal"
+          ],
+          "answer": 1,
+          "why": {
+            "de": "Belastung, Verlegeart, Länge und Umgebung beeinflussen die Auswahl.",
+            "fa": "بار، روش نصب، طول و محیط بر انتخاب اثر دارند."
+          }
+        },
+        {
+          "q": {
+            "de": "Darf der Leiterquerschnitt allein nach Gefühl gewählt werden?",
+            "fa": "آیا می‌توان سطح مقطع را فقط بر اساس حدس انتخاب کرد؟"
+          },
+          "options": [
+            "Ja",
+            "Nein, er muss fachgerecht berechnet und geprüft werden",
+            "Nur bei Drehstrom"
+          ],
+          "answer": 1,
+          "why": {
+            "de": "Die Auswahl muss die geltenden Anforderungen und Randbedingungen erfüllen.",
+            "fa": "انتخاب باید با الزامات جاری و شرایط واقعی مطابقت داشته باشد."
+          }
+        }
+      ]
+    },
+    {
+      "id": "LF02-04",
+      "title": {
+        "de": "Prüfen, messen und dokumentieren",
+        "fa": "آزمون، اندازه‌گیری و مستندسازی"
+      },
+      "explanation": {
+        "de": "Nach der Errichtung sind die vorgeschriebenen Prüfungen und Messungen durch qualifizierte Personen nach dem gültigen Prüfverfahren durchzuführen. Ergebnisse, Abweichungen und Änderungen werden nachvollziehbar dokumentiert.",
+        "fa": "پس از اجرا، آزمون‌ها و اندازه‌گیری‌های لازم باید توسط افراد واجد صلاحیت و طبق روش معتبر انجام شوند. نتایج، مغایرت‌ها و تغییرات باید قابل پیگیری ثبت شوند."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Warum werden Prüfergebnisse dokumentiert?",
+            "fa": "چرا نتایج آزمون ثبت می‌شوند؟"
+          },
+          "options": [
+            "Damit Sicherheit und Nachvollziehbarkeit belegt werden",
+            "Nur aus optischen Gründen",
+            "Damit keine Messung nötig ist"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Dokumentation schafft Nachvollziehbarkeit und belegt durchgeführte Prüfungen.",
+            "fa": "مستندسازی امکان پیگیری و اثبات انجام آزمون‌ها را فراهم می‌کند."
+          }
+        },
+        {
+          "q": {
+            "de": "Wer darf vorgeschriebene elektrische Prüfungen durchführen?",
+            "fa": "چه کسی مجاز به انجام آزمون‌های الزامی برق است؟"
+          },
+          "options": [
+            "Beliebige Person ohne Einweisung",
+            "Qualifizierte Personen nach den geltenden Anforderungen",
+            "Nur der Kunde"
+          ],
+          "answer": 1,
+          "why": {
+            "de": "Elektrische Prüfungen erfordern die passende Qualifikation und sichere Verfahren.",
+            "fa": "آزمون‌های برق به صلاحیت مناسب و روش ایمن نیاز دارند."
+          }
+        }
+      ]
+    }
+  ],
+  "examTasks": [
+    {
+      "id": "LF02-E1",
+      "level": "Basis",
+      "prompt": {
+        "de": "Nenne vier Punkte, die vor Beginn eines Installationsauftrags geklärt werden sollten.",
+        "fa": "چهار مورد را نام ببر که پیش از شروع سفارش نصب باید روشن شوند."
+      },
+      "solution": "Zum Beispiel: Kundenanforderungen, vorhandene Anlage/Pläne, Umgebungsbedingungen und Risiken, Materialbedarf, Arbeitsablauf, Abschalt- und Prüfplanung."
+    },
+    {
+      "id": "LF02-E2",
+      "level": "Prüfung",
+      "prompt": {
+        "de": "Bei einer Planung sind Leitungslänge, Verlegeart und Belastung bekannt. Warum reichen diese Angaben allein nicht immer für die endgültige Leitungsauswahl?",
+        "fa": "در برنامه‌ریزی طول کابل، روش نصب و بار مشخص‌اند. چرا این اطلاعات همیشه برای انتخاب نهایی کابل کافی نیستند؟"
+      },
+      "solution": "Zusätzlich sind u. a. Umgebungstemperatur, Häufung, mechanischer Schutz, Spannungsfall, Kurzschluss-/Abschaltbedingungen und geltende Normen zu berücksichtigen."
+    },
+    {
+      "id": "LF02-E3",
+      "level": "Prüfung",
+      "prompt": {
+        "de": "Welche Informationen gehören in eine nachvollziehbare Abschlussdokumentation?",
+        "fa": "چه اطلاعاتی در مستندات نهایی قابل پیگیری لازم است؟"
+      },
+      "solution": "Ausgeführte Arbeiten, verwendete Betriebsmittel, relevante Mess- und Prüfergebnisse, Abweichungen, Änderungen, Datum und verantwortliche Person."
+    }
+  ],
+  "glossary": [
+    {
+      "de": "der Installationsplan",
+      "fa": "نقشه نصب"
+    },
+    {
+      "de": "der Schaltplan",
+      "fa": "نقشه مدار"
+    },
+    {
+      "de": "die Leitung",
+      "fa": "کابل / هادی"
+    },
+    {
+      "de": "der Leiterquerschnitt",
+      "fa": "سطح مقطع هادی"
+    },
+    {
+      "de": "die Verlegeart",
+      "fa": "روش نصب کابل"
+    },
+    {
+      "de": "die Materialliste",
+      "fa": "فهرست مصالح"
+    },
+    {
+      "de": "die Prüfung",
+      "fa": "آزمون"
+    },
+    {
+      "de": "das Messprotokoll",
+      "fa": "گزارش اندازه‌گیری"
+    },
+    {
+      "de": "die Abschaltbedingung",
+      "fa": "شرط قطع حفاظتی"
+    },
+    {
+      "de": "die Dokumentation",
+      "fa": "مستندسازی"
+    }
+  ],
+  "completionChecklist": [
+    {
+      "de": "Ich kann einen Auftrag strukturiert analysieren.",
+      "fa": "می‌توانم سفارش کار را منظم تحلیل کنم."
+    },
+    {
+      "de": "Ich kann Schalt- und Installationspläne unterscheiden.",
+      "fa": "می‌توانم نقشه مدار و نصب را تشخیص دهم."
+    },
+    {
+      "de": "Ich kann wichtige Auswahlkriterien für Leitungen nennen.",
+      "fa": "می‌توانم معیارهای مهم انتخاب کابل را نام ببرم."
+    },
+    {
+      "de": "Ich kann erklären, warum Prüfungen dokumentiert werden.",
+      "fa": "می‌توانم توضیح دهم چرا آزمون‌ها ثبت می‌شوند."
+    }
+  ],
+  "sources": [
+    {
+      "title": "ElektroAusbildungsverordnung",
+      "url": "https://www.gesetze-im-internet.de/elekausbv_2021/"
+    },
+    {
+      "title": "KMK – Rahmenlehrpläne für die Berufsschule",
+      "url": "https://www.kmk.org/themen/berufliche-schulen/duale-berufsausbildung/rahmenlehrplaene-fuer-die-berufsschule.html"
+    }
+  ]
+}
