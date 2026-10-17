@@ -75,6 +75,16 @@ th{background:#edf4fc}
  .bilingual{grid-template-columns:1fr}
  nav button{flex:1 1 40%}
 }
+
+.resource-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:12px;margin-top:14px}
+.resource-card{border:1px solid var(--border);border-radius:12px;background:var(--white);padding:14px;min-width:0}
+.resource-card h3{margin:4px 0 8px;font-size:1.05rem}
+.resource-card p{margin:6px 0}
+.resource-card .resource-meta{font-size:.82rem;color:var(--muted)}
+.resource-card a{font-weight:700;display:inline-block;margin:6px 0}
+.resource-card label{display:flex;gap:8px;align-items:flex-start;margin-top:8px}
+.resource-card input[type=checkbox]{margin-top:5px}
+
 </style>
 </head>
 <body>
@@ -104,6 +114,7 @@ th{background:#edf4fc}
   <button data-page="language">Deutsch trainieren</button>
   <button data-page="studyplan">Tagesplan</button>
   <button data-page="b2">Deutsch B2</button>
+  <button data-page="sogeht">Lernpfade + Üben</button>
  </nav>
 
  <section id="home" class="page">
@@ -473,6 +484,63 @@ th{background:#edf4fc}
   </div>
  </section>
 
+
+ <section id="sogeht" class="page hidden">
+  <div class="panel">
+   <h2>🧭 Lernpfade, Quellen und Rechenwerkstatt</h2>
+   <p>Inspiriert von den öffentlich zugänglichen Lernpfaden von #SOGEHT: erst verstehen, dann mit vollständigem Rechenweg üben und schließlich selbstständig anwenden. Die Links öffnen die Originalseiten in einem neuen Tab.</p>
+   <p class="fa">الگو گرفته از مسیرهای آموزشی عمومی SOGEHT: اول مفهوم را بفهم، بعد با راه‌حل کامل تمرین کن و در پایان مستقل حل کن. لینک‌ها صفحهٔ اصلی سایت را در تب جدید باز می‌کنند.</p>
+   <div class="notice"><b>روش پیشنهادی:</b> ۱) یک مبحث کوتاه یاد بگیر؛ ۲) مثال حل‌شده را بررسی کن؛ ۳) بدون نگاه‌کردن حل کن؛ ۴) اشتباه را ثبت کن؛ ۵) فردا دوباره مرور کن. تیک‌ها روی همین دستگاه ذخیره می‌شوند.</div>
+   <div class="toolbar">
+    <input id="sogehtSearch" type="search" placeholder="جست‌وجو: Ohm, RCD, Mathematik, Teil 2 ..." oninput="renderSogehtResources()">
+    <select id="sogehtCategory" onchange="renderSogehtResources()">
+     <option value="all">همهٔ مسیرها</option>
+     <option value="Grundlagen">مبانی برق</option>
+     <option value="Mathematik">ریاضی فنی</option>
+     <option value="Prüfung">آمادگی آزمون</option>
+     <option value="Praxis">کار عملی و منابع</option>
+    </select>
+   </div>
+   <div id="sogehtProgress" class="notice"></div>
+   <div id="sogehtResources" class="resource-grid"></div>
+  </div>
+  <div class="panel">
+   <h2>🧮 Rechenwerkstatt / کارگاه محاسبات</h2>
+   <p>حل مسئله را کامل تمرین کن: داده‌ها، فرمول، جایگذاری، نتیجه و واحد. پاسخ عددی را وارد کن؛ ویرگول آلمانی یا نقطه پذیرفته می‌شود.</p>
+   <div class="language-stats">
+    <div class="language-stat"><b id="calcIndex">1/10</b><span>تمرین</span></div>
+    <div class="language-stat"><b id="calcSolved">0</b><span>تمرین حل‌شده</span></div>
+    <div class="language-stat"><b>Rechenweg</b><span>حل مرحله‌به‌مرحله</span></div>
+   </div>
+   <div class="tile">
+    <span class="tag" id="calcTopic">Ohmsches Gesetz</span>
+    <h3 id="calcQuestion"></h3>
+    <p id="calcGiven"></p>
+    <p class="fa" id="calcPersian"></p>
+    <label for="calcAnswer">Dein Ergebnis / پاسخ تو</label>
+    <div class="toolbar">
+     <input id="calcAnswer" type="text" inputmode="decimal" placeholder="مثلاً 3 oder 3,0">
+     <span id="calcUnit"></span>
+    </div>
+    <div class="toolbar">
+     <button onclick="checkCalcAnswer()">پاسخ را بررسی کن</button>
+     <button class="secondary" onclick="showCalcHint()">راهنمایی</button>
+     <button class="secondary" onclick="showCalcSolution()">نمایش راه‌حل کامل</button>
+     <button class="secondary" onclick="nextCalc()">تمرین بعدی ←</button>
+    </div>
+    <div id="calcFeedback" aria-live="polite"></div>
+    <div id="calcHint" class="notice hidden"></div>
+    <div id="calcSolution" class="notice hidden"></div>
+   </div>
+   <p class="muted">توجه: تمرین‌های محاسباتی برای یادگیری‌اند؛ انتخاب کابل، حفاظت و ارزیابی ایمنی در عمل به شرایط نصب، استانداردهای معتبر و بررسی فرد متخصص نیاز دارد.</p>
+  </div>
+  <div class="panel">
+   <h2>🔗 Originalquellen / منابع اصلی</h2>
+   <p>این اپ محتوای سایت را کپی نمی‌کند؛ از مسیرهای عمومی آن برای جهت‌دهی استفاده می‌کند. دسترسی به Campus یا Studio و بعضی مواد آموزشی ممکن است ثبت‌نام یا خرید جداگانه بخواهد.</p>
+   <p><a href="https://sogehtlernen.de/" target="_blank" rel="noopener">#SOGEHT – سایت اصلی</a> · <a href="https://sogehtlernen.de/lernvideos.php" target="_blank" rel="noopener">فهرست ویدئوها</a> · <a href="https://campus.sogehtlernen.de/" target="_blank" rel="noopener">Campus</a> · <a href="https://sogehtstudio.de/" target="_blank" rel="noopener">Studio</a></p>
+  </div>
+ </section>
+
 </main>
 
 <footer>
@@ -635,6 +703,7 @@ function showPage(id){
  if(id==="quiz"&&!quizSet.length)startQuiz();
  if(id==="plan")renderPlan();
  if(id==="language")startLanguageTraining(false);
+ if(id==="sogeht"){renderSogehtResources();renderCalc();}
  window.scrollTo({top:0,behavior:"smooth"});
 }
 document.querySelectorAll("#nav button").forEach(b=>b.addEventListener("click",()=>showPage(b.dataset.page)));
@@ -1055,6 +1124,77 @@ function saveB2Writing(){
  const value=document.getElementById("b2Writing").value.trim();if(!value){document.getElementById("b2WritingStatus").textContent="Bitte zuerst einen Text schreiben.";return}
  localStorage.setItem("elektroB2WritingV1",value);document.getElementById("b2WritingStatus").textContent="Text auf diesem Gerät gespeichert. Prüfe Satzbau, Verbposition, Konnektoren und technische Begründung.";
 }
+
+
+const sogehtResources = [
+ {id:"fundamentals",title:"Elektrotechnik verstehen",category:"Grundlagen",desc:"Elektrische Ladung und Spannung, Strom, Widerstand und Leitwert, Ohmsches Gesetz, Reihen- und Parallelschaltung, Magnetfeld.",url:"https://sogehtlernen.de/lernpfad.php?id=path-electrical-engineering-understand",source:"Lernpfad"},
+ {id:"math",title:"Mathematik für technische Berufe",category:"Mathematik",desc:"Grundrechenarten, Brüche, Potenzen und Wurzeln, Prozentrechnung, Dreisatz, Gleichungen, Formeln umstellen und Einheiten.",url:"https://sogehtlernen.de/lernpfad.php?id=path-mathematics-learn",source:"Lernpfad"},
+ {id:"ap1",title:"Abschlussprüfung Teil 1",category:"Prüfung",desc:"Grundlagen, RCD, Leistung, Betriebsstrom, Leiterwiderstand, Spannungsfall und Bemessung von Leitungen.",url:"https://sogehtlernen.de/lernpfad.php?id=path-final-exam-part-1",source:"Lernpfad"},
+ {id:"ap2",title:"Abschlussprüfung Teil 2",category:"Prüfung",desc:"Vertiefte Leistungsberechnungen, Betriebsstrom, RCD, Leiterwiderstand, Leitungsbemessung und Spannungsfall.",url:"https://sogehtlernen.de/lernpfad.php?id=path-final-exam-part-2",source:"Lernpfad"},
+ {id:"rcd",title:"RCD, RCCB, RCBO und PRCD",category:"Grundlagen",desc:"Schutzprinzip und Unterschiede der Fehlerstrom-Schutzeinrichtungen verstehen. Ergänze die Theorie durch Herstellerunterlagen und gültige Normen.",url:"https://sogehtlernen.de/themen/rcd/",source:"Themenlektion"},
+ {id:"power",title:"Elektrische Leistung und Betriebsstrom",category:"Prüfung",desc:"Wirkleistung und Betriebsstrom in Gleichstrom-, Einphasen- und symmetrischen Drehstromkreisen berechnen.",url:"https://sogehtlernen.de/themen/leistung-betriebsstrom/",source:"Themenlektion"},
+ {id:"videos",title:"Lernvideos nach Themen",category:"Praxis",desc:"Nutze Videos als Einstieg in ein Thema. Danach die Formel aus dem Gedächtnis erklären und eine Aufgabe ohne Video lösen.",url:"https://sogehtlernen.de/lernvideos.php",source:"Videoübersicht"},
+ {id:"campus",title:"Campus: Aufgaben und Lösungswege",category:"Praxis",desc:"Die Plattform beschreibt gestufte Hinweise, vollständige Lösungswege, Aufgabenpools und Lernfortschritt. Kostenlosen Schnupperbereich prüfen.",url:"https://campus.sogehtlernen.de/",source:"Externe Plattform"},
+ {id:"studio",title:"Studio: Grundriss, Stromlaufplan und Aufbau",category:"Praxis",desc:"Für die praktische Vorstellung: Installationsplanung, Stromlaufpläne, Verdrahtung, ausgewählte Simulation und Dokumentation.",url:"https://sogehtstudio.de/",source:"Externe Plattform"},
+ {id:"materials",title:"Lernmaterialien und Prüfungshefte",category:"Prüfung",desc:"Übersichten, Hefte, eBooks und kompakte Spicker können als Ergänzung dienen. Verfügbarkeit und Preis direkt beim Anbieter prüfen.",url:"https://sogehtlernen.de/lernmaterialien/",source:"Materialübersicht"},
+ {id:"units",title:"Einheiten und Größenordnungen",category:"Mathematik",desc:"Vor jeder Rechnung Größenzeichen, Zahlenwert und Einheit notieren. Ergebnis mit einer Einheitenprobe prüfen.",url:"https://sogehtlernen.de/lernpfad.php?id=path-mathematics-learn",source:"Themenbereich"},
+ {id:"cable",title:"Leitungsbemessung und Spannungsfall",category:"Prüfung",desc:"Verknüpfe Betriebsstrom, Schutzorgan, Verlegebedingungen, Strombelastbarkeit und zulässigen Spannungsfall. Eine Formel allein reicht nicht zur sicheren Auswahl.",url:"https://sogehtlernen.de/lernpfad.php?id=path-final-exam-part-2",source:"Lernpfad"}
+];
+const sogehtDoneKey="elektroSogehtChecklistV1";
+function readSogehtDone(){try{return JSON.parse(localStorage.getItem(sogehtDoneKey)||"[]")}catch(e){return []}}
+function toggleSogehtDone(id,checked){let a=readSogehtDone();a=checked?[...new Set([...a,id])]:a.filter(x=>x!==id);localStorage.setItem(sogehtDoneKey,JSON.stringify(a));renderSogehtResources()}
+function renderSogehtResources(){
+ const box=document.getElementById("sogehtResources");if(!box)return;
+ const q=(document.getElementById("sogehtSearch")?.value||"").trim().toLowerCase();
+ const cat=document.getElementById("sogehtCategory")?.value||"all";const done=readSogehtDone();
+ const list=sogehtResources.filter(x=>(cat==="all"||x.category===cat)&&(!q||(x.title+" "+x.desc+" "+x.category).toLowerCase().includes(q)));
+ document.getElementById("sogehtProgress").textContent="Fortschritt: "+done.length+" von "+sogehtResources.length+" Lernbereichen bearbeitet. / پیشرفت: "+done.length+" از "+sogehtResources.length+" بخش علامت‌گذاری شده.";
+ box.innerHTML=list.map(x=>'<article class="resource-card"><div class="resource-meta">'+x.category+' · '+x.source+'</div><h3>'+x.title+'</h3><p>'+x.desc+'</p><a href="'+x.url+'" target="_blank" rel="noopener">Original öffnen ↗</a><label><input type="checkbox" '+(done.includes(x.id)?"checked":"")+' onchange="toggleSogehtDone(\''+x.id+'\',this.checked)"> <span>این بخش را مرور کردم / Bearbeitet</span></label></article>').join("")||'<p>Keine passenden Lernbereiche gefunden.</p>';
+}
+const calcDeck=[
+ {topic:"Ohmsches Gesetz",q:"Berechne die Stromstärke.",given:"Gegeben: U = 24 V, R = 8 Ω. Gesucht: I in A.",fa:"جریان را از روی ولتاژ و مقاومت حساب کن.",unit:"A",expected:3,hint:"Stelle U = R · I nach I um.",solution:"1) Gesucht: I. 2) Formel: I = U / R. 3) Einsetzen: I = 24 V / 8 Ω. 4) Ergebnis: I = 3 A."},
+ {topic:"Elektrische Leistung",q:"Berechne die Leistung bei Gleichstrom.",given:"Gegeben: U = 230 V, I = 2 A. Gesucht: P in W.",fa:"توان را در مدار جریان مستقیم حساب کن.",unit:"W",expected:460,hint:"Für Gleichstrom gilt P = U · I.",solution:"1) Formel: P = U · I. 2) Einsetzen: 230 V · 2 A. 3) Ergebnis: P = 460 W."},
+ {topic:"Wirkleistung",q:"Berechne die Wirkleistung im einphasigen Wechselstromkreis.",given:"Gegeben: U = 230 V, I = 5 A, cos φ = 0,8. Gesucht: P in W.",fa:"توان اکتیو را با ضریب توان حساب کن.",unit:"W",expected:920,hint:"Verwende P = U · I · cos φ.",solution:"1) Formel: P = U · I · cos φ. 2) Einsetzen: 230 · 5 · 0,8. 3) Ergebnis: P = 920 W. Gilt für die hier angenommene sinusförmige Versorgung und den angegebenen Wirkfaktor."},
+ {topic:"Drehstrom",q:"Berechne näherungsweise den Betriebsstrom eines symmetrischen Drehstromverbrauchers.",given:"Gegeben: P = 4.000 W, U = 400 V, cos φ = 0,8. Gesucht: I in A.",fa:"جریان مصرف‌کنندهٔ سه‌فاز متعادل را حساب کن.",unit:"A",expected:7.2168783649,hint:"Für diesen Fall: I = P / (√3 · U · cos φ).",solution:"1) Formel: I = P / (√3 · U · cos φ). 2) Einsetzen: 4.000 / (1,732 · 400 · 0,8). 3) Ergebnis: I ≈ 7,22 A. Wirkungsgrad ist hier nicht separat berücksichtigt."},
+ {topic:"Leiterwiderstand",q:"Berechne den Widerstand eines Kupferleiters mit der vereinfachten Formel.",given:"Gegeben: ρ = 0,0178 Ω·mm²/m, l = 20 m, A = 1,5 mm². Gesucht: R in Ω.",fa:"مقاومت یک رشته هادی مسی را با فرمول ساده‌شده حساب کن.",unit:"Ω",expected:0.2373333333,hint:"Verwende R = ρ · l / A. Hier ist die Länge eines einzelnen Leiters gemeint.",solution:"1) Formel: R = ρ · l / A. 2) Einsetzen: 0,0178 · 20 / 1,5. 3) Ergebnis: R ≈ 0,237 Ω. Temperatur und Betriebsbedingungen sind in dieser vereinfachten Aufgabe nicht berücksichtigt."},
+ {topic:"Reihenschaltung",q:"Berechne den Gesamtwiderstand.",given:"Gegeben: R₁ = 100 Ω, R₂ = 220 Ω. Gesucht: Rges in Ω.",fa:"مقاومت کل در مدار سری را حساب کن.",unit:"Ω",expected:320,hint:"Bei einer Reihenschaltung addieren sich die Widerstände.",solution:"1) Formel: Rges = R₁ + R₂. 2) Einsetzen: 100 Ω + 220 Ω. 3) Ergebnis: Rges = 320 Ω."},
+ {topic:"Parallelschaltung",q:"Berechne den Gesamtwiderstand zweier paralleler Widerstände.",given:"Gegeben: R₁ = 6 Ω, R₂ = 3 Ω. Gesucht: Rges in Ω.",fa:"مقاومت کل دو مقاومت موازی را حساب کن.",unit:"Ω",expected:2,hint:"Für zwei Widerstände: Rges = (R₁ · R₂) / (R₁ + R₂).",solution:"1) Formel: Rges = (R₁ · R₂) / (R₁ + R₂). 2) Einsetzen: (6 · 3) / (6 + 3) = 18 / 9. 3) Ergebnis: Rges = 2 Ω."},
+ {topic:"Spannungsfall",q:"Berechne den vereinfachten Spannungsfall einer einphasigen Kupferleitung im Hin- und Rückleiter.",given:"Gegeben: ρ = 0,0178 Ω·mm²/m, l = 25 m einfache Länge, I = 10 A, A = 2,5 mm². Gesucht: ΔU in V.",fa:"افت ولتاژ تقریبی رفت‌وبرگشت مدار تک‌فاز را حساب کن.",unit:"V",expected:3.56,hint:"Vereinfachte Formel: ΔU = 2 · l · I · ρ / A.",solution:"1) Formel: ΔU = 2 · l · I · ρ / A. 2) Einsetzen: 2 · 25 · 10 · 0,0178 / 2,5. 3) Ergebnis: ΔU = 3,56 V. Für reale Anlagen müssen unter anderem Leitungssystem, Temperatur, Leistungsfaktor und geltende Grenzwerte geprüft werden."},
+ {topic:"Energie",q:"Berechne die verbrauchte elektrische Energie.",given:"Gegeben: P = 2 kW, t = 3,5 h. Gesucht: W in kWh.",fa:"انرژی مصرف‌شده را از توان و زمان حساب کن.",unit:"kWh",expected:7,hint:"Bei konstanter Leistung gilt W = P · t.",solution:"1) Formel: W = P · t. 2) Einsetzen: 2 kW · 3,5 h. 3) Ergebnis: W = 7 kWh."},
+ {topic:"Prozentrechnung",q:"Wie viel Prozent sind 3,56 V bezogen auf 230 V?",given:"Gegeben: ΔU = 3,56 V, U = 230 V. Gesucht: Prozentwert.",fa:"افت ولتاژ را به درصد ولتاژ نامی تبدیل کن.",unit:"%",expected:3.56/230*100,hint:"Prozent = (Teilwert / Grundwert) · 100.",solution:"1) Formel: ΔU% = (ΔU / U) · 100. 2) Einsetzen: (3,56 / 230) · 100. 3) Ergebnis: ungefähr 1,55 %."},
+ {topic:"Formel und Einheiten",q:"Berechne den Widerstand mit U und I.",given:"Gegeben: U = 12 V, I = 0,5 A. Gesucht: R in Ω.",fa:"مقاومت را از ولتاژ و جریان به دست بیاور.",unit:"Ω",expected:24,hint:"Stelle U = R · I nach R um: R = U / I.",solution:"1) Formel: R = U / I. 2) Einsetzen: 12 V / 0,5 A. 3) Ergebnis: R = 24 Ω."}
+];
+let calcPosition=0;
+const calcDoneKey="elektroCalcDoneV1";
+function readCalcDone(){try{return JSON.parse(localStorage.getItem(calcDoneKey)||"[]")}catch(e){return []}}
+function renderCalc(){
+ const q=calcDeck[calcPosition];if(!q)return;
+ document.getElementById("calcIndex").textContent=(calcPosition+1)+"/"+calcDeck.length;
+ document.getElementById("calcSolved").textContent=readCalcDone().length;
+ document.getElementById("calcTopic").textContent=q.topic;
+ document.getElementById("calcQuestion").textContent=q.q;
+ document.getElementById("calcGiven").textContent=q.given;
+ document.getElementById("calcPersian").textContent=q.fa;
+ document.getElementById("calcUnit").textContent=q.unit;
+ document.getElementById("calcAnswer").value="";
+ document.getElementById("calcFeedback").textContent="";
+ document.getElementById("calcHint").classList.add("hidden");
+ document.getElementById("calcSolution").classList.add("hidden");
+ document.getElementById("calcHint").textContent=q.hint;
+ document.getElementById("calcSolution").textContent=q.solution;
+}
+function checkCalcAnswer(){
+ const raw=document.getElementById("calcAnswer").value.trim().replace(/\s/g,"").replace(",",".");
+ const value=Number(raw);const q=calcDeck[calcPosition];const feedback=document.getElementById("calcFeedback");
+ if(!raw||!Number.isFinite(value)){feedback.textContent="Bitte eine gültige Zahl eingeben. / لطفاً یک عدد معتبر وارد کن.";return}
+ const ok=Math.abs(value-q.expected)<=Math.max(0.03,Math.abs(q.expected)*0.015);
+ if(ok){let a=readCalcDone();if(!a.includes(calcPosition)){a.push(calcPosition);localStorage.setItem(calcDoneKey,JSON.stringify(a))}feedback.textContent="✓ Richtig! Jetzt den Rechenweg laut erklären. / درست است؛ حالا راه‌حل را با صدای بلند توضیح بده."}
+ else feedback.textContent="Noch nicht ganz. Prüfe Formel, Einsetzen und Einheit; nutze dann den Hinweis. / هنوز دقیق نیست؛ فرمول، جایگذاری و واحد را بررسی کن.";
+ document.getElementById("calcSolved").textContent=readCalcDone().length;
+}
+function showCalcHint(){document.getElementById("calcHint").classList.remove("hidden")}
+function showCalcSolution(){document.getElementById("calcSolution").classList.remove("hidden")}
+function nextCalc(){calcPosition=(calcPosition+1)%calcDeck.length;renderCalc()}
 
 loadStructuredLF01();
 updateProgress();
