@@ -285,6 +285,13 @@ th{background:#edf4fc}
    <p><a href="https://www.bibb.de/" target="_blank" rel="noopener">BIBB – Bundesinstitut für Berufsbildung</a></p>
    <p class="muted small">Nicht jede öffentlich auffindbare Prüfungsaufgabe ist zur Weiterverwendung freigegeben. Diese App enthält eigene Übungsfragen und keine Behauptung, offizielle Originalprüfungen abzubilden.</p>
   </div>
+  <div class="panel" id="mockExamPanel">
+   <h2>⏱️ Prüfungssimulation / شبیه‌سازی امتحان</h2>
+   <p>Eigene Übungsfragen · Timer · Ergebnis, Fehlerliste und Themenanalyse. Keine offizielle Originalprüfung.</p>
+   <p class="fa">سؤال‌های تمرینی، زمان‌سنج، نتیجه، فهرست اشتباه‌ها و تحلیل موضوعی؛ آزمون رسمی نیست.</p>
+   <div class="toolbar"><label>Fragen / سؤال‌ها <select id="mockExamCount"><option value="10">10 · 20 Min.</option><option value="15" selected>15 · 30 Min.</option><option value="20">20 · 40 Min.</option></select></label><button type="button" onclick="startMockExam()">Prüfung starten / شروع</button><button class="secondary" type="button" onclick="showMockHistory()">Letzte Ergebnisse / نتایج قبلی</button></div>
+   <div id="mockExamStatus" aria-live="polite"></div><div id="mockExamQuestion"></div><div id="mockExamResult"></div><div id="mockExamHistory"></div>
+  </div>
  </section>
 
  <section id="wiso" class="page hidden">
@@ -496,6 +503,63 @@ function renderLessons(){
 }
 
 let structuredCurrent=null,structuredContentByIndex={},lf01LoadError=false;
+
+const mockExamBank = [
+["Grundlagen","12 V liegen an einem Widerstand; es fließen 2 A. Wie groß ist R?","روی مقاومت ۱۲ ولت و جریان ۲ آمپر است؛ R چقدر است؟",["6 Ω","24 Ω","0,167 Ω","14 Ω"],0,"R = U / I = 12 / 2 = 6 Ω.","مقاومت برابر ۱۲ تقسیم بر ۲ یعنی ۶ اهم است."],
+["Leistung","Ein Verbraucher nimmt bei 230 V und 4 A cos φ = 1 auf. Welche Wirkleistung?","مصرف‌کننده با ۲۳۰ ولت، ۴ آمپر و ضریب توان ۱ چه توانی دارد؟",["57,5 W","234 W","920 W","1.840 W"],2,"P = U × I × cos φ = 920 W.","توان برابر ۹۲۰ وات است."],
+["Schaltungen","Was gilt für Teilspannungen in einer Reihenschaltung?","رابطه ولتاژهای جزئی در مدار سری چیست؟",["Sie sind immer gleich.","Ihre Summe ist die Gesamtspannung.","Ihre Summe ist null.","Sie sind unabhängig."],1,"Die Teilspannungen addieren sich zur Gesamtspannung.","مجموع ولتاژهای جزئی برابر ولتاژ کل است."],
+["PE","Welche Aufgabe hat der Schutzleiter PE?","وظیفه سیم حفاظتی PE چیست؟",["Betriebsstrom führen","Schutz bei Fehlern unterstützen","Neutralleiter ersetzen","Spannung erhöhen"],1,"PE unterstützt den Schutz gegen elektrischen Schlag im Fehlerfall.","PE در زمان خطا به حفاظت در برابر برق‌گرفتگی کمک می‌کند."],
+["RCD","Was erkennt ein RCD grundsätzlich?","RCD اساساً چه چیزی را تشخیص می‌دهد؟",["Nur Überlast","Raumtemperatur","Differenz der Ströme","Netzfrequenz"],2,"Ein RCD vergleicht die Ströme der aktiven Leiter.","RCD جریان‌های هادی‌های فعال را مقایسه می‌کند."],
+["Messung","Was ist vor einer Widerstandsmessung erforderlich?","قبل از اندازه‌گیری مقاومت چه کاری لازم است؟",["Unter Spannung messen","Freischalten und Spannungsfreiheit feststellen","RCD überbrücken","Stromkreis belasten"],1,"Widerstandsmessungen nur am geeigneten spannungsfreien Stromkreis durchführen.","اندازه‌گیری مقاومت روی مدار مناسب و بدون ولتاژ انجام می‌شود."],
+["Leitung","Wovon hängt die Strombelastbarkeit einer Leitung ab?","جریان مجاز کابل به چه عواملی بستگی دارد؟",["Nur Kabelfarbe","Nur Länge","Querschnitt, Verlegeart, Temperatur und Häufung","Logo"],2,"Mehrere Faktoren beeinflussen die zulässige Strombelastbarkeit.","سطح مقطع، روش نصب، دما و تجمع کابل‌ها مؤثرند."],
+["LS","Was ist die Hauptaufgabe eines LS-Schalters?","وظیفه اصلی کلید مینیاتوری چیست؟",["Schutz vor Überlast und Kurzschluss","Frequenz messen","Jeden Fehlerstrom allein erkennen","Motor steuern"],0,"Ein LS schützt Leitungen vor Überlast und Kurzschluss.","LS از کابل در برابر اضافه‌بار و اتصال کوتاه حفاظت می‌کند."],
+["Steuerung","Wie ist ein Schließer im Ruhezustand üblicherweise?","کنتاکت Schließer در حالت عادی معمولاً چگونه است؟",["Geschlossen","Offen","Immer kurzgeschlossen","Entfernt"],1,"Ein Schließer ist im Ruhezustand offen.","Schließer در حالت عادی باز است."],
+["Schütz","Wozu dient eine Selbsthalteschaltung?","مدار خودنگهدار چه کاربردی دارد؟",["Spule nach Start über Hilfskontakt halten","Spannung messen","PE ersetzen","Kurzschluss erhöhen"],0,"Ein Hilfskontakt hält den Steuerkreis nach Loslassen des Starttasters.","کنتاکت کمکی مدار فرمان را پس از رها کردن استارت نگه می‌دارد."],
+["Netzwerk","Welches Gerät verbindet mehrere kabelgebundene Geräte im LAN?","کدام دستگاه چند وسیله سیمی را در شبکه محلی وصل می‌کند؟",["Switch","RCD","Schütz","Wechselrichter"],0,"Ein Ethernet-Switch verbindet Geräte in einem lokalen Netzwerk.","سوئیچ دستگاه‌ها را در شبکه محلی متصل می‌کند."],
+["Fehlersuche","Was ist ein sinnvoller erster Schritt der Fehlersuche?","اولین قدم مناسب در عیب‌یابی چیست؟",["Zufällig Teile tauschen","Fehlerbild und Unterlagen prüfen","Schutzorgane überbrücken","Alles löschen"],1,"Zuerst Fehlerbild und Dokumentation prüfen, danach sicher messen.","ابتدا نشانه خطا و مستندات را بررسی کن، سپس ایمن اندازه بگیر."],
+["Dokumentation","Warum dokumentiert man Mess- und Prüfergebnisse?","چرا نتایج اندازه‌گیری و آزمون ثبت می‌شوند؟",["Nur Optik","Nachvollziehbarkeit und Bewertung","Schutz entfällt","Prüfung unnötig"],1,"Dokumentation makes results nachvollziehbar.","مستندسازی نتایج را قابل پیگیری و ارزیابی می‌کند."],
+["PV","Welche Aufgabe hat der Wechselrichter in einer üblichen PV-Anlage?","وظیفه اینورتر در سامانه معمول خورشیدی چیست؟",["DC in AC umwandeln","Alles speichern","PE ersetzen","Nur Widerstand messen"],0,"Der Wechselrichter wandelt Gleichstrom in Wechselstrom um.","اینورتر جریان مستقیم را به متناوب تبدیل می‌کند."],
+["Energie","Ein Gerät mit 1 kW läuft 3 Stunden. Energieverbrauch?","دستگاه ۱ کیلوواتی سه ساعت کار می‌کند؛ انرژی مصرفی؟",["0,3 kWh","3 kWh","30 kWh","300 kWh"],1,"E = P × t = 1 kW × 3 h = 3 kWh.","انرژی برابر ۳ کیلووات‌ساعت است."],
+["WiSo","Welche Versicherung ist grundsätzlich für Arbeitsunfälle zuständig?","کدام بیمه اصولاً مسئول حوادث کاری است؟",["Private Haftpflicht","Gesetzliche Unfallversicherung","Kfz-Versicherung","Hausrat"],1,"Arbeitsunfälle fallen grundsätzlich unter die gesetzliche Unfallversicherung.","حوادث کاری اصولاً تحت پوشش بیمه حوادث قانونی‌اند."],
+["Messgerät","Welche Einstellung eignet sich zur Spannungsmessung an einer 230-V-Steckdose?","برای اندازه‌گیری ولتاژ پریز ۲۳۰ ولت چه تنظیمی مناسب است؟",["Strommessung in Reihe","Widerstand","Geeignete Wechselspannungsmessung","Durchgang"],2,"Geeignetes intaktes Messgerät und passende Messkategorie verwenden.","از دستگاه سالم و مناسب با رده اندازه‌گیری درست استفاده کن."],
+["Kundenauftrag","Was gehört zur Übergabe einer fertigen Anlage?","چه چیزی جزو تحویل سامانه تکمیل‌شده است؟",["Nur Werkzeug einpacken","Prüfergebnisse dokumentieren und Funktion erklären","Protokoll vernichten","Fragen vermeiden"],1,"Übergabe includes documentation, results and user instruction.","تحویل شامل مستندات، نتایج آزمون و آموزش کاربر است."],
+["Sicherheit","Warum dürfen Schutzeinrichtungen nicht unzulässig überbrückt werden?","چرا نباید تجهیزات حفاظتی را غیرمجاز بای‌پس کرد؟",["Energieverbrauch sinkt immer","Schutz fällt aus; Lebensgefahr möglich","Anlage wird effizienter","Immer erlaubt"],1,"Bypassing protection can cause life-threatening hazards and damage.","بای‌پس حفاظت می‌تواند خطر جانی و آسیب تجهیزات ایجاد کند."],
+["Drehstrom","Welche Frequenz hat das öffentliche Niederspannungsnetz in Deutschland?","فرکانس شبکه برق فشار ضعیف آلمان چقدر است؟",["25 Hz","50 Hz","60 Hz","100 Hz"],1,"Die Netzfrequenz beträgt 50 Hz.","فرکانس شبکه ۵۰ هرتز است."]
+].map(x=>({topic:x[0],q:x[1],p:x[2],a:x[3],c:x[4],e:x[5],fa:x[6]}));
+let mockExam=null,mockExamTimer=null;
+function startMockExam(){
+ if(mockExamTimer)clearInterval(mockExamTimer);
+ const count=Number(document.getElementById("mockExamCount").value)||15;
+ mockExam={questions:mockExamBank.slice().sort(()=>Math.random()-.5).slice(0,count),answers:{},seconds:count*120,finished:false};
+ document.getElementById("mockExamResult").innerHTML="";document.getElementById("mockExamHistory").innerHTML="";
+ renderMockExamQuestion();updateMockExamClock();
+ mockExamTimer=setInterval(()=>{if(!mockExam||mockExam.finished){clearInterval(mockExamTimer);return;}mockExam.seconds--;updateMockExamClock();if(mockExam.seconds<=0)finishMockExam(true)},1000);
+}
+function updateMockExamClock(){if(!mockExam)return;document.getElementById("mockExamStatus").innerHTML="<p><b>Restzeit / زمان باقی‌مانده: "+Math.floor(mockExam.seconds/60)+":"+String(mockExam.seconds%60).padStart(2,"0")+"</b> · Beantwortet: "+Object.keys(mockExam.answers).length+"/"+mockExam.questions.length+"</p>"}
+function renderMockExamQuestion(){
+ const root=document.getElementById("mockExamQuestion");root.innerHTML="";if(!mockExam||mockExam.finished)return;
+ const idx=mockExam.questions.findIndex((q,i)=>mockExam.answers[i]===undefined);
+ if(idx<0){finishMockExam(false);return}
+ const q=mockExam.questions[idx],card=document.createElement("article");card.className="lf-module";
+ const h=document.createElement("h3");h.textContent=(idx+1)+". "+q.topic+" — "+q.q;card.appendChild(h);
+ const p=document.createElement("p");p.className="fa";p.textContent=q.p;card.appendChild(p);
+ q.a.forEach((a,i)=>{const b=document.createElement("button");b.type="button";b.className="lf-answer";b.textContent=String.fromCharCode(65+i)+") "+a;b.onclick=()=>{mockExam.answers[idx]=i;renderMockExamQuestion();updateMockExamClock()};card.appendChild(b)});
+ const skip=document.createElement("button");skip.type="button";skip.className="secondary";skip.textContent="Überspringen / رد شدن";skip.onclick=()=>{mockExam.answers[idx]=-1;renderMockExamQuestion();updateMockExamClock()};card.appendChild(skip);root.appendChild(card);
+}
+function finishMockExam(timeUp){
+ if(!mockExam||mockExam.finished)return;mockExam.finished=true;if(mockExamTimer)clearInterval(mockExamTimer);
+ const qs=mockExam.questions,correct=qs.filter((q,i)=>mockExam.answers[i]===q.c).length,total=qs.length,pct=Math.round(correct/total*100),topics={};
+ qs.forEach((q,i)=>{topics[q.topic]??={ok:0,n:0};topics[q.topic].n++;if(mockExam.answers[i]===q.c)topics[q.topic].ok++});
+ const hist=(()=>{try{return JSON.parse(localStorage.getItem("elektroMockExamHistory")||"[]")}catch(e){return []}})();hist.unshift({date:new Date().toISOString(),correct,total,pct});localStorage.setItem("elektroMockExamHistory",JSON.stringify(hist.slice(0,10)));
+ document.getElementById("mockExamStatus").innerHTML="<p class='"+(pct>=80?"success":"error")+"'>"+(timeUp?"Zeit abgelaufen · زمان تمام شد":"Abgeschlossen · پایان")+" — "+correct+"/"+total+" ("+pct+" %)</p>";
+ const out=document.getElementById("mockExamResult");out.innerHTML="<h3>Ergebnis und Themenanalyse / نتیجه و تحلیل موضوعی</h3><table><thead><tr><th>Thema</th><th>Richtig</th><th>Quote</th></tr></thead><tbody>"+Object.entries(topics).map(([t,v])=>"<tr><td>"+t+"</td><td>"+v.ok+"/"+v.n+"</td><td>"+Math.round(v.ok/v.n*100)+" %</td></tr>").join("")+"</tbody></table><h3>Fehleranalyse / بررسی اشتباه‌ها</h3>";
+ const mistakes=qs.map((q,i)=>({q,ans:mockExam.answers[i]})).filter(x=>x.ans!==x.q.c);
+ if(!mistakes.length)out.innerHTML+="<p class='success'>Alle Antworten richtig! / همه پاسخ‌ها درست‌اند!</p>";
+ mistakes.forEach(({q,ans})=>{const d=document.createElement("div");d.className="lf-module";const h=document.createElement("strong");h.textContent=q.topic+": "+q.q;const p=document.createElement("p");p.className="error";p.textContent="Deine Antwort: "+(ans===undefined?"Keine Antwort":ans===-1?"Übersprungen":q.a[ans]);const a=document.createElement("p");a.className="success";a.textContent="Richtig: "+q.a[q.c];const e=document.createElement("p");e.textContent=q.e+" / "+q.fa;d.append(h,p,a,e);out.appendChild(d)});
+ const again=document.createElement("button");again.textContent="Neue Prüfung starten / آزمون جدید";again.onclick=startMockExam;out.appendChild(again);document.getElementById("mockExamQuestion").innerHTML="";
+}
+function showMockHistory(){const root=document.getElementById("mockExamHistory");let h=[];try{h=JSON.parse(localStorage.getItem("elektroMockExamHistory")||"[]")}catch(e){}root.innerHTML="<h3>Letzte Ergebnisse / نتایج قبلی</h3>";if(!h.length){root.innerHTML+="<p>Noch keine Ergebnisse gespeichert. / هنوز نتیجه‌ای ثبت نشده است.</p>";return}h.forEach(x=>{const p=document.createElement("p");p.textContent=new Date(x.date).toLocaleString("de-DE")+" — "+x.correct+"/"+x.total+" ("+x.pct+" %)";root.appendChild(p)})}
+
 async function loadStructuredLF01(){
  const files=[{index:0,path:"content/lernfeld-01.json",id:"LF01"},{index:1,path:"content/lernfeld-02.json",id:"LF02"},{index:2,path:"content/lernfeld-03.json",id:"LF03"},{index:3,path:"content/lernfeld-04.json",id:"LF04"},
   {index:4,path:"content/lernfeld-05.json",id:"LF05"},
