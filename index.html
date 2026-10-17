@@ -1543,10 +1543,24 @@ function revealCard(){
 function nextCard(){currentCard=(currentCard+1)%cards.length;renderCard();}
 function prevCard(){currentCard=(currentCard-1+cards.length)%cards.length;renderCard();}
 
+function shuffleArray(items){
+ const out=items.slice();
+ for(let i=out.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[out[i],out[j]]=[out[j],out[i]];}
+ return out;
+}
 function startQuiz(){
  const level=document.getElementById("quizLevel").value;
- quizSet=questions.filter(q=>level==="all"||String(q.l)===level);
- quizSet=quizSet.sort(()=>Math.random()-.5);
+ quizSet=shuffleArray(questions.filter(q=>level==="all"||String(q.l)===level));
+ // Balance the correct answer positions across this quiz instead of leaving them
+ // fixed in the source data (which previously made option B correct far too often).
+ const positions=shuffleArray(Array.from({length:quizSet.length},(_,i)=>i%4));
+ quizSet=quizSet.map((q,i)=>{
+  const correctAnswer=q.a[q.c];
+  const distractors=shuffleArray(q.a.filter((_,j)=>j!==q.c));
+  const answers=[];let d=0;
+  for(let slot=0;slot<q.a.length;slot++) answers.push(slot===positions[i]?correctAnswer:distractors[d++]);
+  return {...q,a:answers,c:positions[i]};
+ });
  quizIndex=0;quizPoints=0;answered=false;
  renderQuestion();
 }
