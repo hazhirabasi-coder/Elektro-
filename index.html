@@ -523,6 +523,22 @@ input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-vis
   </div>
  </section>
 
+  <div class="panel" id="b2Professional">
+   <h2>🎓 B2-Profiwerkstatt / کارگاه حرفه‌ای B2</h2>
+   <p>Strukturierter Kurs statt einzelner Vokabelkarten: sechs Lernmodule, Erklärungen, Beispiele und Verständnisfragen mit Begründung. Fortschritt wird auf diesem Gerät gespeichert.</p>
+   <p class="fa">دورهٔ ساختاریافته به‌جای کارت‌های پراکنده: شش درس، توضیح، مثال و پرسش درک مطلب همراه با دلیل. پیشرفت روی همین دستگاه ذخیره می‌شود.</p>
+   <div class="notice" id="b2ProDisclaimer"></div>
+   <div class="language-stats"><div class="language-stat"><b id="b2ProDone">0/6</b><span>Module / درس‌ها</span></div><div class="language-stat"><b id="b2ProAnswered">0</b><span>Beantwortet / پاسخ‌داده‌شده</span></div><div class="language-stat"><b id="b2ProAccuracy">0%</b><span>Trefferquote / درصد درست</span></div></div>
+   <div id="b2ProStatus" aria-live="polite" class="muted small">Kurs wird geladen … / دوره در حال بارگذاری است…</div>
+   <div id="b2ProModules" class="grid"></div>
+  </div>
+  <div class="panel" id="b2ProExam">
+   <h2>📝 B2-Prüfungswerkstatt / تمرین مهارت‌های آزمون</h2>
+   <p>Schreiben, Sprechen und Leseverstehen. Nutze die Kriterien als Checkliste; die App bewertet freie Texte nicht automatisch wie eine zertifizierte Prüferin oder ein zertifizierter Prüfer.</p>
+   <p class="fa">نوشتن، صحبت‌کردن و درک مطلب. معیارها را به‌عنوان چک‌لیست استفاده کن؛ برنامه متن آزاد را مانند ممتحن رسمی به‌طور خودکار نمره نمی‌دهد.</p>
+   <div id="b2ProTasks" class="resource-grid"></div>
+  </div>
+
 
  <section id="sogeht" class="page hidden">
   <div class="panel">
@@ -1339,6 +1355,18 @@ function renderAdaptiveStatsOnly(){
 function nextAdaptiveQuestion(){adaptiveCurrent=adaptiveDeck.indexOf(chooseAdaptive());renderAdaptive()}
 function resetAdaptive(){if(!confirm("Adaptiven Lernfortschritt wirklich löschen?"))return;localStorage.removeItem(adaptiveKey);adaptiveCurrent=-1;renderAdaptive()}
 
+
+const B2_PRO_STORE="elektroB2ProfessionalV1";
+let b2ProData=null,b2ProProgress={answers:{},done:{}};
+function loadB2ProProgress(){try{const x=JSON.parse(localStorage.getItem(B2_PRO_STORE)||"{}");return {answers:x.answers||{},done:x.done||{}}}catch(e){return {answers:{},done:{}}}}
+function saveB2ProProgress(){try{localStorage.setItem(B2_PRO_STORE,JSON.stringify(b2ProProgress))}catch(e){}renderB2ProStats()}
+async function loadB2ProContent(){try{const r=await fetch("content/deutsch-b2.json",{cache:"no-cache"});if(!r.ok)throw new Error("HTTP "+r.status);b2ProData=await r.json();b2ProProgress=loadB2ProProgress();renderB2ProModules();renderB2ProTasks();renderB2ProStats();document.getElementById("b2ProDisclaimer").textContent=b2ProData.disclaimer.de+" / "+b2ProData.disclaimer.fa;document.getElementById("b2ProStatus").textContent="Kurs geladen: "+b2ProData.modules.length+" Lernmodule · "+b2ProData.modules.reduce((n,m)=>n+m.checks.length,0)+" Verständnisfragen. / دوره بارگذاری شد."}catch(e){document.getElementById("b2ProStatus").textContent="B2-Kurs konnte nicht geladen werden. Öffne die Website über GitHub Pages oder einen Webserver. / دوره B2 بارگذاری نشد؛ سایت را از GitHub Pages یا وب‌سرور باز کن.";console.warn(e)}}
+function renderB2ProModules(){const root=document.getElementById("b2ProModules");if(!root||!b2ProData)return;root.innerHTML="";b2ProData.modules.forEach((m,mi)=>{const card=document.createElement("article");card.className="resource-card";const tag=document.createElement("span");tag.className="tag";tag.textContent=m.skill;card.appendChild(tag);const h=document.createElement("h3");h.textContent=(mi+1)+". "+m.title.de;card.appendChild(h);const fa=document.createElement("p");fa.className="fa";fa.textContent=m.title.fa;card.appendChild(fa);const goal=document.createElement("p");goal.textContent=m.goal.de;card.appendChild(goal);const goalfa=document.createElement("p");goalfa.className="fa";goalfa.textContent=m.goal.fa;card.appendChild(goalfa);const exp=document.createElement("p");exp.textContent=m.lesson.de;card.appendChild(exp);const expfa=document.createElement("p");expfa.className="fa";expfa.textContent=m.lesson.fa;card.appendChild(expfa);const ex=document.createElement("blockquote");ex.textContent=m.example.de+" / "+m.example.fa;card.appendChild(ex);m.checks.forEach((q,qi)=>{const block=document.createElement("div");block.className="lf-question";const prompt=document.createElement("strong");prompt.textContent=q.q.de;block.appendChild(prompt);const pf=document.createElement("p");pf.className="fa";pf.textContent=q.q.fa;block.appendChild(pf);const key=m.id+"-"+qi;const prior=b2ProProgress.answers[key];q.options.forEach((opt,oi)=>{const btn=document.createElement("button");btn.type="button";btn.className="lf-answer";btn.textContent=String.fromCharCode(65+oi)+") "+opt;if(prior){btn.disabled=true;if(oi===q.answer)btn.classList.add("correct");if(oi===prior.selected&&prior.selected!==q.answer)btn.classList.add("wrong")}btn.addEventListener("click",()=>{if(b2ProProgress.answers[key])return;b2ProProgress.answers[key]={selected:oi,correct:oi===q.answer};b2ProProgress.done[m.id]=m.checks.every((_,j)=>b2ProProgress.answers[m.id+"-"+j]);saveB2ProProgress();renderB2ProModules();});block.appendChild(btn)});if(prior){const fb=document.createElement("p");fb.className=prior.correct?"success":"error";fb.textContent=(prior.correct?"Richtig. / درست است. ":"Noch einmal lernen. / دوباره مرور کن. ")+q.why.de+" / "+q.why.fa;block.appendChild(fb)}card.appendChild(block)});root.appendChild(card)})}
+function renderB2ProStats(){if(!b2ProData)return;const total=b2ProData.modules.reduce((n,m)=>n+m.checks.length,0),answers=Object.values(b2ProProgress.answers),correct=answers.filter(x=>x.correct).length,done=b2ProData.modules.filter(m=>m.checks.every((_,i)=>b2ProProgress.answers[m.id+"-"+i])).length;document.getElementById("b2ProDone").textContent=done+"/"+b2ProData.modules.length;document.getElementById("b2ProAnswered").textContent=answers.length+"/"+total;document.getElementById("b2ProAccuracy").textContent=(answers.length?Math.round(correct/answers.length*100):0)+"%"}
+function renderB2ProTasks(){const root=document.getElementById("b2ProTasks");if(!root||!b2ProData)return;root.innerHTML="";b2ProData.examTasks.forEach((t,i)=>{const card=document.createElement("article");card.className="resource-card";const tag=document.createElement("span");tag.className="tag";tag.textContent=t.type;card.appendChild(tag);const h=document.createElement("h3");h.textContent=t.title.de;card.appendChild(h);const fa=document.createElement("p");fa.className="fa";fa.textContent=t.title.fa;card.appendChild(fa);const p=document.createElement("p");p.textContent=t.prompt.de;card.appendChild(p);const pf=document.createElement("p");pf.className="fa";pf.textContent=t.prompt.fa;card.appendChild(pf);const ta=document.createElement("textarea");ta.rows=4;ta.placeholder="Deine Antwort / پاسخ خودت";ta.value=localStorage.getItem("elektroB2Task-"+i)||"";ta.addEventListener("input",()=>{try{localStorage.setItem("elektroB2Task-"+i,ta.value)}catch(e){}});card.appendChild(ta);const h2=document.createElement("h4");h2.textContent="Selbstbewertung / ارزیابی خودت";card.appendChild(h2);t.criteria.forEach(c=>{const label=document.createElement("label");label.style.display="flex";label.style.gap="8px";label.style.margin="8px 0";const cb=document.createElement("input");cb.type="checkbox";cb.checked=!!b2ProProgress.answers["task-"+i+"-"+c.de];cb.addEventListener("change",()=>{b2ProProgress.answers["task-"+i+"-"+c.de]=cb.checked;saveB2ProProgress()});const span=document.createElement("span");span.textContent=c.de+" / "+c.fa;label.append(cb,span);card.appendChild(label)});root.appendChild(card)})}
+
+
+loadB2ProContent();
 loadStructuredLF01();
 updateProgress();
 renderLessons();
