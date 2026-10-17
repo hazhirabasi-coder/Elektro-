@@ -100,6 +100,7 @@ th{background:#edf4fc}
   <button data-page="exam">Prüfung</button>
   <button data-page="wiso">WiSo</button>
   <button data-page="plan">Lernplan</button>
+  <button data-page="language">Deutsch trainieren</button>
  </nav>
 
  <section id="home" class="page">
@@ -291,6 +292,54 @@ th{background:#edf4fc}
    <p class="fa">سؤال‌های تمرینی، زمان‌سنج، نتیجه، فهرست اشتباه‌ها و تحلیل موضوعی؛ آزمون رسمی نیست.</p>
    <div class="toolbar"><label>Fragen / سؤال‌ها <select id="mockExamCount"><option value="10">10 · 20 Min.</option><option value="15" selected>15 · 30 Min.</option><option value="20">20 · 40 Min.</option></select></label><button type="button" onclick="startMockExam()">Prüfung starten / شروع</button><button class="secondary" type="button" onclick="showMockHistory()">Letzte Ergebnisse / نتایج قبلی</button></div>
    <div id="mockExamStatus" aria-live="polite"></div><div id="mockExamQuestion"></div><div id="mockExamResult"></div><div id="mockExamHistory"></div>
+  </div>
+ </section>
+
+ <section id="language" class="page hidden">
+  <div class="panel" id="languageTrainer">
+   <h2>🗣️ Deutsch trainieren / تقویت زبان آلمانی</h2>
+   <p>Trainiere Deutsch für die Elektro-Ausbildung, die Berufsschule und die Gesellenprüfung – mit persischer Übersetzung.</p>
+   <p class="fa">آلمانی را برای دورهٔ برق، مدرسهٔ فنی و امتحان پایان دوره با ترجمهٔ فارسی تمرین کن.</p>
+   <div class="toolbar">
+    <label>Bereich / بخش
+     <select id="languageCategory">
+      <option value="all">Alle Bereiche / همه</option>
+      <option value="fach">Elektro-Fachwörter / اصطلاحات برق</option>
+      <option value="pruefung">Prüfungssätze / جمله‌های امتحانی</option>
+      <option value="schule">Berufsschule & Alltag / مدرسه و روزمره</option>
+     </select>
+    </label>
+    <button type="button" onclick="startLanguageTraining()">Üben / شروع تمرین</button>
+   </div>
+   <div class="tile">
+    <span class="tag" id="languageTag">Wortschatz</span>
+    <h3 id="languageGerman">die Spannung</h3>
+    <p class="fa" id="languagePersian">ولتاژ</p>
+    <p id="languageExample">Die Spannung beträgt 230 Volt.</p>
+    <p class="fa" id="languageExampleFa">ولتاژ ۲۳۰ ولت است.</p>
+    <button type="button" id="languageReveal" onclick="revealLanguageCard()">Bedeutung & Beispiel / معنی و مثال</button>
+    <div id="languageExtra" class="hidden">
+     <hr>
+     <p><b>Merksatz / نکته:</b> <span id="languageTip"></span></p>
+     <p class="fa" id="languageTipFa"></p>
+    </div>
+   </div>
+   <div class="toolbar">
+    <button type="button" class="secondary" onclick="prevLanguageCard()">← Zurück</button>
+    <button type="button" onclick="nextLanguageCard()">Nächste Karte →</button>
+   </div>
+   <div class="panel">
+    <h3>Mini-Test / آزمون کوتاه</h3>
+    <p id="languageQuizQuestion">Was bedeutet „Schutzleiter“?</p>
+    <div id="languageQuizAnswers"></div>
+    <p id="languageQuizFeedback" aria-live="polite"></p>
+    <button type="button" class="secondary" onclick="nextLanguageQuestion()">Nächste Frage / سؤال بعدی</button>
+    <p id="languageQuizScore" class="muted small"></p>
+   </div>
+   <div class="notice">
+    <b>Prüfungstipp / نکتهٔ امتحانی:</b> Übe, technische Entscheidungen mit „Zuerst …, danach …, anschließend …, zum Schluss …“ zu erklären.
+    <p class="fa">تمرین کن مراحل فنی را با «ابتدا…، سپس…، بعد از آن…، در پایان…» توضیح بدهی.</p>
+   </div>
   </div>
  </section>
 
@@ -575,6 +624,38 @@ function finishMockExam(timeUp){
  const again=document.createElement("button");again.textContent="Neue Prüfung starten / آزمون جدید";again.onclick=startMockExam;out.appendChild(again);document.getElementById("mockExamQuestion").innerHTML="";
 }
 function showMockHistory(){const root=document.getElementById("mockExamHistory");let h=[];try{h=JSON.parse(localStorage.getItem("elektroMockExamHistory")||"[]")}catch(e){}root.innerHTML="<h3>Letzte Ergebnisse / نتایج قبلی</h3>";if(!h.length){root.innerHTML+="<p>Noch keine Ergebnisse gespeichert. / هنوز نتیجه‌ای ثبت نشده است.</p>";return}h.forEach(x=>{const p=document.createElement("p");p.textContent=new Date(x.date).toLocaleString("de-DE")+" — "+x.correct+"/"+x.total+" ("+x.pct+" %)";root.appendChild(p)})}
+
+const languageItems = [
+ {c:"fach",tag:"Fachwort",de:"die Spannung",fa:"ولتاژ",ex:"Die Spannung beträgt 230 Volt.",exfa:"ولتاژ ۲۳۰ ولت است.",tip:"Spannung wird in Volt (V) gemessen.",tipfa:"ولتاژ با واحد ولت (V) اندازه‌گیری می‌شود."},
+ {c:"fach",tag:"Fachwort",de:"der Strom",fa:"جریان الکتریکی",ex:"Der Strom fließt durch den Stromkreis.",exfa:"جریان از مدار عبور می‌کند.",tip:"Die Stromstärke wird in Ampere (A) gemessen.",tipfa:"شدت جریان با آمپر (A) اندازه‌گیری می‌شود."},
+ {c:"fach",tag:"Fachwort",de:"der Schutzleiter (PE)",fa:"هادی حفاظتی",ex:"Der Schutzleiter ist grün-gelb gekennzeichnet.",exfa:"هادی حفاظتی با رنگ سبز-زرد مشخص می‌شود.",tip:"Der PE dient dem Schutz gegen elektrischen Schlag.",tipfa:"هادی PE برای حفاظت در برابر برق‌گرفتگی است."},
+ {c:"fach",tag:"Fachwort",de:"der Fehlerstrom-Schutzschalter (RCD)",fa:"کلید محافظ جان",ex:"Der RCD löst bei einem Fehlerstrom aus.",exfa:"کلید RCD هنگام جریان خطا قطع می‌کند.",tip:"Der Bemessungsdifferenzstrom steht auf dem Gerät.",tipfa:"جریان تفاضلی نامی روی دستگاه درج شده است."},
+ {c:"fach",tag:"Fachwort",de:"die Isolationsmessung",fa:"اندازه‌گیری مقاومت عایقی",ex:"Vor der Messung müssen die erforderlichen Sicherheitsmaßnahmen eingehalten werden.",exfa:"پیش از اندازه‌گیری باید اقدامات ایمنی لازم رعایت شوند.",tip:"Messverfahren und Grenzwerte richten sich nach Anlage und geltenden Regeln.",tipfa:"روش اندازه‌گیری و حدود مجاز به تأسیسات و مقررات معتبر بستگی دارند."},
+ {c:"pruefung",tag:"Prüfungssatz",de:"Zuerst schalte ich die Anlage frei.",fa:"ابتدا تأسیسات را بی‌برق می‌کنم.",ex:"Danach sichere ich sie gegen Wiedereinschalten.",exfa:"سپس آن را در برابر وصل مجدد ایمن می‌کنم.",tip:"„zuerst“ = ابتدا; „danach“ = سپس.",tipfa:"«zuerst» یعنی ابتدا و «danach» یعنی سپس."},
+ {c:"pruefung",tag:"Prüfungssatz",de:"Ich überprüfe die Spannungsfreiheit mit einem geeigneten Prüfgerät.",fa:"بی‌برق بودن را با دستگاه تست مناسب بررسی می‌کنم.",ex:"Anschließend dokumentiere ich die Messwerte.",exfa:"پس از آن مقادیر اندازه‌گیری‌شده را ثبت می‌کنم.",tip:"„überprüfen“ ist ein häufiges Verb in Prüfungsaufgaben.",tipfa:"فعل «überprüfen» در سؤال‌های امتحانی زیاد استفاده می‌شود."},
+ {c:"pruefung",tag:"Prüfungssatz",de:"Ich habe dieses Betriebsmittel ausgewählt, weil …",fa:"این وسیله را انتخاب کرده‌ام، چون…",ex:"Ich begründe meine Auswahl mit den technischen Anforderungen.",exfa:"انتخابم را با نیازهای فنی توضیح می‌دهم.",tip:"Nach „weil“ steht das konjugierte Verb am Satzende.",tipfa:"در جملهٔ وابسته با «weil»، فعل صرف‌شده در پایان می‌آید."},
+ {c:"pruefung",tag:"Prüfungssatz",de:"Die Anlage ist geprüft und betriebsbereit.",fa:"تأسیسات آزمایش شده و آمادهٔ بهره‌برداری است.",ex:"Ich übergebe die Dokumentation an den Kunden.",exfa:"مدارک را به مشتری تحویل می‌دهم.",tip:"„betriebsbereit“ bedeutet: bereit für den Betrieb.",tipfa:"«betriebsbereit» یعنی آمادهٔ کار و بهره‌برداری."},
+ {c:"schule",tag:"Berufsschule",de:"Könnten Sie die Aufgabe bitte noch einmal erklären?",fa:"ممکن است لطفاً تمرین را یک بار دیگر توضیح دهید؟",ex:"Ich habe den Rechenweg noch nicht ganz verstanden.",exfa:"هنوز روش حل مسئله را کاملاً متوجه نشده‌ام.",tip:"Höfliche Fragen beginnen oft mit „Könnten Sie …?“",tipfa:"درخواست مؤدبانه اغلب با «Könnten Sie …?» شروع می‌شود."},
+ {c:"schule",tag:"Berufsschule",de:"Welche Seiten müssen wir für die Prüfung lernen?",fa:"برای امتحان باید کدام صفحه‌ها را بخوانیم؟",ex:"Können Sie mir bitte die Seitenzahl nennen?",exfa:"ممکن است لطفاً شمارهٔ صفحه را بگویید؟",tip:"„die Seitenzahl“ bedeutet شمارهٔ صفحه.",tipfa:"«die Seitenzahl» یعنی شمارهٔ صفحه."},
+ {c:"schule",tag:"Arbeitsalltag",de:"Ich brauche noch das passende Messgerät.",fa:"هنوز به دستگاه اندازه‌گیری مناسب نیاز دارم.",ex:"Bitte prüfen Sie, ob das Gerät für die Messung geeignet ist.",exfa:"لطفاً بررسی کنید آیا دستگاه برای این اندازه‌گیری مناسب است.",tip:"„geeignet“ bedeutet passend oder dafür verwendbar.",tipfa:"«geeignet» یعنی مناسب یا قابل استفاده برای آن کار."}
+];
+let languageDeck=[],languageIndex=0,languageQuizIndex=0,languageCorrect=0,languageAnswered=false;
+const languageQuestions=[
+ {q:"Was bedeutet „Schutzleiter“?",p:"«Schutzleiter» یعنی چه؟",a:["هادی حفاظتی","جریان الکتریکی","مقاومت"],c:0,e:"Der Schutzleiter (PE) ist ein Schutzleiter im elektrischen System."},
+ {q:"Welche Einheit hat die Spannung?",p:"واحد ولتاژ چیست؟",a:["Ampere","Volt","Ohm"],c:1,e:"Spannung wird in Volt (V) angegeben."},
+ {q:"Was bedeutet „anschließend“?",p:"«anschließend» یعنی چه؟",a:["قبل از آن","در پایان هفته","پس از آن"],c:2,e:"„Anschließend“ bedeutet: danach."},
+ {q:"Welcher Satz ist höflich?",p:"کدام جمله مؤدبانه است؟",a:["Erklär das!","Könnten Sie das bitte erklären?","Du musst erklären."],c:1,e:"„Könnten Sie … bitte?“ ist eine höfliche Bitte."},
+ {q:"Was bedeutet „Messwerte dokumentieren“?",p:"«Messwerte dokumentieren» یعنی چه؟",a:["ثبت مقادیر اندازه‌گیری","خاموش کردن دستگاه","تعویض کابل"],c:0,e:"Dokumentieren bedeutet, Ergebnisse schriftlich festzuhalten."},
+ {q:"Ergänze: Ich wähle das Gerät, weil es …",p:"جمله را کامل کن: دستگاه را انتخاب می‌کنم چون…",a:["geeignet ist","ist geeignet","geeignet"],c:0,e:"Nach „weil“ steht das konjugierte Verb am Ende: „weil es geeignet ist“."}
+];
+function startLanguageTraining(){languageDeck=languageItems.filter(x=>{const v=document.getElementById("languageCategory").value;return v==="all"||x.c===v});languageIndex=0;renderLanguageCard();renderLanguageQuestion();}
+function renderLanguageCard(){if(!languageDeck.length)languageDeck=languageItems.slice();const x=languageDeck[languageIndex%languageDeck.length];document.getElementById("languageTag").textContent=x.tag;document.getElementById("languageGerman").textContent=x.de;document.getElementById("languagePersian").textContent=x.fa;document.getElementById("languageExample").textContent=x.ex;document.getElementById("languageExampleFa").textContent=x.exfa;document.getElementById("languageTip").textContent=x.tip;document.getElementById("languageTipFa").textContent=x.tipfa;document.getElementById("languageExtra").classList.add("hidden");document.getElementById("languageReveal").classList.remove("hidden");}
+function revealLanguageCard(){document.getElementById("languageExtra").classList.remove("hidden");document.getElementById("languageReveal").classList.add("hidden");}
+function nextLanguageCard(){if(!languageDeck.length)startLanguageTraining();languageIndex=(languageIndex+1)%languageDeck.length;renderLanguageCard();}
+function prevLanguageCard(){if(!languageDeck.length)startLanguageTraining();languageIndex=(languageIndex-1+languageDeck.length)%languageDeck.length;renderLanguageCard();}
+function renderLanguageQuestion(){const q=languageQuestions[languageQuizIndex%languageQuestions.length];languageAnswered=false;document.getElementById("languageQuizQuestion").textContent=q.q+" / "+q.p;document.getElementById("languageQuizFeedback").textContent="";document.getElementById("languageQuizScore").textContent="Richtig / درست: "+languageCorrect;const root=document.getElementById("languageQuizAnswers");root.innerHTML="";q.a.forEach((a,i)=>{const b=document.createElement("button");b.type="button";b.className="choice";b.textContent=String.fromCharCode(65+i)+") "+a;b.onclick=()=>answerLanguageQuestion(i);root.appendChild(b);});}
+function answerLanguageQuestion(i){if(languageAnswered)return;languageAnswered=true;const q=languageQuestions[languageQuizIndex%languageQuestions.length];document.querySelectorAll("#languageQuizAnswers button").forEach((b,j)=>{b.disabled=true;if(j===q.c)b.classList.add("correct");if(j===i&&i!==q.c)b.classList.add("wrong")});if(i===q.c)languageCorrect++;const f=document.getElementById("languageQuizFeedback");f.className=i===q.c?"success":"error";f.textContent=(i===q.c?"Richtig! / درست است. ":"Noch einmal lernen / دوباره مرور کن. ")+q.e;document.getElementById("languageQuizScore").textContent="Richtig / درست: "+languageCorrect;}
+function nextLanguageQuestion(){languageQuizIndex++;renderLanguageQuestion();}
 
 async function loadStructuredLF01(){
  const files=[{index:0,path:"content/lernfeld-01.json",id:"LF01"},{index:1,path:"content/lernfeld-02.json",id:"LF02"},{index:2,path:"content/lernfeld-03.json",id:"LF03"},{index:3,path:"content/lernfeld-04.json",id:"LF04"},
