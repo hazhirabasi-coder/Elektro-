@@ -1,0 +1,594 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elektro Lernen | EGT Prüfungsvorbereitung</title>
+<style>
+:root {
+  --blue:#123b70; --blue2:#1769aa; --bg:#f3f6fb;
+  --white:#fff; --text:#172337; --muted:#64748b;
+  --green:#16834a; --red:#c0392b; --border:#dce4ef;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+header{background:linear-gradient(135deg,#102e57,#1672b8);color:white;padding:24px 18px}
+.header-inner{max-width:1150px;margin:auto}
+header h1{margin:0;font-size:clamp(25px,4vw,38px)}
+header p{margin:6px 0;color:#e2efff}
+.container{max-width:1150px;margin:auto;padding:18px}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+input,select,button{font:inherit}
+input[type="search"]{flex:1;min-width:200px;padding:12px;border:1px solid var(--border);border-radius:10px}
+button{cursor:pointer;border:0;border-radius:9px;padding:10px 14px;background:var(--blue2);color:white;font-weight:600}
+button:hover{filter:brightness(.93)}
+button.secondary{background:#e5edf7;color:var(--blue)}
+button.active{background:var(--blue);color:white}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}
+nav button{font-size:14px}
+.panel{background:white;border:1px solid var(--border);border-radius:14px;padding:20px;margin:14px 0;box-shadow:0 2px 8px #16365b0b}
+h2{color:var(--blue);margin-top:0}
+h3{margin-bottom:6px;color:#204c7c}
+.muted{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.tile{background:white;border:1px solid var(--border);border-radius:12px;padding:16px}
+.tile h3{margin-top:0}
+.tag{display:inline-block;background:#e7f1ff;color:#174e83;padding:3px 8px;border-radius:20px;font-size:12px;margin:2px}
+.de{font-weight:600}
+.fa{direction:rtl;text-align:right;font-family:Tahoma,Arial,sans-serif}
+.bilingual{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.langbox{padding:12px;border-radius:9px;background:#f6f9fd;border:1px solid var(--border)}
+ul{padding-left:22px}
+.fa ul{padding-right:22px;padding-left:0}
+.formula{font-family:Consolas,monospace;font-size:18px;background:#edf4fc;padding:12px;border-radius:8px;overflow-wrap:anywhere}
+.notice{background:#fff7df;border-left:4px solid #e6a700;padding:12px;border-radius:7px}
+.success{color:var(--green);font-weight:bold}
+.error{color:var(--red);font-weight:bold}
+.progressbar{height:10px;background:#e5eaf2;border-radius:9px;overflow:hidden}
+.progressbar span{display:block;height:100%;background:#18834d;width:0%}
+.choice{display:block;text-align:left;width:100%;margin:8px 0;background:#f2f6fc;color:#172337;border:1px solid var(--border);font-weight:400}
+.choice:hover{background:#e4efff}
+.choice.correct{background:#dcfce7;border-color:#16a34a}
+.choice.wrong{background:#fee2e2;border-color:#dc2626}
+footer{text-align:center;padding:30px 12px;color:var(--muted);font-size:13px}
+.hidden{display:none!important}
+.small{font-size:13px}
+table{width:100%;border-collapse:collapse}
+td,th{padding:10px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
+th{background:#edf4fc}
+@media(max-width:650px){
+ .container{padding:10px}
+ .panel{padding:14px}
+ .bilingual{grid-template-columns:1fr}
+ nav button{flex:1 1 40%}
+}
+</style>
+</head>
+<body>
+<header>
+ <div class="header-inner">
+  <h1>⚡ Elektro Lernen</h1>
+  <p>Deutsch – فارسی | Prüfungsvorbereitung EGT</p>
+  <p class="small">Elektroniker/in für Energie- und Gebäudetechnik</p>
+ </div>
+</header>
+
+<main class="container">
+ <div class="toolbar">
+  <input id="search" type="search" placeholder="Suche: RCD, Ohm, KNX, Schutzleiter ...">
+  <button class="secondary" onclick="toggleLanguage()">فارسی / Deutsch</button>
+ </div>
+
+ <nav id="nav">
+  <button class="active" data-page="home">Startseite</button>
+  <button data-page="lessons">13 Lernfelder</button>
+  <button data-page="formulas">Formeln</button>
+  <button data-page="flashcards">Flashcards</button>
+  <button data-page="quiz">Quiz</button>
+  <button data-page="exam">Prüfung</button>
+  <button data-page="wiso">WiSo</button>
+  <button data-page="plan">Lernplan</button>
+ </nav>
+
+ <section id="home" class="page">
+  <div class="panel">
+   <h2>Willkommen! / خوش آمدی!</h2>
+   <p>Bereite dich Schritt für Schritt auf die Gesellenprüfung vor – von den Grundlagen bis zu anspruchsvollen Aufgaben.</p>
+   <p class="fa">برای امتحان پایان دوره، قدم‌به‌قدم از مبانی برق تا سؤال‌های دشوار آماده شو.</p>
+   <div class="notice">
+    <b>Wichtig / مهم:</b>
+    Die Inhalte sind eine Lernhilfe. Für verbindliche Prüfungsanforderungen gelten die aktuelle Ausbildungsordnung, die Vorgaben deiner zuständigen Stelle und die Informationen deiner Berufsschule.
+   </div>
+  </div>
+  <div class="grid">
+   <div class="tile"><h3>📚 13 Lernfelder</h3><p>Alle wichtigen Lernbereiche der Ausbildung.</p><p class="fa">سیزده حوزهٔ آموزشی با موضوعات مهم.</p></div>
+   <div class="tile"><h3>🧮 Formelsammlung</h3><p>Elektrische Größen, Leistung, Energie und Widerstand.</p><p class="fa">فرمول‌های جریان، ولتاژ، توان و مقاومت.</p></div>
+   <div class="tile"><h3>🧠 Flashcards</h3><p>Fachbegriffe auf Deutsch und Persisch lernen.</p><p class="fa">یادگیری اصطلاحات تخصصی آلمانی و فارسی.</p></div>
+   <div class="tile"><h3>📝 Prüfungstraining</h3><p>Übungsfragen mit sofortiger Rückmeldung.</p><p class="fa">تمرین سؤال‌ها همراه با بررسی پاسخ.</p></div>
+  </div>
+  <div class="panel">
+   <h2>Dein Lernfortschritt / پیشرفت یادگیری</h2>
+   <p id="progressText">0 von 13 Lernfeldern erledigt</p>
+   <div class="progressbar"><span id="progressFill"></span></div>
+   <p class="muted small">Dein Fortschritt wird in diesem Browser gespeichert.</p>
+   <button onclick="showPage('lessons')">Mit dem Lernen beginnen →</button>
+  </div>
+  <div class="panel">
+   <h2>Empfohlene Reihenfolge / ترتیب پیشنهادی</h2>
+   <ol>
+    <li>Grundlagen: Spannung, Strom, Widerstand und Leistung</li>
+    <li>Schaltpläne, Leitungen und Installationen</li>
+    <li>Schutzmaßnahmen: PE, RCD, Leitungsschutzschalter</li>
+    <li>Messen, Prüfen, Fehlersuche und Dokumentation</li>
+    <li>Steuerungen, Netzwerke, Gebäudesysteme und KNX</li>
+    <li>Prüfungsaufgaben, Kundenauftrag und WiSo</li>
+   </ol>
+   <p class="fa">ابتدا مبانی را یاد بگیر؛ سپس نصب، حفاظت، اندازه‌گیری، عیب‌یابی و در آخر تمرین امتحان را انجام بده.</p>
+  </div>
+ </section>
+
+ <section id="lessons" class="page hidden">
+  <div class="panel">
+   <h2>Die 13 Lernfelder / سیزده حوزهٔ آموزشی</h2>
+   <p>Wähle ein Lernfeld, lies die Inhalte und markiere es anschließend als gelernt.</p>
+   <p class="fa">یک حوزه را انتخاب کن، مطالب را بخوان و پس از یادگیری آن را علامت بزن.</p>
+  </div>
+  <div id="lessonList" class="grid"></div>
+  <div id="lessonDetail" class="panel hidden"></div>
+ </section>
+
+ <section id="formulas" class="page hidden">
+  <div class="panel">
+   <h2>Formelsammlung / مجموعه فرمول‌ها</h2>
+   <p>Die Formeln sind eine Lernhilfe. Prüfe immer Einheiten, Voraussetzungen und die in der Prüfung zugelassene Formelsammlung.</p>
+  </div>
+  <div id="formulaList" class="grid"></div>
+  <div class="panel">
+   <h3>Rechner / ماشین‌حساب ساده</h3>
+   <label>U (Volt) <input id="calcU" type="number" value="230"></label>
+   <label>I (Ampere) <input id="calcI" type="number" value="2"></label>
+   <button onclick="calculate()">P = U × I berechnen</button>
+   <p id="calcResult" aria-live="polite"></p>
+   <p class="muted small">Hinweis: P = U × I gilt direkt für Gleichstrom bzw. bei passenden Annahmen. Bei Wechselstrom sind je nach Last Leistungsfaktor und weitere Größen zu berücksichtigen.</p>
+  </div>
+ </section>
+
+ <section id="flashcards" class="page hidden">
+  <div class="panel">
+   <h2>Flashcards / کارت‌های آموزشی</h2>
+   <p id="cardCount"></p>
+   <div class="tile">
+    <span class="tag" id="cardCategory">Fachbegriff</span>
+    <h2 id="cardTerm">Spannung</h2>
+    <p id="cardGerman">Elektrische Potentialdifferenz zwischen zwei Punkten.</p>
+    <p class="fa" id="cardPersian">اختلاف پتانسیل الکتریکی بین دو نقطه.</p>
+    <button id="revealBtn" onclick="revealCard()">Antwort / پاسخ</button>
+    <div id="cardAnswer" class="hidden">
+     <hr><p id="cardExtra"></p>
+    </div>
+   </div>
+   <div class="toolbar">
+    <button class="secondary" onclick="prevCard()">← Zurück</button>
+    <button onclick="nextCard()">Nächste Karte →</button>
+   </div>
+  </div>
+ </section>
+
+ <section id="quiz" class="page hidden">
+  <div class="panel">
+   <h2>Quiz / آزمون تمرینی</h2>
+   <p>Wähle die beste Antwort. Nach deiner Auswahl erhältst du eine Erklärung.</p>
+   <p class="fa">بهترین پاسخ را انتخاب کن. پس از انتخاب، توضیح پاسخ را می‌بینی.</p>
+   <div class="toolbar">
+    <select id="quizLevel" aria-label="Schwierigkeitsgrad">
+     <option value="all">Alle Schwierigkeitsgrade</option>
+     <option value="1">Einfach / ساده</option>
+     <option value="2">Mittel / متوسط</option>
+     <option value="3">Schwer / دشوار</option>
+    </select>
+    <button onclick="startQuiz()">Neues Quiz</button>
+   </div>
+   <p id="quizScore"></p>
+   <h3 id="questionText"></h3>
+   <p class="fa" id="questionPersian"></p>
+   <div id="answers"></div>
+   <div id="feedback" aria-live="polite"></div>
+   <button id="nextQuestion" class="hidden" onclick="nextQuestion()">Nächste Frage →</button>
+  </div>
+ </section>
+
+ <section id="exam" class="page hidden">
+  <div class="panel">
+   <h2>Gesellenprüfung / Abschlussprüfung</h2>
+   <p>Die folgende Übersicht orientiert sich an der Ausbildungsordnung für Elektroniker und der Fachrichtung Energie- und Gebäudetechnik. Prüfe, welche Fassung für deinen Ausbildungsbeginn und deine Prüfung gilt.</p>
+   <p class="fa">این خلاصه بر اساس مقررات آموزش حرفه‌ای برق‌کاران تنظیم شده است. مقررات دقیق مربوط به شروع دوره و امتحان خودت را بررسی کن.</p>
+   <p><b>Offizielle Rechtsgrundlage:</b> <a href="https://www.gesetze-im-internet.de/elekausbv_2021/" target="_blank" rel="noopener">Elektro-Ausbildungsverordnung 2021 (ElekAusbV)</a></p>
+  </div>
+  <div class="panel">
+   <h2>Teil 1 – Elektrotechnische Anlagen und Betriebsmittel</h2>
+   <p><b>Gesamtdauer laut Verordnung: 10 Stunden.</b></p>
+   <ul>
+    <li>Arbeitsaufgabe: 8 Stunden</li>
+    <li>Situatives Fachgespräch: höchstens 10 Minuten, innerhalb der Arbeitsaufgabe</li>
+    <li>Schriftliche Aufgaben: 120 Minuten</li>
+   </ul>
+   <p class="fa">بخش اول شامل کار عملی، گفت‌وگوی تخصصی کوتاه در حین کار و سؤالات کتبی است.</p>
+   <h3>Was du üben solltest / چه چیزهایی تمرین کنی؟</h3>
+   <ul>
+    <li>Technische Unterlagen lesen und Arbeit planen</li>
+    <li>Material, Werkzeuge und Arbeitsablauf auswählen</li>
+    <li>Installieren, verdrahten und anschließen</li>
+    <li>Schutzmaßnahmen und Arbeitssicherheit beachten</li>
+    <li>Messen, prüfen und Fehler finden</li>
+    <li>Inbetriebnahme, Dokumentation und Übergabe</li>
+   </ul>
+  </div>
+  <div class="panel">
+   <h2>Teil 2 – Prüfungsbereiche</h2>
+   <table>
+    <thead><tr><th>Prüfungsbereich</th><th>Dauer</th><th>Gewichtung</th></tr></thead>
+    <tbody>
+     <tr><td>Kundenauftrag</td><td>16 Stunden, Fachgespräch max. 20 Minuten</td><td>36 %</td></tr>
+     <tr><td>Systementwurf</td><td>120 Minuten</td><td>12 %</td></tr>
+     <tr><td>Funktions- und Systemanalyse</td><td>120 Minuten</td><td>12 %</td></tr>
+     <tr><td>Wirtschafts- und Sozialkunde (WiSo)</td><td>60 Minuten</td><td>10 %</td></tr>
+    </tbody>
+   </table>
+   <p class="muted small">Teil 1 zählt 30 %. Die übrigen Gewichte beziehen sich auf Teil 2; die genauen Bestehensregeln stehen in der Ausbildungsordnung.</p>
+  </div>
+  <div class="panel">
+   <h2>Kundenauftrag – typische Kompetenzen</h2>
+   <ul>
+    <li>Auftrag und Kundenanforderungen verstehen</li>
+    <li>Installation planen und Komponenten auswählen</li>
+    <li>Arbeitssicherheit und Schutzmaßnahmen umsetzen</li>
+    <li>System fachgerecht errichten oder ändern</li>
+    <li>Messungen und Funktionsprüfung durchführen</li>
+    <li>Ergebnisse dokumentieren und Kunden die Anlage erklären</li>
+   </ul>
+   <p class="fa">سفارش مشتری را تحلیل کن، سیستم را طراحی و نصب کن، اندازه‌گیری و آزمایش انجام بده و نتیجه را مستند و به مشتری توضیح بده.</p>
+  </div>
+  <div class="panel">
+   <h2>Systementwurf</h2>
+   <ul>
+    <li>Schaltpläne und technische Anforderungen auswerten</li>
+    <li>Geeignete Geräte, Betriebsmittel und Leitungen auswählen</li>
+    <li>Schaltungen und Dokumentation anpassen</li>
+    <li>Sicherheit, Kosten, Datenschutz und technische Regeln berücksichtigen</li>
+   </ul>
+   <h2>Funktions- und Systemanalyse</h2>
+   <ul>
+    <li>Schaltungen und Systemzusammenhänge erklären</li>
+    <li>Geeignete Mess- und Prüfverfahren bestimmen</li>
+    <li>Fehler systematisch eingrenzen</li>
+    <li>Schutz- und Funktionsprüfungen beurteilen</li>
+   </ul>
+   <h2>Fachgespräch üben</h2>
+   <p>Erkläre laut: Was ist deine Aufgabe? Warum wählst du dieses Betriebsmittel? Welche Schutzmaßnahme ist nötig? Wie prüfst du das Ergebnis? Welche Messwerte dokumentierst du?</p>
+   <p class="fa">با صدای بلند توضیح بده: وظیفه چیست؟ چرا این وسیله را انتخاب می‌کنی؟ چه حفاظتی لازم است؟ چگونه نتیجه را آزمایش و ثبت می‌کنی؟</p>
+  </div>
+  <div class="panel">
+   <h2>Offizielle Lernplanquelle</h2>
+   <p><a href="https://www.kmk.org/service/servicebereich-berufliche-schulen/downloadbereich-rahmenlehrplaene.html" target="_blank" rel="noopener">KMK – Rahmenlehrpläne für berufliche Schulen</a></p>
+   <p><a href="https://www.bibb.de/" target="_blank" rel="noopener">BIBB – Bundesinstitut für Berufsbildung</a></p>
+   <p class="muted small">Nicht jede öffentlich auffindbare Prüfungsaufgabe ist zur Weiterverwendung freigegeben. Diese App enthält eigene Übungsfragen und keine Behauptung, offizielle Originalprüfungen abzubilden.</p>
+  </div>
+ </section>
+
+ <section id="wiso" class="page hidden">
+  <div class="panel">
+   <h2>WiSo – Wirtschafts- und Sozialkunde</h2>
+   <p>WiSo prüft Grundlagen des Arbeitslebens, der Wirtschaft und des gesellschaftlichen Zusammenlebens.</p>
+   <p class="fa">درس WiSo دربارهٔ قوانین کار، اقتصاد، بیمه‌ها و زندگی اجتماعی است.</p>
+  </div>
+  <div class="grid">
+   <div class="tile"><h3>Ausbildung und Arbeitsrecht</h3><p>Ausbildungsvertrag, Pflichten, Probezeit, Kündigung, Arbeitszeit, Urlaub und Ausbildungsnachweis.</p><p class="fa">قرارداد کارآموزی، وظایف، دورهٔ آزمایشی، فسخ قرارداد، ساعت کار و مرخصی.</p></div>
+   <div class="tile"><h3>Sozialversicherung</h3><p>Kranken-, Pflege-, Renten-, Arbeitslosen- und Unfallversicherung.</p><p class="fa">بیمهٔ درمان، مراقبت، بازنشستگی، بیکاری و حوادث کاری.</p></div>
+   <div class="tile"><h3>Wirtschaft</h3><p>Angebot und Nachfrage, Markt, Preisbildung, Inflation und Konjunktur.</p><p class="fa">عرضه و تقاضا، بازار، تعیین قیمت، تورم و وضعیت اقتصادی.</p></div>
+   <div class="tile"><h3>Unternehmen</h3><p>Rechtsformen, Mitbestimmung, Betriebsrat, Tarifvertrag und Arbeitsschutz.</p><p class="fa">انواع شرکت، مشارکت کارکنان، شورای کار، قرارداد جمعی و ایمنی.</p></div>
+   <div class="tile"><h3>Geld und Verbraucher</h3><p>Brutto und Netto, Steuern, Verträge, Mahnung, Kaufvertrag und Datenschutz.</p><p class="fa">حقوق ناخالص و خالص، مالیات، قرارداد خرید، اخطار پرداخت و حفاظت داده.</p></div>
+   <div class="tile"><h3>Umwelt und Nachhaltigkeit</h3><p>Energie sparen, fachgerechte Entsorgung und verantwortlicher Materialeinsatz.</p><p class="fa">صرفه‌جویی انرژی، دفع اصولی پسماند و استفادهٔ مسئولانه از مواد.</p></div>
+  </div>
+ </section>
+
+ <section id="plan" class="page hidden">
+  <div class="panel">
+   <h2>Mein Lernplan / برنامهٔ یادگیری من</h2>
+   <p>Markiere erledigte Aufgaben. Deine Auswahl wird lokal in diesem Browser gespeichert.</p>
+   <div id="planTasks"></div>
+   <button class="secondary" onclick="resetPlan()">Fortschritt zurücksetzen</button>
+  </div>
+ </section>
+</main>
+
+<footer>
+ Elektro Lernen · EGT · Deutsch / فارسی<br>
+Lernhilfe – keine offizielle Prüfungsunterlage.
+</footer>
+
+<script>
+const lessons = [
+{title:"1. Elektrotechnische Systeme analysieren",hours:"80 Stunden",level:1,
+topics:["Spannung U, Strom I, Widerstand R","Ohmsches Gesetz","Reihen- und Parallelschaltung","Messgeräte und Messbereiche","Fehlersuche und technische Dokumentation"],
+de:"Elektrische Größen verstehen, Schaltungen berechnen, Messungen planen und einfache Fehler systematisch finden.",
+fa:"کمیت‌های الکتریکی را یاد بگیر، مدارها را محاسبه کن، اندازه‌گیری را برنامه‌ریزی کن و خطاها را مرحله‌به‌مرحله پیدا کن."},
+{title:"2. Elektrische Systeme planen und installieren",hours:"80 Stunden",level:1,
+topics:["Schaltzeichen und Stromlaufpläne","Leitungen und Kabel","Installationszonen und Verlegearten","Werkzeuge und Verbindungstechnik","Arbeitsplanung und Materialliste"],
+de:"Installationen vorbereiten, Zeichnungen lesen, Leitungen und Betriebsmittel passend auswählen und fachgerecht montieren.",
+fa:"نصب را آماده کن، نقشه‌ها را بخوان، کابل و تجهیزات مناسب را انتخاب و اصولی نصب کن."},
+{title:"3. Steuerungen und Regelungen analysieren",hours:"80 Stunden",level:2,
+topics:["Schütze und Relais","Taster und Schalter","Selbsthaltung und Verriegelung","Sensoren und Zeitrelais","Grundlagen der Regelung"],
+de:"Steuerungsabläufe verstehen und mit Schaltplänen, Relais, Schützen und Sensoren erklären.",
+fa:"عملکرد مدارهای فرمان را با نقشه، رله، کنتاکتور و حسگرها درک و توضیح بده."},
+{title:"4. Informationstechnische Systeme bereitstellen",hours:"80 Stunden",level:2,
+topics:["Netzwerkgrundlagen","RJ45 und strukturierte Verkabelung","IP-Adresse, Router und Switch","Netzwerkprüfung","Datenschutz und IT-Sicherheit"],
+de:"Informationsnetze planen, anschließen, prüfen und grundlegende Netzwerkfehler beheben.",
+fa:"شبکه‌های اطلاعاتی را طراحی، متصل و آزمایش کن و خطاهای پایهٔ شبکه را برطرف کن."},
+{title:"5. Elektroenergieversorgung und Sicherheit",hours:"80 Stunden",level:2,
+topics:["PE, N und PEN unterscheiden","Schutzleiter und Potentialausgleich","RCD und Leitungsschutzschalter","Schutz gegen elektrischen Schlag","Sicherheitsregeln und Freischalten"],
+de:"Energieversorgung und Schutzmaßnahmen verstehen. Schutzorgane passend auswählen und Sicherheitsregeln beachten.",
+fa:"تغذیهٔ برق و حفاظت را درک کن، تجهیزات حفاظتی را درست انتخاب کن و مقررات ایمنی را رعایت کن."},
+{title:"6. Elektrotechnische Systeme analysieren und prüfen",hours:"60 Stunden",level:2,
+topics:["Messgeräte und Messverfahren","Sichtprüfung","Durchgängigkeit des Schutzleiters","Isolationsmessung","Prüfprotokolle und Fehlerbewertung"],
+de:"Elektrische Anlagen nach den jeweils geltenden Regeln prüfen, Messergebnisse bewerten und dokumentieren.",
+fa:"تأسیسات برقی را طبق مقررات معتبر آزمایش کن، نتایج را ارزیابی و ثبت کن."},
+{title:"7. Steuerungen programmieren und realisieren",hours:"80 Stunden",level:3,
+topics:["Logik UND, ODER, NICHT","Digitale Ein- und Ausgänge","Ablaufsteuerung","Zeitfunktionen","Programm prüfen und Fehler finden"],
+de:"Einfache Steuerungslogik entwickeln, Programme testen und systematisch Fehler beheben.",
+fa:"منطق کنترل را طراحی کن، برنامه را آزمایش کن و خطاها را سیستماتیک برطرف کن."},
+{title:"8. Energiewandlungssysteme integrieren",hours:"60 Stunden",level:2,
+topics:["Transformator und Motor","Grundlagen der Beleuchtung","Wirk-, Blind- und Scheinleistung","Photovoltaik-Grundlagen","Energieeffizienz"],
+de:"Energiewandler verstehen und Systeme anhand technischer Anforderungen auswählen.",
+fa:"مبدل‌های انرژی را درک کن و تجهیزات را بر اساس نیاز فنی انتخاب کن."},
+{title:"9. Kommunikation in Wohn- und Zweckbauten",hours:"100 Stunden",level:3,
+topics:["KNX-Grundlagen","Bus-Systeme","Türkommunikation und Klingelanlagen","Netzwerk im Gebäude","Planung und Inbetriebnahme"],
+de:"Kommunikationssysteme für Wohn- und Zweckgebäude planen, installieren, konfigurieren und prüfen.",
+fa:"سیستم‌های ارتباطی ساختمان را طراحی، نصب، پیکربندی و آزمایش کن."},
+{title:"10. Geräte und Anlagen der Haustechnik",hours:"100 Stunden",level:2,
+topics:["Beleuchtungsanlagen","Elektrische Haushaltsgeräte","Bewegungsmelder","Steuerung von Gebäudefunktionen","Inbetriebnahme und Übergabe"],
+de:"Haustechnische Geräte und Anlagen installieren, in Betrieb nehmen und verständlich an Kunden übergeben.",
+fa:"تجهیزات برق ساختمان را نصب و راه‌اندازی کن و به مشتری تحویل بده."},
+{title:"11. Energietechnische Systeme errichten",hours:"80 Stunden",level:3,
+topics:["Photovoltaik und Wechselrichter","Speicher und Energiemanagement","Überspannungsschutz","Notstrom-Grundlagen","Wartung und Fehlersuche"],
+de:"Energietechnische Systeme planen, errichten, prüfen und instand halten.",
+fa:"سیستم‌های انرژی را طراحی، نصب، آزمایش و نگهداری کن."},
+{title:"12. Energie- und gebäudetechnische Anlagen planen",hours:"80 Stunden",level:3,
+topics:["Kundenanforderungen","Komponentenauswahl","Stromlauf- und Installationspläne","Kosten und Material","Prüfung und Inbetriebnahme"],
+de:"Einen Kundenauftrag technisch planen, Komponenten begründet auswählen und die Ausführung vorbereiten.",
+fa:"سفارش مشتری را از نظر فنی طراحی کن، تجهیزات را با دلیل انتخاب و اجرای کار را آماده کن."},
+{title:"13. Systeme anpassen und dokumentieren",hours:"60 Stunden",level:3,
+topics:["Änderungen planen","Fehleranalyse","Messungen nach Änderungen","Dokumentation aktualisieren","Kundenübergabe und Qualität"],
+de:"Bestehende Anlagen anpassen, Funktion und Sicherheit prüfen und alle Änderungen dokumentieren.",
+fa:"تأسیسات موجود را تغییر بده، عملکرد و ایمنی را آزمایش کن و تمام تغییرات را مستند ساز."}
+];
+
+const formulas = [
+{n:"Ohmsches Gesetz",f:"U = R × I",fa:"ولتاژ = مقاومت × جریان",ex:"Beispiel: R = 10 Ω, I = 2 A → U = 20 V."},
+{n:"Strom berechnen",f:"I = U / R",fa:"جریان = ولتاژ ÷ مقاومت",ex:"Beispiel: U = 12 V, R = 6 Ω → I = 2 A."},
+{n:"Widerstand berechnen",f:"R = U / I",fa:"مقاومت = ولتاژ ÷ جریان",ex:"Beispiel: U = 24 V, I = 3 A → R = 8 Ω."},
+{n:"Elektrische Leistung",f:"P = U × I",fa:"توان = ولتاژ × جریان",ex:"Bei passenden Bedingungen: 230 V × 2 A = 460 W."},
+{n:"Leistung mit Widerstand",f:"P = I² × R",fa:"توان = جریان به توان دو × مقاومت",ex:"I = 2 A, R = 5 Ω → P = 20 W."},
+{n:"Leistung mit Spannung",f:"P = U² / R",fa:"توان = ولتاژ به توان دو ÷ مقاومت",ex:"U = 10 V, R = 5 Ω → P = 20 W."},
+{n:"Elektrische Arbeit / Energie",f:"E = P × t",fa:"انرژی = توان × زمان",ex:"2 kW × 3 h = 6 kWh."},
+{n:"Wirkungsgrad",f:"η = P_ab / P_zu × 100 %",fa:"بازده = توان خروجی ÷ توان ورودی × ۱۰۰٪",ex:"900 W / 1000 W × 100 % = 90 %."},
+{n:"Reihenschaltung",f:"R_ges = R1 + R2 + ...",fa:"مقاومت کل سری برابر مجموع مقاومت‌هاست.",ex:"2 Ω + 3 Ω = 5 Ω."},
+{n:"Parallelschaltung",f:"1/R_ges = 1/R1 + 1/R2 + ...",fa:"در مدار موازی، معکوس مقاومت کل برابر مجموع معکوس‌هاست.",ex:"Bei zwei gleichen Widerständen: R_ges = R / 2."},
+{n:"Drehstrom – Wirkleistung",f:"P = √3 × U × I × cos φ",fa:"توان اکتیو سه‌فاز",ex:"Für ein symmetrisches Drehstromsystem; U ist die Leiterspannung."},
+{n:"Frequenz und Periodendauer",f:"f = 1 / T",fa:"فرکانس = یک تقسیم بر دورهٔ تناوب",ex:"Bei 50 Hz ist T = 0,02 s = 20 ms."}
+];
+
+const cards = [
+["Spannung","Elektrische Potentialdifferenz; Einheit Volt (V).","اختلاف پتانسیل الکتریکی؛ واحد ولت (V).","Formelzeichen: U."],
+["Stromstärke","Elektrische Ladungsmenge pro Zeit; Einheit Ampere (A).","مقدار بار الکتریکی عبوری در زمان؛ واحد آمپر (A).","Formelzeichen: I."],
+["Widerstand","Maß dafür, wie stark ein Bauteil den Stromfluss hemmt; Einheit Ohm (Ω).","میزان مخالفت قطعه با عبور جریان؛ واحد اهم (Ω).","Formelzeichen: R."],
+["Leistung","Umgesetzte elektrische Energie pro Zeit; Einheit Watt (W).","انرژی الکتریکی تبدیل‌شده در واحد زمان؛ واحد وات (W).","Formelzeichen: P."],
+["Schutzleiter (PE)","Leiter für Schutzmaßnahmen, nicht als normaler Betriebsstromleiter vorgesehen.","سیم حفاظتی برای اقدامات ایمنی؛ برای جریان عادی مصرف نیست.","Grün-gelbe Kennzeichnung."],
+["Neutralleiter (N)","Leiter, der im Betrieb Strom führen kann und mit dem Neutralpunkt verbunden ist.","هادی نول که می‌تواند در حالت عادی جریان داشته باشد.","Kennzeichnung üblicherweise blau."],
+["RCD","Schutzeinrichtung, die bei einem Fehlerstrom unter definierten Bedingungen abschaltet.","وسیلهٔ حفاظتی که در شرایط مشخص هنگام جریان خطا قطع می‌کند.","RCD ist kein Ersatz für alle anderen Schutzmaßnahmen."],
+["LS-Schalter","Schützt Leitungen gegen Überlast und Kurzschluss.","از سیم‌ها در برابر اضافه‌بار و اتصال کوتاه محافظت می‌کند.","Auswahl nach Anlage, Leitung und geltenden Regeln."],
+["Durchgängigkeit","Prüfung, ob ein vorgesehener leitfähiger Pfad zuverlässig verbunden ist.","بررسی پیوستگی مسیر رسانا.","Messverfahren und Sicherheitsregeln beachten."],
+["Isolationswiderstand","Widerstand der Isolierung zwischen leitfähigen Teilen.","مقاومت عایقی بین بخش‌های رسانا.","Prüfspannung und Bedingungen richten sich nach den geltenden Regeln."],
+["Schütz","Elektromagnetisch betätigtes Schaltgerät für häufiges Schalten von Lasten.","وسیلهٔ کلیدزنی الکترومغناطیسی برای قطع‌و‌وصل بارها.","Steuerkreis und Hauptstromkreis unterscheiden."],
+["Relais","Schaltgerät, das durch ein Steuersignal Kontakte betätigt.","وسیله‌ای که با سیگنال فرمان کنتاکت‌ها را تغییر می‌دهد.","Kontakte und Spulenspannung prüfen."],
+["KNX","Standard für die Vernetzung und Steuerung von Gebäudefunktionen.","استاندارد شبکه و کنترل عملکردهای ساختمان.","Planung, Parametrierung und Inbetriebnahme erforderlich."],
+["RJ45","Steckverbinder, der häufig in Ethernet-Netzwerken verwendet wird.","کانکتوری که اغلب در شبکه‌های اترنت استفاده می‌شود.","Kabelbelegung und Prüfung beachten."],
+["Fachgespräch","Gespräch, in dem du Planung, Entscheidungen, Sicherheit und Ergebnisse erklärst.","گفت‌وگوی تخصصی برای توضیح برنامه‌ریزی، تصمیم‌ها، ایمنی و نتیجه.","Antworte strukturiert und begründe deine Entscheidungen."]
+];
+
+const questions = [
+{l:1,q:"Welche Einheit hat die elektrische Spannung?",p:"واحد ولتاژ الکتریکی چیست؟",a:["Ampere (A)","Volt (V)","Ohm (Ω)","Watt (W)"],c:1,e:"Die Spannung U wird in Volt (V) angegeben. / واحد ولتاژ، ولت است."},
+{l:1,q:"U = 12 V und R = 4 Ω. Wie groß ist I?",p:"اگر ولتاژ ۱۲ ولت و مقاومت ۴ اهم باشد، جریان چقدر است؟",a:["2 A","3 A","4 A","48 A"],c:1,e:"I = U / R = 12 V / 4 Ω = 3 A. / جریان برابر ۳ آمپر است."},
+{l:1,q:"Welche Einheit hat elektrische Leistung?",p:"واحد توان الکتریکی چیست؟",a:["Volt","Ohm","Watt","Ampere pro Stunde"],c:2,e:"Die Leistung wird in Watt (W) angegeben. / توان با وات بیان می‌شود."},
+{l:2,q:"Welche Farbe kennzeichnet üblicherweise den Schutzleiter PE?",p:"سیم حفاظتی PE معمولاً چه رنگی دارد؟",a:["Grün-gelb","Hellblau","Rot","Nur Schwarz"],c:0,e:"Der Schutzleiter ist grün-gelb gekennzeichnet. / رنگ هادی حفاظتی سبز-زرد است."},
+{l:2,q:"Was ist vor Arbeiten an einer elektrischen Anlage grundsätzlich zu beachten?",p:"پیش از کار روی تأسیسات برقی چه چیزی ضروری است؟",a:["Nur den Lichtschalter ausschalten","Sicher freischalten und die geltenden Sicherheitsregeln einhalten","Nur Handschuhe anziehen","Sofort messen, ohne den Zustand zu prüfen"],c:1,e:"Es gelten die Sicherheitsregeln, darunter Freischalten und gegen Wiedereinschalten sichern. / باید مقررات ایمنی رعایت شود."},
+{l:2,q:"Wofür ist ein Leitungsschutzschalter grundsätzlich vorgesehen?",p:"کلید مینیاتوری اساساً برای چه کاری است؟",a:["Nur für Netzwerkdaten","Zum Schutz von Leitungen gegen Überlast und Kurzschluss","Als Ersatz für den Schutzleiter","Nur zur Spannungsmessung"],c:1,e:"Er schützt Leitungen bei Überlast und Kurzschluss, wenn passend ausgewählt. / از سیم‌ها در برابر اضافه‌بار و اتصال کوتاه حفاظت می‌کند."},
+{l:2,q:"Was kann ein RCD erkennen?",p:"RCD چه چیزی را تشخیص می‌دهد؟",a:["Jeden Fehler in einem Computer","Differenzströme unter den vorgesehenen Bedingungen","Alle Überlastungen als einzige Schutzeinrichtung","Nur zu hohe Netzfrequenz"],c:1,e:"Ein RCD vergleicht Ströme und schaltet bei relevantem Fehlerstrom entsprechend seiner Auslegung ab. / RCD جریان‌های ورودی و خروجی را مقایسه می‌کند."},
+{l:3,q:"Ein Verbraucher nimmt 2 A bei 230 V auf. Welche Leistung ergibt sich bei passenden Annahmen?",p:"مصرف‌کننده‌ای با ۲ آمپر و ۲۳۰ ولت کار می‌کند؛ توان با فرض مناسب چقدر است؟",a:["115 W","230 W","460 W","920 W"],c:2,e:"P = U × I = 230 × 2 = 460 W. / توان ۴۶۰ وات است."},
+{l:3,q:"Welche Aufgabe hat ein Prüfprotokoll?",p:"هدف گزارش آزمایش چیست؟",a:["Messwerte und Prüfergebnisse nachvollziehbar dokumentieren","Die Anlage automatisch reparieren","Die Schutzmaßnahmen ersetzen","Nur die Arbeitszeit erfassen"],c:0,e:"Das Protokoll dokumentiert nachvollziehbar Prüfungen und Ergebnisse. / نتایج آزمایش را قابل پیگیری ثبت می‌کند."},
+{l:3,q:"Was ist bei einem unbekannten elektrischen Fehler eine gute Vorgehensweise?",p:"برای خطای الکتریکی ناشناخته چه روشی مناسب است؟",a:["Bauteile zufällig tauschen","Systematisch prüfen, messen und Ergebnisse dokumentieren","Schutzorgane überbrücken","Ohne Prüfung wieder einschalten"],c:1,e:"Systematische Fehlersuche beginnt mit sicherem Zustand, Sichtprüfung und geeigneten Messungen. / عیب‌یابی باید ایمن و مرحله‌به‌مرحله باشد."},
+{l:3,q:"Welche Größe wird bei einem symmetrischen Drehstromsystem in P = √3 × U × I × cos φ mit U bezeichnet?",p:"در فرمول توان اکتیو سه‌فاز، U معمولاً به چه معناست؟",a:["Strangwiderstand","Leiterspannung","Frequenz","Zeit"],c:1,e:"U bezeichnet in dieser Formel die Leiterspannung. / U در این فرمول ولتاژ خط است."},
+{l:2,q:"Wozu dient der Potentialausgleich?",p:"هم‌بندی هم‌پتانسیل برای چیست؟",a:["Zum Erhöhen der Netzfrequenz","Zum Verringern gefährlicher Potentialunterschiede","Zum Ersetzen aller Sicherungen","Zum Verstärken des WLAN-Signals"],c:1,e:"Potentialausgleich soll gefährliche Potentialunterschiede verringern. / هدف کاهش اختلاف پتانسیل خطرناک است."},
+{l:2,q:"Was sollte vor der Auswahl einer Leitung berücksichtigt werden?",p:"پیش از انتخاب کابل چه مواردی باید بررسی شود؟",a:["Nur die Farbe der Wand","Belastung, Verlegeart, Länge, Umgebung und Schutzbedingungen","Nur der Einkaufspreis","Nur die Zahl der Steckdosen"],c:1,e:"Leitungsauswahl hängt von mehreren technischen Randbedingungen ab. / انتخاب کابل به چندین شرط فنی بستگی دارد."},
+{l:3,q:"Was ist ein wichtiger Bestandteil der Kundenübergabe?",p:"یکی از بخش‌های مهم تحویل به مشتری چیست؟",a:["Die Schutzprüfung auslassen","Funktion, Bedienung und dokumentierte Ergebnisse erklären","Unterlagen vernichten","Fehler nicht erwähnen"],c:1,e:"Die Anlage wird nachvollziehbar erklärt und die erforderliche Dokumentation übergeben. / عملکرد و مدارک لازم به مشتری توضیح داده می‌شود."}
+];
+
+const planItems = [
+"Spannung, Strom, Widerstand und Einheiten wiederholen",
+"Ohmsches Gesetz und Leistung berechnen",
+"Reihen- und Parallelschaltungen üben",
+"Schaltzeichen und Stromlaufpläne lesen",
+"Leitungen, Schutzleiter, Neutralleiter und PEN unterscheiden",
+"RCD, LS-Schalter und Schutzmaßnahmen erklären",
+"Messverfahren und Prüfprotokolle lernen",
+"Steuerungen mit Relais und Schützen üben",
+"Netzwerke, RJ45, IP, Router und Switch wiederholen",
+"KNX und Gebäudekommunikation verstehen",
+"PV, Wechselrichter und Überspannungsschutz wiederholen",
+"Systementwurf und Fehlersuche üben",
+"WiSo-Themen wiederholen",
+"Mindestens einen vollständigen Übungsauftrag bearbeiten",
+"Fachgespräch laut üben und Entscheidungen begründen"
+];
+
+let currentPage="home";
+let currentCard=0;
+let quizSet=[];
+let quizIndex=0;
+let quizPoints=0;
+let answered=false;
+let showPersian=true;
+let searchTerm="";
+const completed = JSON.parse(localStorage.getItem("elektroCompleted") || "[]");
+const planDone = JSON.parse(localStorage.getItem("elektroPlan") || "[]");
+
+function saveProgress(){
+ localStorage.setItem("elektroCompleted",JSON.stringify(completed));
+ localStorage.setItem("elektroPlan",JSON.stringify(planDone));
+ updateProgress();
+}
+function updateProgress(){
+ const count=completed.length;
+ document.getElementById("progressText").textContent=count+" von 13 Lernfeldern erledigt";
+ document.getElementById("progressFill").style.width=(count/13*100)+"%";
+}
+function showPage(id){
+ currentPage=id;
+ document.querySelectorAll(".page").forEach(p=>p.classList.toggle("hidden",p.id!==id));
+ document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===id));
+ if(id==="lessons")renderLessons();
+ if(id==="formulas")renderFormulas();
+ if(id==="flashcards")renderCard();
+ if(id==="quiz"&&!quizSet.length)startQuiz();
+ if(id==="plan")renderPlan();
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+document.querySelectorAll("#nav button").forEach(b=>b.addEventListener("click",()=>showPage(b.dataset.page)));
+
+function toggleLanguage(){
+ showPersian=!showPersian;
+ document.querySelectorAll(".fa").forEach(el=>el.classList.toggle("hidden",!showPersian));
+}
+function renderLessons(){
+ const list=document.getElementById("lessonList");
+ list.innerHTML="";
+ lessons.forEach((l,i)=>{
+  if(searchTerm && !(l.title+" "+l.topics.join(" ")+l.de+l.fa).toLowerCase().includes(searchTerm))return;
+  const d=document.createElement("div");d.className="tile";
+  d.innerHTML=`<span class="tag">${l.hours}</span><span class="tag">Niveau ${l.level}</span>
+  <h3>${l.title}</h3><p>${l.de}</p><p class="fa">${l.fa}</p>
+  <button onclick="openLesson(${i})">Lernfeld öffnen</button>
+  ${completed.includes(i)?'<p class="success">✓ Gelernt / یاد گرفته شد</p>':''}`;
+  list.appendChild(d);
+ });
+ if(!list.children.length)list.innerHTML="<p>Keine Treffer gefunden.</p>";
+}
+function openLesson(i){
+ const l=lessons[i],d=document.getElementById("lessonDetail");
+ d.classList.remove("hidden");
+ d.innerHTML=`<h2>${l.title}</h2><p>${l.de}</p><p class="fa">${l.fa}</p>
+ <h3>Wichtige Themen / موضوعات مهم</h3><ul>${l.topics.map(t=>"<li>"+t+"</li>").join("")}</ul>
+ <div class="notice"><b>Lernmethode:</b> Lies das Thema, erkläre es mit eigenen Worten, rechne passende Aufgaben und begründe deine Entscheidungen.
+ <p class="fa">روش یادگیری: موضوع را بخوان، با زبان خودت توضیح بده، مسئله حل کن و دلیل انتخاب‌هایت را بیان کن.</p></div>
+ <button onclick="markLesson(${i})">${completed.includes(i)?"Als nicht gelernt markieren":"Als gelernt markieren"}</button>`;
+ d.scrollIntoView({behavior:"smooth",block:"start"});
+}
+function markLesson(i){
+ const index=completed.indexOf(i);
+ if(index>=0)completed.splice(index,1);else completed.push(i);
+ saveProgress();renderLessons();openLesson(i);
+}
+function renderFormulas(){
+ document.getElementById("formulaList").innerHTML=formulas.filter(f=>!searchTerm||(f.n+f.f+f.fa+f.ex).toLowerCase().includes(searchTerm)).map(f=>`
+ <div class="tile"><h3>${f.n}</h3><div class="formula">${f.f}</div><p class="fa">${f.fa}</p><p>${f.ex}</p></div>`).join("");
+}
+function calculate(){
+ const u=Number(document.getElementById("calcU").value);
+ const i=Number(document.getElementById("calcI").value);
+ const out=document.getElementById("calcResult");
+ if(!Number.isFinite(u)||!Number.isFinite(i)||u<0||i<0){out.textContent="Bitte gültige, nichtnegative Werte eingeben.";return;}
+ out.textContent="P = "+u+" V × "+i+" A = "+(u*i).toLocaleString("de-DE")+" W";
+}
+function renderCard(){
+ const c=cards[currentCard];
+ document.getElementById("cardCount").textContent=`Karte ${currentCard+1} von ${cards.length}`;
+ document.getElementById("cardTerm").textContent=c[0];
+ document.getElementById("cardGerman").textContent=c[1];
+ document.getElementById("cardPersian").textContent=c[2];
+ document.getElementById("cardExtra").textContent=c[3];
+ document.getElementById("cardAnswer").classList.add("hidden");
+ document.getElementById("revealBtn").classList.remove("hidden");
+}
+function revealCard(){
+ document.getElementById("cardAnswer").classList.remove("hidden");
+ document.getElementById("revealBtn").classList.add("hidden");
+}
+function nextCard(){currentCard=(currentCard+1)%cards.length;renderCard();}
+function prevCard(){currentCard=(currentCard-1+cards.length)%cards.length;renderCard();}
+
+function startQuiz(){
+ const level=document.getElementById("quizLevel").value;
+ quizSet=questions.filter(q=>level==="all"||String(q.l)===level);
+ quizSet=quizSet.sort(()=>Math.random()-.5);
+ quizIndex=0;quizPoints=0;answered=false;
+ renderQuestion();
+}
+function renderQuestion(){
+ const q=quizSet[quizIndex];
+ if(!q){document.getElementById("questionText").textContent="Quiz beendet!";
+ document.getElementById("questionPersian").textContent="آزمون تمام شد!";
+ document.getElementById("answers").innerHTML="";
+ document.getElementById("feedback").innerHTML=`<h3>Ergebnis: ${quizPoints} von ${quizSet.length}</h3><p class="fa">نتیجه: ${quizPoints} از ${quizSet.length}</p><button onclick="startQuiz()">Nochmal versuchen</button>`;
+ document.getElementById("nextQuestion").classList.add("hidden");return;}
+ answered=false;
+ document.getElementById("quizScore").textContent=`Frage ${quizIndex+1} / ${quizSet.length} · Punkte ${quizPoints}`;
+ document.getElementById("questionText").textContent=q.q;
+ document.getElementById("questionPersian").textContent=q.p;
+ document.getElementById("feedback").textContent="";
+ document.getElementById("nextQuestion").classList.add("hidden");
+ const box=document.getElementById("answers");box.innerHTML="";
+ q.a.forEach((a,i)=>{
+  const b=document.createElement("button");b.className="choice";b.textContent=String.fromCharCode(65+i)+") "+a;
+  b.onclick=()=>answerQuestion(i);box.appendChild(b);
+ });
+}
+function answerQuestion(index){
+ if(answered)return;answered=true;
+ const q=quizSet[quizIndex];
+ document.querySelectorAll("#answers button").forEach((b,i)=>{
+  b.disabled=true;if(i===q.c)b.classList.add("correct");
+  if(i===index&&i!==q.c)b.classList.add("wrong");
+ });
+ if(index===q.c){quizPoints++;document.getElementById("feedback").innerHTML='<p class="success">Richtig! / درست است!</p><p>'+q.e+'</p>';}
+ else document.getElementById("feedback").innerHTML='<p class="error">Nicht ganz. / پاسخ درست نیست.</p><p>'+q.e+'</p>';
+ document.getElementById("nextQuestion").classList.remove("hidden");
+}
+function nextQuestion(){quizIndex++;renderQuestion();}
+function renderPlan(){
+ const box=document.getElementById("planTasks");
+ box.innerHTML=planItems.map((t,i)=>`<p><label><input type="checkbox" ${planDone.includes(i)?"checked":""} onchange="togglePlan(${i},this.checked)"> ${t}</label></p>`).join("");
+}
+function togglePlan(i,checked){
+ const n=planDone.indexOf(i);
+ if(checked&&n<0)planDone.push(i);
+ if(!checked&&n>=0)planDone.splice(n,1);
+ saveProgress();
+}
+function resetPlan(){
+ if(!confirm("Den Lernplan wirklich zurücksetzen?"))return;
+ planDone.splice(0,planDone.length);saveProgress();renderPlan();
+}
+document.getElementById("search").addEventListener("input",e=>{
+ searchTerm=e.target.value.trim().toLowerCase();
+ if(currentPage==="lessons")renderLessons();
+ if(currentPage==="formulas")renderFormulas();
+});
+updateProgress();
+renderLessons();
+renderFormulas();
+renderPlan();
+renderCard();
+startQuiz();
+</script>
+</body>
+</html>
