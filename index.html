@@ -565,6 +565,7 @@ function showPage(id){
  if(id==="flashcards")renderCard();
  if(id==="quiz"&&!quizSet.length)startQuiz();
  if(id==="plan")renderPlan();
+ if(id==="language")startLanguageTraining(false);
  window.scrollTo({top:0,behavior:"smooth"});
 }
 document.querySelectorAll("#nav button").forEach(b=>b.addEventListener("click",()=>showPage(b.dataset.page)));
