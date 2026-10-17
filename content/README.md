@@ -14,6 +14,10 @@ Dieser Ordner enthält strukturierte Lerninhalte, getrennt von der Benutzeroberf
 - Checkliste zum selbstständigen Lernfortschritt
 - Links zu offiziellen Referenzquellen
 
+## Lernfeld 2
+
+`lernfeld-02.json` ergänzt die App um vier zweisprachige Module zu Auftragsplanung, Schalt- und Installationsplänen, Leitungsauswahl sowie Prüfung und Dokumentation. Enthalten sind acht Verständnisfragen, drei Prüfungsaufgaben und zehn Fachbegriffe. Das Lernfeld ist in der Navigation unter dem zweiten Lernfeld aufrufbar.
+
 ## Datenstruktur
 
 - `schemaVersion`: Version des Datenformats
