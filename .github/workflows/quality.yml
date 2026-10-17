@@ -21,4 +21,4 @@ jobs:
         with:
           node-version: 22
       - name: Run dependency-free smoke tests
-        run: node --test tests/smoke-test.mjs
+        run: node --test tests/*.mjs

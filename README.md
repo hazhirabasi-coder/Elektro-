@@ -25,7 +25,7 @@ Dann `http://localhost:8000` öffnen. Für die Offline-Funktion muss der Browser
 Mit Node.js 22 oder neuer:
 
 ```bash
-node --test tests/smoke-test.mjs
+node --test tests/*.mjs
 ```
 
 GitHub Actions führt diese Smoke-Tests bei Push und Pull Request aus. Sie prüfen Struktur und Syntax, ersetzen aber keine Tests in echten Browsern, auf iPhone/Android, eine fachliche Prüfung aller Elektro-Fragen oder einen vollständigen Barrierefreiheitstest.
