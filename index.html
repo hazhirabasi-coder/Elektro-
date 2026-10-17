@@ -1838,18 +1838,6 @@ renderFormulas();
 renderPlan();
 renderCard();
 startQuiz();
-</script>
-<script>
-if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js').catch(error => {
-      console.warn('Offline-Funktion konnte nicht aktiviert werden:', error);
-    });
-  });
-}
-</script>
-
-<script>
 (function initFlukeDashboard(){
  const root=document.getElementById('flukeDashboard');
  const section=document.getElementById('lab');
@@ -1886,7 +1874,18 @@ if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.
  const cap=document.createElement('div');cap.className='fluke-scene-caption';cap.innerHTML='<b>Verteiler & Installationstester / تابلو و دستگاه تست</b><span>Messspitzen per Touch oder Auswahlknopf bewegen</span>';scene.insertBefore(cap,scene.firstChild);
  syncResult();
 })();
+
 </script>
+<script>
+if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(error => {
+      console.warn('Offline-Funktion konnte nicht aktiviert werden:', error);
+    });
+  });
+}
+</script>
+
 
 </body>
 </html>
