@@ -48,6 +48,7 @@ test('mobile navigation and keyboard focus styles remain present', () => {
 test('PWA shell and service worker are configured for offline use', () => {
   const manifest = JSON.parse(readFileSync(new URL('../manifest.webmanifest', import.meta.url), 'utf8'));
   const worker = readFileSync(new URL('../sw.js', import.meta.url), 'utf8');
+  assert.doesNotThrow(() => new vm.Script(worker), 'service worker JavaScript should parse');
   assert.equal(manifest.display, 'standalone');
   assert.equal(manifest.start_url, './');
   assert.ok(manifest.icons.some(icon => icon.src === './icon.svg'));
