@@ -72,3 +72,11 @@ test('HTML element IDs are unique to avoid broken controls and navigation', () =
   }
   assert.deepEqual([...duplicates], [], 'duplicate HTML IDs: ' + [...duplicates].join(', '));
 });
+
+
+test('standalone virtual lab JavaScript parses successfully', () => {
+  const lab = readFileSync(new URL('../virtual-lab.html', import.meta.url), 'utf8');
+  const script = lab.match(/<script\\b[^>]*>([\\s\\S]*?)<\\/script>/i)?.[1];
+  assert.ok(script, 'virtual lab inline script should exist');
+  assert.doesNotThrow(() => new vm.Script(script), 'virtual lab JavaScript should parse');
+});
