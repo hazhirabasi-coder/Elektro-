@@ -487,6 +487,19 @@ input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-vis
   </div>
  </section>
  <section id="b2" class="page hidden">
+  <div class="panel" id="b2ReadingWorkshop">
+   <h2>📖 B2-Lesewerkstatt / کارگاه تقویت خواندن</h2>
+   <p>Vier zusammenhängende Texte zu Beruf, Lernen, Teamkommunikation und Energie. Lies zuerst auf Deutsch, nutze danach die Wortliste und fasse den Inhalt laut zusammen.</p>
+   <p class="fa">چهار متن پیوسته دربارهٔ کار، یادگیری، ارتباط تیمی و انرژی. ابتدا متن آلمانی را بخوان، سپس از واژه‌ها کمک بگیر و محتوا را با صدای بلند خلاصه کن.</p>
+   <div class="notice" id="b2ReadSpeakNote"></div>
+   <div id="b2ReadingCards" class="resource-grid"></div>
+  </div>
+  <div class="panel" id="b2SpeakingWorkshop">
+   <h2>🗣️ B2-Sprechwerkstatt / کارگاه مکالمه</h2>
+   <p>Sprich die Situationen laut durch, möglichst ohne den Text abzulesen. Wiederhole deine Antwort ein zweites Mal und formuliere sie klarer. Notizen werden auf diesem Gerät gespeichert.</p>
+   <p class="fa">موقعیت‌ها را با صدای بلند تمرین کن و تا حد امکان از روی متن نخوان. پاسخ را بار دوم تکرار کن و روشن‌تر بیان کن. یادداشت‌ها روی همین دستگاه ذخیره می‌شوند.</p>
+   <div id="b2SpeakingCards" class="resource-grid"></div>
+  </div>
   <div class="panel">
    <h2>🇩🇪 Deutsch B2 – Training mit System</h2>
    <p>Wortschatz im Kontext, Grammatik, Schreiben und Sprechen. Erst selbst antworten, dann Lösung prüfen. Das ist eine Lernhilfe und keine offizielle Goethe-/telc-Prüfung.</p>
@@ -503,19 +516,6 @@ input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-vis
     <div class="toolbar"><button onclick="checkB2()">پاسخ و توضیح</button><button class="secondary" onclick="speakB2()">🔊 شنیدن آلمانی</button><button class="secondary" onclick="nextB2()">کارت بعدی</button></div>
     <div id="b2Feedback" aria-live="polite"></div><div id="b2SelfRate" class="toolbar hidden"><button type="button" onclick="rateB2(true)">بلدم ✓</button><button type="button" class="secondary" onclick="rateB2(false)">باید مرور کنم ↻</button></div>
    </div>
-  </div>
-  <div class="panel" id="b2ReadingWorkshop">
-   <h2>📖 B2-Lesewerkstatt / کارگاه تقویت خواندن</h2>
-   <p>Vier zusammenhängende Texte zu Beruf, Lernen, Teamkommunikation und Energie. Lies zuerst auf Deutsch, nutze danach die Wortliste und fasse den Inhalt laut zusammen.</p>
-   <p class="fa">چهار متن پیوسته دربارهٔ کار، یادگیری، ارتباط تیمی و انرژی. ابتدا متن آلمانی را بخوان، سپس از واژه‌ها کمک بگیر و محتوا را با صدای بلند خلاصه کن.</p>
-   <div class="notice" id="b2ReadSpeakNote"></div>
-   <div id="b2ReadingCards" class="resource-grid"></div>
-  </div>
-  <div class="panel" id="b2SpeakingWorkshop">
-   <h2>🗣️ B2-Sprechwerkstatt / کارگاه مکالمه</h2>
-   <p>Sprich die Situationen laut durch, möglichst ohne den Text abzulesen. Wiederhole deine Antwort ein zweites Mal und formuliere sie klarer. Notizen werden auf diesem Gerät gespeichert.</p>
-   <p class="fa">موقعیت‌ها را با صدای بلند تمرین کن و تا حد امکان از روی متن نخوان. پاسخ را بار دوم تکرار کن و روشن‌تر بیان کن. یادداشت‌ها روی همین دستگاه ذخیره می‌شوند.</p>
-   <div id="b2SpeakingCards" class="resource-grid"></div>
   </div>
   <div class="panel">
    <h2>Grammatik-Werkstatt / کارگاه گرامر</h2>
