@@ -1,0 +1,292 @@
+{
+  "schemaVersion": 1,
+  "id": "LF12",
+  "title": {
+    "de": "Energie- und gebäudetechnische Anlagen planen",
+    "fa": "طراحی تأسیسات انرژی و ساختمان"
+  },
+  "level": "Grundlagen bis Prüfungsvorbereitung",
+  "languages": [
+    "de",
+    "fa"
+  ],
+  "disclaimer": {
+    "de": "Lernmaterial zur Prüfungsvorbereitung, keine verbindliche Arbeitsanweisung. Elektrische Anlagen nur im Rahmen der Qualifikation, nach Gefährdungsbeurteilung, geltenden Normen und betrieblichen Vorgaben bearbeiten.",
+    "fa": "این مطالب برای آمادگی آزمون است و دستورالعمل اجرایی الزام‌آور نیست. کار روی تأسیسات برقی فقط در محدوده صلاحیت، پس از ارزیابی خطر و طبق استانداردها و دستورالعمل‌های محل کار انجام شود."
+  },
+  "objectives": [
+    {
+      "de": "Kundenauftrag und Randbedingungen strukturiert erfassen.",
+      "fa": "سفارش مشتری و شرایط محدودکننده را ساختاریافته ثبت کند."
+    },
+    {
+      "de": "Komponenten anhand von technischen Daten auswählen.",
+      "fa": "تجهیزات را بر اساس داده‌های فنی انتخاب کند."
+    },
+    {
+      "de": "Material, Zeit, Prüfung und Dokumentation planen.",
+      "fa": "مواد، زمان، آزمون و مستندسازی را برنامه‌ریزی کند."
+    }
+  ],
+  "lessons": [
+    {
+      "id": "LF12-01",
+      "title": {
+        "de": "Kundenauftrag und Anforderungen",
+        "fa": "سفارش مشتری و نیازها"
+      },
+      "explanation": {
+        "de": "Kläre Nutzung, gewünschte Funktionen, bauliche Randbedingungen, vorhandene Versorgung, Termine und Schnittstellen. Unklare Punkte werden vor der Ausführung geklärt. Halte Annahmen, Abweichungen und Freigaben schriftlich fest.",
+        "fa": "کاربری، عملکردهای موردنظر، محدودیت‌های ساختمان، تغذیه موجود، زمان‌بندی و رابط‌ها را روشن کن. موارد نامشخص باید پیش از اجرا مشخص شوند. فرض‌ها، تغییرات و تأییدها را مکتوب ثبت کن."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Was ist vor der technischen Planung zuerst zu klären?",
+            "fa": "پیش از طراحی فنی چه چیزی باید روشن شود؟"
+          },
+          "options": [
+            "Auftrag, Nutzung und Randbedingungen",
+            "Nur die Farbe der Schalter",
+            "Nur der Lieferant"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Eine belastbare Planung beginnt mit geklärten Anforderungen.",
+            "fa": "طراحی قابل اتکا با نیازهای روشن شروع می‌شود."
+          }
+        },
+        {
+          "q": {
+            "de": "Wie sollen unklare Anforderungen behandelt werden?",
+            "fa": "نیازهای نامشخص چگونه باید رسیدگی شوند؟"
+          },
+          "options": [
+            "Vor der Ausführung klären und dokumentieren",
+            "Einfach raten",
+            "Ignorieren"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Unklarheiten können zu Fehlplanung und Nacharbeit führen.",
+            "fa": "ابهام می‌تواند باعث طراحی اشتباه و دوباره‌کاری شود."
+          }
+        }
+      ]
+    },
+    {
+      "id": "LF12-02",
+      "title": {
+        "de": "Komponentenauswahl und Materialplanung",
+        "fa": "انتخاب تجهیزات و برنامه‌ریزی مواد"
+      },
+      "explanation": {
+        "de": "Vergleiche technische Daten, Zulassungen, Einbaubedingungen, Kompatibilität und Wartungsbedarf. Leitungsschutz und Leitungsdimensionierung dürfen nicht allein aus einer Faustregel abgeleitet werden; Verlegeart, Länge, Häufung, Umgebung, Spannungsfall und Abschaltbedingungen sind nach geltenden Regeln zu berücksichtigen.",
+        "fa": "داده‌های فنی، تأییدیه‌ها، شرایط نصب، سازگاری و نیاز نگهداری را مقایسه کن. حفاظت و تعیین مقطع کابل را نمی‌توان فقط با یک قاعده سرانگشتی تعیین کرد؛ روش نصب، طول، تجمع کابل‌ها، محیط، افت ولتاژ و شرایط قطع باید طبق مقررات معتبر لحاظ شوند."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Worauf beruht eine fachgerechte Komponentenauswahl?",
+            "fa": "انتخاب حرفه‌ای تجهیزات بر چه اساسی است؟"
+          },
+          "options": [
+            "Technische Daten, Eignung und Anlagenbedingungen",
+            "Nur auf dem niedrigsten Preis",
+            "Nur auf der Gehäusefarbe"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Die Komponente muss zur Anwendung und den Randbedingungen passen.",
+            "fa": "تجهیز باید با کاربرد و شرایط نصب متناسب باشد."
+          }
+        },
+        {
+          "q": {
+            "de": "Reicht eine Faustregel allein zur Leitungsdimensionierung?",
+            "fa": "آیا قاعده سرانگشتی به‌تنهایی برای تعیین مقطع کابل کافی است؟"
+          },
+          "options": [
+            "Nein, relevante Bedingungen und Regeln müssen geprüft werden",
+            "Ja, immer",
+            "Nur bei langen Leitungen"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Mehrere elektrische und thermische Bedingungen beeinflussen die Dimensionierung.",
+            "fa": "چندین شرط الکتریکی و حرارتی بر تعیین مقطع اثر دارند."
+          }
+        }
+      ]
+    },
+    {
+      "id": "LF12-03",
+      "title": {
+        "de": "Prüf- und Übergabeplan",
+        "fa": "برنامه آزمون و تحویل"
+      },
+      "explanation": {
+        "de": "Plane frühzeitig, welche Sicht-, Funktions- und erforderlichen Messprüfungen nach den einschlägigen Regeln notwendig sind. Lege Verantwortlichkeiten, Prüfmittel, Dokumentation und Kundenübergabe fest. Prüfergebnisse müssen nachvollziehbar sein; Abweichungen sind zu bewerten und zu beheben.",
+        "fa": "از ابتدا مشخص کن چه بازدیدهای ظاهری، آزمون‌های عملکردی و اندازه‌گیری‌های لازم طبق مقررات مربوط انجام می‌شوند. مسئولیت‌ها، ابزار آزمون، مستندات و تحویل به مشتری را تعیین کن. نتایج باید قابل پیگیری باشند و مغایرت‌ها ارزیابی و رفع شوند."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Warum wird ein Prüfplan bereits bei der Planung erstellt?",
+            "fa": "چرا برنامه آزمون از مرحله طراحی تهیه می‌شود؟"
+          },
+          "options": [
+            "Damit notwendige Prüfungen, Mittel und Zuständigkeiten vorbereitet sind",
+            "Damit keine Messungen nötig sind",
+            "Nur um den Auftrag zu verlängern"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Frühe Planung verhindert, dass notwendige Prüfungen vergessen werden.",
+            "fa": "برنامه‌ریزی زودهنگام مانع فراموش‌شدن آزمون‌های لازم می‌شود."
+          }
+        },
+        {
+          "q": {
+            "de": "Wie sind abweichende Prüfergebnisse zu behandeln?",
+            "fa": "با نتیجه آزمون نامنطبق چه باید کرد؟"
+          },
+          "options": [
+            "Bewerten, Ursache klären, Maßnahmen durchführen und dokumentieren",
+            "Einfach löschen",
+            "Trotz Sicherheitsmangel immer übergeben"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Abweichungen müssen fachgerecht behandelt und dokumentiert werden.",
+            "fa": "مغایرت‌ها باید اصولی رسیدگی و مستند شوند."
+          }
+        }
+      ]
+    }
+  ],
+  "examTasks": [
+    {
+      "title": {
+        "de": "Aufgabe 1 – Fachverständnis",
+        "fa": "تمرین ۱ ـ درک فنی"
+      },
+      "question": {
+        "de": "Erkläre die wichtigsten Planungs- und Sicherheitsaspekte zum Thema „Energie- und gebäudetechnische Anlagen planen“.",
+        "fa": "مهم‌ترین نکات طراحی و ایمنی درباره «طراحی تأسیسات انرژی و ساختمان» را توضیح بده."
+      },
+      "solution": {
+        "de": "Beschreibe zuerst Zweck und Randbedingungen, nenne relevante Komponenten und Herstellerangaben, berücksichtige Schutzmaßnahmen und geltende Regeln und dokumentiere die erforderlichen Prüfungen. Die konkrete Ausführung hängt von Anlage, Auftrag und aktuellen Vorgaben ab.",
+        "fa": "ابتدا هدف و شرایط را شرح بده، اجزای مرتبط و دستورالعمل سازنده را نام ببر، اقدامات حفاظتی و مقررات جاری را لحاظ کن و آزمون‌های لازم را مستند کن. اجرای دقیق به تأسیسات، سفارش و الزامات جاری بستگی دارد."
+      }
+    },
+    {
+      "title": {
+        "de": "Aufgabe 2 – Fehlersuche",
+        "fa": "تمرین ۲ ـ عیب‌یابی"
+      },
+      "question": {
+        "de": "Eine Funktion arbeitet nicht wie vorgesehen. Beschreibe einen sicheren, nachvollziehbaren Ablauf zur Fehlersuche.",
+        "fa": "یک عملکرد مطابق انتظار کار نمی‌کند. روند ایمن و قابل پیگیری عیب‌یابی را توضیح بده."
+      },
+      "solution": {
+        "de": "Fehlerbild und Sollfunktion erfassen, Unterlagen prüfen, Gefährdungen beurteilen, geeignete sichere Prüfschritte festlegen, Ergebnisse mit Sollwerten vergleichen, Ursache eingrenzen und Maßnahmen sowie Prüfergebnis dokumentieren. Arbeiten nur im Rahmen der Qualifikation durchführen.",
+        "fa": "نشانه خطا و عملکرد مورد انتظار را ثبت کن، مدارک را بررسی کن، خطرها را ارزیابی کن، مراحل ایمن آزمون را تعیین کن، نتایج را مقایسه و علت را محدود کن و اقدامات و نتیجه را مستند ساز. کار فقط در محدوده صلاحیت انجام شود."
+      }
+    },
+    {
+      "title": {
+        "de": "Aufgabe 3 – Dokumentation und Übergabe",
+        "fa": "تمرین ۳ ـ مستندسازی و تحویل"
+      },
+      "question": {
+        "de": "Welche Informationen gehören in eine nachvollziehbare Dokumentation nach Planung, Prüfung oder Änderung?",
+        "fa": "پس از طراحی، آزمون یا تغییر، چه اطلاعاتی باید در مستندات قابل پیگیری ثبت شود؟"
+      },
+      "solution": {
+        "de": "Auftrag und Umfang, verwendete Unterlagen, relevante Komponenten und Einstellungen, Prüfverfahren und Ergebnisse, festgestellte Abweichungen, durchgeführte Maßnahmen, offene Punkte und verständliche Kundenübergabe festhalten.",
+        "fa": "سفارش و دامنه کار، مدارک استفاده‌شده، اجزا و تنظیمات مهم، روش و نتایج آزمون، مغایرت‌ها، اقدامات انجام‌شده، موارد باز و تحویل روشن به مشتری را ثبت کن."
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "de": "Schutzmaßnahme",
+      "fa": "اقدام حفاظتی",
+      "definition": {
+        "de": "Maßnahme zur Verringerung elektrischer Gefährdungen.",
+        "fa": "اقدامی برای کاهش خطرهای الکتریکی."
+      }
+    },
+    {
+      "de": "Prüfprotokoll",
+      "fa": "گزارش آزمون",
+      "definition": {
+        "de": "Dokumentation von Prüfbedingungen und Ergebnissen.",
+        "fa": "ثبت شرایط و نتایج آزمون."
+      }
+    },
+    {
+      "de": "Inbetriebnahme",
+      "fa": "راه‌اندازی",
+      "definition": {
+        "de": "Kontrollierter Übergang in den vorgesehenen Betrieb.",
+        "fa": "ورود کنترل‌شده به وضعیت کاری موردنظر."
+      }
+    },
+    {
+      "de": "Herstellerangabe",
+      "fa": "دستورالعمل سازنده",
+      "definition": {
+        "de": "Technische Information des Herstellers.",
+        "fa": "اطلاعات فنی سازنده."
+      }
+    },
+    {
+      "de": "Fehleranalyse",
+      "fa": "تحلیل خطا",
+      "definition": {
+        "de": "Systematisches Ermitteln möglicher Ursachen.",
+        "fa": "یافتن سیستماتیک علت‌های احتمالی."
+      }
+    },
+    {
+      "de": "Wartung",
+      "fa": "نگهداری",
+      "definition": {
+        "de": "Geplante Maßnahmen zur Erhaltung der Funktion.",
+        "fa": "اقدامات برنامه‌ریزی‌شده برای حفظ عملکرد."
+      }
+    },
+    {
+      "de": "Dokumentation",
+      "fa": "مستندسازی",
+      "definition": {
+        "de": "Nachvollziehbare Aufzeichnung von Arbeiten und Ergebnissen.",
+        "fa": "ثبت قابل پیگیری کارها و نتایج."
+      }
+    },
+    {
+      "de": "Randbedingung",
+      "fa": "شرط محدودکننده",
+      "definition": {
+        "de": "Technische oder organisatorische Vorgabe für eine Lösung.",
+        "fa": "شرط فنی یا سازمانی مؤثر بر راه‌حل."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "Ausbildungsordnung Elektroniker/Elektronikerin (ElekAusbV)",
+      "url": "https://www.gesetze-im-internet.de/elekausbv_2021/"
+    },
+    {
+      "title": "DGUV – Elektrische Gefährdungen",
+      "url": "https://www.dguv.de/"
+    },
+    {
+      "title": "VDE – Normen und Sicherheit",
+      "url": "https://www.vde.com/"
+    }
+  ]
+}

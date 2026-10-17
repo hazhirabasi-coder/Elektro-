@@ -1,0 +1,292 @@
+{
+  "schemaVersion": 1,
+  "id": "LF10",
+  "title": {
+    "de": "Geräte und Anlagen der Haustechnik",
+    "fa": "تجهیزات و تأسیسات برق ساختمان"
+  },
+  "level": "Grundlagen bis Prüfungsvorbereitung",
+  "languages": [
+    "de",
+    "fa"
+  ],
+  "disclaimer": {
+    "de": "Lernmaterial zur Prüfungsvorbereitung, keine verbindliche Arbeitsanweisung. Elektrische Anlagen nur im Rahmen der Qualifikation, nach Gefährdungsbeurteilung, geltenden Normen und betrieblichen Vorgaben bearbeiten.",
+    "fa": "این مطالب برای آمادگی آزمون است و دستورالعمل اجرایی الزام‌آور نیست. کار روی تأسیسات برقی فقط در محدوده صلاحیت، پس از ارزیابی خطر و طبق استانداردها و دستورالعمل‌های محل کار انجام شود."
+  },
+  "objectives": [
+    {
+      "de": "Beleuchtungs- und Sensorkreise funktional erklären.",
+      "fa": "مدار روشنایی و حسگر را توضیح دهد."
+    },
+    {
+      "de": "Herstellerangaben und Anschlussbedingungen beachten.",
+      "fa": "دستورالعمل سازنده و شرایط اتصال را رعایت کند."
+    },
+    {
+      "de": "Inbetriebnahme und Kundenübergabe strukturiert durchführen.",
+      "fa": "راه‌اندازی و تحویل به مشتری را ساختاریافته انجام دهد."
+    }
+  ],
+  "lessons": [
+    {
+      "id": "LF10-01",
+      "title": {
+        "de": "Beleuchtung und LED-Treiber",
+        "fa": "روشنایی و درایور LED"
+      },
+      "explanation": {
+        "de": "LED-Leuchten benötigen eine passende Stromversorgung bzw. einen Treiber gemäß Herstellerangaben. Beachte Bemessungsspannung, Leistung, Schutzart, Montageabstände, Wärmeabfuhr und Dimmerkompatibilität. Vor Arbeiten freischalten und nach Fertigstellung die vorgesehene Funktionsprüfung durchführen.",
+        "fa": "چراغ LED به منبع تغذیه یا درایور سازگار با مشخصات سازنده نیاز دارد. ولتاژ نامی، توان، درجه حفاظت، فاصله نصب، دفع حرارت و سازگاری دیمر را در نظر بگیر. پیش از کار مدار را ایمن قطع کن و پس از نصب عملکرد را طبق برنامه بررسی کن."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Was ist bei einem LED-Treiber besonders wichtig?",
+            "fa": "در درایور LED چه چیزی اهمیت دارد؟"
+          },
+          "options": [
+            "Kompatible elektrische Daten laut Hersteller",
+            "Nur die Form des Gehäuses",
+            "Immer dieselbe Leistung für alle Leuchten"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Treiber und Leuchte müssen elektrisch kompatibel sein.",
+            "fa": "درایور و چراغ باید از نظر الکتریکی سازگار باشند."
+          }
+        },
+        {
+          "q": {
+            "de": "Warum ist die Wärmeabfuhr wichtig?",
+            "fa": "چرا دفع حرارت مهم است؟"
+          },
+          "options": [
+            "Sie beeinflusst Lebensdauer und sicheren Betrieb",
+            "Sie ersetzt die Absicherung",
+            "Sie macht die Montageprüfung unnötig"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Ungeeignete Wärmeabfuhr kann Lebensdauer und Betrieb beeinträchtigen.",
+            "fa": "دفع حرارت نامناسب می‌تواند عمر و عملکرد را مختل کند."
+          }
+        }
+      ]
+    },
+    {
+      "id": "LF10-02",
+      "title": {
+        "de": "Sensoren und Gebäudeautomation",
+        "fa": "حسگرها و اتوماسیون ساختمان"
+      },
+      "explanation": {
+        "de": "Bewegungs- und Präsenzmelder unterscheiden sich unter anderem in Erfassungsverhalten und Einsatzbedingungen. Bei der Planung sind Montageort, Erfassungsbereich, Umgebungsbedingungen und gewünschte Nachlaufzeit zu berücksichtigen. Einstellungen anschließend praktisch prüfen.",
+        "fa": "حسگر حرکت و حضور از نظر الگوی تشخیص و شرایط کاربرد تفاوت دارند. در طراحی، محل نصب، محدوده تشخیص، شرایط محیطی و زمان تأخیر خاموشی را در نظر بگیر. سپس تنظیمات را در عمل آزمایش کن."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Was beeinflusst die zuverlässige Erfassung eines Bewegungsmelders?",
+            "fa": "چه چیزی بر تشخیص مطمئن حسگر حرکت اثر دارد؟"
+          },
+          "options": [
+            "Montageort und Erfassungsbereich",
+            "Nur die Farbe der Abdeckung",
+            "Nur der Markenname"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Position und Umgebungsbedingungen beeinflussen die Erfassung.",
+            "fa": "محل نصب و شرایط محیط بر تشخیص اثر می‌گذارند."
+          }
+        },
+        {
+          "q": {
+            "de": "Was sollte nach der Einstellung eines Melders erfolgen?",
+            "fa": "پس از تنظیم حسگر چه کاری لازم است؟"
+          },
+          "options": [
+            "Funktion unter realistischen Bedingungen prüfen",
+            "Keine weitere Prüfung",
+            "Schutzmaßnahmen entfernen"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Ein Funktionstest bestätigt, ob die Einstellung zum Einsatz passt.",
+            "fa": "آزمون عملکرد تأیید می‌کند که تنظیم برای کاربرد مناسب است."
+          }
+        }
+      ]
+    },
+    {
+      "id": "LF10-03",
+      "title": {
+        "de": "Inbetriebnahme und Kundeneinweisung",
+        "fa": "راه‌اندازی و آموزش مشتری"
+      },
+      "explanation": {
+        "de": "Bei der Inbetriebnahme kontrolliere Auftrag, Anschlussdaten, Montage, Schutzmaßnahmen und vorgesehene Funktionen. Erkläre dem Kunden Bedienung, Einschränkungen und Wartung in verständlicher Sprache. Dokumentiere Prüfergebnisse und offene Punkte und übergib keine Anlage mit ungeklärten sicherheitsrelevanten Mängeln.",
+        "fa": "در راه‌اندازی، سفارش، مشخصات اتصال، نصب، حفاظت و عملکردهای مورد انتظار را کنترل کن. روش استفاده، محدودیت‌ها و نگهداری را روشن توضیح بده. نتایج و موارد باز را ثبت کن و تأسیسات دارای نقص ایمنی حل‌نشده را تحویل نده."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Was ist ein wesentlicher Teil der Kundeneinweisung?",
+            "fa": "بخش مهم آموزش مشتری چیست؟"
+          },
+          "options": [
+            "Bedienung und relevante Sicherheitshinweise erklären",
+            "Nur den Preis wiederholen",
+            "Prüfergebnisse verbergen"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Die Einweisung muss verständlich und für den sicheren Gebrauch relevant sein.",
+            "fa": "آموزش باید روشن و برای استفاده ایمن مفید باشد."
+          }
+        },
+        {
+          "q": {
+            "de": "Wie ist mit einem sicherheitsrelevanten Mangel umzugehen?",
+            "fa": "با نقص ایمنی مهم چگونه باید برخورد کرد؟"
+          },
+          "options": [
+            "Beheben und erforderliche Prüfungen durchführen, bevor sicher übergeben wird",
+            "Ignorieren, wenn das Gerät startet",
+            "Nur mündlich erwähnen und nicht dokumentieren"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Sicherheitsrelevante Mängel müssen angemessen behandelt und dokumentiert werden.",
+            "fa": "نقص ایمنی باید به‌طور مناسب رفع و مستند شود."
+          }
+        }
+      ]
+    }
+  ],
+  "examTasks": [
+    {
+      "title": {
+        "de": "Aufgabe 1 – Fachverständnis",
+        "fa": "تمرین ۱ ـ درک فنی"
+      },
+      "question": {
+        "de": "Erkläre die wichtigsten Planungs- und Sicherheitsaspekte zum Thema „Geräte und Anlagen der Haustechnik“.",
+        "fa": "مهم‌ترین نکات طراحی و ایمنی درباره «تجهیزات و تأسیسات برق ساختمان» را توضیح بده."
+      },
+      "solution": {
+        "de": "Beschreibe zuerst Zweck und Randbedingungen, nenne relevante Komponenten und Herstellerangaben, berücksichtige Schutzmaßnahmen und geltende Regeln und dokumentiere die erforderlichen Prüfungen. Die konkrete Ausführung hängt von Anlage, Auftrag und aktuellen Vorgaben ab.",
+        "fa": "ابتدا هدف و شرایط را شرح بده، اجزای مرتبط و دستورالعمل سازنده را نام ببر، اقدامات حفاظتی و مقررات جاری را لحاظ کن و آزمون‌های لازم را مستند کن. اجرای دقیق به تأسیسات، سفارش و الزامات جاری بستگی دارد."
+      }
+    },
+    {
+      "title": {
+        "de": "Aufgabe 2 – Fehlersuche",
+        "fa": "تمرین ۲ ـ عیب‌یابی"
+      },
+      "question": {
+        "de": "Eine Funktion arbeitet nicht wie vorgesehen. Beschreibe einen sicheren, nachvollziehbaren Ablauf zur Fehlersuche.",
+        "fa": "یک عملکرد مطابق انتظار کار نمی‌کند. روند ایمن و قابل پیگیری عیب‌یابی را توضیح بده."
+      },
+      "solution": {
+        "de": "Fehlerbild und Sollfunktion erfassen, Unterlagen prüfen, Gefährdungen beurteilen, geeignete sichere Prüfschritte festlegen, Ergebnisse mit Sollwerten vergleichen, Ursache eingrenzen und Maßnahmen sowie Prüfergebnis dokumentieren. Arbeiten nur im Rahmen der Qualifikation durchführen.",
+        "fa": "نشانه خطا و عملکرد مورد انتظار را ثبت کن، مدارک را بررسی کن، خطرها را ارزیابی کن، مراحل ایمن آزمون را تعیین کن، نتایج را مقایسه و علت را محدود کن و اقدامات و نتیجه را مستند ساز. کار فقط در محدوده صلاحیت انجام شود."
+      }
+    },
+    {
+      "title": {
+        "de": "Aufgabe 3 – Dokumentation und Übergabe",
+        "fa": "تمرین ۳ ـ مستندسازی و تحویل"
+      },
+      "question": {
+        "de": "Welche Informationen gehören in eine nachvollziehbare Dokumentation nach Planung, Prüfung oder Änderung?",
+        "fa": "پس از طراحی، آزمون یا تغییر، چه اطلاعاتی باید در مستندات قابل پیگیری ثبت شود؟"
+      },
+      "solution": {
+        "de": "Auftrag und Umfang, verwendete Unterlagen, relevante Komponenten und Einstellungen, Prüfverfahren und Ergebnisse, festgestellte Abweichungen, durchgeführte Maßnahmen, offene Punkte und verständliche Kundenübergabe festhalten.",
+        "fa": "سفارش و دامنه کار، مدارک استفاده‌شده، اجزا و تنظیمات مهم، روش و نتایج آزمون، مغایرت‌ها، اقدامات انجام‌شده، موارد باز و تحویل روشن به مشتری را ثبت کن."
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "de": "Schutzmaßnahme",
+      "fa": "اقدام حفاظتی",
+      "definition": {
+        "de": "Maßnahme zur Verringerung elektrischer Gefährdungen.",
+        "fa": "اقدامی برای کاهش خطرهای الکتریکی."
+      }
+    },
+    {
+      "de": "Prüfprotokoll",
+      "fa": "گزارش آزمون",
+      "definition": {
+        "de": "Dokumentation von Prüfbedingungen und Ergebnissen.",
+        "fa": "ثبت شرایط و نتایج آزمون."
+      }
+    },
+    {
+      "de": "Inbetriebnahme",
+      "fa": "راه‌اندازی",
+      "definition": {
+        "de": "Kontrollierter Übergang in den vorgesehenen Betrieb.",
+        "fa": "ورود کنترل‌شده به وضعیت کاری موردنظر."
+      }
+    },
+    {
+      "de": "Herstellerangabe",
+      "fa": "دستورالعمل سازنده",
+      "definition": {
+        "de": "Technische Information des Herstellers.",
+        "fa": "اطلاعات فنی سازنده."
+      }
+    },
+    {
+      "de": "Fehleranalyse",
+      "fa": "تحلیل خطا",
+      "definition": {
+        "de": "Systematisches Ermitteln möglicher Ursachen.",
+        "fa": "یافتن سیستماتیک علت‌های احتمالی."
+      }
+    },
+    {
+      "de": "Wartung",
+      "fa": "نگهداری",
+      "definition": {
+        "de": "Geplante Maßnahmen zur Erhaltung der Funktion.",
+        "fa": "اقدامات برنامه‌ریزی‌شده برای حفظ عملکرد."
+      }
+    },
+    {
+      "de": "Dokumentation",
+      "fa": "مستندسازی",
+      "definition": {
+        "de": "Nachvollziehbare Aufzeichnung von Arbeiten und Ergebnissen.",
+        "fa": "ثبت قابل پیگیری کارها و نتایج."
+      }
+    },
+    {
+      "de": "Randbedingung",
+      "fa": "شرط محدودکننده",
+      "definition": {
+        "de": "Technische oder organisatorische Vorgabe für eine Lösung.",
+        "fa": "شرط فنی یا سازمانی مؤثر بر راه‌حل."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "Ausbildungsordnung Elektroniker/Elektronikerin (ElekAusbV)",
+      "url": "https://www.gesetze-im-internet.de/elekausbv_2021/"
+    },
+    {
+      "title": "DGUV – Elektrische Gefährdungen",
+      "url": "https://www.dguv.de/"
+    },
+    {
+      "title": "VDE – Normen und Sicherheit",
+      "url": "https://www.vde.com/"
+    }
+  ]
+}

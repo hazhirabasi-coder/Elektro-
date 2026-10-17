@@ -1,0 +1,292 @@
+{
+  "schemaVersion": 1,
+  "id": "LF07",
+  "title": {
+    "de": "Steuerungen programmieren und realisieren",
+    "fa": "برنامه‌نویسی و پیاده‌سازی مدارهای فرمان"
+  },
+  "level": "Grundlagen bis Prüfungsvorbereitung",
+  "languages": [
+    "de",
+    "fa"
+  ],
+  "disclaimer": {
+    "de": "Lernmaterial zur Prüfungsvorbereitung, keine verbindliche Arbeitsanweisung. Elektrische Anlagen nur im Rahmen der Qualifikation, nach Gefährdungsbeurteilung, geltenden Normen und betrieblichen Vorgaben bearbeiten.",
+    "fa": "این مطالب برای آمادگی آزمون است و دستورالعمل اجرایی الزام‌آور نیست. کار روی تأسیسات برقی فقط در محدوده صلاحیت، پس از ارزیابی خطر و طبق استانداردها و دستورالعمل‌های محل کار انجام شود."
+  },
+  "objectives": [
+    {
+      "de": "Logische Grundfunktionen UND, ODER und NICHT erklären.",
+      "fa": "عملکردهای منطقی AND و OR و NOT را توضیح دهد."
+    },
+    {
+      "de": "Eingänge, Ausgänge und Ablaufbedingungen unterscheiden.",
+      "fa": "ورودی‌ها، خروجی‌ها و شرط‌های توالی را تشخیص دهد."
+    },
+    {
+      "de": "Steuerungsprogramme testen und Fehler nachvollziehbar dokumentieren.",
+      "fa": "برنامه‌های کنترل را آزمایش و خطاها را مستند کند."
+    }
+  ],
+  "lessons": [
+    {
+      "id": "LF07-01",
+      "title": {
+        "de": "Logische Grundfunktionen",
+        "fa": "عملکردهای منطقی پایه"
+      },
+      "explanation": {
+        "de": "UND liefert nur dann 1, wenn alle Eingänge 1 sind. ODER liefert 1, wenn mindestens ein Eingang 1 ist. NICHT invertiert den Eingang. Die Wahrheitstabelle beschreibt alle möglichen Eingangskombinationen.",
+        "fa": "در AND فقط وقتی همه ورودی‌ها ۱ باشند خروجی ۱ است. در OR با فعال بودن دست‌کم یک ورودی، خروجی ۱ می‌شود. NOT ورودی را معکوس می‌کند. جدول درستی همه ترکیب‌های ورودی را نشان می‌دهد."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Bei UND mit A=1 und B=0 ist der Ausgang …",
+            "fa": "در AND اگر A=1 و B=0 باشد خروجی چیست؟"
+          },
+          "options": [
+            "0",
+            "1",
+            "Unbestimmt"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "UND ist nur wahr, wenn alle Eingänge wahr sind.",
+            "fa": "AND فقط وقتی درست است که همه ورودی‌ها درست باشند."
+          }
+        },
+        {
+          "q": {
+            "de": "Was macht NICHT mit einem binären Signal?",
+            "fa": "عملگر NOT با سیگنال دودویی چه می‌کند؟"
+          },
+          "options": [
+            "Es invertiert den Zustand",
+            "Es addiert beide Eingänge",
+            "Es speichert immer 1"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "NICHT kehrt 0 zu 1 und 1 zu 0 um.",
+            "fa": "NOT مقدار صفر را یک و یک را صفر می‌کند."
+          }
+        }
+      ]
+    },
+    {
+      "id": "LF07-02",
+      "title": {
+        "de": "Eingänge, Ausgänge und Ablauf",
+        "fa": "ورودی‌ها، خروجی‌ها و توالی عملکرد"
+      },
+      "explanation": {
+        "de": "Eingänge erfassen Zustände über Taster oder Sensoren. Ausgänge steuern beispielsweise Relais, Schütze oder Meldeleuchten. Eine Ablaufsteuerung beschreibt Zustände und Übergänge; Bedingungen und sichere Zustände müssen vor dem Test klar definiert sein.",
+        "fa": "ورودی‌ها وضعیت را از شستی یا حسگر دریافت می‌کنند. خروجی‌ها رله، کنتاکتور یا چراغ اعلان را کنترل می‌کنند. کنترل توالی، حالت‌ها و گذارها را توصیف می‌کند؛ شرط‌ها و وضعیت‌های ایمن باید پیش از آزمایش مشخص باشند."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Welches Bauteil ist typischerweise ein Eingang?",
+            "fa": "کدام قطعه معمولاً ورودی است؟"
+          },
+          "options": [
+            "Taster",
+            "Schützspule",
+            "Meldeleuchte"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Ein Taster liefert ein Eingangssignal an die Steuerung.",
+            "fa": "شستی یک سیگنال ورودی به کنترلر می‌دهد."
+          }
+        },
+        {
+          "q": {
+            "de": "Wozu dient eine Ablaufbeschreibung?",
+            "fa": "شرح توالی چه کاربردی دارد؟"
+          },
+          "options": [
+            "Zustände und Übergänge festlegen",
+            "Die Schutzmaßnahmen ersetzen",
+            "Nur Kabellängen angeben"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Sie beschreibt Reihenfolge und Bedingungen eines Prozesses.",
+            "fa": "ترتیب و شرط‌های فرایند را مشخص می‌کند."
+          }
+        }
+      ]
+    },
+    {
+      "id": "LF07-03",
+      "title": {
+        "de": "Programm testen und Fehler finden",
+        "fa": "آزمایش برنامه و عیب‌یابی"
+      },
+      "explanation": {
+        "de": "Teste zunächst erwartete Normalfälle, danach Grenzfälle und Fehlerzustände. Vergleiche Soll- und Ist-Verhalten, prüfe Ein-/Ausgangszuordnung und dokumentiere Testfall, Ergebnis und Änderung. Softwarelogik ersetzt keine erforderlichen hardwareseitigen Sicherheitsfunktionen.",
+        "fa": "ابتدا حالت‌های عادی و سپس حالت‌های مرزی و خطا را آزمایش کن. رفتار مورد انتظار و واقعی را مقایسه، تخصیص ورودی/خروجی را بررسی و حالت آزمون، نتیجه و تغییر را ثبت کن. منطق نرم‌افزار جایگزین عملکردهای ایمنی سخت‌افزاری لازم نیست."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Was gehört zu einem nachvollziehbaren Testprotokoll?",
+            "fa": "چه چیزی در گزارش آزمون قابل پیگیری لازم است؟"
+          },
+          "options": [
+            "Testfall, Sollwert, Ergebnis und Abweichung",
+            "Nur ein Foto des Geräts",
+            "Nur die Vermutung des Fehlers"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Das Protokoll muss Test und Ergebnis nachvollziehbar machen.",
+            "fa": "گزارش باید آزمون و نتیجه را قابل پیگیری کند."
+          }
+        },
+        {
+          "q": {
+            "de": "Kann gewöhnliche Steuerungssoftware erforderliche Sicherheitsfunktionen automatisch ersetzen?",
+            "fa": "آیا نرم‌افزار کنترل معمولی خودبه‌خود جایگزین عملکردهای ایمنی می‌شود؟"
+          },
+          "options": [
+            "Nein, Sicherheitsanforderungen müssen separat erfüllt sein",
+            "Ja, immer",
+            "Nur wenn die Anlage alt ist"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Sicherheitsfunktionen benötigen eine geeignete, normgerechte Auslegung.",
+            "fa": "عملکردهای ایمنی به طراحی مناسب و مطابق مقررات نیاز دارند."
+          }
+        }
+      ]
+    }
+  ],
+  "examTasks": [
+    {
+      "title": {
+        "de": "Aufgabe 1 – Fachverständnis",
+        "fa": "تمرین ۱ ـ درک فنی"
+      },
+      "question": {
+        "de": "Erkläre die wichtigsten Planungs- und Sicherheitsaspekte zum Thema „Steuerungen programmieren und realisieren“.",
+        "fa": "مهم‌ترین نکات طراحی و ایمنی درباره «برنامه‌نویسی و پیاده‌سازی مدارهای فرمان» را توضیح بده."
+      },
+      "solution": {
+        "de": "Beschreibe zuerst Zweck und Randbedingungen, nenne relevante Komponenten und Herstellerangaben, berücksichtige Schutzmaßnahmen und geltende Regeln und dokumentiere die erforderlichen Prüfungen. Die konkrete Ausführung hängt von Anlage, Auftrag und aktuellen Vorgaben ab.",
+        "fa": "ابتدا هدف و شرایط را شرح بده، اجزای مرتبط و دستورالعمل سازنده را نام ببر، اقدامات حفاظتی و مقررات جاری را لحاظ کن و آزمون‌های لازم را مستند کن. اجرای دقیق به تأسیسات، سفارش و الزامات جاری بستگی دارد."
+      }
+    },
+    {
+      "title": {
+        "de": "Aufgabe 2 – Fehlersuche",
+        "fa": "تمرین ۲ ـ عیب‌یابی"
+      },
+      "question": {
+        "de": "Eine Funktion arbeitet nicht wie vorgesehen. Beschreibe einen sicheren, nachvollziehbaren Ablauf zur Fehlersuche.",
+        "fa": "یک عملکرد مطابق انتظار کار نمی‌کند. روند ایمن و قابل پیگیری عیب‌یابی را توضیح بده."
+      },
+      "solution": {
+        "de": "Fehlerbild und Sollfunktion erfassen, Unterlagen prüfen, Gefährdungen beurteilen, geeignete sichere Prüfschritte festlegen, Ergebnisse mit Sollwerten vergleichen, Ursache eingrenzen und Maßnahmen sowie Prüfergebnis dokumentieren. Arbeiten nur im Rahmen der Qualifikation durchführen.",
+        "fa": "نشانه خطا و عملکرد مورد انتظار را ثبت کن، مدارک را بررسی کن، خطرها را ارزیابی کن، مراحل ایمن آزمون را تعیین کن، نتایج را مقایسه و علت را محدود کن و اقدامات و نتیجه را مستند ساز. کار فقط در محدوده صلاحیت انجام شود."
+      }
+    },
+    {
+      "title": {
+        "de": "Aufgabe 3 – Dokumentation und Übergabe",
+        "fa": "تمرین ۳ ـ مستندسازی و تحویل"
+      },
+      "question": {
+        "de": "Welche Informationen gehören in eine nachvollziehbare Dokumentation nach Planung, Prüfung oder Änderung?",
+        "fa": "پس از طراحی، آزمون یا تغییر، چه اطلاعاتی باید در مستندات قابل پیگیری ثبت شود؟"
+      },
+      "solution": {
+        "de": "Auftrag und Umfang, verwendete Unterlagen, relevante Komponenten und Einstellungen, Prüfverfahren und Ergebnisse, festgestellte Abweichungen, durchgeführte Maßnahmen, offene Punkte und verständliche Kundenübergabe festhalten.",
+        "fa": "سفارش و دامنه کار، مدارک استفاده‌شده، اجزا و تنظیمات مهم، روش و نتایج آزمون، مغایرت‌ها، اقدامات انجام‌شده، موارد باز و تحویل روشن به مشتری را ثبت کن."
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "de": "Schutzmaßnahme",
+      "fa": "اقدام حفاظتی",
+      "definition": {
+        "de": "Maßnahme zur Verringerung elektrischer Gefährdungen.",
+        "fa": "اقدامی برای کاهش خطرهای الکتریکی."
+      }
+    },
+    {
+      "de": "Prüfprotokoll",
+      "fa": "گزارش آزمون",
+      "definition": {
+        "de": "Dokumentation von Prüfbedingungen und Ergebnissen.",
+        "fa": "ثبت شرایط و نتایج آزمون."
+      }
+    },
+    {
+      "de": "Inbetriebnahme",
+      "fa": "راه‌اندازی",
+      "definition": {
+        "de": "Kontrollierter Übergang in den vorgesehenen Betrieb.",
+        "fa": "ورود کنترل‌شده به وضعیت کاری موردنظر."
+      }
+    },
+    {
+      "de": "Herstellerangabe",
+      "fa": "دستورالعمل سازنده",
+      "definition": {
+        "de": "Technische Information des Herstellers.",
+        "fa": "اطلاعات فنی سازنده."
+      }
+    },
+    {
+      "de": "Fehleranalyse",
+      "fa": "تحلیل خطا",
+      "definition": {
+        "de": "Systematisches Ermitteln möglicher Ursachen.",
+        "fa": "یافتن سیستماتیک علت‌های احتمالی."
+      }
+    },
+    {
+      "de": "Wartung",
+      "fa": "نگهداری",
+      "definition": {
+        "de": "Geplante Maßnahmen zur Erhaltung der Funktion.",
+        "fa": "اقدامات برنامه‌ریزی‌شده برای حفظ عملکرد."
+      }
+    },
+    {
+      "de": "Dokumentation",
+      "fa": "مستندسازی",
+      "definition": {
+        "de": "Nachvollziehbare Aufzeichnung von Arbeiten und Ergebnissen.",
+        "fa": "ثبت قابل پیگیری کارها و نتایج."
+      }
+    },
+    {
+      "de": "Randbedingung",
+      "fa": "شرط محدودکننده",
+      "definition": {
+        "de": "Technische oder organisatorische Vorgabe für eine Lösung.",
+        "fa": "شرط فنی یا سازمانی مؤثر بر راه‌حل."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "Ausbildungsordnung Elektroniker/Elektronikerin (ElekAusbV)",
+      "url": "https://www.gesetze-im-internet.de/elekausbv_2021/"
+    },
+    {
+      "title": "DGUV – Elektrische Gefährdungen",
+      "url": "https://www.dguv.de/"
+    },
+    {
+      "title": "VDE – Normen und Sicherheit",
+      "url": "https://www.vde.com/"
+    }
+  ]
+}
