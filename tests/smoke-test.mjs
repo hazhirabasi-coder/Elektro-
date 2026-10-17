@@ -55,4 +55,17 @@ test('PWA shell and service worker are configured for offline use', () => {
   assert.ok(worker.includes("addEventListener('install'"));
   assert.ok(worker.includes("addEventListener('fetch'"));
   assert.ok(worker.includes("caches.match('./index.html')"));
+  assert.match(worker, /const CACHE_NAME = 'elektro-lernen-v2'/);
+  assert.match(worker, /APP_SHELL = \[[^\]]*'\.\/virtual-lab\.html'/, 'standalone circuit lab should be cached for offline use');
+});
+
+test('HTML element IDs are unique to avoid broken controls and navigation', () => {
+  const ids = [...html.matchAll(/\bid=["']([^"']+)["']/g)].map(match => match[1]);
+  const seen = new Set();
+  const duplicates = new Set();
+  for (const id of ids) {
+    if (seen.has(id)) duplicates.add(id);
+    seen.add(id);
+  }
+  assert.deepEqual([...duplicates], [], 'duplicate HTML IDs: ' + [...duplicates].join(', '));
 });
