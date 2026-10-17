@@ -1816,6 +1816,25 @@ loadFinalExamContent();
  updateProbes();switchUI();
 })();
 
+
+(function initExpandedLabDashboard(){
+ const byId=id=>document.getElementById(id);
+ const modeNames={voltage:['230 V','L → N · 50 Hz','Spannungsmessung zwischen L und N / اندازه‌گیری ولتاژ فاز و نول'],continuity:['0.3 Ω','PE · Durchgängigkeit','Plausibler Beispielwert im Lernmodell / مقدار نمونه آموزشی'],insulation:['>200 MΩ','RISO · 500 V (Modell)','Isolationsprüfung nur als Simulation / آزمون عایقی فقط شبیه‌سازی است'],loop:['0.82 Ω','Zs · Beispielanzeige','Schleifenimpedanz im Szenario / امپدانس حلقه در سناریو'],rcd:['30 mA','RCD · Prüfszenario','RCD-Prüfung im Lernmodell / آزمون مجازی محافظ جان'],lpe:['229 V','L → PE · 50 Hz','Spannung L gegen PE im Szenario / ولتاژ فاز نسبت به ارت']};
+ document.querySelectorAll('[data-lab-mode]').forEach(btn=>btn.addEventListener('click',()=>{
+  const mode=btn.dataset.labMode, info=modeNames[mode]||modeNames.voltage;
+  document.querySelectorAll('[data-lab-mode]').forEach(b=>b.classList.toggle('active',b===btn));
+  if(byId('labMode')) byId('labMode').value=mode;
+  byId('labProReadout').textContent=info[0];byId('labProSub').textContent=info[1];byId('labProExplain').textContent=info[2]+' — Beispiel, kein realer Messwert.';
+ }));
+ document.querySelectorAll('[data-lab-fault]').forEach(btn=>btn.addEventListener('click',()=>{
+  document.querySelectorAll('[data-lab-fault]').forEach(b=>b.classList.toggle('active',b===btn));
+  if(byId('labFault')) byId('labFault').value=btn.dataset.labFault;
+  byId('labProExplain').textContent=btn.textContent+' ausgewählt. Unten Messspitzen verbinden und die Messung durchführen. / سناریو انتخاب شد؛ پراب‌ها را در مدل پایین وصل کن.';
+ }));
+ const start=byId('labProStart');
+ if(start) start.addEventListener('click',()=>{const stage=byId('labDragStage');if(stage)stage.scrollIntoView({behavior:'smooth',block:'center'});const measure=byId('labMeasure');if(measure)measure.focus({preventScroll:true});});
+})();
+
 loadStructuredLF01();
 updateProgress();
 renderLessons();
@@ -1834,25 +1853,7 @@ if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.
 }
 </script>
 
-<script>
-(function initExpandedLabDashboard(){
- const byId=id=>document.getElementById(id);
- const modeNames={voltage:['230 V','L → N · 50 Hz','Spannungsmessung zwischen L und N / اندازه‌گیری ولتاژ فاز و نول'],continuity:['0.3 Ω','PE · Durchgängigkeit','Plausibler Beispielwert im Lernmodell / مقدار نمونه آموزشی'],insulation:['>200 MΩ','RISO · 500 V (Modell)','Isolationsprüfung nur als Simulation / آزمون عایقی فقط شبیه‌سازی است'],loop:['0.82 Ω','Zs · Beispielanzeige','Schleifenimpedanz im Szenario / امپدانس حلقه در سناریو'],rcd:['30 mA','RCD · Prüfszenario','RCD-Prüfung im Lernmodell / آزمون مجازی محافظ جان'],lpe:['229 V','L → PE · 50 Hz','Spannung L gegen PE im Szenario / ولتاژ فاز نسبت به ارت']};
- document.querySelectorAll('[data-lab-mode]').forEach(btn=>btn.addEventListener('click',()=>{
-  const mode=btn.dataset.labMode, info=modeNames[mode]||modeNames.voltage;
-  document.querySelectorAll('[data-lab-mode]').forEach(b=>b.classList.toggle('active',b===btn));
-  if(byId('labMode')) byId('labMode').value=mode;
-  byId('labProReadout').textContent=info[0];byId('labProSub').textContent=info[1];byId('labProExplain').textContent=info[2]+' — Beispiel, kein realer Messwert.';
- }));
- document.querySelectorAll('[data-lab-fault]').forEach(btn=>btn.addEventListener('click',()=>{
-  document.querySelectorAll('[data-lab-fault]').forEach(b=>b.classList.toggle('active',b===btn));
-  if(byId('labFault')) byId('labFault').value=btn.dataset.labFault;
-  byId('labProExplain').textContent=btn.textContent+' ausgewählt. Unten Messspitzen verbinden und die Messung durchführen. / سناریو انتخاب شد؛ پراب‌ها را در مدل پایین وصل کن.';
- }));
- const start=byId('labProStart');
- if(start) start.addEventListener('click',()=>{const stage=byId('labDragStage');if(stage)stage.scrollIntoView({behavior:'smooth',block:'center'});const measure=byId('labMeasure');if(measure)measure.focus({preventScroll:true});});
-})();
-</script>
+
 
 </body>
 </html>
