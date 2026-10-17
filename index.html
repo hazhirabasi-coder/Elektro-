@@ -1690,7 +1690,8 @@ function initB2Voices(){const select=document.getElementById("b2VoiceSelect");if
 }
 function speakB2(){const text=b2Deck[b2Position%b2Deck.length].de;if(!("speechSynthesis" in window)){alert("Die Sprachausgabe wird in diesem Browser nicht unterstützt.");return}const voices=getB2GermanVoices(),chosen=document.getElementById("b2VoiceSelect")?.value||"",voice=voices.find(v=>v.name+"|||"+v.lang===chosen)||voices.find(v=>/enhanced|premium|natural|siri/i.test(v.name))||voices.find(v=>/^de-DE$/i.test(v.lang))||voices[0];speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang=voice?.lang||"de-DE";if(voice)u.voice=voice;u.rate=Number(document.getElementById("b2SpeechRate")?.value||0.88);u.pitch=1;u.volume=1;speechSynthesis.speak(u)}
 function stopB2Speech(){if("speechSynthesis" in window)speechSynthesis.cancel()}
-if("speechSynthesis" in window){initB2Voices();speechSynthesis.onvoiceschanged=initB2Voices;}\nfunction saveB2Writing(){
+if("speechSynthesis" in window){initB2Voices();speechSynthesis.onvoiceschanged=initB2Voices;}
+function saveB2Writing(){
  const value=document.getElementById("b2Writing").value.trim();if(!value){document.getElementById("b2WritingStatus").textContent="Bitte zuerst einen Text schreiben.";return}
  localStorage.setItem("elektroB2WritingV1",value);document.getElementById("b2WritingStatus").textContent="Text auf diesem Gerät gespeichert. Prüfe Satzbau, Verbposition, Konnektoren und technische Begründung.";
 }
