@@ -115,6 +115,7 @@ th{background:#edf4fc}
   <button data-page="studyplan">Tagesplan</button>
   <button data-page="b2">Deutsch B2</button>
   <button data-page="sogeht">Lernpfade + Üben</button>
+  <button data-page="adaptive">Adaptives Lernen</button>
  </nav>
 
  <section id="home" class="page">
@@ -541,6 +542,37 @@ th{background:#edf4fc}
   </div>
  </section>
 
+
+ <section id="adaptive" class="page hidden">
+  <div class="panel">
+   <h2>🧠 Adaptives Lernen / یادگیری هوشمند</h2>
+   <p>Die nächste Aufgabe richtet sich nach deinen bisherigen Antworten. Schwächere Themen werden bevorzugt wiederholt; deine Ergebnisse bleiben auf diesem Gerät gespeichert.</p>
+   <p class="fa">تمرین بعدی بر اساس جواب‌های قبلی تو انتخاب می‌شود. مباحثی که در آن‌ها ضعف داری زودتر مرور می‌شوند و نتیجه‌ها روی همین دستگاه ذخیره می‌مانند.</p>
+   <div class="language-stats">
+    <div class="language-stat"><b id="adaptiveAttempts">0</b><span>پاسخ‌ها / Versuche</span></div>
+    <div class="language-stat"><b id="adaptiveAccuracy">—</b><span>دقت / Trefferquote</span></div>
+    <div class="language-stat"><b id="adaptiveWeak">—</b><span>اولویت مرور / Fokus</span></div>
+   </div>
+   <div id="adaptiveTopicSummary" class="resource-grid"></div>
+  </div>
+  <div class="panel">
+   <h2 id="adaptiveHeading">تمرین شخصی تو</h2>
+   <div class="tile">
+    <span class="tag" id="adaptiveTopic">Thema</span>
+    <p id="adaptiveLevel" class="resource-meta"></p>
+    <h3 id="adaptiveQuestion"></h3>
+    <div id="adaptiveOptions"></div>
+    <div id="adaptiveFeedback" aria-live="polite"></div>
+    <div class="toolbar">
+     <button id="adaptiveCheck" onclick="checkAdaptiveAnswer()">پاسخ را بررسی کن</button>
+     <button id="adaptiveNext" class="secondary" onclick="nextAdaptiveQuestion()" disabled>تمرین بعدی</button>
+     <button class="secondary" onclick="resetAdaptive()">پاک کردن پیشرفت</button>
+    </div>
+   </div>
+   <p class="muted">این موتور آموزشی بر اساس عملکرد در همین اپ اولویت‌بندی می‌کند؛ هنوز جایگزین آزمون رسمی یا ارزیابی کامل استاد نیست.</p>
+  </div>
+ </section>
+
 </main>
 
 <footer>
@@ -704,6 +736,7 @@ function showPage(id){
  if(id==="plan")renderPlan();
  if(id==="language")startLanguageTraining(false);
  if(id==="sogeht"){renderSogehtResources();renderCalc();}
+ if(id==="adaptive"){renderAdaptive();}
  window.scrollTo({top:0,behavior:"smooth"});
 }
 document.querySelectorAll("#nav button").forEach(b=>b.addEventListener("click",()=>showPage(b.dataset.page)));
@@ -1195,6 +1228,71 @@ function checkCalcAnswer(){
 function showCalcHint(){document.getElementById("calcHint").classList.remove("hidden")}
 function showCalcSolution(){document.getElementById("calcSolution").classList.remove("hidden")}
 function nextCalc(){calcPosition=(calcPosition+1)%calcDeck.length;renderCalc()}
+
+
+const adaptiveDeck=[
+ {id:"ohm",topic:"Ohmsches Gesetz",level:"Grundlagen",q:"An einem Widerstand von 12 Ω liegen 24 V an. Wie groß ist der Strom?",options:["0,5 A","2 A","12 A","288 A"],correct:1,explain:"I = U / R = 24 V / 12 Ω = 2 A. / جریان برابر ولتاژ تقسیم بر مقاومت است."},
+ {id:"power",topic:"Leistung",level:"Grundlagen",q:"Ein ohmscher Verbraucher wird mit 230 V und 2 A betrieben. Welche Leistung nimmt er auf?",options:["115 W","232 W","460 W","0,115 W"],correct:2,explain:"P = U · I = 230 V · 2 A = 460 W."},
+ {id:"series",topic:"Reihenschaltung",level:"Grundlagen",q:"Zwei Widerstände mit 100 Ω und 220 Ω sind in Reihe geschaltet. Wie groß ist Rges?",options:["120 Ω","320 Ω","22.000 Ω","68,75 Ω"],correct:1,explain:"In Reihe addieren sich Widerstände: 100 Ω + 220 Ω = 320 Ω."},
+ {id:"parallel",topic:"Parallelschaltung",level:"Grundlagen",q:"Zwei Widerstände 6 Ω und 3 Ω sind parallel geschaltet. Wie groß ist der Gesamtwiderstand?",options:["9 Ω","4,5 Ω","2 Ω","18 Ω"],correct:2,explain:"Rges = (R1 · R2)/(R1 + R2) = 18/9 = 2 Ω."},
+ {id:"threephase",topic:"Drehstrom",level:"Fortgeschritten",q:"Welche Formel beschreibt die Wirkleistung eines symmetrischen Drehstromsystems bei Leiterspannung?",options:["P = U · I","P = √3 · U · I · cos φ","P = I² / R","P = U / R"],correct:1,explain:"Bei symmetrischem Drehstrom gilt P = √3 · ULL · I · cos φ."},
+ {id:"voltage",topic:"Spannungsfall",level:"Fortgeschritten",q:"Was erhöht bei sonst gleichen Bedingungen den Spannungsfall einer Leitung?",options:["Größerer Leiterquerschnitt","Kürzere Leitung","Höherer Strom","Niedrigerer Widerstand"],correct:2,explain:"Der Spannungsfall steigt mit Strom und Leitungswiderstand; größerer Querschnitt senkt den Widerstand."},
+ {id:"rcd",topic:"Schutzmaßnahmen / RCD",level:"Prüfungswissen",q:"Welche Aussage über einen RCD ist richtig?",options:["Er ersetzt immer den Überstromschutz","Er erkennt Differenzströme und schaltet entsprechend ab","Er misst nur die Wirkleistung","Er ersetzt den Schutzleiter"],correct:1,explain:"Ein RCD erkennt einen Differenzstrom. Er ersetzt nicht automatisch Überstromschutz oder Schutzleiter."},
+ {id:"cable",topic:"Leitungsbemessung",level:"Prüfungswissen",q:"Welche Information ist bei der Auswahl einer Leitung entscheidend?",options:["Nur die Farbe der Isolation","Nur die Länge","Betriebsstrom, Verlegebedingungen, Schutzorgan und Spannungsfall","Nur die Anzahl der Steckdosen"],correct:2,explain:"Die Leitungsbemessung berücksichtigt mehrere Bedingungen und geltende Regeln; eine einzelne Angabe genügt nicht."},
+ {id:"units",topic:"Einheiten",level:"Grundlagen",q:"Welche Einheit gehört zur elektrischen Leistung?",options:["Ohm (Ω)","Watt (W)","Ampere (A)","Volt (V)"],correct:1,explain:"Leistung wird in Watt (W) angegeben."},
+ {id:"energy",topic:"Elektrische Energie",level:"Grundlagen",q:"Ein Gerät mit 2 kW läuft 3 Stunden mit konstanter Leistung. Wie viel Energie verbraucht es?",options:["0,67 kWh","5 kWh","6 kWh","6 W"],correct:2,explain:"E = P · t = 2 kW · 3 h = 6 kWh."},
+ {id:"b2",topic:"Deutsch B2 – Begründung",level:"Sprache",q:"Wähle die korrekte Satzstellung: „Die Anlage wird abgeschaltet, ___ ein Fehler festgestellt wurde.“",options:["obwohl","weil","trotzdem","deshalb"],correct:1,explain:"„Weil“ leitet einen Nebensatz ein; das konjugierte Verb steht am Ende: weil ... festgestellt wurde."},
+ {id:"safety",topic:"Prüfen und Sicherheit",level:"Praxis",q:"Was ist vor Arbeiten an einer elektrischen Anlage grundsätzlich erforderlich?",options:["Nur den Lichtschalter ausschalten","Sicherheitsverfahren und die fünf Sicherheitsregeln entsprechend der Situation einhalten","Nur Handschuhe anziehen","Die Sicherung beschriften und sofort beginnen"],correct:1,explain:"Vor Arbeiten sind die erforderlichen Sicherheitsmaßnahmen anzuwenden, einschließlich der fünf Sicherheitsregeln und der Prüfung der Spannungsfreiheit, soweit einschlägig."}
+];
+const adaptiveKey="elektroAdaptiveLearningV1";
+let adaptiveCurrent=-1,adaptiveAnswered=false;
+function readAdaptive(){try{return JSON.parse(localStorage.getItem(adaptiveKey)||'{"stats":{},"seen":[]}')}catch(e){return {stats:{},seen:[]}}}
+function saveAdaptive(data){localStorage.setItem(adaptiveKey,JSON.stringify(data))}
+function adaptivePriority(){
+ const d=readAdaptive();const topics=[...new Set(adaptiveDeck.map(q=>q.topic))];
+ return topics.map(topic=>{let total=0,correct=0;adaptiveDeck.filter(q=>q.topic===topic).forEach(q=>{const x=d.stats[q.id];if(x){total+=x.attempts;correct+=x.correct}});return {topic,total,correct,rate:total?correct/total:-1}}).sort((a,b)=>{if(a.rate<0&&b.rate>=0)return -1;if(b.rate<0&&a.rate>=0)return 1;return a.rate-b.rate||a.total-b.total})}
+function chooseAdaptive(){
+ const d=readAdaptive();const pr=adaptivePriority();const weak=pr[0]?.topic;
+ const candidates=adaptiveDeck.filter(q=>q.topic===weak);
+ if(candidates.length){const unseen=candidates.find(q=>!d.seen.includes(q.id));if(unseen)return unseen;return candidates[Math.floor(Math.random()*candidates.length)]}
+ const unseen=adaptiveDeck.find(q=>!d.seen.includes(q.id));return unseen||adaptiveDeck[Math.floor(Math.random()*adaptiveDeck.length)]
+}
+function renderAdaptive(){
+ const d=readAdaptive();const all=Object.values(d.stats);const attempts=all.reduce((n,x)=>n+x.attempts,0);const correct=all.reduce((n,x)=>n+x.correct,0);const pr=adaptivePriority();
+ document.getElementById("adaptiveAttempts").textContent=attempts;
+ document.getElementById("adaptiveAccuracy").textContent=attempts?Math.round(correct/attempts*100)+"%":"—";
+ document.getElementById("adaptiveWeak").textContent=pr[0]?.rate<0?"Noch offen":pr[0]?.topic||"—";
+ document.getElementById("adaptiveTopicSummary").innerHTML=pr.map(x=>'<article class="resource-card"><h3>'+x.topic+'</h3><p>'+(x.total?Math.round(x.rate*100)+"% · "+x.correct+"/"+x.total+" richtig":"Noch nicht geprüft")+'</p><div class="resource-meta">'+(x.total?"Wird nach Leistung priorisiert":"Bereit für die Diagnose")+'</div></article>').join("");
+ if(adaptiveCurrent<0)adaptiveCurrent=adaptiveDeck.indexOf(chooseAdaptive());
+ const q=adaptiveDeck[adaptiveCurrent];if(!q)return;
+ document.getElementById("adaptiveTopic").textContent=q.topic;
+ document.getElementById("adaptiveLevel").textContent="Niveau: "+q.level+" · Frage "+(adaptiveCurrent+1)+" / "+adaptiveDeck.length;
+ document.getElementById("adaptiveQuestion").textContent=q.q;
+ document.getElementById("adaptiveOptions").innerHTML=q.options.map((o,i)=>'<label class="resource-card" style="display:flex;gap:10px;align-items:center;margin:8px 0"><input type="radio" name="adaptiveOption" value="'+i+'"><span>'+o+'</span></label>').join("");
+ document.getElementById("adaptiveFeedback").textContent="";
+ document.getElementById("adaptiveCheck").disabled=false;
+ document.getElementById("adaptiveNext").disabled=true;
+ adaptiveAnswered=false;
+}
+function checkAdaptiveAnswer(){
+ if(adaptiveAnswered)return;
+ const chosen=document.querySelector('input[name="adaptiveOption"]:checked');const feedback=document.getElementById("adaptiveFeedback");
+ if(!chosen){feedback.textContent="Bitte zuerst eine Antwort auswählen. / اول یک پاسخ انتخاب کن.";return}
+ const q=adaptiveDeck[adaptiveCurrent],ok=Number(chosen.value)===q.correct,d=readAdaptive();
+ if(!d.stats[q.id])d.stats[q.id]={attempts:0,correct:0};
+ d.stats[q.id].attempts++;if(ok)d.stats[q.id].correct++;
+ if(!d.seen.includes(q.id))d.seen.push(q.id);saveAdaptive(d);adaptiveAnswered=true;
+ feedback.innerHTML=(ok?'<p class="success">✓ Richtig! / درست است.</p>':'<p class="error">Noch nicht richtig. / پاسخ درست نیست.</p>')+'<p>'+q.explain+'</p>';
+ document.querySelectorAll('input[name="adaptiveOption"]').forEach(el=>el.disabled=true);
+ document.getElementById("adaptiveCheck").disabled=true;document.getElementById("adaptiveNext").disabled=false;renderAdaptiveStatsOnly();
+}
+function renderAdaptiveStatsOnly(){
+ const d=readAdaptive(),all=Object.values(d.stats),attempts=all.reduce((n,x)=>n+x.attempts,0),correct=all.reduce((n,x)=>n+x.correct,0),pr=adaptivePriority();
+ document.getElementById("adaptiveAttempts").textContent=attempts;document.getElementById("adaptiveAccuracy").textContent=attempts?Math.round(correct/attempts*100)+"%":"—";document.getElementById("adaptiveWeak").textContent=pr[0]?.rate<0?"Noch offen":pr[0]?.topic||"—";
+ document.getElementById("adaptiveTopicSummary").innerHTML=pr.map(x=>'<article class="resource-card"><h3>'+x.topic+'</h3><p>'+(x.total?Math.round(x.rate*100)+"% · "+x.correct+"/"+x.total+" richtig":"Noch nicht geprüft")+'</p><div class="resource-meta">'+(x.total?"Wird nach Leistung priorisiert":"Bereit für die Diagnose")+'</div></article>').join("");
+}
+function nextAdaptiveQuestion(){adaptiveCurrent=adaptiveDeck.indexOf(chooseAdaptive());renderAdaptive()}
+function resetAdaptive(){if(!confirm("Adaptiven Lernfortschritt wirklich löschen?"))return;localStorage.removeItem(adaptiveKey);adaptiveCurrent=-1;renderAdaptive()}
 
 loadStructuredLF01();
 updateProgress();
