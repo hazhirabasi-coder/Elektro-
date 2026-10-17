@@ -1,0 +1,349 @@
+{
+  "schemaVersion": 1,
+  "id": "LF06",
+  "title": {
+    "de": "Steuerungen prüfen und Fehler systematisch finden",
+    "fa": "آزمایش مدارهای فرمان و یافتن سیستماتیک خطا"
+  },
+  "level": "Grundlagen bis Prüfungsvorbereitung",
+  "languages": [
+    "de",
+    "fa"
+  ],
+  "disclaimer": {
+    "de": "Lernmaterial zur Prüfungsvorbereitung. Arbeiten und Messungen an elektrischen Anlagen nur im Rahmen der Qualifikation, nach Gefährdungsbeurteilung, geltenden Regeln und betrieblichen Vorgaben durchführen.",
+    "fa": "این مطالب برای آمادگی آزمون است. کار و اندازه‌گیری روی تأسیسات برقی فقط در محدوده صلاحیت، پس از ارزیابی خطر و طبق مقررات و دستورالعمل‌های محل کار انجام شود."
+  },
+  "objectives": [
+    {
+      "de": "Steuerungsabläufe anhand von Stromlaufplänen nachvollziehen.",
+      "fa": "روند کار مدار فرمان را با استفاده از نقشه مدار دنبال کند."
+    },
+    {
+      "de": "Relais, Schütze, Taster, Kontakte und Sensoren unterscheiden.",
+      "fa": "رله، کنتاکتور، شستی، کنتاکت و حسگر را از هم تشخیص دهد."
+    },
+    {
+      "de": "Fehler strukturiert eingrenzen, Messungen sicher planen und Ergebnisse dokumentieren.",
+      "fa": "خطا را روشمند محدود کند، اندازه‌گیری ایمن برنامه‌ریزی و نتایج را مستند کند."
+    }
+  ],
+  "lessons": [
+    {
+      "id": "LF06-01",
+      "title": {
+        "de": "Steuerungsprinzip und Stromlaufplan",
+        "fa": "اصول مدار فرمان و نقشه مدار"
+      },
+      "explanation": {
+        "de": "Eine Steuerung beeinflusst einen Ablauf anhand von Eingangssignalen und festgelegter Logik. Lies Stromlaufpläne von der Versorgung über Schutz- und Schaltgeräte bis zu Spule bzw. Verbraucher. Unterscheide Steuerstromkreis und Hauptstromkreis und verfolge, welche Kontakte bei welchem Zustand geschlossen oder geöffnet sind.",
+        "fa": "مدار فرمان بر اساس ورودی‌ها و منطق تعیین‌شده، روند کار را کنترل می‌کند. نقشه را از تغذیه و تجهیزات حفاظتی و کلیدزنی تا بوبین یا مصرف‌کننده دنبال کن. مدار فرمان و مدار قدرت را جدا تشخیص بده و بررسی کن که هر کنتاکت در چه وضعیتی باز یا بسته است."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Was zeigt ein Stromlaufplan?",
+            "fa": "نقشه مدار چه چیزی را نشان می‌دهد؟"
+          },
+          "options": [
+            "Elektrische Verbindungen und die Funktion der Schaltung nach festgelegten Symbolen",
+            "Nur die Wandfarbe des Raums",
+            "Ausschließlich die Länge jeder Leitung ohne Funktion"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Symbole und Verbindungen helfen, den elektrischen Ablauf zu verstehen.",
+            "fa": "نمادها و اتصال‌ها به درک عملکرد الکتریکی کمک می‌کنند."
+          }
+        },
+        {
+          "q": {
+            "de": "Worin unterscheiden sich Haupt- und Steuerstromkreis typischerweise?",
+            "fa": "تفاوت معمول مدار قدرت و مدار فرمان چیست؟"
+          },
+          "options": [
+            "Der Hauptstromkreis versorgt die Last; der Steuerstromkreis steuert das Schalten",
+            "Beide müssen immer dieselbe Spannung haben",
+            "Der Steuerstromkreis ersetzt alle Schutzmaßnahmen"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Der Hauptstromkreis führt die Energie zur Last, der Steuerkreis beeinflusst den Schaltzustand.",
+            "fa": "مدار قدرت انرژی بار را تأمین می‌کند و مدار فرمان وضعیت کلیدزنی را کنترل می‌کند."
+          }
+        }
+      ]
+    },
+    {
+      "id": "LF06-02",
+      "title": {
+        "de": "Relais, Schütz und Kontakte",
+        "fa": "رله، کنتاکتور و کنتاکت‌ها"
+      },
+      "explanation": {
+        "de": "Ein Relais oder Schütz wird über eine Spule betätigt. Schließer schließen bei Betätigung, Öffner öffnen bei Betätigung; die tatsächliche Kontaktkennzeichnung und der unbetätigte Zustand sind dem Schaltplan bzw. Datenblatt zu entnehmen. Bei der Fehlersuche Spulenversorgung, Kontaktzustand, Verdrahtung und mechanische Funktion systematisch prüfen.",
+        "fa": "رله یا کنتاکتور با بوبین فعال می‌شود. کنتاکت باز (Schließer) هنگام تحریک بسته و کنتاکت بسته (Öffner) هنگام تحریک باز می‌شود؛ شماره‌گذاری و حالت عادی باید از نقشه یا دیتاشیت خوانده شود. برای عیب‌یابی، تغذیه بوبین، وضعیت کنتاکت، سیم‌بندی و عملکرد مکانیکی را روشمند بررسی کن."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Was ist die typische Funktion eines Schützes?",
+            "fa": "وظیفه معمول کنتاکتور چیست؟"
+          },
+          "options": [
+            "Häufiges Schalten elektrischer Lasten über einen Steuerkreis",
+            "Messen des Isolationswiderstands",
+            "Automatisches Erden jeder Leitung"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Ein Schütz schaltet Laststromkreise und wird meist durch einen Steuerstromkreis betätigt.",
+            "fa": "کنتاکتور مدار بار را قطع‌و‌وصل می‌کند و معمولاً از مدار فرمان تحریک می‌شود."
+          }
+        },
+        {
+          "q": {
+            "de": "Was macht ein Öffner bei Betätigung?",
+            "fa": "کنتاکت Öffner هنگام تحریک چه می‌کند؟"
+          },
+          "options": [
+            "Er öffnet den Kontakt",
+            "Er erzeugt eine zusätzliche Versorgungsspannung",
+            "Er wird automatisch zum Schutzleiter"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Ein Öffner ist im unbetätigten Zustand geschlossen und öffnet bei Betätigung.",
+            "fa": "کنتاکت Öffner در حالت عادی بسته است و هنگام تحریک باز می‌شود."
+          }
+        }
+      ]
+    },
+    {
+      "id": "LF06-03",
+      "title": {
+        "de": "Selbsthaltung und Verriegelung",
+        "fa": "خودنگهدار و اینترلاک"
+      },
+      "explanation": {
+        "de": "Bei einer typischen Selbsthalteschaltung überbrückt ein Hilfsschließer des Schützes den Starttaster, nachdem die Spule angezogen hat. Ein Stopptaster bzw. eine Sicherheitsfunktion liegt so im Steuerkreis, dass die Selbsthaltung aufgehoben werden kann. Eine elektrische Verriegelung verhindert widersprüchliche Schaltzustände, beispielsweise bei Wendeschützschaltungen. Die konkrete Ausführung muss dem Plan und den Sicherheitsanforderungen entsprechen.",
+        "fa": "در مدار خودنگهدار معمول، پس از جذب بوبین، یک کنتاکت کمکی بازِ کنتاکتور شستی استارت را پل می‌زند. شستی توقف یا عملکرد ایمنی باید طوری در مدار فرمان باشد که خودنگهدار قطع شود. اینترلاک الکتریکی از وضعیت‌های متناقض، مثلاً در مدار چپ‌گرد/راست‌گرد، جلوگیری می‌کند. اجرای دقیق باید با نقشه و الزامات ایمنی مطابقت داشته باشد."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Welche Aufgabe hat der Hilfsschließer in einer Selbsthalteschaltung?",
+            "fa": "کنتاکت کمکی باز در مدار خودنگهدار چه وظیفه‌ای دارد؟"
+          },
+          "options": [
+            "Er hält den Steuerkreis nach dem Loslassen des Starttasters aktiv",
+            "Er ersetzt den Leitungsschutzschalter",
+            "Er misst automatisch den Motorstrom"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Der Hilfskontakt stellt nach dem Anziehen einen alternativen Pfad für den Steuerstrom bereit.",
+            "fa": "پس از جذب کنتاکتور، کنتاکت کمکی مسیر جایگزین جریان فرمان را فراهم می‌کند."
+          }
+        },
+        {
+          "q": {
+            "de": "Warum wird eine Verriegelung eingesetzt?",
+            "fa": "چرا از اینترلاک استفاده می‌شود؟"
+          },
+          "options": [
+            "Um unzulässige oder widersprüchliche Schaltzustände zu verhindern",
+            "Damit alle Kontakte dauerhaft geschlossen bleiben",
+            "Um die Prüfung zu überspringen"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Die Verriegelung verhindert, dass inkompatible Schaltzustände gleichzeitig auftreten.",
+            "fa": "اینترلاک مانع رخ‌دادن هم‌زمان وضعیت‌های ناسازگار می‌شود."
+          }
+        }
+      ]
+    },
+    {
+      "id": "LF06-04",
+      "title": {
+        "de": "Systematische Fehlersuche",
+        "fa": "عیب‌یابی سیستماتیک"
+      },
+      "explanation": {
+        "de": "Zuerst Fehlerbild und Sollfunktion erfassen, dann Unterlagen und Betriebsbedingungen prüfen. Mögliche Ursachen in sinnvoller Reihenfolge eingrenzen: Versorgung und Schutzorgane, Steuersignal und Sensoren, Verdrahtung und Kontakte, Spule/Aktor sowie mechanische Last. Messungen nur mit geeignetem Prüfmittel und sicherem Verfahren durchführen. Vor Änderungen freischalten und gegen Wiedereinschalten sichern, sofern erforderlich; Ergebnisse und Maßnahmen dokumentieren.",
+        "fa": "ابتدا نشانه خطا و عملکرد مورد انتظار را مشخص کن و سپس مدارک و شرایط کار را بررسی کن. علت‌ها را با ترتیب منطقی محدود کن: تغذیه و تجهیزات حفاظتی، سیگنال فرمان و حسگرها، سیم‌بندی و کنتاکت‌ها، بوبین/عملگر و بار مکانیکی. اندازه‌گیری فقط با ابزار و روش ایمن انجام شود. پیش از تغییرات، در صورت لزوم مدار را قطع و در برابر وصل مجدد ایمن کن؛ نتایج و اقدامات را ثبت کن."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Eine Schützspule zieht nicht an. Was ist ein sinnvoller erster Schritt?",
+            "fa": "بوبین کنتاکتور جذب نمی‌کند. اولین اقدام منطقی چیست؟"
+          },
+          "options": [
+            "Sollfunktion und Steuerstromkreis anhand des Plans systematisch prüfen",
+            "Sofort alle Komponenten ohne Prüfung ersetzen",
+            "Schutzorgane überbrücken"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Ein strukturierter Ablauf vermeidet unnötigen Austausch und gefährliche Eingriffe.",
+            "fa": "روش ساختاریافته از تعویض بی‌دلیل و اقدامات خطرناک جلوگیری می‌کند."
+          }
+        },
+        {
+          "q": {
+            "de": "Was gehört zu einer guten Fehlerdokumentation?",
+            "fa": "مستندسازی مناسب خطا شامل چیست؟"
+          },
+          "options": [
+            "Fehlerbild, Prüfschritte, Messwerte, Ursache und durchgeführte Maßnahmen",
+            "Nur die Aussage „geht nicht“",
+            "Nur eine Vermutung ohne Prüfung"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Nachvollziehbare Dokumentation unterstützt Reparatur, Prüfung und spätere Wartung.",
+            "fa": "مستندات قابل پیگیری به تعمیر، آزمایش و نگهداری بعدی کمک می‌کند."
+          }
+        }
+      ]
+    }
+  ],
+  "examTasks": [
+    {
+      "title": {
+        "de": "Aufgabe 1 – Schütz zieht nicht an",
+        "fa": "تمرین ۱ ـ کنتاکتور جذب نمی‌کند"
+      },
+      "question": {
+        "de": "Nenne eine sichere, systematische Reihenfolge zur Eingrenzung des Fehlers, wenn ein Schütz nicht anzieht.",
+        "fa": "اگر کنتاکتور جذب نمی‌کند، ترتیب ایمن و سیستماتیک برای محدود کردن علت خطا را نام ببر."
+      },
+      "solution": {
+        "de": "Sollfunktion und Plan prüfen; Arbeitsbedingungen und Schutzmaßnahmen klären; Versorgung und Schutzorgane prüfen; Steuerbefehl, Sensoren, Stop-/Freigabekontakte und Verdrahtung nachvollziehen; Spulendaten und Spulenversorgung fachgerecht prüfen; Ergebnis dokumentieren. Messungen unter Spannung nur bei begründeter Notwendigkeit und geeigneten Schutzmaßnahmen.",
+        "fa": "عملکرد مورد انتظار و نقشه را بررسی کن؛ شرایط کار و اقدامات حفاظتی را مشخص کن؛ تغذیه و تجهیزات حفاظتی را بررسی کن؛ فرمان، حسگرها، کنتاکت توقف/اجازه و سیم‌بندی را دنبال کن؛ مشخصات و تغذیه بوبین را اصولی بررسی و نتیجه را ثبت کن. اندازه‌گیری زیر ولتاژ فقط در صورت ضرورت و با حفاظت مناسب."
+      }
+    },
+    {
+      "title": {
+        "de": "Aufgabe 2 – Selbsthaltung",
+        "fa": "تمرین ۲ ـ خودنگهدار"
+      },
+      "question": {
+        "de": "Erkläre die Funktion eines Hilfsschließers in einer typischen Selbsthalteschaltung.",
+        "fa": "وظیفه کنتاکت کمکی باز را در یک مدار خودنگهدار معمول توضیح بده."
+      },
+      "solution": {
+        "de": "Nach Betätigung des Starttasters zieht die Schützspule an. Ein Hilfsschließer schließt und hält den Steuerkreis nach dem Loslassen des Starttasters weiter aktiv. Das Betätigen des Stopptasters oder eine geeignete Abschaltfunktion unterbricht den Steuerkreis.",
+        "fa": "با فشردن استارت، بوبین کنتاکتور جذب می‌کند. کنتاکت کمکی بسته می‌شود و پس از رهاکردن استارت، مدار فرمان را فعال نگه می‌دارد. فشردن توقف یا عملکرد قطع مناسب، مدار فرمان را قطع می‌کند."
+      }
+    },
+    {
+      "title": {
+        "de": "Aufgabe 3 – Fehlerprotokoll",
+        "fa": "تمرین ۳ ـ گزارش خطا"
+      },
+      "question": {
+        "de": "Welche Informationen sollten nach einer Fehlersuche festgehalten werden?",
+        "fa": "پس از عیب‌یابی چه اطلاعاتی باید ثبت شوند؟"
+      },
+      "solution": {
+        "de": "Fehlerbeschreibung, betroffene Anlage/Schaltung, verwendete Unterlagen, sichere Prüfschritte, Messgerät und Messwerte, festgestellte Ursache, Maßnahmen sowie abschließende Funktionskontrolle und offene Punkte.",
+        "fa": "شرح خطا، تأسیسات/مدار مربوط، مدارک استفاده‌شده، مراحل ایمن بررسی، دستگاه و مقادیر اندازه‌گیری، علت کشف‌شده، اقدامات، کنترل نهایی عملکرد و موارد باقی‌مانده."
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "de": "Steuerstromkreis",
+      "fa": "مدار فرمان",
+      "definition": {
+        "de": "Schaltungsteil, der Schaltvorgänge steuert.",
+        "fa": "بخشی از مدار که فرایند کلیدزنی را کنترل می‌کند."
+      }
+    },
+    {
+      "de": "Hauptstromkreis",
+      "fa": "مدار قدرت",
+      "definition": {
+        "de": "Schaltungsteil, der die Last mit elektrischer Energie versorgt.",
+        "fa": "بخشی از مدار که انرژی بار را تأمین می‌کند."
+      }
+    },
+    {
+      "de": "Schütz",
+      "fa": "کنتاکتور",
+      "definition": {
+        "de": "Elektromagnetisch betätigtes Schaltgerät zum Schalten von Lasten.",
+        "fa": "وسیله کلیدزنی الکترومغناطیسی برای بارها."
+      }
+    },
+    {
+      "de": "Relais",
+      "fa": "رله",
+      "definition": {
+        "de": "Schaltgerät, dessen Kontakte durch ein Steuersignal betätigt werden.",
+        "fa": "وسیله‌ای که کنتاکت‌های آن با سیگنال فرمان تغییر می‌کنند."
+      }
+    },
+    {
+      "de": "Schließer",
+      "fa": "کنتاکت باز",
+      "definition": {
+        "de": "Kontakt, der im unbetätigten Zustand offen ist und bei Betätigung schließt.",
+        "fa": "کنتاکتی که در حالت عادی باز است و هنگام تحریک بسته می‌شود."
+      }
+    },
+    {
+      "de": "Öffner",
+      "fa": "کنتاکت بسته",
+      "definition": {
+        "de": "Kontakt, der im unbetätigten Zustand geschlossen ist und bei Betätigung öffnet.",
+        "fa": "کنتاکتی که در حالت عادی بسته است و هنگام تحریک باز می‌شود."
+      }
+    },
+    {
+      "de": "Selbsthaltung",
+      "fa": "خودنگهدار",
+      "definition": {
+        "de": "Schaltung, die einen Schaltzustand nach einem kurzen Startsignal aufrechterhält.",
+        "fa": "مداری که پس از فرمان کوتاه استارت، وضعیت را حفظ می‌کند."
+      }
+    },
+    {
+      "de": "Verriegelung",
+      "fa": "اینترلاک",
+      "definition": {
+        "de": "Verhindert unzulässige gleichzeitige Schaltzustände.",
+        "fa": "از وضعیت‌های کلیدزنی هم‌زمان و غیرمجاز جلوگیری می‌کند."
+      }
+    },
+    {
+      "de": "Sensor",
+      "fa": "حسگر",
+      "definition": {
+        "de": "Erfasst eine physikalische Größe oder einen Zustand.",
+        "fa": "یک کمیت فیزیکی یا وضعیت را تشخیص می‌دهد."
+      }
+    },
+    {
+      "de": "Fehlereingrenzung",
+      "fa": "محدودسازی خطا",
+      "definition": {
+        "de": "Systematisches Eingrenzen möglicher Fehlerursachen.",
+        "fa": "محدودکردن سیستماتیک علت‌های احتمالی خطا."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "Ausbildungsordnung Elektroniker/Elektronikerin",
+      "url": "https://www.gesetze-im-internet.de/elekausbv_2021/"
+    },
+    {
+      "title": "KMK – Rahmenlehrpläne",
+      "url": "https://www.kmk.org/themen/berufliche-schulen/duale-berufsausbildung/rahmenlehrplaene-fuer-die-berufsschule.html"
+    }
+  ]
+}
