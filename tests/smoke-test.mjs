@@ -55,6 +55,7 @@ test('PWA shell and service worker are configured for offline use', () => {
   assert.ok(worker.includes("addEventListener('install'"));
   assert.ok(worker.includes("addEventListener('fetch'"));
   assert.ok(worker.includes("caches.match('./index.html')"));
+  assert.ok(worker.includes("caches.match(request).then(cached => cached || caches.match('./index.html'))"), "offline navigation should return the cached requested page first");
   assert.match(worker, /const CACHE_NAME = 'elektro-lernen-v2'/);
   assert.match(worker, /APP_SHELL = \[[^\]]*'\.\/virtual-lab\.html'/, 'standalone circuit lab should be cached for offline use');
 });
