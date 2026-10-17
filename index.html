@@ -287,6 +287,17 @@ input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-vis
 @media(max-width:700px){.lab-pro-layout{grid-template-columns:minmax(0,1fr);padding:6px}.lab-pro-menu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}.lab-pro-menu>b{grid-column:1/-1}.lab-pro-menu button{font-size:10px;padding:7px 5px;gap:6px}.lab-pro-menu button i{min-width:25px;height:25px}.lab-pro-main{display:flex;flex-direction:column}.lab-pro-rail{grid-template-columns:repeat(3,minmax(0,1fr))}.lab-pro-device{min-height:88px}.lab-pro-device small{font-size:8px}.lab-pro-outlets{grid-template-columns:repeat(3,minmax(0,1fr))}.lab-pro-meter{border-radius:28px;padding:10px}.lab-pro-meter-body{grid-template-columns:40px minmax(0,1fr) 58px;gap:5px}.lab-pro-meter-dial{height:58px;width:58px}.lab-pro-meter-keys button{font-size:7px;padding:5px 1px}.lab-pro-test-button{left:51px;width:38px;height:38px}.lab-pro-screen{min-height:100px;padding:8px}.lab-pro-result-title{font-size:15px}.lab-pro-scenarios{grid-template-columns:repeat(10,116px)}.lab-pro-topbar{gap:12px}.lab-pro-topbar>span:not(.lab-pro-brand):not(.lab-pro-home):not(.lab-pro-topnote):not(.lab-pro-help){display:none}}
 @media(max-width:420px){.lab-pro-rail{grid-template-columns:repeat(2,minmax(0,1fr))}.lab-pro-outlets{grid-template-columns:repeat(2,minmax(0,1fr))}.lab-pro-device{min-height:78px}.lab-pro-meter-body{grid-template-columns:36px minmax(0,1fr) 48px}.lab-pro-meter-dial{width:48px;height:48px}.lab-pro-result-screen strong{font-size:22px}}
 
+
+/* When the lab is active, let the reference dashboard own the viewport */
+body:has(#lab:not(.hidden))>header{display:none}
+body:has(#lab:not(.hidden)) main.container{max-width:none;width:100%;padding:0;margin:0}
+body:has(#lab:not(.hidden)) main.container>.toolbar,
+body:has(#lab:not(.hidden)) main.container>#nav{display:none}
+body:has(#lab:not(.hidden)) #lab>.panel:first-child{display:none}
+body:has(#lab:not(.hidden)) #lab{padding:0 8px}
+body:has(#lab:not(.hidden)) .lab-pro-dashboard{margin:0 auto 14px;max-width:1800px;border-radius:0 0 12px 12px}
+.lab-pro-menu button:focus-visible,.lab-pro-scenarios button:focus-visible,.lab-pro-result>button:focus-visible{outline:3px solid #ffca28;outline-offset:2px}
+
 </style>
 </head>
 <body>
