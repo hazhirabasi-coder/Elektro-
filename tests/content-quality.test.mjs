@@ -8,7 +8,14 @@ const files = [
   'lernfeld-03.json',
   'lernfeld-04.json',
   'lernfeld-05.json',
-  'lernfeld-06.json'
+  'lernfeld-06.json',
+  'lernfeld-07.json',
+  'lernfeld-08.json',
+  'lernfeld-09.json',
+  'lernfeld-10.json',
+  'lernfeld-11.json',
+  'lernfeld-12.json',
+  'lernfeld-13.json'
 ];
 const readLF = name => JSON.parse(readFileSync(new URL('../content/' + name, import.meta.url), 'utf8'));
 
@@ -27,7 +34,7 @@ test('all structured learning fields have valid unique IDs and bilingual objecti
     }
     assert.ok(lf.disclaimer?.de?.trim() && lf.disclaimer?.fa?.trim(), file + ': bilingual safety disclaimer');
   }
-  assert.equal(ids.size, 6);
+  assert.equal(ids.size, 13);
 });
 
 test('lessons and knowledge checks are complete and have valid answer indices', () => {
@@ -53,8 +60,8 @@ test('lessons and knowledge checks are complete and have valid answer indices', 
       }
     }
   }
-  assert.ok(lessonCount >= 20, 'expected at least 20 structured lessons');
-  assert.ok(checkCount >= 40, 'expected at least 40 knowledge checks');
+  assert.ok(lessonCount >= 45, 'expected at least 45 structured lessons');
+  assert.ok(checkCount >= 90, 'expected at least 90 knowledge checks');
 });
 
 test('exam tasks, glossary entries, and source links are present and well formed', () => {
