@@ -559,6 +559,21 @@ function renderStructuredLF01(parent){
  const cl=document.createElement("h3");cl.textContent="Selbstkontrolle / ارزیابی خود";parent.appendChild(cl);
  let saved=[];try{saved=JSON.parse(localStorage.getItem("elektroLF01Checklist")||"[]")}catch(e){}
  structuredLF01.completionChecklist.forEach((t,i)=>{const label=document.createElement("label");label.style.display="block";label.style.margin="8px 0";const cb=document.createElement("input");cb.type="checkbox";cb.checked=saved.includes(i);cb.addEventListener("change",()=>{let a=[];try{a=JSON.parse(localStorage.getItem("elektroLF01Checklist")||"[]")}catch(e){}a=a.filter(n=>n!==i);if(cb.checked)a.push(i);localStorage.setItem("elektroLF01Checklist",JSON.stringify(a))});label.append(cb,document.createTextNode(" "+t.de+" / "+t.fa));parent.appendChild(label)});
+ const weakTitle=document.createElement("h3");weakTitle.textContent="Schwachstellen-Analyse / تحلیل نقاط ضعف";parent.appendChild(weakTitle);
+ const weakPanel=document.createElement("div");weakPanel.className="lf-module";weakPanel.setAttribute("aria-live","polite");parent.appendChild(weakPanel);
+ function refreshWeakPanel(){
+  weakPanel.replaceChildren();
+  let results={};try{results=JSON.parse(localStorage.getItem("elektroLF01Results")||"{}")}catch(e){}
+  const questions=[];structuredLF01.lessons.forEach((lesson,li)=>(lesson.checks||[]).forEach((q,qi)=>{const key=lesson.id+"-"+qi;const r=results[key];if(r)questions.push({lesson,li,qi,q,r,key})}));
+  const wrong=questions.filter(x=>!x.r.correct);
+  const summary=document.createElement("p");summary.textContent="Beantwortet: "+questions.length+" · Fehler: "+wrong.length+" · Trefferquote: "+(questions.length?Math.round((questions.length-wrong.length)/questions.length*100):0)+"%";weakPanel.appendChild(summary);
+  if(!questions.length){const p=document.createElement("p");p.textContent="Beantworte die Fragen oben. Deine Fehler werden hier gespeichert und gezielt zum Wiederholen angezeigt. / به سؤال‌های بالا پاسخ بده؛ اشتباه‌ها برای مرور هدفمند اینجا ذخیره می‌شوند.";weakPanel.appendChild(p);return;}
+  const clear=document.createElement("button");clear.type="button";clear.textContent="Lernfortschritt zurücksetzen / پاک کردن نتیجه‌ها";clear.addEventListener("click",()=>{if(confirm("Gespeicherte Antworten für Lernfeld 1 löschen?")){localStorage.removeItem("elektroLF01Results");refreshWeakPanel()}});weakPanel.appendChild(clear);
+  if(!wrong.length){const p=document.createElement("p");p.className="success";p.textContent="Alle bisher beantworteten Fragen richtig. Weiter mit den Prüfungsaufgaben! / همه پاسخ‌های ثبت‌شده درست‌اند؛ سراغ تمرین‌های امتحانی برو.";weakPanel.appendChild(p);return;}
+  const h=document.createElement("h4");h.textContent="Gezielt wiederholen / مرور هدفمند";weakPanel.appendChild(h);
+  wrong.forEach(x=>{const item=document.createElement("div");item.className="lf-question";const q=document.createElement("strong");q.textContent=x.lesson.title.de+" — "+x.q.q.de;item.appendChild(q);const fa=document.createElement("p");fa.className="fa";fa.textContent=x.q.q.fa;item.appendChild(fa);const why=document.createElement("p");why.textContent="Erklärung: "+x.q.why.de+" / "+x.q.why.fa;item.appendChild(why);const retry=document.createElement("button");retry.type="button";retry.textContent="Als erneut gelernt markieren / مرور شد";retry.addEventListener("click",()=>{const next={};try{Object.assign(next,JSON.parse(localStorage.getItem("elektroLF01Results")||"{}"))}catch(e){};delete next[x.key];localStorage.setItem("elektroLF01Results",JSON.stringify(next));refreshWeakPanel()});item.appendChild(retry);weakPanel.appendChild(item)});
+ }
+ refreshWeakPanel();
  const src=document.createElement("p");src.className="lf-source";src.textContent="Quellen: "+structuredLF01.sources.map(s=>s.title+" — "+s.url).join(" | ");parent.appendChild(src);
 }
 
