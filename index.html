@@ -102,6 +102,8 @@ th{background:#edf4fc}
   <button data-page="wiso">WiSo</button>
   <button data-page="plan">Lernplan</button>
   <button data-page="language">Deutsch trainieren</button>
+  <button data-page="studyplan">Tagesplan</button>
+  <button data-page="b2">Deutsch B2</button>
  </nav>
 
  <section id="home" class="page">
@@ -404,6 +406,73 @@ th{background:#edf4fc}
    <button class="secondary" onclick="resetPlan()">Fortschritt zurücksetzen</button>
   </div>
  </section>
+
+ <section id="studyplan" class="page hidden">
+  <div class="panel">
+   <h2>🎯 Persönlicher Tages- und Wochenplan / برنامهٔ روزانه و هفتگی</h2>
+   <p>Plane realistisch und lerne aktiv. Der Plan passt die tägliche Lernzeit an und speichert erledigte Aufgaben auf diesem Gerät.</p>
+   <p class="fa">واقع‌بینانه برنامه‌ریزی کن و فعال یاد بگیر. زمان روزانه قابل تنظیم است و کارهای انجام‌شده روی همین دستگاه ذخیره می‌شوند.</p>
+   <div class="toolbar"><label>وقت آزاد روزانه
+    <select id="dailyMinutes" onchange="buildDailyPlan()"><option value="45">۴۵ دقیقه</option><option value="60" selected>۶۰ دقیقه</option><option value="90">۹۰ دقیقه</option><option value="120">۱۲۰ دقیقه</option></select>
+   </label><button onclick="buildDailyPlan()">ساخت برنامهٔ امروز</button><button class="secondary" onclick="resetDailyPlan()">شروع دوبارهٔ امروز</button></div>
+   <div class="language-stats">
+    <div class="language-stat"><b id="dailyDone">0%</b><span>پیشرفت امروز</span></div>
+    <div class="language-stat"><b id="dailyTime">60</b><span>دقیقه برنامه‌ریزی‌شده</span></div>
+    <div class="language-stat"><b>6/7</b><span>روزهای تمرین در هفته</span></div>
+   </div>
+   <div id="dailyPlanTasks"></div>
+  </div>
+  <div class="panel">
+   <h2>ساختار هفتگی پیشنهادی</h2>
+   <ul>
+    <li><b>دوشنبه:</b> مبانی برق، قانون اهم، محاسبات و واحدها</li>
+    <li><b>سه‌شنبه:</b> ایمنی، RCD/LS، اندازه‌گیری و حفاظت</li>
+    <li><b>چهارشنبه:</b> نقشه‌خوانی، مدارها، عیب‌یابی و مستندسازی</li>
+    <li><b>پنج‌شنبه:</b> سیستم‌های ساختمان، شبکه، KNX، روشنایی و PV</li>
+    <li><b>جمعه:</b> WiSo و زبان تخصصی مدرسه و کار</li>
+    <li><b>شنبه:</b> آزمون زمان‌دار، تحلیل اشتباه‌ها و مرور کارت‌های سررسیدشده</li>
+    <li><b>یکشنبه:</b> استراحت یا مرور سبک ۱۰ تا ۱۵ دقیقه‌ای</li>
+   </ul>
+   <p class="notice">قاعدهٔ مهم: هر پاسخ غلط را در «دفتر اشتباه‌ها» ثبت کن، دلیل اشتباه را بنویس و همان مبحث را روز بعد دوباره حل کن. هر هفته یک آزمون زمان‌دار انجام بده.</p>
+  </div>
+ </section>
+ <section id="b2" class="page hidden">
+  <div class="panel">
+   <h2>🇩🇪 Deutsch B2 – Training mit System</h2>
+   <p>Wortschatz im Kontext, Grammatik, Schreiben und Sprechen. Erst selbst antworten, dann Lösung prüfen. Das ist eine Lernhilfe und keine offizielle Goethe-/telc-Prüfung.</p>
+   <p class="fa">آموزش B2 با واژگان در متن، گرامر، نوشتن و صحبت‌کردن. اول خودت جواب بده و بعد پاسخ را بررسی کن. این بخش آزمون رسمی گوته یا تلک نیست.</p>
+   <div class="language-stats">
+    <div class="language-stat"><b id="b2Index">1/16</b><span>کارت</span></div>
+    <div class="language-stat"><b id="b2Correct">0</b><span>پاسخ درست</span></div>
+    <div class="language-stat"><b>B2</b><span>هدف آموزشی</span></div>
+   </div>
+   <div class="tile">
+    <span class="tag" id="b2Type">Wortschatz</span>
+    <h3 id="b2Question">...</h3><p id="b2Persian" class="fa"></p>
+    <textarea id="b2Answer" rows="2" placeholder="Schreibe deine Antwort auf Deutsch …"></textarea>
+    <div class="toolbar"><button onclick="checkB2()">پاسخ و توضیح</button><button class="secondary" onclick="speakB2()">🔊 شنیدن آلمانی</button><button class="secondary" onclick="nextB2()">کارت بعدی</button></div>
+    <div id="b2Feedback" aria-live="polite"></div>
+   </div>
+  </div>
+  <div class="panel">
+   <h2>Grammatik-Werkstatt / کارگاه گرامر</h2>
+   <p><b>1. Obwohl / trotzdem:</b> Obwohl ich müde bin, lerne ich weiter. / Ich bin müde, trotzdem lerne ich weiter.</p>
+   <p class="fa">با obwohl فعل به آخر جملهٔ وابسته می‌رود؛ بعد از trotzdem معمولاً فعل در جایگاه دوم است.</p>
+   <p><b>2. Passiv:</b> Der Fehler wird gemessen. · Die Anlage wurde geprüft. · Die Leitung muss freigeschaltet werden.</p>
+   <p class="fa">مجهول برای توضیح فرایند فنی مهم است: خطا اندازه‌گیری می‌شود، تأسیسات آزمایش شد، مدار باید بی‌برق شود.</p>
+   <p><b>3. Konjunktiv II:</b> Könnten Sie den Auftrag bitte genauer erklären? / Ich würde zuerst die Anlage freischalten.</p>
+   <p class="fa">برای درخواست مؤدبانه و بیان تصمیم فرضی در مدرسه و محل کار.</p>
+  </div>
+  <div class="panel">
+   <h2>Schreib- und Sprechaufgabe / تمرین نوشتن و صحبت</h2>
+   <p>Schreibe 80–120 Wörter: „Beschreibe einen Fehler an einer Beleuchtungsanlage, deine systematische Fehlersuche, die Sicherheitsmaßnahmen und das Ergebnis.“</p>
+   <p class="fa">در ۸۰ تا ۱۲۰ کلمه، خرابی سیستم روشنایی، روش عیب‌یابی مرحله‌به‌مرحله، اقدامات ایمنی و نتیجه را توضیح بده.</p>
+   <textarea id="b2Writing" rows="5" placeholder="Zuerst habe ich den Kundenauftrag gelesen. Danach ..."></textarea>
+   <button onclick="saveB2Writing()">ذخیرهٔ متن من</button><p id="b2WritingStatus" class="muted"></p>
+   <p>چک‌لیست: مقدمه روشن است؟ جمله‌های پیوندی (zunächst, anschließend, deshalb, obwohl) داری؟ فعل و ترتیب کلمات درست است؟ نتیجه و دلیل تصمیم‌ها را توضیح داده‌ای؟</p>
+  </div>
+ </section>
+
 </main>
 
 <footer>
@@ -916,6 +985,76 @@ document.getElementById("search").addEventListener("input",e=>{
  if(currentPage==="lessons")renderLessons();
  if(currentPage==="formulas")renderFormulas();
 });
+
+const dailyTaskTemplates=[
+ {title:"Elektrotechnik verstehen",fa:"یک مبحث فنی را یاد بگیر و با زبان خودت توضیح بده.",ratio:.30},
+ {title:"Rechnen und Formeln",fa:"حداقل ۳ مسئلهٔ محاسباتی حل کن و واحدها را بنویس.",ratio:.15},
+ {title:"Prüfungsfragen",fa:"سؤال‌های تمرینی را بدون نگاه‌کردن به جواب حل کن.",ratio:.15},
+ {title:"Deutsch B2",fa:"۵ واژه را در جمله به‌کار ببر و یک جملهٔ پیچیده بساز.",ratio:.20},
+ {title:"Fachsprache und Fachgespräch",fa:"یک کار برقی را با صدای بلند به آلمانی توضیح بده.",ratio:.10},
+ {title:"Fehler wiederholen",fa:"اشتباه‌های دیروز و کارت‌های سررسیدشده را مرور کن.",ratio:.10}
+];
+const b2Deck=[
+ {type:"Wortschatz · B2",de:"Was bedeutet „eine Maßnahme ergreifen“?",fa:"معنی عبارت «اقدامی انجام دادن» چیست؟",answer:"eine Maßnahme ergreifen = etwas Konkretes tun, um ein Ziel zu erreichen oder ein Problem zu lösen",example:"Wir müssen sofort geeignete Sicherheitsmaßnahmen ergreifen."},
+ {type:"Wortschatz · B2",de:"Erkläre „zuverlässig“ mit einem eigenen Satz.",fa:"«قابل اعتماد» را با جمله‌ای از خودت توضیح بده.",answer:"zuverlässig = so, dass man sich darauf verlassen kann",example:"Die Messgeräte müssen zuverlässig funktionieren."},
+ {type:"Grammatik · Passiv",de:"Forme ins Passiv um: „Der Elektriker prüft die Anlage.“",fa:"جمله را مجهول کن.",answer:"Die Anlage wird vom Elektriker geprüft.",example:"Die Anlage wird vor der Inbetriebnahme geprüft."},
+ {type:"Grammatik · obwohl",de:"Verbinde mit „obwohl“: „Ich war müde. Ich lernte weiter.“",fa:"دو جمله را با obwohl وصل کن.",answer:"Obwohl ich müde war, lernte ich weiter.",example:"Obwohl die Aufgabe schwierig war, löste sie das Problem."},
+ {type:"Grammatik · deshalb",de:"Verbinde: „Die Sicherung löste aus. Wir untersuchten den Stromkreis.“ Nutze deshalb.",fa:"با deshalb وصل کن.",answer:"Die Sicherung löste aus, deshalb untersuchten wir den Stromkreis.",example:"Der Messwert war ungewöhnlich, deshalb prüften wir die Verbindung erneut."},
+ {type:"Beruf · Fachgespräch",de:"Wie erklärst du höflich, dass du vor der Arbeit freischalten musst?",fa:"مؤدبانه توضیح بده چرا باید پیش از کار مدار را قطع کنی.",answer:"Bevor ich mit der Arbeit beginne, muss ich die Anlage sicher freischalten und gegen Wiedereinschalten sichern.",example:"Die Sicherheit hat Vorrang; anschließend prüfe ich die Spannungsfreiheit."},
+ {type:"Wortschatz · B2",de:"Erkläre „die Ursache ermitteln“.",fa:"معنی «علت را مشخص کردن» چیست؟",answer:"systematisch herausfinden, warum etwas passiert ist",example:"Bevor wir den Fehler beheben, müssen wir die Ursache ermitteln."},
+ {type:"Schreiben · B2",de:"Formuliere eine höfliche Bitte um genauere Informationen zum Arbeitsauftrag.",fa:"درخواست مؤدبانه برای اطلاعات دقیق‌تر دربارهٔ سفارش کار بنویس.",answer:"Könnten Sie mir bitte die Anforderungen des Arbeitsauftrags genauer erläutern?",example:"Vielen Dank im Voraus für Ihre Rückmeldung."},
+ {type:"Grammatik · Konjunktiv II",de:"Formuliere höflicher: „Erklären Sie das noch einmal.“",fa:"جمله را مؤدبانه‌تر کن.",answer:"Könnten Sie das bitte noch einmal erklären?",example:"Würden Sie mir bitte den nächsten Arbeitsschritt zeigen?"},
+ {type:"Wortschatz · B2",de:"Was bedeutet „etwas berücksichtigen“?",fa:"معنی «چیزی را در نظر گرفتن» چیست؟",answer:"etwas bei einer Entscheidung beachten oder einbeziehen",example:"Bei der Auswahl müssen wir die geltenden Vorschriften berücksichtigen."},
+ {type:"Beruf · B2",de:"Beschreibe einen Arbeitsschritt mit „zunächst“, „anschließend“ und „abschließend“.",fa:"یک مرحلهٔ کاری را با سه واژهٔ ترتیبی توضیح بده.",answer:"Zunächst sichere ich den Arbeitsbereich. Anschließend führe ich die Prüfung durch. Abschließend dokumentiere ich die Ergebnisse.",example:"Nutze diese Reihenfolge für klare technische Erklärungen."},
+ {type:"Grammatik · Relativsatz",de:"Verbinde: „Das ist das Messgerät. Wir verwenden es zur Prüfung.“",fa:"جملهٔ موصولی بساز.",answer:"Das ist das Messgerät, das wir zur Prüfung verwenden.",example:"Das ist die Leitung, die wir überprüfen müssen."},
+ {type:"Wortschatz · B2",de:"Erkläre den Unterschied zwischen „vermeiden“ und „verhindern“.",fa:"تفاوت vermeiden و verhindern را توضیح بده.",answer:"vermeiden: etwas nach Möglichkeit nicht tun; verhindern: dafür sorgen, dass etwas nicht geschieht",example:"Wir vermeiden Fehler und verhindern gefährliche Situationen."},
+ {type:"Schreiben · B2",de:"Formuliere eine kurze sachliche Meldung über ein defektes Betriebsmittel.",fa:"گزارش کوتاه و حرفه‌ای دربارهٔ وسیلهٔ معیوب بنویس.",answer:"Das Betriebsmittel ist defekt und darf bis zur Überprüfung nicht weiterverwendet werden. Bitte veranlassen Sie die Prüfung.",example:"Beschreibe Sachverhalt, Risiko und erforderliche Maßnahme."},
+ {type:"Grammatik · weil",de:"Ergänze: „Ich dokumentiere den Messwert, weil …“",fa:"جمله را با weil کامل کن؛ فعل در آخر می‌آید.",answer:"Ich dokumentiere den Messwert, weil die Ergebnisse nachvollziehbar sein müssen.",example:"..., weil die Dokumentation für die sichere Übergabe wichtig ist."},
+ {type:"Sprechen · B2",de:"Erkläre in 3 Sätzen, wie du bei einer Fehlersuche systematisch vorgehst.",fa:"در سه جمله روش اصولی عیب‌یابی را توضیح بده.",answer:"Zuerst grenze ich den Fehler anhand der Symptome ein. Danach prüfe ich die Anlage unter Beachtung der Sicherheitsregeln. Abschließend dokumentiere ich Ursache und Lösung.",example:"Sprich langsam, nutze Fachbegriffe und begründe deine Entscheidungen."}
+];
+let b2Position=0,b2Score=0;
+function todayKey(){return new Date().toISOString().slice(0,10)}
+function buildDailyPlan(){
+ const minutes=Number(document.getElementById("dailyMinutes").value||60);
+ const key="elektroDailyPlanV1-"+todayKey();
+ let saved={};try{saved=JSON.parse(localStorage.getItem(key)||"{}")}catch(e){}
+ document.getElementById("dailyTime").textContent=minutes;
+ const box=document.getElementById("dailyPlanTasks");box.innerHTML="";
+ dailyTaskTemplates.forEach((task,i)=>{
+  const mins=Math.max(5,Math.round(minutes*task.ratio/5)*5);
+  const label=document.createElement("label");label.style.display="flex";label.style.gap="10px";label.style.alignItems="flex-start";label.style.margin="12px 0";
+  const cb=document.createElement("input");cb.type="checkbox";cb.checked=!!saved[i];cb.addEventListener("change",()=>{saved[i]=cb.checked;localStorage.setItem(key,JSON.stringify(saved));updateDailyProgress()});
+  const text=document.createElement("span");text.innerHTML="<b>"+mins+" Min. · "+task.title+"</b><br><span class='fa'>"+task.fa+"</span>";
+  label.append(cb,text);box.appendChild(label);
+ });
+ updateDailyProgress();
+}
+function updateDailyProgress(){
+ const key="elektroDailyPlanV1-"+todayKey();let saved={};try{saved=JSON.parse(localStorage.getItem(key)||"{}")}catch(e){}
+ const done=dailyTaskTemplates.filter((_,i)=>saved[i]).length;
+ const el=document.getElementById("dailyDone");if(el)el.textContent=Math.round(done/dailyTaskTemplates.length*100)+"%";
+}
+function resetDailyPlan(){localStorage.removeItem("elektroDailyPlanV1-"+todayKey());buildDailyPlan()}
+function renderB2(){
+ const c=b2Deck[b2Position%b2Deck.length];
+ document.getElementById("b2Index").textContent=(b2Position+1)+"/"+b2Deck.length;
+ document.getElementById("b2Type").textContent=c.type;document.getElementById("b2Question").textContent=c.de;
+ document.getElementById("b2Persian").textContent=c.fa;document.getElementById("b2Answer").value="";
+ document.getElementById("b2Feedback").textContent="";
+ document.getElementById("b2Correct").textContent=b2Score;
+}
+function checkB2(){
+ const c=b2Deck[b2Position%b2Deck.length],answer=document.getElementById("b2Answer").value.trim();
+ const fb=document.getElementById("b2Feedback");if(!answer){fb.textContent="اول پاسخ خودت را بنویس؛ حتی یک جمله.";return}
+ fb.innerHTML="<p><b>نمونه پاسخ / Musterlösung:</b></p><p>"+c.answer+"</p><p><b>Beispiel:</b> "+c.example+"</p><p>مقایسه کن: آیا معنی، ترتیب فعل و دلیل یا مثال را درست بیان کردی؟</p>";
+}
+function nextB2(){b2Position=(b2Position+1)%b2Deck.length;renderB2()}
+function speakB2(){const text=b2Deck[b2Position%b2Deck.length].de;if("speechSynthesis" in window){const u=new SpeechSynthesisUtterance(text);u.lang="de-DE";speechSynthesis.cancel();speechSynthesis.speak(u)}else alert("Die Sprachausgabe wird in diesem Browser nicht unterstützt.")}
+function saveB2Writing(){
+ const value=document.getElementById("b2Writing").value.trim();if(!value){document.getElementById("b2WritingStatus").textContent="Bitte zuerst einen Text schreiben.";return}
+ localStorage.setItem("elektroB2WritingV1",value);document.getElementById("b2WritingStatus").textContent="Text auf diesem Gerät gespeichert. Prüfe Satzbau, Verbposition, Konnektoren und technische Begründung.";
+}
+
 loadStructuredLF01();
 updateProgress();
 renderLessons();
