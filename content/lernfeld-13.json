@@ -42,36 +42,35 @@
       "checks": [
         {
           "q": {
-            "de": [
-              "Was ist vor einer Änderung an einer bestehenden Anlage nötig?",
-              "پیش از تغییر تأسیسات موجود چه لازم است؟",
-              [
-                "Bestand und Auswirkungen beurteilen",
-                "Direkt Kabel abschneiden",
-                "Dokumentation ignorieren"
-              ],
-              0,
-              "Die Bewertung reduziert Risiken und verhindert unerwartete Auswirkungen.",
-              "ارزیابی خطر را کاهش می‌دهد و از پیامدهای پیش‌بینی‌نشده جلوگیری می‌کند."
-            ],
-            "fa": [
-              "Was kann eine Änderung beeinflussen?",
-              "تغییر چه چیزی را می‌تواند تحت تأثیر قرار دهد؟",
-              [
-                "Schutzkonzept, Belastung und Prüfbedarf",
-                "Nur die Beschriftungsfarbe",
-                "Nichts anderes"
-              ],
-              0,
-              "Änderungen können elektrische und sicherheitstechnische Eigenschaften beeinflussen.",
-              "تغییر می‌تواند ویژگی‌های الکتریکی و ایمنی را تحت تأثیر قرار دهد."
-            ]
+            "de": "Was ist vor einer Änderung an einer bestehenden Anlage nötig?",
+            "fa": "پیش از تغییر تأسیسات موجود چه لازم است؟"
           },
-          "why": {}
+          "options": [
+            "Bestand und Auswirkungen beurteilen",
+            "Direkt Kabel abschneiden",
+            "Dokumentation ignorieren"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Die Bewertung reduziert Risiken und verhindert unerwartete Auswirkungen.",
+            "fa": "ارزیابی خطر را کاهش می‌دهد و از پیامدهای پیش‌بینی‌نشده جلوگیری می‌کند."
+          }
         },
         {
-          "q": {},
-          "why": {}
+          "q": {
+            "de": "Was kann eine Änderung beeinflussen?",
+            "fa": "تغییر چه چیزی را می‌تواند تحت تأثیر قرار دهد؟"
+          },
+          "options": [
+            "Schutzkonzept, Belastung und Prüfbedarf",
+            "Nur die Beschriftungsfarbe",
+            "Nichts anderes"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Änderungen können elektrische und sicherheitstechnische Eigenschaften beeinflussen.",
+            "fa": "تغییر می‌تواند ویژگی‌های الکتریکی و ایمنی را تحت تأثیر قرار دهد."
+          }
         }
       ]
     },
@@ -88,36 +87,35 @@
       "checks": [
         {
           "q": {
-            "de": [
-              "Was bestimmt den Umfang der Prüfung nach einer Änderung?",
-              "دامنه آزمون پس از تغییر بر چه اساس تعیین می‌شود؟",
-              [
-                "Umfang der Änderung und geltende Regeln",
-                "Nur die verfügbare Zeit",
-                "Nur der Kundenwunsch ohne Sicherheitsprüfung"
-              ],
-              0,
-              "Prüfungen müssen zum Eingriff und zu den geltenden Anforderungen passen.",
-              "آزمون باید با نوع مداخله و الزامات جاری متناسب باشد."
-            ],
-            "fa": [
-              "Was ist bei einer Abweichung vom Sollwert zu tun?",
-              "در صورت تفاوت با مقدار مورد انتظار چه باید کرد؟",
-              [
-                "Ursache prüfen, bewerten und dokumentierte Maßnahmen festlegen",
-                "Wert ignorieren",
-                "Messgerät sofort weglegen"
-              ],
-              0,
-              "Abweichungen sind fachlich zu bewerten und nachzuverfolgen.",
-              "مغایرت باید فنی ارزیابی و پیگیری شود."
-            ]
+            "de": "Was bestimmt den Umfang der Prüfung nach einer Änderung?",
+            "fa": "دامنه آزمون پس از تغییر بر چه اساس تعیین می‌شود؟"
           },
-          "why": {}
+          "options": [
+            "Umfang der Änderung und geltende Regeln",
+            "Nur die verfügbare Zeit",
+            "Nur der Kundenwunsch ohne Sicherheitsprüfung"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Prüfungen müssen zum Eingriff und zu den geltenden Anforderungen passen.",
+            "fa": "آزمون باید با نوع مداخله و الزامات جاری متناسب باشد."
+          }
         },
         {
-          "q": {},
-          "why": {}
+          "q": {
+            "de": "Was ist bei einer Abweichung vom Sollwert zu tun?",
+            "fa": "در صورت تفاوت با مقدار مورد انتظار چه باید کرد؟"
+          },
+          "options": [
+            "Ursache prüfen, bewerten und dokumentierte Maßnahmen festlegen",
+            "Wert ignorieren",
+            "Messgerät sofort weglegen"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Abweichungen sind fachlich zu bewerten und nachzuverfolgen.",
+            "fa": "مغایرت باید فنی ارزیابی و پیگیری شود."
+          }
         }
       ]
     },
@@ -134,36 +132,35 @@
       "checks": [
         {
           "q": {
-            "de": [
-              "Welche Unterlagen müssen nach relevanten Änderungen aktualisiert werden?",
-              "پس از تغییرات مهم کدام مدارک باید به‌روز شوند؟",
-              [
-                "Pläne, Kennzeichnungen und Prüfprotokolle nach Bedarf",
-                "Nur die Rechnung",
-                "Keine Unterlagen"
-              ],
-              0,
-              "Dokumentation muss den tatsächlichen Anlagenzustand widerspiegeln.",
-              "مستندات باید وضعیت واقعی تأسیسات را نشان دهند."
-            ],
-            "fa": [
-              "Was macht eine Übergabe nachvollziehbar?",
-              "چه چیزی تحویل را قابل پیگیری می‌کند؟",
-              [
-                "Dokumentierte Arbeiten, Prüfergebnisse und offene Punkte",
-                "Nur ein mündliches „fertig“",
-                "Versteckte Mängel"
-              ],
-              0,
-              "Eine nachvollziehbare Übergabe hält Zustand und Ergebnisse fest.",
-              "تحویل قابل پیگیری وضعیت و نتایج را ثبت می‌کند."
-            ]
+            "de": "Welche Unterlagen müssen nach relevanten Änderungen aktualisiert werden?",
+            "fa": "پس از تغییرات مهم کدام مدارک باید به‌روز شوند؟"
           },
-          "why": {}
+          "options": [
+            "Pläne, Kennzeichnungen und Prüfprotokolle nach Bedarf",
+            "Nur die Rechnung",
+            "Keine Unterlagen"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Dokumentation muss den tatsächlichen Anlagenzustand widerspiegeln.",
+            "fa": "مستندات باید وضعیت واقعی تأسیسات را نشان دهند."
+          }
         },
         {
-          "q": {},
-          "why": {}
+          "q": {
+            "de": "Was macht eine Übergabe nachvollziehbar?",
+            "fa": "چه چیزی تحویل را قابل پیگیری می‌کند؟"
+          },
+          "options": [
+            "Dokumentierte Arbeiten, Prüfergebnisse und offene Punkte",
+            "Nur ein mündliches „fertig“",
+            "Versteckte Mängel"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Eine nachvollziehbare Übergabe hält Zustand und Ergebnisse fest.",
+            "fa": "تحویل قابل پیگیری وضعیت و نتایج را ثبت می‌کند."
+          }
         }
       ]
     }
