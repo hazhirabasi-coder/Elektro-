@@ -42,36 +42,35 @@
       "checks": [
         {
           "q": {
-            "de": [
-              "Bei UND mit A=1 und B=0 ist der Ausgang …",
-              "در AND اگر A=1 و B=0 باشد خروجی چیست؟",
-              [
-                "0",
-                "1",
-                "Unbestimmt"
-              ],
-              0,
-              "UND ist nur wahr, wenn alle Eingänge wahr sind.",
-              "AND فقط وقتی درست است که همه ورودی‌ها درست باشند."
-            ],
-            "fa": [
-              "Was macht NICHT mit einem binären Signal?",
-              "عملگر NOT با سیگنال دودویی چه می‌کند؟",
-              [
-                "Es invertiert den Zustand",
-                "Es addiert beide Eingänge",
-                "Es speichert immer 1"
-              ],
-              0,
-              "NICHT kehrt 0 zu 1 und 1 zu 0 um.",
-              "NOT مقدار صفر را یک و یک را صفر می‌کند."
-            ]
+            "de": "Bei UND mit A=1 und B=0 ist der Ausgang …",
+            "fa": "در AND اگر A=1 و B=0 باشد خروجی چیست؟"
           },
-          "why": {}
+          "options": [
+            "0",
+            "1",
+            "Unbestimmt"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "UND ist nur wahr, wenn alle Eingänge wahr sind.",
+            "fa": "AND فقط وقتی درست است که همه ورودی‌ها درست باشند."
+          }
         },
         {
-          "q": {},
-          "why": {}
+          "q": {
+            "de": "Was macht NICHT mit einem binären Signal?",
+            "fa": "عملگر NOT با سیگنال دودویی چه می‌کند؟"
+          },
+          "options": [
+            "Es invertiert den Zustand",
+            "Es addiert beide Eingänge",
+            "Es speichert immer 1"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "NICHT kehrt 0 zu 1 und 1 zu 0 um.",
+            "fa": "NOT مقدار صفر را یک و یک را صفر می‌کند."
+          }
         }
       ]
     },
@@ -88,36 +87,35 @@
       "checks": [
         {
           "q": {
-            "de": [
-              "Welches Bauteil ist typischerweise ein Eingang?",
-              "کدام قطعه معمولاً ورودی است؟",
-              [
-                "Taster",
-                "Schützspule",
-                "Meldeleuchte"
-              ],
-              0,
-              "Ein Taster liefert ein Eingangssignal an die Steuerung.",
-              "شستی یک سیگنال ورودی به کنترلر می‌دهد."
-            ],
-            "fa": [
-              "Wozu dient eine Ablaufbeschreibung?",
-              "شرح توالی چه کاربردی دارد؟",
-              [
-                "Zustände und Übergänge festlegen",
-                "Die Schutzmaßnahmen ersetzen",
-                "Nur Kabellängen angeben"
-              ],
-              0,
-              "Sie beschreibt Reihenfolge und Bedingungen eines Prozesses.",
-              "ترتیب و شرط‌های فرایند را مشخص می‌کند."
-            ]
+            "de": "Welches Bauteil ist typischerweise ein Eingang?",
+            "fa": "کدام قطعه معمولاً ورودی است؟"
           },
-          "why": {}
+          "options": [
+            "Taster",
+            "Schützspule",
+            "Meldeleuchte"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Ein Taster liefert ein Eingangssignal an die Steuerung.",
+            "fa": "شستی یک سیگنال ورودی به کنترلر می‌دهد."
+          }
         },
         {
-          "q": {},
-          "why": {}
+          "q": {
+            "de": "Wozu dient eine Ablaufbeschreibung?",
+            "fa": "شرح توالی چه کاربردی دارد؟"
+          },
+          "options": [
+            "Zustände und Übergänge festlegen",
+            "Die Schutzmaßnahmen ersetzen",
+            "Nur Kabellängen angeben"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Sie beschreibt Reihenfolge und Bedingungen eines Prozesses.",
+            "fa": "ترتیب و شرط‌های فرایند را مشخص می‌کند."
+          }
         }
       ]
     },
@@ -134,36 +132,35 @@
       "checks": [
         {
           "q": {
-            "de": [
-              "Was gehört zu einem nachvollziehbaren Testprotokoll?",
-              "چه چیزی در گزارش آزمون قابل پیگیری لازم است؟",
-              [
-                "Testfall, Sollwert, Ergebnis und Abweichung",
-                "Nur ein Foto des Geräts",
-                "Nur die Vermutung des Fehlers"
-              ],
-              0,
-              "Das Protokoll muss Test und Ergebnis nachvollziehbar machen.",
-              "گزارش باید آزمون و نتیجه را قابل پیگیری کند."
-            ],
-            "fa": [
-              "Kann gewöhnliche Steuerungssoftware erforderliche Sicherheitsfunktionen automatisch ersetzen?",
-              "آیا نرم‌افزار کنترل معمولی خودبه‌خود جایگزین عملکردهای ایمنی می‌شود؟",
-              [
-                "Nein, Sicherheitsanforderungen müssen separat erfüllt sein",
-                "Ja, immer",
-                "Nur wenn die Anlage alt ist"
-              ],
-              0,
-              "Sicherheitsfunktionen benötigen eine geeignete, normgerechte Auslegung.",
-              "عملکردهای ایمنی به طراحی مناسب و مطابق مقررات نیاز دارند."
-            ]
+            "de": "Was gehört zu einem nachvollziehbaren Testprotokoll?",
+            "fa": "چه چیزی در گزارش آزمون قابل پیگیری لازم است؟"
           },
-          "why": {}
+          "options": [
+            "Testfall, Sollwert, Ergebnis und Abweichung",
+            "Nur ein Foto des Geräts",
+            "Nur die Vermutung des Fehlers"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Das Protokoll muss Test und Ergebnis nachvollziehbar machen.",
+            "fa": "گزارش باید آزمون و نتیجه را قابل پیگیری کند."
+          }
         },
         {
-          "q": {},
-          "why": {}
+          "q": {
+            "de": "Kann gewöhnliche Steuerungssoftware erforderliche Sicherheitsfunktionen automatisch ersetzen?",
+            "fa": "آیا نرم‌افزار کنترل معمولی خودبه‌خود جایگزین عملکردهای ایمنی می‌شود؟"
+          },
+          "options": [
+            "Nein, Sicherheitsanforderungen müssen separat erfüllt sein",
+            "Ja, immer",
+            "Nur wenn die Anlage alt ist"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Sicherheitsfunktionen benötigen eine geeignete, normgerechte Auslegung.",
+            "fa": "عملکردهای ایمنی به طراحی مناسب و مطابق مقررات نیاز دارند."
+          }
         }
       ]
     }
