@@ -1,0 +1,349 @@
+{
+  "schemaVersion": 1,
+  "id": "LF05",
+  "title": {
+    "de": "Elektrotechnische Systeme analysieren und prüfen",
+    "fa": "تحلیل و آزمایش سیستم‌های الکتروتکنیکی"
+  },
+  "level": "Grundlagen bis Prüfungsvorbereitung",
+  "languages": [
+    "de",
+    "fa"
+  ],
+  "disclaimer": {
+    "de": "Lernmaterial zur Prüfungsvorbereitung. Prüfungen nur nach geltenden Normen, Herstellerangaben, betrieblicher Gefährdungsbeurteilung und unter Beachtung der Sicherheitsregeln durchführen.",
+    "fa": "این مطالب برای آمادگی آزمون است. آزمایش‌ها فقط طبق استانداردهای معتبر، دستورالعمل سازنده، ارزیابی خطر محل کار و با رعایت مقررات ایمنی انجام شوند."
+  },
+  "objectives": [
+    {
+      "de": "Sichtprüfung und Messungen in eine sichere Prüfreihenfolge bringen.",
+      "fa": "بازرسی چشمی و اندازه‌گیری‌ها را در ترتیب ایمن قرار دهد."
+    },
+    {
+      "de": "Messgeräte, Messbereiche und Messleitungen passend auswählen.",
+      "fa": "دستگاه، محدوده و سیم‌های اندازه‌گیری مناسب را انتخاب کند."
+    },
+    {
+      "de": "Ergebnisse beurteilen, Fehler eingrenzen und Prüfungen dokumentieren.",
+      "fa": "نتایج را ارزیابی، خطاها را محدود و آزمایش‌ها را مستند کند."
+    }
+  ],
+  "lessons": [
+    {
+      "id": "LF05-01",
+      "title": {
+        "de": "Sicherer Prüfablauf",
+        "fa": "ترتیب ایمن آزمایش"
+      },
+      "explanation": {
+        "de": "Vor jeder Prüfung Auftrag, Anlage, Gefährdungen und erforderliche Schutzmaßnahmen klären. Wenn möglich Anlage freischalten, gegen Wiedereinschalten sichern und Spannungsfreiheit mit einem geeigneten zweipoligen Spannungsprüfer feststellen. Prüfungen unter Spannung sind nur zulässig, wenn sie fachlich erforderlich und mit geeigneten Schutzmaßnahmen geplant sind.",
+        "fa": "پیش از هر آزمایش، سفارش کار، تأسیسات، خطرها و اقدامات حفاظتی لازم را مشخص کن. در صورت امکان مدار را بی‌برق کن، در برابر وصل مجدد ایمن ساز و بی‌برقی را با تستر دوپل مناسب بررسی کن. آزمایش زیر ولتاژ فقط در صورت ضرورت فنی و با اقدامات حفاظتی مناسب انجام می‌شود."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Was gehört vor einer Messung an einer elektrischen Anlage zuerst dazu?",
+            "fa": "پیش از اندازه‌گیری روی تأسیسات برقی، ابتدا چه کاری لازم است؟"
+          },
+          "options": [
+            "Auftrag und Gefährdungen beurteilen und geeignete Schutzmaßnahmen festlegen",
+            "Sofort beliebige Messbereiche wählen",
+            "Schutzmaßnahmen grundsätzlich umgehen"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Eine sichere, geplante Prüfreihenfolge verhindert gefährliche Situationen.",
+            "fa": "ترتیب برنامه‌ریزی‌شده و ایمن از وضعیت‌های خطرناک جلوگیری می‌کند."
+          }
+        },
+        {
+          "q": {
+            "de": "Wie wird Spannungsfreiheit fachgerecht festgestellt?",
+            "fa": "بی‌برقی چگونه به‌درستی بررسی می‌شود؟"
+          },
+          "options": [
+            "Mit geeignetem zweipoligem Spannungsprüfer nach vorgeschriebenem Verfahren",
+            "Nur durch Ausschalten eines Lichtschalters",
+            "Durch Berühren der Leitung"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Es sind geeignete Prüfmittel und das vorgeschriebene Verfahren zu verwenden.",
+            "fa": "باید از وسیله مناسب و روش تعیین‌شده استفاده شود."
+          }
+        }
+      ]
+    },
+    {
+      "id": "LF05-02",
+      "title": {
+        "de": "Messgeräte und Messbereiche",
+        "fa": "دستگاه و محدوده اندازه‌گیری"
+      },
+      "explanation": {
+        "de": "Messgerät und Messkategorie müssen zur Messstelle passen. Vor der Messung Leitungen, Prüfspitzen, Zustand und Einstellung prüfen. Strom wird grundsätzlich mit einem dafür vorgesehenen Messgerät und einer geeigneten Messanordnung gemessen; ein Amperemeter wird nicht wie ein Voltmeter parallel an eine Spannungsquelle angeschlossen.",
+        "fa": "دستگاه و رده اندازه‌گیری باید با محل اندازه‌گیری سازگار باشند. پیش از اندازه‌گیری سیم‌ها، پراب‌ها، وضعیت دستگاه و تنظیمات را بررسی کن. جریان با دستگاه و آرایش اندازه‌گیری مناسب سنجیده می‌شود؛ آمپرمتر مانند ولت‌متر به‌صورت موازی به منبع ولتاژ وصل نمی‌شود."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Wie wird Spannung üblicherweise gemessen?",
+            "fa": "ولتاژ معمولاً چگونه اندازه‌گیری می‌شود؟"
+          },
+          "options": [
+            "Parallel zum betrachteten Bauteil mit geeignetem Messgerät",
+            "Immer in Reihe wie ein Amperemeter",
+            "Mit kurzgeschlossenen Prüfspitzen"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Die Spannung wird zwischen zwei Punkten gemessen; Messgerät und Messkategorie müssen geeignet sein.",
+            "fa": "ولتاژ بین دو نقطه سنجیده می‌شود و دستگاه باید مناسب باشد."
+          }
+        },
+        {
+          "q": {
+            "de": "Was ist vor der Messung wichtig?",
+            "fa": "پیش از اندازه‌گیری چه چیزی مهم است؟"
+          },
+          "options": [
+            "Messleitungen, Geräteeinstellung und Messkategorie kontrollieren",
+            "Alle Warnhinweise ignorieren",
+            "Immer den höchsten Strombereich ohne Prüfung verwenden"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Zustand und richtige Einstellung des Messgeräts sind wesentliche Sicherheits- und Qualitätsfaktoren.",
+            "fa": "وضعیت و تنظیم صحیح دستگاه برای ایمنی و کیفیت ضروری است."
+          }
+        }
+      ]
+    },
+    {
+      "id": "LF05-03",
+      "title": {
+        "de": "Schutzleiter und Isolationsprüfung",
+        "fa": "آزمایش هادی حفاظتی و عایق"
+      },
+      "explanation": {
+        "de": "Die Durchgängigkeit vorgesehener Schutzleiterverbindungen wird mit einem geeigneten Prüfverfahren kontrolliert. Eine Isolationsmessung bewertet den Isolationszustand zwischen den dafür vorgesehenen Leitern bzw. Teilen. Vorher empfindliche elektronische Betriebsmittel und die erforderlichen Prüfbedingungen berücksichtigen; Prüfspannung und Grenzwerte hängen von Anlage und geltenden Regeln ab.",
+        "fa": "پیوستگی اتصال‌های حفاظتی با روش آزمایش مناسب بررسی می‌شود. اندازه‌گیری مقاومت عایقی، وضعیت عایق بین هادی‌ها یا بخش‌های تعیین‌شده را ارزیابی می‌کند. پیش از آن تجهیزات الکترونیکی حساس و شرایط لازم آزمایش را در نظر بگیر؛ ولتاژ آزمایش و حدود مجاز به تأسیسات و مقررات معتبر بستگی دارند."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Was wird mit einer Durchgängigkeitsprüfung des Schutzleiters kontrolliert?",
+            "fa": "آزمایش پیوستگی هادی حفاظتی چه چیزی را بررسی می‌کند؟"
+          },
+          "options": [
+            "Ob die vorgesehene Schutzleiterverbindung leitfähig durchgehend ist",
+            "Ob ein Netzwerk-DHCP-Server erreichbar ist",
+            "Ob eine Lampe die richtige Farbtemperatur hat"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Die Prüfung bewertet die elektrische Verbindung des vorgesehenen Schutzleiterpfads.",
+            "fa": "این آزمایش اتصال الکتریکی مسیر حفاظتی را ارزیابی می‌کند."
+          }
+        },
+        {
+          "q": {
+            "de": "Was muss vor einer Isolationsmessung beachtet werden?",
+            "fa": "پیش از اندازه‌گیری عایقی چه چیزی باید در نظر گرفته شود؟"
+          },
+          "options": [
+            "Empfindliche Betriebsmittel und vorgeschriebene Prüfbedingungen",
+            "Nur die Farbe der Steckdose",
+            "Dass Prüfspannung immer beliebig gewählt werden darf"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Prüfbedingungen und angeschlossene Betriebsmittel können das Verfahren beeinflussen.",
+            "fa": "شرایط آزمایش و تجهیزات متصل می‌توانند بر روش اثر بگذارند."
+          }
+        }
+      ]
+    },
+    {
+      "id": "LF05-04",
+      "title": {
+        "de": "Ergebnisse bewerten und dokumentieren",
+        "fa": "ارزیابی و مستندسازی نتایج"
+      },
+      "explanation": {
+        "de": "Messwerte immer mit Messpunkt, Messverfahren, Gerät und Randbedingungen dokumentieren. Ergebnisse anhand der für die konkrete Anlage geltenden Anforderungen beurteilen. Bei auffälligen Werten nicht einfach weiterbetreiben: Ursache systematisch eingrenzen, sichere Zustände herstellen und die verantwortliche Elektrofachkraft bzw. zuständige Person einbeziehen.",
+        "fa": "مقادیر را همراه با نقطه اندازه‌گیری، روش، دستگاه و شرایط ثبت کن. نتایج را طبق الزامات مربوط به همان تأسیسات ارزیابی کن. در صورت مشاهده مقدار غیرعادی، صرفاً به کار ادامه نده؛ علت را مرحله‌به‌مرحله بررسی کن، وضعیت ایمن ایجاد کن و فرد مسئول متخصص برق را در جریان بگذار."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Welche Angaben helfen bei einem nachvollziehbaren Prüfprotokoll?",
+            "fa": "چه اطلاعاتی گزارش آزمایش را قابل پیگیری می‌کند؟"
+          },
+          "options": [
+            "Messpunkt, Messverfahren, Messwert und relevante Randbedingungen",
+            "Nur den Vornamen des Prüfers",
+            "Nur die Farbe des Messgeräts"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Dokumentation muss das Ergebnis und die Bedingungen nachvollziehbar machen.",
+            "fa": "مستندات باید نتیجه و شرایط آزمایش را قابل پیگیری کند."
+          }
+        },
+        {
+          "q": {
+            "de": "Was ist bei einem auffälligen Messergebnis sinnvoll?",
+            "fa": "در صورت نتیجه غیرعادی اندازه‌گیری، چه کاری مناسب است؟"
+          },
+          "options": [
+            "Anlage sicher beurteilen, Ursache eingrenzen und Ergebnis melden/dokumentieren",
+            "Wert ändern, damit er normal aussieht",
+            "Schutzmaßnahmen abschalten"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Auffällige Ergebnisse müssen sicher und nachvollziehbar behandelt werden.",
+            "fa": "نتیجه غیرعادی باید به‌صورت ایمن و قابل پیگیری بررسی شود."
+          }
+        }
+      ]
+    }
+  ],
+  "examTasks": [
+    {
+      "title": {
+        "de": "Aufgabe 1 – Prüfablauf",
+        "fa": "تمرین ۱ ـ ترتیب آزمایش"
+      },
+      "question": {
+        "de": "Nenne vier sinnvolle Schritte vor und während einer Prüfung einer elektrischen Anlage.",
+        "fa": "چهار مرحله مناسب پیش و هنگام آزمایش تأسیسات برقی را نام ببر."
+      },
+      "solution": {
+        "de": "Auftrag und Gefährdungen klären; Schutzmaßnahmen festlegen; erforderlichenfalls freischalten und gegen Wiedereinschalten sichern; Spannungsfreiheit nach Verfahren feststellen; geeignetes Prüfgerät auswählen und Messung dokumentieren.",
+        "fa": "سفارش و خطرها را بررسی کن؛ اقدامات حفاظتی را تعیین کن؛ در صورت لزوم قطع و در برابر وصل مجدد ایمن کن؛ بی‌برقی را طبق روش بررسی کن؛ دستگاه مناسب انتخاب و نتیجه را ثبت کن."
+      }
+    },
+    {
+      "title": {
+        "de": "Aufgabe 2 – Messwert dokumentieren",
+        "fa": "تمرین ۲ ـ ثبت نتیجه"
+      },
+      "question": {
+        "de": "Ein Messwert weicht deutlich von der Erwartung ab. Welche Informationen hältst du fest und wie gehst du weiter vor?",
+        "fa": "مقدار اندازه‌گیری‌شده به‌وضوح با انتظار فرق دارد. چه اطلاعاتی ثبت می‌کنی و چگونه ادامه می‌دهی؟"
+      },
+      "solution": {
+        "de": "Messpunkt, Wert und Einheit, Prüfverfahren, Gerät/Einstellung sowie relevante Bedingungen notieren. Anlage sicher beurteilen, Ursache systematisch eingrenzen und verantwortliche Fachkraft informieren; keine Grenzwerte ohne Bezug zur konkreten Anlage erfinden.",
+        "fa": "نقطه اندازه‌گیری، مقدار و واحد، روش، دستگاه و تنظیمات و شرایط مهم را ثبت کن. ایمنی تأسیسات را ارزیابی، علت را روشمند بررسی و متخصص مسئول را مطلع کن؛ حدود مجاز را بدون توجه به تأسیسات مشخص حدس نزن."
+      }
+    },
+    {
+      "title": {
+        "de": "Aufgabe 3 – Messgerät auswählen",
+        "fa": "تمرین ۳ ـ انتخاب دستگاه"
+      },
+      "question": {
+        "de": "Welche Punkte prüfst du vor der Verwendung eines Messgeräts?",
+        "fa": "پیش از استفاده از دستگاه اندازه‌گیری چه مواردی را بررسی می‌کنی؟"
+      },
+      "solution": {
+        "de": "Eignung für Messgröße und Messkategorie, Zustand von Gerät und Leitungen, richtige Buchsen und Einstellung, passende Messbereiche sowie sichere Arbeitsbedingungen.",
+        "fa": "تناسب دستگاه با کمیت و رده اندازه‌گیری، سلامت دستگاه و سیم‌ها، ورودی‌ها و تنظیم صحیح، محدوده مناسب و شرایط ایمن کار."
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "de": "Sichtprüfung",
+      "fa": "بازرسی چشمی",
+      "definition": {
+        "de": "Prüfung auf sichtbare Mängel und erkennbare Gefahren.",
+        "fa": "بررسی عیب‌های قابل مشاهده و خطرهای آشکار."
+      }
+    },
+    {
+      "de": "Spannungsfreiheit",
+      "fa": "بی‌برقی",
+      "definition": {
+        "de": "Zustand, der mit geeignetem Verfahren festgestellt werden muss.",
+        "fa": "وضعیتی که باید با روش مناسب تأیید شود."
+      }
+    },
+    {
+      "de": "Zweipoliger Spannungsprüfer",
+      "fa": "تستر ولتاژ دوپل",
+      "definition": {
+        "de": "Prüfgerät zur Feststellung des Spannungszustands.",
+        "fa": "دستگاه بررسی وضعیت ولتاژ."
+      }
+    },
+    {
+      "de": "Messkategorie",
+      "fa": "رده اندازه‌گیری",
+      "definition": {
+        "de": "Einstufung zur Eignung eines Messgeräts für bestimmte Messumgebungen.",
+        "fa": "رده‌بندی تناسب دستگاه برای محیط‌های اندازه‌گیری مشخص."
+      }
+    },
+    {
+      "de": "Durchgängigkeit",
+      "fa": "پیوستگی",
+      "definition": {
+        "de": "Elektrische Kontinuität eines vorgesehenen leitfähigen Pfads.",
+        "fa": "پیوستگی الکتریکی مسیر رسانای موردنظر."
+      }
+    },
+    {
+      "de": "Isolationswiderstand",
+      "fa": "مقاومت عایقی",
+      "definition": {
+        "de": "Maß für den Widerstand der Isolation unter festgelegten Bedingungen.",
+        "fa": "معیار مقاومت عایق در شرایط تعیین‌شده."
+      }
+    },
+    {
+      "de": "Prüfprotokoll",
+      "fa": "گزارش آزمایش",
+      "definition": {
+        "de": "Dokumentation von Verfahren, Messwerten und Bewertung.",
+        "fa": "ثبت روش، مقادیر و ارزیابی آزمایش."
+      }
+    },
+    {
+      "de": "Messbereich",
+      "fa": "محدوده اندازه‌گیری",
+      "definition": {
+        "de": "Bereich, in dem ein Messgerät spezifiziert misst.",
+        "fa": "محدوده‌ای که دستگاه در آن طبق مشخصات اندازه می‌گیرد."
+      }
+    },
+    {
+      "de": "Schutzmaßnahme",
+      "fa": "اقدام حفاظتی",
+      "definition": {
+        "de": "Maßnahme zur Verringerung elektrischer Gefährdungen.",
+        "fa": "اقدامی برای کاهش خطرهای الکتریکی."
+      }
+    },
+    {
+      "de": "Fehlereingrenzung",
+      "fa": "محدود کردن علت خطا",
+      "definition": {
+        "de": "Systematisches Eingrenzen möglicher Fehlerursachen.",
+        "fa": "محدودسازی روشمند علت‌های احتمالی خطا."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "Ausbildungsordnung Elektroniker/Elektronikerin",
+      "url": "https://www.gesetze-im-internet.de/elekausbv_2021/"
+    },
+    {
+      "title": "KMK – Rahmenlehrpläne",
+      "url": "https://www.kmk.org/themen/berufliche-schulen/duale-berufsausbildung/rahmenlehrplaene-fuer-die-berufsschule.html"
+    }
+  ]
+}

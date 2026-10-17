@@ -47,3 +47,11 @@ Das Material dient der Prüfungsvorbereitung und ist kein Ersatz für aktuelle N
 Offizielle Referenzen:
 - https://www.gesetze-im-internet.de/elekausbv_2021/
 - https://www.kmk.org/themen/berufliche-schulen/duale-berufsausbildung/rahmenlehrplaene-fuer-die-berufsschule.html
+
+## Lernfeld 5
+
+`lernfeld-05.json` ergänzt die App um vier zweisprachige Module zu sicherem Prüfablauf, Messgeräteauswahl, Schutzleiter-/Isolationsprüfung sowie Bewertung und Dokumentation. Enthalten sind acht Verständnisfragen, drei Prüfungsaufgaben und zehn Fachbegriffe. Das Lernfeld ist in der Navigation unter Lernfeld 5 integriert.
+
+## Lernfeld 6
+
+`lernfeld-06.json` behandelt Steuerungsprinzipien und Stromlaufpläne, Relais/Schütze/Kontakte, Selbsthaltung und Verriegelung sowie systematische Fehlersuche. Enthalten sind vier zweisprachige Module, acht Verständnisfragen, drei Prüfungsaufgaben und zehn Fachbegriffe. Die Navigation und der strukturierte Kurs-Loader in `index.html` wurden für LF06 erweitert.
