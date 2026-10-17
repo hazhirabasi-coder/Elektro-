@@ -216,6 +216,77 @@ input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-vis
 @media(max-width:760px){.lab-pro-layout{grid-template-columns:1fr}.lab-pro-menu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.lab-pro-menu>b{grid-column:1/-1}.lab-pro-device-row{grid-template-columns:repeat(3,minmax(0,1fr))}.lab-pro-outlets{grid-template-columns:repeat(3,minmax(0,1fr))}.lab-pro-meterrow{grid-template-columns:1fr}.lab-pro-topbar{gap:10px;padding:12px}.lab-pro-brand{width:100%}.lab-pro-board-head{align-items:flex-start;flex-direction:column}}
 @media(max-width:420px){.lab-pro-outlets{grid-template-columns:repeat(2,minmax(0,1fr))}.lab-pro-device{min-height:82px}.lab-pro-menu button{font-size:11px;padding:9px 7px}}
 
+
+/* Reference-faithful wide Fluke lab layout */
+.lab-pro-dashboard{margin:18px 0 26px;border:1px solid #aebdcd;border-radius:13px;overflow:hidden;background:#dbe4ed;box-shadow:0 12px 32px #102b4624;color:#172337}
+.lab-pro-topbar{display:flex;align-items:center;gap:clamp(9px,1.5vw,23px);padding:10px 12px;background:linear-gradient(100deg,#071b31,#102f50);color:#f1f7fd;font-size:clamp(10px,.9vw,13px);font-weight:700;flex-wrap:nowrap;overflow-x:auto;white-space:nowrap}
+.lab-pro-home{display:grid;place-items:center;min-width:42px;height:38px;background:#12508a;border-radius:8px;font-size:26px}
+.lab-pro-brand{font-size:clamp(15px,1.5vw,20px);color:#fff;margin-right:auto;min-width:max-content}
+.lab-pro-topnote,.lab-pro-help{color:#facc15}
+.lab-pro-layout{display:grid;grid-template-columns:235px minmax(0,1fr);gap:10px;padding:9px;background:linear-gradient(130deg,#d7e0e9,#bccbd9)}
+.lab-pro-menu{display:flex;flex-direction:column;gap:5px;padding:9px;border-radius:13px;background:linear-gradient(180deg,#0b2945,#132f4b);color:#fff;align-self:stretch}
+.lab-pro-menu>b{font-size:17px;color:#fff;padding:3px 6px 8px}.lab-pro-menu>b small{display:block;font-size:12px;color:#c8d8e8;font-weight:500}
+.lab-pro-menu button{display:flex;align-items:center;gap:10px;border:1px solid #ffffff0d;background:linear-gradient(100deg,#203e5a,#193650);color:#fff;text-align:left;border-radius:8px;padding:9px 8px;font-size:12px;cursor:pointer;min-height:44px}
+.lab-pro-menu button i{font-style:normal;display:grid;place-items:center;min-width:29px;height:29px;border:2px solid #dbe8f5;border-radius:50%;font-size:13px;font-weight:900}
+.lab-pro-menu button span{display:block;font-weight:700;line-height:1.2}.lab-pro-menu button small{display:block;font-size:10px;font-weight:500;color:#c6d7e6;margin-top:2px}
+.lab-pro-menu button.active,.lab-pro-menu button:hover{background:#ffd65b;color:#172337;border-color:#f3c239}.lab-pro-menu button.active small{color:#46586b}.lab-pro-menu button.active i{border-color:#263a4e}
+.lab-pro-main{min-width:0;display:grid;grid-template-columns:minmax(0,1fr) 285px;gap:10px;align-items:stretch}
+.lab-pro-board{grid-column:1;grid-row:1;border:2px solid #8c9aab;border-radius:9px;background:linear-gradient(135deg,#c7d0d8,#f2f5f8 30%,#c7d0d8);padding:10px;box-shadow:inset 0 0 0 5px #e6ebf0,inset 0 0 0 7px #aeb8c3}
+.lab-pro-board-head{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:9px;font-size:12px;background:#f8fafc;border:1px solid #cbd5e1;border-radius:5px;padding:7px 10px}.lab-pro-board-head span{color:#64748b;font-size:10px}
+.lab-pro-rail{display:grid;grid-template-columns:.85fr 1fr 1.1fr 1.2fr 1fr 1.15fr 1.35fr;gap:4px;align-items:stretch;background:linear-gradient(#aeb8c3,#d9e0e6);padding:5px;border:2px solid #8795a4;border-radius:7px;box-shadow:inset 0 3px 5px #65717c55}
+.lab-pro-device{min-width:0;min-height:115px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:5px;padding:5px 2px;border:1px solid #8b98a6;border-radius:4px;background:linear-gradient(90deg,#c7ced5,#f7f8f9 22%,#d7dde2 70%,#aab3bd);box-shadow:inset 0 -5px #aab4be;text-align:center}
+.lab-pro-device small{font-size:clamp(7px,.65vw,10px);font-weight:900;line-height:1.15;min-height:20px}.lab-pro-device b{font-size:clamp(8px,.7vw,11px);line-height:1.1}
+.rotary-switch{width:47px;height:47px;border-radius:5px;background:linear-gradient(135deg,#f3ca32,#b78300);display:grid;place-items:center;border:2px solid #8c6d12;margin-top:2px}
+.rotary-switch i{width:33px;height:33px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#f45b50,#a00e12 72%);border:3px solid #f7a7a7;position:relative}
+.rotary-switch i:after{content:"";position:absolute;width:5px;height:19px;background:#711014;left:11px;top:4px;border-radius:3px;transform:rotate(-28deg)}
+.spd-modules,.switch-modules,.breaker-modules,.terminal-row{display:flex;align-items:center;justify-content:center;gap:2px;margin-top:8px;width:100%;min-height:46px}
+.spd-modules i{height:43px;flex:1;max-width:19px;border:1px solid #9d6c19;border-radius:3px;background:linear-gradient(90deg,#d47718,#ffb22d 50%,#c96a10)}
+.switch-modules i{height:45px;flex:1;max-width:23px;border:1px solid #8d99a7;border-radius:3px;background:linear-gradient(90deg,#b9c2cb,#f6f7f8,#adb7c1);position:relative}
+.switch-modules i:after{content:"";position:absolute;left:25%;top:8px;width:50%;height:22px;background:linear-gradient(90deg,#1265a2,#238bd1,#124e81);border-radius:2px}
+.breaker-modules i{height:49px;flex:1;max-width:21px;border:1px solid #788594;border-radius:3px;background:linear-gradient(90deg,#8d98a5,#eef1f4,#8994a1);position:relative}
+.breaker-modules i:after{content:"";position:absolute;top:9px;left:23%;width:54%;height:23px;background:linear-gradient(90deg,#303d4a,#6c7782,#222c38);border-radius:2px}
+.terminal-row i{height:45px;flex:1;max-width:13px;border-radius:2px;background:linear-gradient(90deg,#1569b1,#4298d8,#0c4b88);border:1px solid #164f7d}
+.terminal-row i:nth-child(n+5){background:linear-gradient(90deg,#e0c83d,#fff17b,#b4a126)}
+.lab-pro-wire-run{height:14px;margin:0 2px 7px;background:linear-gradient(180deg,#a5b2bf,#e8edf1);border:1px solid #a0adba;border-top:0;display:flex;justify-content:space-around;overflow:hidden}
+.lab-pro-wire-run i{width:7px;height:27px;margin-top:-2px;border-radius:0 0 5px 5px;background:#1473c4;box-shadow:0 0 0 1px #164f7a}
+.lab-pro-wire-run i:nth-child(2){background:#2586db}.lab-pro-wire-run i:nth-child(3){background:#d8c32e}.lab-pro-wire-run i:nth-child(4){background:#29934d}.lab-pro-wire-run i:nth-child(5){background:#1a2735}
+.lab-pro-outlets{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:5px;margin-top:8px;background:linear-gradient(#c4cdd6,#e4e9ed);padding:7px;border:1px solid #a2aebb;border-radius:6px}
+.lab-pro-outlets>div{display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px;min-width:0;padding:5px 3px;background:linear-gradient(#f8fafc,#dce3e9);border:1px solid #b4bfca;border-radius:5px}
+.lab-pro-outlets label{font-size:clamp(7px,.65vw,10px);font-weight:900;line-height:1.15;min-height:24px}
+.lab-pro-outlets b{font-size:10px;line-height:1.3}.lab-pro-outlets small{font-size:9px;color:#64748b;line-height:1.3}
+.lab-pro-socket{width:clamp(38px,4.2vw,65px);height:clamp(38px,4.2vw,65px);display:flex;align-items:center;justify-content:center;position:relative;border-radius:10px;border:3px solid #a9b5c3;background:#f8fafc;font-weight:900;color:#27364a;font-size:12px}
+.lab-pro-socket.schuko{border-radius:8px;box-shadow:inset 0 0 0 4px #e8edf1;flex-wrap:wrap;gap:9px}.lab-pro-socket.schuko i{height:12px;width:4px;border-radius:4px;background:#34465b}.lab-pro-socket.schuko b{position:absolute;bottom:0;font-size:10px}
+.lab-pro-socket.ceered,.lab-pro-socket.ceeblue{border-radius:12px;color:#fff;border-color:#f4f6f8;box-shadow:0 0 0 2px #8f9ba8,inset 0 0 0 3px #ffffff55;position:relative}
+.lab-pro-socket.ceered{background:linear-gradient(135deg,#fa5148,#b90f17)}.lab-pro-socket.ceeblue{background:linear-gradient(135deg,#46a6ed,#07549b)}
+.lab-pro-socket.ceered i,.lab-pro-socket.ceeblue i{width:5px;height:8px;border-radius:4px;background:#253547;position:absolute}.lab-pro-socket.ceered i:nth-child(1){top:10px;left:14px}.lab-pro-socket.ceered i:nth-child(2){top:10px;right:14px}.lab-pro-socket.ceered i:nth-child(3){bottom:11px;left:14px}.lab-pro-socket.ceered i:nth-child(4){bottom:11px;right:14px}.lab-pro-socket.ceered i:nth-child(5){top:22px;left:50%}
+.lab-pro-socket.ceeblue i:nth-child(1){top:11px;left:50%}.lab-pro-socket.ceeblue i:nth-child(2){bottom:11px;left:14px}.lab-pro-socket.ceeblue i:nth-child(3){bottom:11px;right:14px}
+.lab-pro-socket.motor{border-radius:50%;background:radial-gradient(circle,#2578b8,#0a3f6a);border:5px solid #64778b;color:#fff;font-size:22px}
+.lab-pro-socket.terminal-box{display:flex;flex-direction:column;gap:2px;border-radius:3px;background:#aebac5;color:#23445f;font-size:9px;width:clamp(45px,5vw,70px)}
+.lab-pro-socket.lamp{font-size:27px;background:radial-gradient(circle,#fff8cf,#fff 70%);box-shadow:0 0 12px #ffe59b}
+.lab-pro-meterrow{grid-column:1;grid-row:2;display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+.lab-pro-meter{position:relative;padding:11px 13px;border-radius:42% 42% 20px 20px / 18% 18% 20px 20px;border:5px solid #e4a900;background:linear-gradient(160deg,#ffdc54,#f6b900 60%,#d89100);box-shadow:0 7px 13px #0f172a33;overflow:hidden;min-height:190px}
+.lab-pro-meter-brand{display:flex;align-items:center;gap:7px;font-size:14px;color:#1d2938}.lab-pro-meter-brand strong{font-size:19px;letter-spacing:-1px}.lab-pro-meter-brand b{font-size:12px}.lab-pro-meter-brand span{font-size:8px;letter-spacing:.06em}
+.lab-pro-meter-body{display:grid;grid-template-columns:54px minmax(0,1fr) 82px;gap:8px;align-items:center}
+.lab-pro-meter-keys{display:flex;flex-direction:column;gap:5px}.lab-pro-meter-keys button{border:1px solid #475569;border-radius:9px;background:linear-gradient(#465568,#172335);color:#fff;font-size:8px;padding:6px 2px}
+.lab-pro-screen{margin:8px 0;padding:12px;border:5px solid #263548;border-radius:7px;background:linear-gradient(145deg,#eaf5ef,#c9e2d4);color:#172c3a;display:flex;flex-direction:column;gap:6px;min-height:115px}
+.lab-pro-screen small{font-size:9px;color:#405d52}.lab-pro-screen strong{font-size:clamp(24px,3.3vw,44px);line-height:1.05;font-family:monospace}.lab-pro-screen span{font-size:12px}
+.lab-pro-meter-dial{height:82px;width:82px;border-radius:50%;border:5px solid #d8b238;background:radial-gradient(circle at 35% 30%,#536174,#101827 72%);position:relative;display:flex;align-items:center;justify-content:center;color:#fff;font-size:8px;box-shadow:0 4px 8px #0005}
+.lab-pro-meter-dial span{position:absolute}.lab-pro-meter-dial span:nth-child(1){top:6px;left:12px}.lab-pro-meter-dial span:nth-child(2){top:4px;right:13px}.lab-pro-meter-dial span:nth-child(3){top:25px;right:-1px}.lab-pro-meter-dial span:nth-child(4){bottom:7px;right:10px}.lab-pro-meter-dial span:nth-child(5){bottom:8px;left:8px}
+.lab-pro-meter-dial i{height:34px;width:6px;border-radius:4px;background:#c7d2df;transform:rotate(45deg);box-shadow:0 0 0 2px #111827}
+.lab-pro-test-button{position:absolute;left:75px;bottom:13px;border:3px solid #c4cdd5;background:linear-gradient(#f8fafc,#94a3b8);color:#172337;border-radius:50%;width:49px;height:49px;font-size:10px;font-weight:900}
+.lab-pro-leads{position:absolute;bottom:-7px;right:22%;display:flex;gap:18px}.lab-pro-leads i{display:block;width:12px;height:52px;border-radius:8px 8px 2px 2px;border:2px solid #222;background:#242b34;transform:rotate(18deg)}.lab-pro-leads .lead-red{background:#d82d2d;border-color:#8b1b1b;transform:rotate(-8deg)}.lab-pro-leads .lead-blue{background:#1476c5;border-color:#0c4675;transform:rotate(8deg)}
+.lab-pro-result{grid-column:2;grid-row:1 / span 2;display:flex;flex-direction:column;gap:9px;padding:0;border:1px solid #cbd5e1;border-radius:13px;background:#f8fafc;align-self:stretch;overflow:hidden}
+.lab-pro-result-title{padding:12px 14px;background:#ffd34e;font-size:17px;font-weight:900}.lab-pro-result-title small{display:block;font-size:11px}
+.lab-pro-result-screen{margin:0 10px;padding:14px 10px;background:#fff;border:1px solid #cbd5e1;border-radius:10px;display:grid;grid-template-columns:34px 1fr 23px;gap:5px;align-items:center}.lab-pro-result-screen span{grid-row:1/3;display:grid;place-items:center;background:#1e3b58;color:#fff;border-radius:5px;width:32px;height:32px}.lab-pro-result-screen strong{font-size:clamp(20px,2.2vw,32px);line-height:1.1}.lab-pro-result-screen>b{color:#24a765;font-size:24px}.lab-pro-result-screen small{grid-column:2/4;font-size:10px;color:#52657a}
+.lab-pro-connection,.lab-pro-ok,.lab-pro-explanation{margin:0 10px;padding:12px;background:#fff;border:1px solid #d0d9e2;border-radius:10px;font-size:12px}.lab-pro-connection p,.lab-pro-ok p,.lab-pro-explanation p{line-height:1.5;margin:6px 0 0;font-size:12px}.lab-pro-connection small{font-size:10px;color:#52657a}.lab-pro-ok{background:linear-gradient(135deg,#d5f1dd,#f5fff7);border-color:#b5ddbf}.lab-pro-ok>b{color:#17633b;font-size:14px}.lab-pro-explanation{background:#edf5ff;border-color:#c1d7f0;flex:1}.lab-pro-result>button{margin:0 10px 10px;border:0;border-radius:9px;background:#ffc928;color:#172337;padding:12px;font-size:14px;font-weight:900;cursor:pointer}
+.lab-pro-scenarios{display:grid;grid-template-columns:repeat(10,minmax(105px,1fr));gap:7px;align-items:stretch;overflow-x:auto;padding:9px;background:#071f36;color:#fff}
+.lab-pro-scenarios>b{grid-column:1/-1;white-space:nowrap;font-size:13px;color:#facc15}
+.lab-pro-scenarios button{min-width:105px;min-height:74px;border:1px solid #536c82;border-radius:8px;background:linear-gradient(#203e5a,#142e47);color:#fff;padding:8px 7px;font-size:10px;line-height:1.3;cursor:pointer;white-space:normal}
+.lab-pro-scenarios button.active{outline:2px solid #ffd447;background:#facc15;color:#172337}
+@media(max-width:1100px){.lab-pro-layout{grid-template-columns:195px minmax(0,1fr)}.lab-pro-main{grid-template-columns:minmax(0,1fr)}.lab-pro-result{grid-column:1;grid-row:3}.lab-pro-meterrow{grid-row:2}.lab-pro-menu button{min-height:39px}.lab-pro-rail{grid-template-columns:repeat(4,minmax(0,1fr))}.lab-pro-outlets{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){.lab-pro-layout{grid-template-columns:minmax(0,1fr);padding:6px}.lab-pro-menu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}.lab-pro-menu>b{grid-column:1/-1}.lab-pro-menu button{font-size:10px;padding:7px 5px;gap:6px}.lab-pro-menu button i{min-width:25px;height:25px}.lab-pro-main{display:flex;flex-direction:column}.lab-pro-rail{grid-template-columns:repeat(3,minmax(0,1fr))}.lab-pro-device{min-height:88px}.lab-pro-device small{font-size:8px}.lab-pro-outlets{grid-template-columns:repeat(3,minmax(0,1fr))}.lab-pro-meter{border-radius:28px;padding:10px}.lab-pro-meter-body{grid-template-columns:40px minmax(0,1fr) 58px;gap:5px}.lab-pro-meter-dial{height:58px;width:58px}.lab-pro-meter-keys button{font-size:7px;padding:5px 1px}.lab-pro-test-button{left:51px;width:38px;height:38px}.lab-pro-screen{min-height:100px;padding:8px}.lab-pro-result-title{font-size:15px}.lab-pro-scenarios{grid-template-columns:repeat(10,116px)}.lab-pro-topbar{gap:12px}.lab-pro-topbar>span:not(.lab-pro-brand):not(.lab-pro-home):not(.lab-pro-topnote):not(.lab-pro-help){display:none}}
+@media(max-width:420px){.lab-pro-rail{grid-template-columns:repeat(2,minmax(0,1fr))}.lab-pro-outlets{grid-template-columns:repeat(2,minmax(0,1fr))}.lab-pro-device{min-height:78px}.lab-pro-meter-body{grid-template-columns:36px minmax(0,1fr) 48px}.lab-pro-meter-dial{width:48px;height:48px}.lab-pro-result-screen strong{font-size:22px}}
+
 </style>
 </head>
 <body>
@@ -762,29 +833,65 @@ input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-vis
   <p class="fa">این فقط شبیه‌ساز آموزشی است؛ ولتاژ واقعی ندارد و به سخت‌افزار وصل نیست. جایگزین آزمون واقعی طبق DIN VDE 0100-600، دستورالعمل سازنده، نظارت متخصص یا پنج قاعده ایمنی نیست. از نتیجهٔ شبیه‌سازی برای اندازه‌گیری روی تأسیسات واقعی استفاده نکن.</p>
  </div>
 
- <section class="lab-pro-dashboard" aria-label="Großes virtuelles Fluke-Messlabor">
-  <div class="lab-pro-topbar"><span class="lab-pro-brand">⚡ Messgeräte-Labor</span><span>Übungen</span><span>Fehlerdiagnose</span><span>Theorie</span><span class="lab-pro-topnote">DE / فارسی</span></div>
+ <section class="lab-pro-dashboard" aria-label="Virtuelles Fluke-Messlabor im Referenzlayout">
+  <div class="lab-pro-topbar">
+   <span class="lab-pro-home">⌂</span><span class="lab-pro-brand">Messgerät-Labor</span>
+   <span>▢ Übungen</span><span>◉ Fehlerdiagnose</span><span>▤ Theorie</span><span>♧ Deutsch / Fachsprache</span><span>▣ Notizen</span><span class="lab-pro-help">💡 Hilfe</span><span>⚙ Einstellungen</span>
+  </div>
   <div class="lab-pro-layout">
-   <aside class="lab-pro-menu"><b>MESSFUNKTIONEN</b>
-    <button type="button" data-lab-mode="voltage" class="active">Ⓥ Spannung</button><button type="button" data-lab-mode="continuity">Ω Durchgängigkeit</button><button type="button" data-lab-mode="insulation">MΩ Isolationswiderstand</button><button type="button" data-lab-mode="loop">Zs Schleifenimpedanz</button><button type="button" data-lab-mode="rcd">◉ RCD / FI-Test</button><button type="button" data-lab-mode="lpe">L–PE Spannung</button>
+   <aside class="lab-pro-menu"><b>Messfunktionen <small>اندازه‌گیری</small></b>
+    <button type="button" data-lab-mode="voltage" class="active"><i>Ⓥ</i><span>Spannung<small>ولتاژ</small></span></button>
+    <button type="button" data-lab-mode="continuity"><i>Ω</i><span>Durchgängigkeit<small>پیوستگی</small></span></button>
+    <button type="button" data-lab-mode="insulation"><i>MΩ</i><span>Isolationswiderstand<small>مقاومت عایقی</small></span></button>
+    <button type="button" data-lab-mode="loop"><i>Zs</i><span>Schleifenimpedanz Zs<small>امپدانس حلقه</small></span></button>
+    <button type="button" data-lab-mode="rcd"><i>♟</i><span>RCD / FI-Test<small>تست محافظ جان</small></span></button>
+    <button type="button" data-lab-mode="lpe"><i>Zi</i><span>Leitungsimpedanz Zi<small>امپدانس خط</small></span></button>
+    <button type="button" data-lab-mode="voltage"><i>⟳</i><span>Drehfeld / Phasenfolge<small>ترتیب فاز</small></span></button>
+    <button type="button" data-lab-mode="continuity"><i>⏚</i><span>Erdungswiderstand<small>مقاومت زمین</small></span></button>
+    <button type="button" data-lab-mode="voltage"><i>Ⓐ</i><span>Strom / Stromzange<small>جریان</small></span></button>
+    <button type="button" data-lab-mode="voltage"><i>kW</i><span>Leistungsaufnahme<small>توان مصرفی</small></span></button>
+    <button type="button" data-lab-mode="lpe"><i>♆</i><span>Polung / L-N Prüfung<small>بررسی قطبیت</small></span></button>
    </aside>
    <div class="lab-pro-main">
     <div class="lab-pro-board">
      <div class="lab-pro-board-head"><b>VERTEILUNG / تابلو برق</b><span>DIN-Schiene · Übungsmodell</span></div>
-     <div class="lab-pro-device-row"><div class="lab-pro-device main"><small>HAUPTSCHALTER</small><b>Q0</b><span>⏻</span></div><div class="lab-pro-device spd"><small>ÜBERSPANNUNG</small><b>SPD T2</b><span>⚡</span></div><div class="lab-pro-device rcd"><small>FI / RCD</small><b>30 mA</b><span>▰</span></div><div class="lab-pro-device mcb"><small>LS-SCHALTER</small><b>B16 · C16</b><span>▮ ▮ ▮</span></div><div class="lab-pro-device rcbo"><small>FI/LS</small><b>RCBO</b><span>▰</span></div></div>
+     <div class="lab-pro-rail">
+      <div class="lab-pro-device main"><small>Hauptschalter</small><b>Q0</b><span class="rotary-switch"><i></i></span></div>
+      <div class="lab-pro-device spd"><small>Überspannungsschutz</small><b>SPD Typ 2</b><span class="spd-modules"><i></i><i></i><i></i></span></div>
+      <div class="lab-pro-device rcd"><small>FI / RCD</small><b>30 mA · Typ A</b><span class="switch-modules"><i></i><i></i></span></div>
+      <div class="lab-pro-device mcb"><small>LS / B16</small><b>B16 · C16</b><span class="breaker-modules"><i></i><i></i><i></i><i></i></span></div>
+      <div class="lab-pro-device threephase"><small>3-Phasen LS</small><b>C16</b><span class="breaker-modules"><i></i><i></i><i></i></span></div>
+      <div class="lab-pro-device rcbo"><small>Fehlerstromschutz</small><b>Typ A / Typ B</b><span class="switch-modules"><i></i><i></i></span></div>
+      <div class="lab-pro-device terminals-device"><small>Leitungsschutz</small><b>N / PE Klemmen</b><span class="terminal-row"><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+     </div>
+     <div class="lab-pro-wire-run"><i></i><i></i><i></i><i></i><i></i></div>
      <div class="lab-pro-outlets">
-      <div><span class="lab-pro-socket schuko">●　●<small>⏚</small></span><b>Schuko 230 V</b><small>L · N · PE</small></div>
-      <div><span class="lab-pro-socket ceered">CEE</span><b>CEE rot 400 V</b><small>3P+N+PE · 16/32 A</small></div>
-      <div><span class="lab-pro-socket ceeblue">CEE</span><b>CEE blau 230 V</b><small>1P+N+PE · 16 A</small></div>
-      <div><span class="lab-pro-socket terminals">L1<br/>L2<br/>L3<br/>N<br/>PE</span><b>Klemmen</b><small>Verteileranschluss</small></div>
-      <div><span class="lab-pro-socket lamp">💡</span><b>Lichtkreis</b><small>Schalter / Leuchte</small></div>
-      <div><span class="lab-pro-socket motor">M</span><b>Drehstrommotor</b><small>Phasenfolge</small></div>
+      <div><label>Steckdose<br/>230 V</label><span class="lab-pro-socket schuko"><i></i><i></i><b>⏚</b></span><b>Schuko</b><small>L · N · PE</small></div>
+      <div><label>CEE 400 V<br/>16 A</label><span class="lab-pro-socket ceered"><i></i><i></i><i></i><i></i><i></i></span><b>CEE rot</b><small>3P+N+PE</small></div>
+      <div><label>CEE 230 V<br/>16 A</label><span class="lab-pro-socket ceeblue"><i></i><i></i><i></i></span><b>CEE blau</b><small>1P+N+PE</small></div>
+      <div><label>Drehstrom-Motor<br/>3~ 400 V</label><span class="lab-pro-socket motor">M</span><b>Motor</b><small>Phasenfolge</small></div>
+      <div><label>Anschlussdose<br/>Verteilung</label><span class="lab-pro-socket terminal-box"><b>L1 L2 L3</b><b>N&nbsp; PE</b></span><b>Klemmen</b><small>L · N · PE</small></div>
+      <div><label>Leuchtenkreis<br/>mit Schalter</label><span class="lab-pro-socket lamp">💡</span><b>Beleuchtung</b><small>Schalter / Leuchte</small></div>
      </div>
     </div>
-    <div class="lab-pro-meterrow"><div class="lab-pro-meter"><div class="lab-pro-meter-brand">FLUKE <span>INSTALLATION TESTER · SIMULATION</span></div><div class="lab-pro-screen"><small>MESSUNG / ERGEBNIS</small><strong id="labProReadout">230 V</strong><span id="labProSub">L → N · 50 Hz</span><small>Modellanzeige · kein realer Messwert</small></div><div class="lab-pro-dialrow"><span>TEST</span><span class="lab-pro-dial">◉</span><span>V · Ω · MΩ · Zs · RCD</span></div></div><div class="lab-pro-result"><b>PRÜFUNG / نتیجه</b><div class="lab-pro-ok">✓ Übungsmodell bereit</div><p id="labProExplain">Wähle links eine Messfunktion. Verbinde danach die Prüfspitzen im interaktiven Modell unten.</p><p class="fa">از سمت راست نتیجهٔ تمرین را ببین؛ سپس در مدل تعاملی پایین، پراب‌ها را وصل کن.</p><button type="button" id="labProStart">Messung im Labor starten ↓</button></div></div>
+    <div class="lab-pro-meterrow">
+     <div class="lab-pro-meter">
+      <div class="lab-pro-meter-brand"><strong>FLUKE</strong> <b>1664 FC</b><span>MULTIFUNCTION INSTALLATION TESTER</span></div>
+      <div class="lab-pro-meter-body"><div class="lab-pro-meter-keys"><button type="button" tabindex="-1">MEMORY</button><button type="button" tabindex="-1">F1</button><button type="button" tabindex="-1">F2</button><button type="button" tabindex="-1">F3</button><button type="button" tabindex="-1">F4</button><button type="button" tabindex="-1">⏻</button></div><div class="lab-pro-screen"><small>RISO · 500 V</small><strong id="labProReadout">230 V</strong><span id="labProSub">L → N · 50 Hz</span><small>SIMULATION · Modellwert</small></div><div class="lab-pro-meter-dial"><span>V</span><span>Ω</span><span>MΩ</span><span>Zs</span><span>RCD</span><i></i></div><button type="button" class="lab-pro-test-button" tabindex="-1">TEST</button></div>
+      <div class="lab-pro-leads"><i class="lead-black"></i><i class="lead-red"></i><i class="lead-blue"></i></div>
+     </div>
+     <div class="lab-pro-result">
+      <div class="lab-pro-result-title">Messung / Ergebnis <small>نتیجهٔ اندازه‌گیری</small></div>
+      <div class="lab-pro-result-screen"><span>∿</span><strong id="labProResultValue">230 V</strong><b>✓</b><small id="labProSubCopy">L → N · Frequenz: 50.0 Hz</small></div>
+      <div class="lab-pro-connection"><b>Anschluss / اتصال</b><p>🔴 Rot → L<br/>⚫ Schwarz → N</p><small>Aktive Messfunktion: <strong id="labProModeCopy">Spannung</strong></small></div>
+      <div class="lab-pro-ok"><b>✓ Bewertung / ارزیابی</b><p>OK · Beispielwert im zulässigen Bereich</p></div>
+      <div class="lab-pro-explanation"><b>Erklärung / توضیح</b><p id="labProExplain">Die gemessene Spannung zwischen L und N beträgt 230 V. Der Wert ist für das 230-V-Netz normal.<br/>ولتاژ بین فاز و نول ۲۳۰ ولت است.</p></div>
+      <button type="button" id="labProStart">Nächste Übung → تمرین بعدی</button>
+     </div>
+    </div>
    </div>
   </div>
-  <div class="lab-pro-scenarios"><b>ÜBUNGEN / تمرین‌ها</b><button type="button" data-lab-fault="normal">1 · Steckdose 230 V</button><button type="button" data-lab-fault="pe">2 · PE unterbrochen</button><button type="button" data-lab-fault="highz">3 · Zs zu hoch</button><button type="button" data-lab-fault="rcd">4 · RCD-Fehler</button><button type="button" data-lab-fault="polarity">5 · L/N vertauscht</button></div>
+  <div class="lab-pro-scenarios"><b>Übungen / تمرین‌ها</b><button type="button" class="active" data-lab-fault="normal">1. Steckdose 230 V</button><button type="button" data-lab-fault="normal">2. CEE 400 V 16 A</button><button type="button" data-lab-fault="normal">3. CEE 230 V 16 A</button><button type="button" data-lab-fault="normal">4. Verteilung mit RCD/LS</button><button type="button" data-lab-fault="normal">5. Leuchtenkreis</button><button type="button" data-lab-fault="normal">6. Drehstrommotor</button><button type="button" data-lab-fault="pe">7. Fehler: Kein PE</button><button type="button" data-lab-fault="highz">8. Fehler: Hoher Zs</button><button type="button" data-lab-fault="rcd">9. Fehler: RCD löst aus</button><button type="button" data-lab-fault="polarity">10. Fehler: L und N vertauscht</button></div>
  </section>
  <div class="panel">
   <h2>1. Prüfstand vorbereiten / آماده‌سازی میز آزمون</h2>
@@ -1824,12 +1931,12 @@ loadFinalExamContent();
   const mode=btn.dataset.labMode, info=modeNames[mode]||modeNames.voltage;
   document.querySelectorAll('[data-lab-mode]').forEach(b=>b.classList.toggle('active',b===btn));
   if(byId('labMode')) byId('labMode').value=mode;
-  byId('labProReadout').textContent=info[0];byId('labProSub').textContent=info[1];byId('labProExplain').textContent=info[2]+' — Beispiel, kein realer Messwert.';
+  byId('labProReadout').textContent=info[0];byId('labProSub').textContent=info[1];byId('labProResultValue').textContent=info[0];byId('labProSubCopy').textContent=info[1];byId('labProModeCopy').textContent=btn.textContent.trim();byId('labProExplain').textContent=info[2]+' — Beispiel, kein realer Messwert. / مقدار نمونهٔ آموزشی است، نه اندازه‌گیری واقعی.';
  }));
  document.querySelectorAll('[data-lab-fault]').forEach(btn=>btn.addEventListener('click',()=>{
   document.querySelectorAll('[data-lab-fault]').forEach(b=>b.classList.toggle('active',b===btn));
   if(byId('labFault')) byId('labFault').value=btn.dataset.labFault;
-  byId('labProExplain').textContent=btn.textContent+' ausgewählt. Unten Messspitzen verbinden und die Messung durchführen. / سناریو انتخاب شد؛ پراب‌ها را در مدل پایین وصل کن.';
+  byId('labProExplain').textContent=btn.textContent+' ausgewählt. Unten Messspitzen verbinden und die Messung durchführen. / سناریو انتخاب شد؛ پراب‌ها را در مدل پایین وصل کن.';byId('labProResultValue').textContent=btn.dataset.labFault==='normal'?'230 V':'Prüfen';byId('labProSubCopy').textContent='Szenario: '+btn.textContent.trim();
  }));
  const start=byId('labProStart');
  if(start) start.addEventListener('click',()=>{const stage=byId('labDragStage');if(stage)stage.scrollIntoView({behavior:'smooth',block:'center'});const measure=byId('labMeasure');if(measure)measure.focus({preventScroll:true});});
