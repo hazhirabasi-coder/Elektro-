@@ -504,6 +504,19 @@ input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-vis
     <div id="b2Feedback" aria-live="polite"></div><div id="b2SelfRate" class="toolbar hidden"><button type="button" onclick="rateB2(true)">بلدم ✓</button><button type="button" class="secondary" onclick="rateB2(false)">باید مرور کنم ↻</button></div>
    </div>
   </div>
+  <div class="panel" id="b2ReadingWorkshop">
+   <h2>📖 B2-Lesewerkstatt / کارگاه تقویت خواندن</h2>
+   <p>Vier zusammenhängende Texte zu Beruf, Lernen, Teamkommunikation und Energie. Lies zuerst auf Deutsch, nutze danach die Wortliste und fasse den Inhalt laut zusammen.</p>
+   <p class="fa">چهار متن پیوسته دربارهٔ کار، یادگیری، ارتباط تیمی و انرژی. ابتدا متن آلمانی را بخوان، سپس از واژه‌ها کمک بگیر و محتوا را با صدای بلند خلاصه کن.</p>
+   <div class="notice" id="b2ReadSpeakNote"></div>
+   <div id="b2ReadingCards" class="resource-grid"></div>
+  </div>
+  <div class="panel" id="b2SpeakingWorkshop">
+   <h2>🗣️ B2-Sprechwerkstatt / کارگاه مکالمه</h2>
+   <p>Sprich die Situationen laut durch, möglichst ohne den Text abzulesen. Wiederhole deine Antwort ein zweites Mal und formuliere sie klarer. Notizen werden auf diesem Gerät gespeichert.</p>
+   <p class="fa">موقعیت‌ها را با صدای بلند تمرین کن و تا حد امکان از روی متن نخوان. پاسخ را بار دوم تکرار کن و روشن‌تر بیان کن. یادداشت‌ها روی همین دستگاه ذخیره می‌شوند.</p>
+   <div id="b2SpeakingCards" class="resource-grid"></div>
+  </div>
   <div class="panel">
    <h2>Grammatik-Werkstatt / کارگاه گرامر</h2>
    <p><b>1. Obwohl / trotzdem:</b> Obwohl ich müde bin, lerne ich weiter. / Ich bin müde, trotzdem lerne ich weiter.</p>
@@ -522,27 +535,15 @@ input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-vis
    <p>چک‌لیست: مقدمه روشن است؟ جمله‌های پیوندی (zunächst, anschließend, deshalb, obwohl) داری؟ فعل و ترتیب کلمات درست است؟ نتیجه و دلیل تصمیم‌ها را توضیح داده‌ای؟</p>
   </div>
    <div class="panel" id="b2Professional">
-   <h2>🎓 B2-Profiwerkstatt / کارگاه حرفه‌ای B2</h2>
-   <p>Strukturierter Kurs statt einzelner Vokabelkarten: sechs Lernmodule, Erklärungen, Beispiele und Verständnisfragen mit Begründung. Fortschritt wird auf diesem Gerät gespeichert.</p>
-   <p class="fa">دورهٔ ساختاریافته به‌جای کارت‌های پراکنده: شش درس، توضیح، مثال و پرسش درک مطلب همراه با دلیل. پیشرفت روی همین دستگاه ذخیره می‌شود.</p>
+   <h2>📚 Grammatik und Ausdruck als Ergänzung / گرامر و بیان به‌عنوان بخش تکمیلی</h2>
+   <p>Ergänzende Grammatik- und Ausdrucksmodule. Der Schwerpunkt dieses Bereichs liegt auf Lesen und freiem Sprechen; die kurzen Verständnisfragen sind freiwillige Zusatzübungen.</p>
+   <p class="fa">درس‌های تکمیلی گرامر و بیان. تمرکز اصلی این بخش بر خواندن و مکالمهٔ آزاد است؛ پرسش‌های کوتاه فقط تمرین اختیاری هستند.</p>
    <div class="notice" id="b2ProDisclaimer"></div>
    <div class="language-stats"><div class="language-stat"><b id="b2ProDone">0/6</b><span>Module / درس‌ها</span></div><div class="language-stat"><b id="b2ProAnswered">0</b><span>Beantwortet / پاسخ‌داده‌شده</span></div><div class="language-stat"><b id="b2ProAccuracy">0%</b><span>Trefferquote / درصد درست</span></div></div>
    <div id="b2ProStatus" aria-live="polite" class="muted small">Kurs wird geladen … / دوره در حال بارگذاری است…</div>
    <div id="b2ProModules" class="grid"></div>
   </div>
-  <div class="panel" id="b2ReadingWorkshop">
-   <h2>📖 B2-Lesewerkstatt / کارگاه تقویت خواندن</h2>
-   <p>Vier zusammenhängende Texte zu Beruf, Lernen, Teamkommunikation und Energie. Lies zuerst auf Deutsch, nutze danach die Wortliste und fasse den Inhalt laut zusammen.</p>
-   <p class="fa">چهار متن پیوسته دربارهٔ کار، یادگیری، ارتباط تیمی و انرژی. ابتدا متن آلمانی را بخوان، سپس از واژه‌ها کمک بگیر و محتوا را با صدای بلند خلاصه کن.</p>
-   <div class="notice" id="b2ReadSpeakNote"></div>
-   <div id="b2ReadingCards" class="resource-grid"></div>
-  </div>
-  <div class="panel" id="b2SpeakingWorkshop">
-   <h2>🗣️ B2-Sprechwerkstatt / کارگاه مکالمه</h2>
-   <p>Sprich die Situationen laut durch, möglichst ohne den Text abzulesen. Wiederhole deine Antwort ein zweites Mal und formuliere sie klarer. Notizen werden auf diesem Gerät gespeichert.</p>
-   <p class="fa">موقعیت‌ها را با صدای بلند تمرین کن و تا حد امکان از روی متن نخوان. پاسخ را بار دوم تکرار کن و روشن‌تر بیان کن. یادداشت‌ها روی همین دستگاه ذخیره می‌شوند.</p>
-   <div id="b2SpeakingCards" class="resource-grid"></div>
-  </div>
+
  </section>
 
 
@@ -1372,7 +1373,7 @@ const B2_PRO_STORE="elektroB2ProfessionalV1";
 let b2ProData=null,b2ProProgress={answers:{},done:{}};
 function loadB2ProProgress(){try{const x=JSON.parse(localStorage.getItem(B2_PRO_STORE)||"{}");return {answers:x.answers||{},done:x.done||{}}}catch(e){return {answers:{},done:{}}}}
 function saveB2ProProgress(){try{localStorage.setItem(B2_PRO_STORE,JSON.stringify(b2ProProgress))}catch(e){}renderB2ProStats()}
-async function loadB2ProContent(){try{const r=await fetch("content/deutsch-b2.json",{cache:"no-cache"});if(!r.ok)throw new Error("HTTP "+r.status);b2ProData=await r.json();b2ProProgress=loadB2ProProgress();renderB2ProModules();loadB2ReadSpeakContent();renderB2ProStats();document.getElementById("b2ProDisclaimer").textContent=b2ProData.disclaimer.de+" / "+b2ProData.disclaimer.fa;document.getElementById("b2ProStatus").textContent="Kurs geladen: "+b2ProData.modules.length+" Lernmodule · "+b2ProData.modules.reduce((n,m)=>n+m.checks.length,0)+" Verständnisfragen. / دوره بارگذاری شد."}catch(e){document.getElementById("b2ProStatus").textContent="B2-Kurs konnte nicht geladen werden. Öffne die Website über GitHub Pages oder einen Webserver. / دوره B2 بارگذاری نشد؛ سایت را از GitHub Pages یا وب‌سرور باز کن.";console.warn(e)}}
+async function loadB2ProContent(){try{const r=await fetch("content/deutsch-b2.json",{cache:"no-cache"});if(!r.ok)throw new Error("HTTP "+r.status);b2ProData=await r.json();b2ProProgress=loadB2ProProgress();renderB2ProModules();loadB2ReadSpeakContent();renderB2ProStats();document.getElementById("b2ProDisclaimer").textContent=b2ProData.disclaimer.de+" / "+b2ProData.disclaimer.fa;document.getElementById("b2ProStatus").textContent="Zusatzmodule geladen: "+b2ProData.modules.length+" Grammatikthemen. / درس‌های تکمیلی بارگذاری شد."}catch(e){document.getElementById("b2ProStatus").textContent="B2-Kurs konnte nicht geladen werden. Öffne die Website über GitHub Pages oder einen Webserver. / دوره B2 بارگذاری نشد؛ سایت را از GitHub Pages یا وب‌سرور باز کن.";console.warn(e)}}
 function renderB2ProModules(){const root=document.getElementById("b2ProModules");if(!root||!b2ProData)return;root.innerHTML="";b2ProData.modules.forEach((m,mi)=>{const card=document.createElement("article");card.className="resource-card";const tag=document.createElement("span");tag.className="tag";tag.textContent=m.skill;card.appendChild(tag);const h=document.createElement("h3");h.textContent=(mi+1)+". "+m.title.de;card.appendChild(h);const fa=document.createElement("p");fa.className="fa";fa.textContent=m.title.fa;card.appendChild(fa);const goal=document.createElement("p");goal.textContent=m.goal.de;card.appendChild(goal);const goalfa=document.createElement("p");goalfa.className="fa";goalfa.textContent=m.goal.fa;card.appendChild(goalfa);const exp=document.createElement("p");exp.textContent=m.lesson.de;card.appendChild(exp);const expfa=document.createElement("p");expfa.className="fa";expfa.textContent=m.lesson.fa;card.appendChild(expfa);const ex=document.createElement("blockquote");ex.textContent=m.example.de+" / "+m.example.fa;card.appendChild(ex);m.checks.forEach((q,qi)=>{const block=document.createElement("div");block.className="lf-question";const prompt=document.createElement("strong");prompt.textContent=q.q.de;block.appendChild(prompt);const pf=document.createElement("p");pf.className="fa";pf.textContent=q.q.fa;block.appendChild(pf);const key=m.id+"-"+qi;const prior=b2ProProgress.answers[key];q.options.forEach((opt,oi)=>{const btn=document.createElement("button");btn.type="button";btn.className="lf-answer";btn.textContent=String.fromCharCode(65+oi)+") "+opt;if(prior){btn.disabled=true;if(oi===q.answer)btn.classList.add("correct");if(oi===prior.selected&&prior.selected!==q.answer)btn.classList.add("wrong")}btn.addEventListener("click",()=>{if(b2ProProgress.answers[key])return;b2ProProgress.answers[key]={selected:oi,correct:oi===q.answer};b2ProProgress.done[m.id]=m.checks.every((_,j)=>b2ProProgress.answers[m.id+"-"+j]);saveB2ProProgress();renderB2ProModules();});block.appendChild(btn)});if(prior){const fb=document.createElement("p");fb.className=prior.correct?"success":"error";fb.textContent=(prior.correct?"Richtig. / درست است. ":"Noch einmal lernen. / دوباره مرور کن. ")+q.why.de+" / "+q.why.fa;block.appendChild(fb)}card.appendChild(block)});root.appendChild(card)})}
 function renderB2ProStats(){if(!b2ProData)return;const total=b2ProData.modules.reduce((n,m)=>n+m.checks.length,0),answers=Object.keys(b2ProProgress.answers).filter(k=>!k.startsWith("task-")).map(k=>b2ProProgress.answers[k]),correct=answers.filter(x=>x.correct).length,done=b2ProData.modules.filter(m=>m.checks.every((_,i)=>b2ProProgress.answers[m.id+"-"+i])).length;document.getElementById("b2ProDone").textContent=done+"/"+b2ProData.modules.length;document.getElementById("b2ProAnswered").textContent=answers.length+"/"+total;document.getElementById("b2ProAccuracy").textContent=(answers.length?Math.round(correct/answers.length*100):0)+"%"}
 async function loadB2ReadSpeakContent(){const note=document.getElementById("b2ReadSpeakNote");try{const r=await fetch("content/b2-reading-speaking.json",{cache:"no-cache"});if(!r.ok)throw new Error("HTTP "+r.status);const data=await r.json();note.textContent=data.note.de+" / "+data.note.fa;renderB2Readings(data.readings);renderB2Speaking(data.speaking)}catch(e){note.textContent="Die Lese- und Sprechmaterialien konnten nicht geladen werden. Bitte die Website über GitHub Pages öffnen. / مطالب خواندن و مکالمه بارگذاری نشدند؛ سایت را از GitHub Pages باز کن.";console.warn(e)}}
