@@ -19,8 +19,8 @@ test('document has core metadata and a responsive viewport', () => {
 test('inline CSS and JavaScript blocks are structurally present', () => {
   assert.equal((html.match(/<style\b/gi) || []).length, 1);
   assert.equal((html.match(/<\/style>/gi) || []).length, 1);
-  assert.equal((html.match(/<script\b/gi) || []).length, 1);
-  assert.equal((html.match(/<\/script>/gi) || []).length, 1);
+  assert.equal((html.match(/<script\b/gi) || []).length, 2);
+  assert.equal((html.match(/<\/script>/gi) || []).length, 2);
   const script = html.match(/<script\b[^>]*>([\s\S]*?)<\/script>/i)?.[1];
   assert.ok(script, 'inline application script should exist');
   assert.doesNotThrow(() => new vm.Script(script), 'inline JavaScript should parse');
