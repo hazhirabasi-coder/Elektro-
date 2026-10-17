@@ -498,7 +498,8 @@ function renderLessons(){
 let structuredCurrent=null,structuredContentByIndex={},lf01LoadError=false;
 async function loadStructuredLF01(){
  const files=[{index:0,path:"content/lernfeld-01.json",id:"LF01"},{index:1,path:"content/lernfeld-02.json",id:"LF02"},{index:2,path:"content/lernfeld-03.json",id:"LF03"},{index:3,path:"content/lernfeld-04.json",id:"LF04"},
-  {index:4,path:"content/lernfeld-05.json",id:"LF05"}];
+  {index:4,path:"content/lernfeld-05.json",id:"LF05"},
+  {index:5,path:"content/lernfeld-06.json",id:"LF06"}];
  await Promise.all(files.map(async file=>{
   try{
    const response=await fetch(file.path,{cache:"no-cache"});
@@ -590,7 +591,7 @@ function openLesson(i){
  <div class="notice"><b>Lernmethode:</b> Lies das Thema, erkläre es mit eigenen Worten, rechne passende Aufgaben und begründe deine Entscheidungen.
  <p class="fa">روش یادگیری: موضوع را بخوان، با زبان خودت توضیح بده، مسئله حل کن و دلیل انتخاب‌هایت را بیان کن.</p></div>
  <button onclick="markLesson(${i})">${completed.includes(i)?"Als nicht gelernt markieren":"Als gelernt markieren"}</button>`;
- if(i>=0&&i<=4){
+ if(i>=0&&i<=5){
   const existing=document.getElementById("structuredCurrent");if(existing)existing.remove();
   const section=document.createElement("section");section.id="structuredCurrent";d.appendChild(section);
   structuredCurrent=structuredContentByIndex[i]||null;
