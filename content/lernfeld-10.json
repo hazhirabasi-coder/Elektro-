@@ -42,36 +42,35 @@
       "checks": [
         {
           "q": {
-            "de": [
-              "Was ist bei einem LED-Treiber besonders wichtig?",
-              "در درایور LED چه چیزی اهمیت دارد؟",
-              [
-                "Kompatible elektrische Daten laut Hersteller",
-                "Nur die Form des Gehäuses",
-                "Immer dieselbe Leistung für alle Leuchten"
-              ],
-              0,
-              "Treiber und Leuchte müssen elektrisch kompatibel sein.",
-              "درایور و چراغ باید از نظر الکتریکی سازگار باشند."
-            ],
-            "fa": [
-              "Warum ist die Wärmeabfuhr wichtig?",
-              "چرا دفع حرارت مهم است؟",
-              [
-                "Sie beeinflusst Lebensdauer und sicheren Betrieb",
-                "Sie ersetzt die Absicherung",
-                "Sie macht die Montageprüfung unnötig"
-              ],
-              0,
-              "Ungeeignete Wärmeabfuhr kann Lebensdauer und Betrieb beeinträchtigen.",
-              "دفع حرارت نامناسب می‌تواند عمر و عملکرد را مختل کند."
-            ]
+            "de": "Was ist bei einem LED-Treiber besonders wichtig?",
+            "fa": "در درایور LED چه چیزی اهمیت دارد؟"
           },
-          "why": {}
+          "options": [
+            "Kompatible elektrische Daten laut Hersteller",
+            "Nur die Form des Gehäuses",
+            "Immer dieselbe Leistung für alle Leuchten"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Treiber und Leuchte müssen elektrisch kompatibel sein.",
+            "fa": "درایور و چراغ باید از نظر الکتریکی سازگار باشند."
+          }
         },
         {
-          "q": {},
-          "why": {}
+          "q": {
+            "de": "Warum ist die Wärmeabfuhr wichtig?",
+            "fa": "چرا دفع حرارت مهم است؟"
+          },
+          "options": [
+            "Sie beeinflusst Lebensdauer und sicheren Betrieb",
+            "Sie ersetzt die Absicherung",
+            "Sie macht die Montageprüfung unnötig"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Ungeeignete Wärmeabfuhr kann Lebensdauer und Betrieb beeinträchtigen.",
+            "fa": "دفع حرارت نامناسب می‌تواند عمر و عملکرد را مختل کند."
+          }
         }
       ]
     },
@@ -88,36 +87,35 @@
       "checks": [
         {
           "q": {
-            "de": [
-              "Was beeinflusst die zuverlässige Erfassung eines Bewegungsmelders?",
-              "چه چیزی بر تشخیص مطمئن حسگر حرکت اثر دارد؟",
-              [
-                "Montageort und Erfassungsbereich",
-                "Nur die Farbe der Abdeckung",
-                "Nur der Markenname"
-              ],
-              0,
-              "Position und Umgebungsbedingungen beeinflussen die Erfassung.",
-              "محل نصب و شرایط محیط بر تشخیص اثر می‌گذارند."
-            ],
-            "fa": [
-              "Was sollte nach der Einstellung eines Melders erfolgen?",
-              "پس از تنظیم حسگر چه کاری لازم است؟",
-              [
-                "Funktion unter realistischen Bedingungen prüfen",
-                "Keine weitere Prüfung",
-                "Schutzmaßnahmen entfernen"
-              ],
-              0,
-              "Ein Funktionstest bestätigt, ob die Einstellung zum Einsatz passt.",
-              "آزمون عملکرد تأیید می‌کند که تنظیم برای کاربرد مناسب است."
-            ]
+            "de": "Was beeinflusst die zuverlässige Erfassung eines Bewegungsmelders?",
+            "fa": "چه چیزی بر تشخیص مطمئن حسگر حرکت اثر دارد؟"
           },
-          "why": {}
+          "options": [
+            "Montageort und Erfassungsbereich",
+            "Nur die Farbe der Abdeckung",
+            "Nur der Markenname"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Position und Umgebungsbedingungen beeinflussen die Erfassung.",
+            "fa": "محل نصب و شرایط محیط بر تشخیص اثر می‌گذارند."
+          }
         },
         {
-          "q": {},
-          "why": {}
+          "q": {
+            "de": "Was sollte nach der Einstellung eines Melders erfolgen?",
+            "fa": "پس از تنظیم حسگر چه کاری لازم است؟"
+          },
+          "options": [
+            "Funktion unter realistischen Bedingungen prüfen",
+            "Keine weitere Prüfung",
+            "Schutzmaßnahmen entfernen"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Ein Funktionstest bestätigt, ob die Einstellung zum Einsatz passt.",
+            "fa": "آزمون عملکرد تأیید می‌کند که تنظیم برای کاربرد مناسب است."
+          }
         }
       ]
     },
@@ -134,36 +132,35 @@
       "checks": [
         {
           "q": {
-            "de": [
-              "Was ist ein wesentlicher Teil der Kundeneinweisung?",
-              "بخش مهم آموزش مشتری چیست؟",
-              [
-                "Bedienung und relevante Sicherheitshinweise erklären",
-                "Nur den Preis wiederholen",
-                "Prüfergebnisse verbergen"
-              ],
-              0,
-              "Die Einweisung muss verständlich und für den sicheren Gebrauch relevant sein.",
-              "آموزش باید روشن و برای استفاده ایمن مفید باشد."
-            ],
-            "fa": [
-              "Wie ist mit einem sicherheitsrelevanten Mangel umzugehen?",
-              "با نقص ایمنی مهم چگونه باید برخورد کرد؟",
-              [
-                "Beheben und erforderliche Prüfungen durchführen, bevor sicher übergeben wird",
-                "Ignorieren, wenn das Gerät startet",
-                "Nur mündlich erwähnen und nicht dokumentieren"
-              ],
-              0,
-              "Sicherheitsrelevante Mängel müssen angemessen behandelt und dokumentiert werden.",
-              "نقص ایمنی باید به‌طور مناسب رفع و مستند شود."
-            ]
+            "de": "Was ist ein wesentlicher Teil der Kundeneinweisung?",
+            "fa": "بخش مهم آموزش مشتری چیست؟"
           },
-          "why": {}
+          "options": [
+            "Bedienung und relevante Sicherheitshinweise erklären",
+            "Nur den Preis wiederholen",
+            "Prüfergebnisse verbergen"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Die Einweisung muss verständlich und für den sicheren Gebrauch relevant sein.",
+            "fa": "آموزش باید روشن و برای استفاده ایمن مفید باشد."
+          }
         },
         {
-          "q": {},
-          "why": {}
+          "q": {
+            "de": "Wie ist mit einem sicherheitsrelevanten Mangel umzugehen?",
+            "fa": "با نقص ایمنی مهم چگونه باید برخورد کرد؟"
+          },
+          "options": [
+            "Beheben und erforderliche Prüfungen durchführen, bevor sicher übergeben wird",
+            "Ignorieren, wenn das Gerät startet",
+            "Nur mündlich erwähnen und nicht dokumentieren"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Sicherheitsrelevante Mängel müssen angemessen behandelt und dokumentiert werden.",
+            "fa": "نقص ایمنی باید به‌طور مناسب رفع و مستند شود."
+          }
         }
       ]
     }
