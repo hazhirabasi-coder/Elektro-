@@ -1,0 +1,523 @@
+{
+  "schemaVersion": 1,
+  "id": "LF01",
+  "title": {
+    "de": "Elektrotechnische Systeme analysieren, Funktionen prüfen und Fehler beheben",
+    "fa": "تحلیل سیستم‌های الکتروتکنیکی، بررسی عملکرد و رفع خطا"
+  },
+  "level": "Grundlagen bis Prüfungsvorbereitung",
+  "languages": [
+    "de",
+    "fa"
+  ],
+  "disclaimer": {
+    "de": "Lernmaterial zur Prüfungsvorbereitung. Für reale Arbeiten gelten die aktuellen Normen, betrieblichen Anweisungen und die Aufsicht einer Elektrofachkraft.",
+    "fa": "این محتوا برای آمادگی آزمون است. در کار واقعی باید استانداردهای جاری، دستورالعمل‌های محل کار و نظارت متخصص برق رعایت شود."
+  },
+  "objectives": [
+    {
+      "de": "Spannung, Strom, Widerstand und Leistung unterscheiden und mit Einheiten angeben.",
+      "fa": "تفاوت ولتاژ، جریان، مقاومت و توان را تشخیص دهد و با واحد صحیح بیان کند."
+    },
+    {
+      "de": "Das Ohmsche Gesetz anwenden und einfache Stromkreise berechnen.",
+      "fa": "قانون اهم را به‌کار ببرد و مدارهای ساده را محاسبه کند."
+    },
+    {
+      "de": "Reihen- und Parallelschaltungen erklären und berechnen.",
+      "fa": "مدار سری و موازی را توضیح دهد و محاسبه کند."
+    },
+    {
+      "de": "Messgeräte passend auswählen und Messwerte fachgerecht dokumentieren.",
+      "fa": "ابزار اندازه‌گیری مناسب انتخاب و نتایج را درست ثبت کند."
+    },
+    {
+      "de": "Einfache Fehler anhand von Symptomen systematisch eingrenzen.",
+      "fa": "با توجه به نشانه‌ها، خطاهای ساده را به روش منظم محدود کند."
+    }
+  ],
+  "lessons": [
+    {
+      "id": "LF01-01",
+      "title": {
+        "de": "Elektrische Grundgrößen",
+        "fa": "کمیت‌های پایه الکتریکی"
+      },
+      "explanation": {
+        "de": "Die elektrische Spannung U beschreibt die Potentialdifferenz zwischen zwei Punkten. Der Strom I beschreibt den Ladungsfluss pro Zeit. Der Widerstand R beschreibt, wie stark ein Bauteil den Stromfluss hemmt. Die elektrische Leistung P gibt an, wie schnell elektrische Energie umgesetzt wird.",
+        "fa": "ولتاژ U اختلاف پتانسیل بین دو نقطه است. جریان I میزان عبور بار الکتریکی در واحد زمان را نشان می‌دهد. مقاومت R میزان مخالفت قطعه با عبور جریان است. توان P نشان می‌دهد انرژی الکتریکی با چه سرعتی مصرف یا تبدیل می‌شود."
+      },
+      "quantities": [
+        {
+          "symbol": "U",
+          "name": {
+            "de": "Spannung",
+            "fa": "ولتاژ"
+          },
+          "unit": "Volt (V)"
+        },
+        {
+          "symbol": "I",
+          "name": {
+            "de": "Stromstärke",
+            "fa": "شدت جریان"
+          },
+          "unit": "Ampere (A)"
+        },
+        {
+          "symbol": "R",
+          "name": {
+            "de": "Widerstand",
+            "fa": "مقاومت"
+          },
+          "unit": "Ohm (Ω)"
+        },
+        {
+          "symbol": "P",
+          "name": {
+            "de": "Leistung",
+            "fa": "توان"
+          },
+          "unit": "Watt (W)"
+        },
+        {
+          "symbol": "E",
+          "name": {
+            "de": "Energie / Arbeit",
+            "fa": "انرژی / کار الکتریکی"
+          },
+          "unit": "Joule (J) oder Wattstunde (Wh)"
+        }
+      ],
+      "example": {
+        "de": "Ein Widerstand von 100 Ω liegt an 12 V. Der Strom beträgt I = U / R = 12 V / 100 Ω = 0,12 A.",
+        "fa": "یک مقاومت ۱۰۰ اهمی به ولتاژ ۱۲ ولت وصل است. جریان برابر است با I = U / R = 12 / 100 = 0.12 A."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Welche Einheit hat die elektrische Spannung?",
+            "fa": "واحد ولتاژ الکتریکی چیست؟"
+          },
+          "options": [
+            "Ampere (A)",
+            "Volt (V)",
+            "Ohm (Ω)"
+          ],
+          "answer": 1,
+          "why": {
+            "de": "Spannung wird in Volt angegeben.",
+            "fa": "ولتاژ با ولت اندازه‌گیری می‌شود."
+          }
+        },
+        {
+          "q": {
+            "de": "Welche Größe wird in Ohm angegeben?",
+            "fa": "کدام کمیت با اهم بیان می‌شود؟"
+          },
+          "options": [
+            "Widerstand",
+            "Leistung",
+            "Stromstärke"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Der Widerstand hat die Einheit Ohm (Ω).",
+            "fa": "واحد مقاومت اهم (Ω) است."
+          }
+        }
+      ]
+    },
+    {
+      "id": "LF01-02",
+      "title": {
+        "de": "Ohmsches Gesetz",
+        "fa": "قانون اهم"
+      },
+      "explanation": {
+        "de": "Bei konstanten Bedingungen gilt für einen ohmschen Widerstand: U = R · I. Daraus folgen I = U / R und R = U / I. Vor dem Rechnen Einheiten prüfen und bei Bedarf umrechnen.",
+        "fa": "برای یک مقاومت اهمی در شرایط ثابت: U = R × I. از این رابطه می‌توان I = U / R و R = U / I را نیز به دست آورد. پیش از محاسبه، واحدها را بررسی و در صورت نیاز تبدیل کنید."
+      },
+      "formulas": [
+        {
+          "name": {
+            "de": "Spannung",
+            "fa": "ولتاژ"
+          },
+          "formula": "U = R · I"
+        },
+        {
+          "name": {
+            "de": "Stromstärke",
+            "fa": "شدت جریان"
+          },
+          "formula": "I = U / R"
+        },
+        {
+          "name": {
+            "de": "Widerstand",
+            "fa": "مقاومت"
+          },
+          "formula": "R = U / I"
+        }
+      ],
+      "example": {
+        "de": "Gegeben: U = 24 V, R = 120 Ω. Gesucht: I. Rechnung: I = 24 V / 120 Ω = 0,2 A = 200 mA.",
+        "fa": "داده‌ها: U = 24 V و R = 120 Ω. مجهول: I. محاسبه: I = 24 / 120 = 0.2 A برابر با ۲۰۰ میلی‌آمپر."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "An 24 V liegt ein Widerstand von 8 Ω. Wie groß ist der Strom?",
+            "fa": "به مقاومت ۸ اهمی ولتاژ ۲۴ ولت وصل است. جریان چقدر است؟"
+          },
+          "options": [
+            "0,33 A",
+            "3 A",
+            "192 A"
+          ],
+          "answer": 1,
+          "why": {
+            "de": "I = U / R = 24 / 8 = 3 A.",
+            "fa": "I = U / R = 24 / 8 = 3 A."
+          }
+        },
+        {
+          "q": {
+            "de": "Ein Strom von 0,5 A fließt durch 20 Ω. Welche Spannung liegt an?",
+            "fa": "جریان ۰٫۵ آمپر از مقاومت ۲۰ اهم عبور می‌کند. ولتاژ چقدر است؟"
+          },
+          "options": [
+            "10 V",
+            "40 V",
+            "0,025 V"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "U = R · I = 20 · 0,5 = 10 V.",
+            "fa": "U = R × I = 20 × 0.5 = 10 V."
+          }
+        }
+      ]
+    },
+    {
+      "id": "LF01-03",
+      "title": {
+        "de": "Elektrische Leistung und Energie",
+        "fa": "توان و انرژی الکتریکی"
+      },
+      "explanation": {
+        "de": "Für Gleichstrom und einfache ohmsche Verbraucher gilt P = U · I. Elektrische Energie ergibt sich aus E = P · t. Bei Energie in kWh muss die Leistung in kW und die Zeit in Stunden eingesetzt werden.",
+        "fa": "برای جریان مستقیم و مصرف‌کننده‌های اهمی ساده، P = U × I است. انرژی الکتریکی از رابطه E = P × t محاسبه می‌شود. برای انرژی بر حسب kWh باید توان بر حسب kW و زمان بر حسب ساعت باشد."
+      },
+      "formulas": [
+        {
+          "name": {
+            "de": "Leistung",
+            "fa": "توان"
+          },
+          "formula": "P = U · I"
+        },
+        {
+          "name": {
+            "de": "Energie",
+            "fa": "انرژی"
+          },
+          "formula": "E = P · t"
+        },
+        {
+          "name": {
+            "de": "Leistung am Widerstand",
+            "fa": "توان روی مقاومت"
+          },
+          "formula": "P = I² · R = U² / R"
+        }
+      ],
+      "example": {
+        "de": "Ein Verbraucher mit 2 kW läuft 3 h. E = 2 kW · 3 h = 6 kWh.",
+        "fa": "یک مصرف‌کننده ۲ کیلوواتی به مدت ۳ ساعت کار می‌کند. انرژی مصرفی: ۲ × ۳ = ۶ کیلووات‌ساعت."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Ein Gerät nimmt 230 V und 2 A auf. Welche Leistung ergibt sich vereinfacht?",
+            "fa": "دستگاهی با ۲۳۰ ولت و ۲ آمپر کار می‌کند. توان ساده‌شده چقدر است؟"
+          },
+          "options": [
+            "115 W",
+            "232 W",
+            "460 W"
+          ],
+          "answer": 2,
+          "why": {
+            "de": "P = U · I = 230 · 2 = 460 W.",
+            "fa": "P = U × I = 230 × 2 = 460 W."
+          }
+        },
+        {
+          "q": {
+            "de": "Eine 1,5-kW-Heizung läuft 4 Stunden. Wie viel Energie verbraucht sie?",
+            "fa": "یک بخاری ۱٫۵ کیلوواتی ۴ ساعت کار می‌کند. چقدر انرژی مصرف می‌کند؟"
+          },
+          "options": [
+            "0,375 kWh",
+            "6 kWh",
+            "5,5 kWh"
+          ],
+          "answer": 1,
+          "why": {
+            "de": "E = P · t = 1,5 · 4 = 6 kWh.",
+            "fa": "E = P × t = 1.5 × 4 = 6 kWh."
+          }
+        }
+      ]
+    },
+    {
+      "id": "LF01-04",
+      "title": {
+        "de": "Reihen- und Parallelschaltung",
+        "fa": "مدار سری و موازی"
+      },
+      "explanation": {
+        "de": "In einer Reihenschaltung ist der Strom durch alle Bauteile gleich; die Teilspannungen addieren sich. In einer Parallelschaltung liegt an jedem Zweig dieselbe Spannung; die Teilströme addieren sich. Reale Netzinstallationen dürfen nicht nach diesem Lernbeispiel verändert werden.",
+        "fa": "در مدار سری، جریان همه قطعات یکسان است و ولتاژهای بخش‌ها با هم جمع می‌شوند. در مدار موازی، ولتاژ دو سر هر شاخه یکسان است و جریان شاخه‌ها جمع می‌شود. این مثال آموزشی مجوز تغییر تأسیسات واقعی برق نیست."
+      },
+      "formulas": [
+        {
+          "name": {
+            "de": "Reihe: Gesamtwiderstand",
+            "fa": "سری: مقاومت کل"
+          },
+          "formula": "Rges = R1 + R2 + …"
+        },
+        {
+          "name": {
+            "de": "Parallel: Kehrwert",
+            "fa": "موازی: معکوس مقاومت کل"
+          },
+          "formula": "1/Rges = 1/R1 + 1/R2 + …"
+        }
+      ],
+      "example": {
+        "de": "Zwei Widerstände 100 Ω und 200 Ω in Reihe ergeben Rges = 300 Ω.",
+        "fa": "دو مقاومت ۱۰۰ و ۲۰۰ اهمی در مدار سری، مقاومت کل ۳۰۰ اهم ایجاد می‌کنند."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Zwei Widerstände 10 Ω und 15 Ω liegen in Reihe. Wie groß ist Rges?",
+            "fa": "دو مقاومت ۱۰ و ۱۵ اهمی سری هستند. مقاومت کل چقدر است؟"
+          },
+          "options": [
+            "5 Ω",
+            "25 Ω",
+            "150 Ω"
+          ],
+          "answer": 1,
+          "why": {
+            "de": "In Reihe werden die Widerstände addiert: 10 + 15 = 25 Ω.",
+            "fa": "در مدار سری مقاومت‌ها جمع می‌شوند: ۱۰ + ۱۵ = ۲۵ اهم."
+          }
+        },
+        {
+          "q": {
+            "de": "Welche Größe ist in einer idealen Parallelschaltung an jedem Zweig gleich?",
+            "fa": "در مدار موازی ایده‌آل کدام کمیت در تمام شاخه‌ها برابر است؟"
+          },
+          "options": [
+            "Spannung",
+            "Strom",
+            "Widerstand"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Alle parallelen Zweige liegen an derselben Spannung.",
+            "fa": "تمام شاخه‌های موازی به یک ولتاژ مشترک متصل‌اند."
+          }
+        }
+      ]
+    },
+    {
+      "id": "LF01-05",
+      "title": {
+        "de": "Messen und systematische Fehlersuche",
+        "fa": "اندازه‌گیری و عیب‌یابی منظم"
+      },
+      "explanation": {
+        "de": "Ein Multimeter wird entsprechend der Messgröße und Messart eingestellt. Spannung wird parallel gemessen, Strom in Reihe im dafür vorgesehenen Messkreis. Widerstand wird nur an einem spannungsfreien, geeigneten Stromkreis gemessen. Vor jeder Messung Messleitungen, Messkategorie und Gerätezustand prüfen.",
+        "fa": "مولتی‌متر باید بر اساس کمیت و نوع اندازه‌گیری تنظیم شود. ولتاژ به‌صورت موازی و جریان به‌صورت سری در مدار اندازه‌گیری مخصوص آن سنجیده می‌شود. مقاومت فقط در مدار مناسب و بدون ولتاژ اندازه‌گیری می‌شود. پیش از هر اندازه‌گیری، سیم‌های تست، رده اندازه‌گیری و وضعیت دستگاه بررسی شود."
+      },
+      "steps": [
+        {
+          "de": "Auftrag und Symptome aufnehmen.",
+          "fa": "شرح کار و نشانه‌های خطا را ثبت کنید."
+        },
+        {
+          "de": "Risiken beurteilen und Anlage sicher freischalten lassen; die fünf Sicherheitsregeln beachten.",
+          "fa": "خطرها را ارزیابی کنید و قطع ایمن برق را طبق صلاحیت و دستورالعمل انجام دهید؛ پنج قانون ایمنی را رعایت کنید."
+        },
+        {
+          "de": "Messgerät, Messbereich und Messleitungen kontrollieren.",
+          "fa": "دستگاه، محدوده اندازه‌گیری و سیم‌های تست را بررسی کنید."
+        },
+        {
+          "de": "Messung nach Arbeitsanweisung durchführen und Soll-/Ist-Werte vergleichen.",
+          "fa": "طبق دستورالعمل اندازه‌گیری کنید و مقدار واقعی را با مقدار مورد انتظار مقایسه کنید."
+        },
+        {
+          "de": "Ursache eingrenzen, Ergebnis dokumentieren und Funktion erneut prüfen.",
+          "fa": "علت را محدود کنید، نتیجه را ثبت و عملکرد را دوباره بررسی کنید."
+        }
+      ],
+      "safety": {
+        "de": "Arbeiten an elektrischen Anlagen können lebensgefährlich sein. Dieses Lernmodul ersetzt weder Qualifikation noch betriebliche Freigabe. Arbeiten an gefährlichen Spannungen gehören ausschließlich in den zulässigen Verantwortungs- und Qualifikationsbereich.",
+        "fa": "کار با تأسیسات برق می‌تواند مرگبار باشد. این درس جایگزین صلاحیت حرفه‌ای یا مجوز محل کار نیست. کار روی ولتاژهای خطرناک فقط در محدوده صلاحیت و مسئولیت مجاز انجام می‌شود."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Wie wird die Spannung an einem Bauteil grundsätzlich gemessen?",
+            "fa": "ولتاژ دو سر یک قطعه اصولاً چگونه اندازه‌گیری می‌شود؟"
+          },
+          "options": [
+            "Parallel",
+            "In Reihe",
+            "Nur bei eingeschaltetem Widerstandsmessgerät"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Für die Spannungsmessung wird das Messgerät parallel zum Bauteil angeschlossen.",
+            "fa": "برای اندازه‌گیری ولتاژ، دستگاه به‌صورت موازی با قطعه وصل می‌شود."
+          }
+        },
+        {
+          "q": {
+            "de": "Darf der Widerstand in einem unter Spannung stehenden Stromkreis gemessen werden?",
+            "fa": "آیا می‌توان مقاومت را در مدار دارای ولتاژ اندازه گرفت؟"
+          },
+          "options": [
+            "Ja, immer",
+            "Nein, der geeignete Stromkreis muss spannungsfrei sein",
+            "Nur bei 230 V"
+          ],
+          "answer": 1,
+          "why": {
+            "de": "Widerstandsmessungen erfolgen nur an geeigneten spannungsfreien Stromkreisen.",
+            "fa": "اندازه‌گیری مقاومت فقط در مدار مناسب و بدون ولتاژ انجام می‌شود."
+          }
+        }
+      ]
+    }
+  ],
+  "glossary": [
+    {
+      "de": "die Spannung",
+      "fa": "ولتاژ"
+    },
+    {
+      "de": "die Stromstärke",
+      "fa": "شدت جریان"
+    },
+    {
+      "de": "der Widerstand",
+      "fa": "مقاومت"
+    },
+    {
+      "de": "die Leistung",
+      "fa": "توان"
+    },
+    {
+      "de": "die elektrische Energie",
+      "fa": "انرژی الکتریکی"
+    },
+    {
+      "de": "der Stromkreis",
+      "fa": "مدار الکتریکی"
+    },
+    {
+      "de": "die Reihenschaltung",
+      "fa": "مدار سری"
+    },
+    {
+      "de": "die Parallelschaltung",
+      "fa": "مدار موازی"
+    },
+    {
+      "de": "das Messgerät",
+      "fa": "دستگاه اندازه‌گیری"
+    },
+    {
+      "de": "der Messbereich",
+      "fa": "محدوده اندازه‌گیری"
+    },
+    {
+      "de": "die Fehlersuche",
+      "fa": "عیب‌یابی"
+    },
+    {
+      "de": "der Messwert",
+      "fa": "مقدار اندازه‌گیری‌شده"
+    }
+  ],
+  "examTasks": [
+    {
+      "id": "LF01-A1",
+      "level": "leicht",
+      "prompt": {
+        "de": "Berechne den Strom bei U = 12 V und R = 60 Ω.",
+        "fa": "جریان را برای U = 12 V و R = 60 Ω محاسبه کن."
+      },
+      "solution": "I = U / R = 12 / 60 = 0,2 A"
+    },
+    {
+      "id": "LF01-A2",
+      "level": "mittel",
+      "prompt": {
+        "de": "Ein Gerät mit 800 W läuft 2,5 h. Berechne die Energie in kWh.",
+        "fa": "دستگاه ۸۰۰ واتی به مدت ۲٫۵ ساعت کار می‌کند. انرژی را بر حسب kWh محاسبه کن."
+      },
+      "solution": "E = 0,8 kW · 2,5 h = 2 kWh"
+    },
+    {
+      "id": "LF01-A3",
+      "level": "anspruchsvoll",
+      "prompt": {
+        "de": "Zwei Widerstände 40 Ω und 60 Ω sind in Reihe an 20 V angeschlossen. Berechne Gesamtwiderstand und Strom.",
+        "fa": "دو مقاومت ۴۰ و ۶۰ اهمی سری به ۲۰ ولت وصل شده‌اند. مقاومت کل و جریان را حساب کن."
+      },
+      "solution": "Rges = 40 + 60 = 100 Ω; I = 20 V / 100 Ω = 0,2 A"
+    }
+  ],
+  "completionChecklist": [
+    {
+      "de": "Ich kann U, I, R, P und E mit Einheiten erklären.",
+      "fa": "می‌توانم U، I، R، P و E را همراه واحد توضیح دهم."
+    },
+    {
+      "de": "Ich kann das Ohmsche Gesetz umstellen und anwenden.",
+      "fa": "می‌توانم قانون اهم را جابه‌جا و استفاده کنم."
+    },
+    {
+      "de": "Ich kann einfache Reihen- und Parallelschaltungen berechnen.",
+      "fa": "می‌توانم مدارهای ساده سری و موازی را محاسبه کنم."
+    },
+    {
+      "de": "Ich kenne grundlegende Regeln zur sicheren Messung.",
+      "fa": "قواعد پایه اندازه‌گیری ایمن را می‌دانم."
+    },
+    {
+      "de": "Ich kann Rechenweg, Einheit und Ergebnis kontrollieren.",
+      "fa": "می‌توانم روش محاسبه، واحد و نتیجه را کنترل کنم."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Elektroniker-Ausbildungsverordnung (amtlicher Text)",
+      "url": "https://www.gesetze-im-internet.de/elekausbv_2021/"
+    },
+    {
+      "title": "KMK – Rahmenlehrpläne für die Berufsschule",
+      "url": "https://www.kmk.org/themen/berufliche-schulen/duale-berufsausbildung/rahmenlehrplaene-fuer-die-berufsschule.html"
+    }
+  ]
+}
