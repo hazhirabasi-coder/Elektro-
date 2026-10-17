@@ -42,36 +42,35 @@
       "checks": [
         {
           "q": {
-            "de": [
-              "Welche Aufgabe hat der Wechselrichter im üblichen PV-System?",
-              "اینورتر در سامانه معمول PV چه وظیفه‌ای دارد؟",
-              [
-                "Wandlung von Gleichstrom in geeigneten Wechselstrom",
-                "Ersetzt alle Schutzorgane",
-                "Speichert jede erzeugte Energie ohne Batterie"
-              ],
-              0,
-              "Der Wechselrichter wandelt PV-Gleichstrom in Wechselstrom um.",
-              "اینورتر جریان مستقیم PV را به جریان متناوب تبدیل می‌کند."
-            ],
-            "fa": [
-              "Warum sind Herstellerangaben bei PV-Komponenten wichtig?",
-              "چرا دستورالعمل سازنده در اجزای PV مهم است؟",
-              [
-                "Sie legen zulässige Betriebs- und Anschlussbedingungen fest",
-                "Sie sind nur Werbung",
-                "Sie ersetzen jede Prüfung"
-              ],
-              0,
-              "Komponenten müssen innerhalb ihrer Spezifikationen betrieben werden.",
-              "تجهیزات باید در محدوده مشخصات مجاز کار کنند."
-            ]
+            "de": "Welche Aufgabe hat der Wechselrichter im üblichen PV-System?",
+            "fa": "اینورتر در سامانه معمول PV چه وظیفه‌ای دارد؟"
           },
-          "why": {}
+          "options": [
+            "Wandlung von Gleichstrom in geeigneten Wechselstrom",
+            "Ersetzt alle Schutzorgane",
+            "Speichert jede erzeugte Energie ohne Batterie"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Der Wechselrichter wandelt PV-Gleichstrom in Wechselstrom um.",
+            "fa": "اینورتر جریان مستقیم PV را به جریان متناوب تبدیل می‌کند."
+          }
         },
         {
-          "q": {},
-          "why": {}
+          "q": {
+            "de": "Warum sind Herstellerangaben bei PV-Komponenten wichtig?",
+            "fa": "چرا دستورالعمل سازنده در اجزای PV مهم است؟"
+          },
+          "options": [
+            "Sie legen zulässige Betriebs- und Anschlussbedingungen fest",
+            "Sie sind nur Werbung",
+            "Sie ersetzen jede Prüfung"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Komponenten müssen innerhalb ihrer Spezifikationen betrieben werden.",
+            "fa": "تجهیزات باید در محدوده مشخصات مجاز کار کنند."
+          }
         }
       ]
     },
@@ -88,36 +87,35 @@
       "checks": [
         {
           "q": {
-            "de": [
-              "Welche Aufgabe hat ein Energiemanagementsystem?",
-              "سیستم مدیریت انرژی چه وظیفه‌ای دارد؟",
-              [
-                "Erzeugung, Verbrauch und Speicherbetrieb koordinieren",
-                "Den Schutzleiter ersetzen",
-                "Die Batterie ohne Grenzen betreiben"
-              ],
-              0,
-              "Es koordiniert Energieflüsse nach definierten Zielen und Grenzen.",
-              "جریان انرژی را بر اساس هدف‌ها و محدودیت‌ها هماهنگ می‌کند."
-            ],
-            "fa": [
-              "Was muss bei einem Batteriespeicher beachtet werden?",
-              "در باتری ذخیره‌ساز چه چیزی باید رعایت شود؟",
-              [
-                "Herstellerbedingungen, Schutz und Aufstellanforderungen",
-                "Nur das Gewicht ignorieren",
-                "Beliebige Ladeparameter verwenden"
-              ],
-              0,
-              "Speicher müssen nach Systemvorgaben und Schutzanforderungen installiert werden.",
-              "ذخیره‌ساز باید طبق دستورالعمل و الزامات حفاظتی نصب شود."
-            ]
+            "de": "Welche Aufgabe hat ein Energiemanagementsystem?",
+            "fa": "سیستم مدیریت انرژی چه وظیفه‌ای دارد؟"
           },
-          "why": {}
+          "options": [
+            "Erzeugung, Verbrauch und Speicherbetrieb koordinieren",
+            "Den Schutzleiter ersetzen",
+            "Die Batterie ohne Grenzen betreiben"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Es koordiniert Energieflüsse nach definierten Zielen und Grenzen.",
+            "fa": "جریان انرژی را بر اساس هدف‌ها و محدودیت‌ها هماهنگ می‌کند."
+          }
         },
         {
-          "q": {},
-          "why": {}
+          "q": {
+            "de": "Was muss bei einem Batteriespeicher beachtet werden?",
+            "fa": "در باتری ذخیره‌ساز چه چیزی باید رعایت شود؟"
+          },
+          "options": [
+            "Herstellerbedingungen, Schutz und Aufstellanforderungen",
+            "Nur das Gewicht ignorieren",
+            "Beliebige Ladeparameter verwenden"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Speicher müssen nach Systemvorgaben und Schutzanforderungen installiert werden.",
+            "fa": "ذخیره‌ساز باید طبق دستورالعمل و الزامات حفاظتی نصب شود."
+          }
         }
       ]
     },
@@ -134,36 +132,35 @@
       "checks": [
         {
           "q": {
-            "de": [
-              "Wie wird Überspannungsschutz ausgewählt?",
-              "حفاظت اضافه‌ولتاژ چگونه انتخاب می‌شود؟",
-              [
-                "Als abgestimmter Teil des Anlagen-Schutzkonzepts",
-                "Nur nach Farbe",
-                "Unabhängig von Anlage und Regeln"
-              ],
-              0,
-              "Auswahl und Koordination hängen von Anlage und anwendbaren Regeln ab.",
-              "انتخاب و هماهنگی به تأسیسات و مقررات مربوط وابسته است."
-            ],
-            "fa": [
-              "Was gehört zu einer Wartungsdokumentation?",
-              "مستندات نگهداری شامل چیست؟",
-              [
-                "Feststellungen, Prüfungen, Maßnahmen und offene Punkte",
-                "Nur Datum ohne Inhalt",
-                "Keine Aufzeichnungen"
-              ],
-              0,
-              "Die Dokumentation unterstützt Nachverfolgbarkeit und sichere Wartung.",
-              "مستندسازی قابلیت پیگیری و نگهداری ایمن را پشتیبانی می‌کند."
-            ]
+            "de": "Wie wird Überspannungsschutz ausgewählt?",
+            "fa": "حفاظت اضافه‌ولتاژ چگونه انتخاب می‌شود؟"
           },
-          "why": {}
+          "options": [
+            "Als abgestimmter Teil des Anlagen-Schutzkonzepts",
+            "Nur nach Farbe",
+            "Unabhängig von Anlage und Regeln"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Auswahl und Koordination hängen von Anlage und anwendbaren Regeln ab.",
+            "fa": "انتخاب و هماهنگی به تأسیسات و مقررات مربوط وابسته است."
+          }
         },
         {
-          "q": {},
-          "why": {}
+          "q": {
+            "de": "Was gehört zu einer Wartungsdokumentation?",
+            "fa": "مستندات نگهداری شامل چیست؟"
+          },
+          "options": [
+            "Feststellungen, Prüfungen, Maßnahmen und offene Punkte",
+            "Nur Datum ohne Inhalt",
+            "Keine Aufzeichnungen"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Die Dokumentation unterstützt Nachverfolgbarkeit und sichere Wartung.",
+            "fa": "مستندسازی قابلیت پیگیری و نگهداری ایمن را پشتیبانی می‌کند."
+          }
         }
       ]
     }
