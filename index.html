@@ -143,6 +143,8 @@ input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-vis
 /* Drag-and-drop visual lab: stylized tester, board, leads and movable probes */
 .lab-drag-intro{max-width:900px;margin:16px auto 8px}.lab-drag-stage{max-width:900px;margin:0 auto 18px;border:1px solid #cbd5e1;border-radius:16px;overflow:hidden;background:linear-gradient(145deg,#f8fafc,#e2e8f0);touch-action:pan-y}.lab-drag-stage svg{display:block;width:100%;height:auto;touch-action:pan-y}.lab-drag-tip{cursor:grab;touch-action:none;filter:drop-shadow(0 2px 2px #475569);stroke:#fff}.lab-drag-tip:active{cursor:grabbing}.lab-drag-tip:focus{outline:none;stroke:#38bdf8;stroke-width:7}.lab-svg-target{cursor:pointer}.lab-svg-target.active circle{stroke:#fbbf24;stroke-width:7}.lab-svg-target.connected circle{stroke:#fff;stroke-width:7}.lab-svg-target text{pointer-events:none}
 @media(max-width:600px){.lab-drag-stage{border-radius:10px}.lab-drag-intro b{font-size:14px}}
+
+.lab-howto{border:2px solid #8bb7df;border-radius:16px;padding:16px;margin:16px 0;background:var(--card-bg,#f8fbff)}.lab-howto h3{margin-top:0}.lab-howto-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.lab-howto-grid article{position:relative;border:1px solid #cbd5e1;border-radius:12px;padding:12px 12px 8px 48px;background:rgba(255,255,255,.78)}.lab-step{position:absolute;left:12px;top:12px;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:#1769aa;color:#fff;font-weight:800}.red-step{background:#d62929}.black-step{background:#222}.lab-word-red{color:#c81e1e;font-weight:800}.lab-word-black{color:#111;font-weight:800}.lab-tip-note{margin:12px 0;padding:12px;border-radius:10px;background:#fff3cd;color:#493b10}.lab-drag-intro{padding:10px;border-radius:12px;background:#eaf4ff;border:1px solid #8bb7df}.lab-drag-intro b{font-size:1.05rem}.lab-drag-tip{stroke-width:6;cursor:grab;touch-action:none;filter:drop-shadow(0 0 4px #fff) drop-shadow(0 2px 3px #475569)}.lab-drag-tip:focus{stroke:#00a6ff;stroke-width:9}@media(max-width:620px){.lab-howto-grid{grid-template-columns:1fr}.lab-howto{padding:10px}.lab-howto-grid article{padding-left:46px}}
 </style>
 </head>
 <body>
@@ -726,6 +728,18 @@ input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-vis
   <h2>2. Verteilung und Messspitzen / تابلو و پراب‌ها</h2>
   <p>Wähle zuerst eine Messspitze, dann einen Messpunkt auf der Tafel. Wiederhole das für die zweite Spitze.</p>
   <p class="fa">ابتدا یک پراب را انتخاب کن، سپس نقطهٔ اندازه‌گیری روی تابلو را لمس کن. برای پراب دوم نیز همین کار را انجام بده.</p>
+<div class="lab-howto" id="labHowTo">
+  <h3>So funktioniert das Labor – Schritt für Schritt / راهنمای کار، مرحله‌به‌مرحله</h3>
+  <div class="lab-howto-grid">
+   <article><span class="lab-step">1</span><b>Aufgabe wählen / انتخاب تمرین</b><p>Oben bei „Messfunktion“ zuerst Spannung L–N auswählen. Zum Einstieg „Anlage ohne Fehler“ lassen.</p><p class="fa">از قسمت «حالت اندازه‌گیری»، ابتدا ولتاژ L–N را انتخاب کن. برای شروع، سناریوی بدون خطا را نگه دار.</p></article>
+   <article><span class="lab-step red-step">2</span><b>Rote Spitze ziehen / کشیدن پراب قرمز</b><p>Den <span class="lab-word-red">roten runden Griff</span> am Messgerät gedrückt halten und auf den roten Punkt <b>L</b> links ziehen. Erst loslassen, wenn er auf dem Punkt liegt.</p><p class="fa">دایرهٔ قرمز کنار دستگاه را نگه دار و روی نقطهٔ قرمز L بکش؛ وقتی روی L قرار گرفت، رها کن.</p></article>
+   <article><span class="lab-step black-step">3</span><b>Schwarze Spitze ziehen / کشیدن پراب مشکی</b><p>Den <span class="lab-word-black">schwarzen runden Griff</span> auf den blauen Punkt <b>N</b> ziehen. Für andere Aufgaben kann der schwarze Griff auf PE gesetzt werden.</p><p class="fa">دایرهٔ مشکی را روی نقطهٔ آبی N بکش. در تمرین‌های دیگر می‌توانی آن را روی PE سبز بگذاری.</p></article>
+   <article><span class="lab-step">4</span><b>Messung starten / شروع اندازه‌گیری</b><p>Auf „Messung durchführen“ drücken. Das Ergebnis erscheint auf dem Display unter der Zeichnung; die Erklärung steht darunter auf Deutsch und Persisch.</p><p class="fa">روی «اندازه‌گیری» بزن. نتیجه در نمایشگر پایین شکل و توضیح آن زیر نمایشگر به آلمانی و فارسی دیده می‌شود.</p></article>
+  </div>
+  <div class="lab-tip-note"><b>Wenn Ziehen nicht klappt / اگر کشیدن کار نکرد:</b> Tippe auf „Rote Spitze wählen“ oder „Schwarze Spitze wählen“ und tippe dann auf L, N oder PE. Das ist die alternative Bedienung. / دکمهٔ انتخاب پراب را بزن و سپس L یا N یا PE را لمس کن؛ این روش جایگزین کشیدن است.</div>
+  <button type="button" id="labStartExample">▶ Beispiel L–N vorbereiten / آماده‌کردن تمرین نمونه L–N</button>
+  <p id="labExampleMessage" class="fa" aria-live="polite">این دکمه فقط حالت اندازه‌گیری را تنظیم می‌کند؛ خودت پراب‌ها را جابه‌جا کن.</p>
+ </div>
   <div class="lab-drag-intro">
    <b>Ziehe die Prüfspitzen mit dem Finger / انگشتت را روی پراب نگه دار و آن را بکش</b>
    <p class="small muted">Die Spitzen lassen sich frei bewegen. Auf L, N oder PE loslassen, um sie anzuschließen. / نوک پراب را روی L یا N یا PE رها کن تا وصل شود.</p>
@@ -1678,6 +1692,8 @@ loadFinalExamContent();
  function reset(){state.red=null;state.black=null;state.active='red';state.tipRed={x:650,y:135};state.tipBlack={x:650,y:265};state.measurements=[];state.mcbOn=true;state.rcdOn=true;state.mainOn=true;$('labDiagnosis').textContent='Diagnose noch gesperrt: erst mindestens eine Messung durchführen. / عیب‌یابی هنوز قفل است؛ ابتدا حداقل یک اندازه‌گیری انجام بده.';$('labDisplay').textContent='Bereit / آماده';$('labUnit').textContent='Messfunktion auswählen';$('labResult').textContent='Messspitzen setzen und Messung starten.';$('labResultFa').textContent='پراب‌ها را وصل کن و اندازه‌گیری را شروع کن.';$('labMeter').style.borderColor='#334155';$('labMcbFeedback').textContent='';$('labRcdFeedback').textContent='';updateProbes();switchUI();renderLog()}
  $('labChooseRed').addEventListener('click',()=>{state.active='red';updateProbes()});$('labChooseBlack').addEventListener('click',()=>{state.active='black';updateProbes()});
  setupDragProbes();
+ $('labStartExample').addEventListener('click',()=>{$('labMode').value='voltage';$('labFault').value='normal';state.red=null;state.black=null;state.active='red';state.tipRed={x:650,y:135};state.tipBlack={x:650,y:265};updateProbes();$('labExampleMessage').textContent='Schritt 2: Ziehe den roten Griff auf L. Danach ziehst du den schwarzen Griff auf N und klickst auf „Messung durchführen“. / مرحلهٔ ۲: پراب قرمز را روی L بکش؛ سپس پراب مشکی را روی N بکش و اندازه‌گیری را بزن.';$('labDragStage').scrollIntoView({behavior:'smooth',block:'center'});});
+ 
  document.querySelectorAll('.lab-terminal').forEach(b=>b.addEventListener('click',()=>{state[state.active]=b.dataset.point;updateProbes()}));
  $('labMeasure').addEventListener('click',measure);$('labDiagnose').addEventListener('click',diagnose);$('labClear').addEventListener('click',()=>{state.red=null;state.black=null;updateProbes()});$('labReset').addEventListener('click',reset);
  $('labMcbToggle').addEventListener('click',()=>{state.mcbOn=!state.mcbOn;switchUI()});$('labRcdToggle').addEventListener('click',()=>{state.rcdOn=!state.rcdOn;switchUI()});
