@@ -18,6 +18,10 @@ Dieser Ordner enthält strukturierte Lerninhalte, getrennt von der Benutzeroberf
 
 `lernfeld-02.json` ergänzt die App um vier zweisprachige Module zu Auftragsplanung, Schalt- und Installationsplänen, Leitungsauswahl sowie Prüfung und Dokumentation. Enthalten sind acht Verständnisfragen, drei Prüfungsaufgaben und zehn Fachbegriffe. Das Lernfeld ist in der Navigation unter dem zweiten Lernfeld aufrufbar.
 
+## Lernfeld 3
+
+`lernfeld-03.json` ergänzt zweisprachige Inhalte zu Steuerung und Regelung, Sensoren und Aktoren, Schaltlogik und systematischer Fehlersuche. Enthalten sind vier Module, acht Verständnisfragen, drei Prüfungsaufgaben und zehn Fachbegriffe. Das Lernfeld ist in der App-Navigation unter dem dritten Lernfeld aufrufbar.
+
 ## Datenstruktur
 
 - `schemaVersion`: Version des Datenformats
