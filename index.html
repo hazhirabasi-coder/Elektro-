@@ -54,6 +54,17 @@ ul{padding-left:22px}
 footer{text-align:center;padding:30px 12px;color:var(--muted);font-size:13px}
 .hidden{display:none!important}
 .small{font-size:13px}
+.lf-module{border:1px solid var(--border);border-radius:12px;padding:16px;margin:14px 0;background:#fff}
+.lf-bilingual{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lf-language{padding:12px;border-radius:8px;background:#f6f9fd;min-width:0}
+.lf-language.fa{direction:rtl;text-align:right}
+.lf-question{border-top:1px solid var(--border);padding:12px 0;margin-top:12px}
+.lf-answer{display:block;width:100%;text-align:left;margin:7px 0;background:#f2f6fc;color:var(--text);border:1px solid var(--border);font-weight:400}
+.lf-answer:disabled{cursor:default;opacity:1}
+.lf-answer.correct{background:#dcfce7;border-color:#16a34a}
+.lf-answer.wrong{background:#fee2e2;border-color:#dc2626}
+.lf-source{font-size:13px;color:var(--muted);overflow-wrap:anywhere}
+@media(max-width:650px){.lf-bilingual{grid-template-columns:1fr}}
 table{width:100%;border-collapse:collapse}
 td,th{padding:10px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
 th{background:#edf4fc}
@@ -483,6 +494,93 @@ function renderLessons(){
  });
  if(!list.children.length)list.innerHTML="<p>Keine Treffer gefunden.</p>";
 }
+
+let structuredCurrent=null,structuredContentByIndex={},lf01LoadError=false;
+async function loadStructuredLF01(){
+ const files=[{index:0,path:"content/lernfeld-01.json",id:"LF01"},{index:1,path:"content/lernfeld-02.json",id:"LF02"},{index:2,path:"content/lernfeld-03.json",id:"LF03"},{index:3,path:"content/lernfeld-04.json",id:"LF04"}];
+ await Promise.all(files.map(async file=>{
+  try{
+   const response=await fetch(file.path,{cache:"no-cache"});
+   if(!response.ok)throw new Error("HTTP "+response.status);
+   const data=await response.json();
+   if(data.id!==file.id||!Array.isArray(data.lessons))throw new Error("Ungültiges Lernfeldformat");
+   structuredContentByIndex[file.index]=data;
+  }catch(e){console.warn(file.id+" konnte nicht geladen werden",e);}
+ }));
+ structuredCurrent=structuredContentByIndex[0]||null;
+ if(currentPage==="lessons"&&!document.getElementById("lessonDetail").classList.contains("hidden"))openLesson(0);
+}
+function addLF01Bilingual(parent,de,fa){
+ const wrap=document.createElement("div");wrap.className="lf-bilingual";
+ [["Deutsch",de,""],["فارسی",fa,"fa"]].forEach(([label,value,cls])=>{
+  const box=document.createElement("div");box.className="lf-language "+cls;
+  const strong=document.createElement("strong");strong.textContent=label;
+  const p=document.createElement("p");p.textContent=value||"";
+  box.append(strong,p);wrap.appendChild(box);
+ });parent.appendChild(wrap);
+}
+function renderStructuredLF01(parent){
+ if(!structuredCurrent){const n=document.createElement("div");n.className="notice";n.textContent=lf01LoadError?"Erweiterte Inhalte konnten nicht geladen werden. Bitte die Website über GitHub Pages oder einen Webserver öffnen.":"Erweiterte Inhalte werden geladen …";parent.appendChild(n);return;}
+ const h=document.createElement("h2");h.textContent="Lernfeld 1 – Intensivkurs / درس کامل";parent.appendChild(h);
+ const intro=document.createElement("p");intro.textContent="Erklärung lesen, Beispiel selbst rechnen und Kontrollfragen beantworten. / توضیح را بخوان، مثال را خودت حل کن و به سؤال‌ها پاسخ بده.";parent.appendChild(intro);
+ const note=document.createElement("div");note.className="notice";note.textContent=structuredCurrent.disclaimer.de+" / "+structuredCurrent.disclaimer.fa;parent.appendChild(note);
+ structuredCurrent.lessons.forEach((lesson,idx)=>{
+  const card=document.createElement("article");card.className="lf-module";
+  const title=document.createElement("h3");title.textContent=(idx+1)+". "+lesson.title.de+" / "+lesson.title.fa;card.appendChild(title);
+  addLF01Bilingual(card,lesson.explanation.de,lesson.explanation.fa);
+  if(lesson.quantities){
+   const table=document.createElement("table"),thead=document.createElement("thead"),tr=document.createElement("tr");
+   ["Symbol","Deutsch / فارسی","Einheit"].forEach(v=>{const th=document.createElement("th");th.textContent=v;tr.appendChild(th)});thead.appendChild(tr);table.appendChild(thead);
+   const body=document.createElement("tbody");
+   lesson.quantities.forEach(q=>{const row=document.createElement("tr");[q.symbol,q.name.de+" / "+q.name.fa,q.unit].forEach(v=>{const td=document.createElement("td");td.textContent=v;row.appendChild(td)});body.appendChild(row)});
+   table.appendChild(body);card.appendChild(table);
+  }
+  if(lesson.formulas){const fh=document.createElement("h4");fh.textContent="Formeln / فرمول‌ها";card.appendChild(fh);lesson.formulas.forEach(f=>{const p=document.createElement("p");p.className="formula";p.textContent=f.name.de+" / "+f.name.fa+": "+f.formula;card.appendChild(p)})}
+  if(lesson.example){const eh=document.createElement("h4");eh.textContent="Beispiel / مثال حل‌شده";card.appendChild(eh);addLF01Bilingual(card,lesson.example.de,lesson.example.fa)}
+  if(lesson.steps){const list=document.createElement("ol");lesson.steps.forEach(s=>{const li=document.createElement("li");li.textContent=s.de+" / "+s.fa;list.appendChild(li)});card.appendChild(list)}
+  if(lesson.safety){const s=document.createElement("div");s.className="notice";s.textContent=lesson.safety.de+" / "+lesson.safety.fa;card.appendChild(s)}
+  (lesson.checks||[]).forEach((q,qi)=>{
+   const block=document.createElement("div");block.className="lf-question";
+   const prompt=document.createElement("strong");prompt.textContent="Frage "+(qi+1)+": "+q.q.de;block.appendChild(prompt);
+   const fa=document.createElement("p");fa.className="fa";fa.textContent=q.q.fa;block.appendChild(fa);
+   const feedback=document.createElement("p");feedback.setAttribute("aria-live","polite");
+   q.options.forEach((option,oi)=>{const b=document.createElement("button");b.type="button";b.className="lf-answer";b.textContent=String.fromCharCode(65+oi)+") "+option;
+    b.addEventListener("click",()=>{
+     if(block.dataset.answered==="true")return;block.dataset.answered="true";
+     block.querySelectorAll("button").forEach((x,j)=>{x.disabled=true;if(j===q.answer)x.classList.add("correct");if(j===oi&&j!==q.answer)x.classList.add("wrong")});
+     const correct=oi===q.answer;feedback.className=correct?"success":"error";feedback.textContent=(correct?"Richtig! / درست است. ":"Wiederholen / دوباره مرور کن. ")+q.why.de+" / "+q.why.fa;
+     let result={};try{result=JSON.parse(localStorage.getItem("elektro"+structuredCurrent.id+"Results")||"{}")}catch(e){}
+     result[lesson.id+"-"+qi]={correct,selected:oi,answer:q.answer};localStorage.setItem("elektro"+structuredCurrent.id+"Results",JSON.stringify(result));
+    });block.appendChild(b);
+   });block.appendChild(feedback);card.appendChild(block);
+  });
+  parent.appendChild(card);
+ });
+ const tasks=document.createElement("h3");tasks.textContent="Prüfungsaufgaben / تمرین امتحانی";parent.appendChild(tasks);
+ structuredCurrent.examTasks.forEach(t=>{const box=document.createElement("div");box.className="lf-module";const tag=document.createElement("span");tag.className="tag";tag.textContent=t.level;box.appendChild(tag);addLF01Bilingual(box,t.prompt.de,t.prompt.fa);const details=document.createElement("details"),summary=document.createElement("summary"),answer=document.createElement("p");summary.textContent="Lösung anzeigen / نمایش پاسخ";answer.className="formula";answer.textContent=t.solution;details.append(summary,answer);box.appendChild(details);parent.appendChild(box)});
+ const gl=document.createElement("h3");gl.textContent="Fachwortschatz / واژگان تخصصی";parent.appendChild(gl);
+ const grid=document.createElement("div");grid.className="grid";structuredCurrent.glossary.forEach(t=>{const box=document.createElement("div");box.className="tile";const de=document.createElement("strong"),fa=document.createElement("p");de.textContent=t.de;fa.className="fa";fa.textContent=t.fa;box.append(de,fa);grid.appendChild(box)});parent.appendChild(grid);
+ const cl=document.createElement("h3");cl.textContent="Selbstkontrolle / ارزیابی خود";parent.appendChild(cl);
+ let saved=[];try{saved=JSON.parse(localStorage.getItem("elektro"+structuredCurrent.id+"Checklist")||"[]")}catch(e){}
+ structuredCurrent.completionChecklist.forEach((t,i)=>{const label=document.createElement("label");label.style.display="block";label.style.margin="8px 0";const cb=document.createElement("input");cb.type="checkbox";cb.checked=saved.includes(i);cb.addEventListener("change",()=>{let a=[];try{a=JSON.parse(localStorage.getItem("elektro"+structuredCurrent.id+"Checklist")||"[]")}catch(e){}a=a.filter(n=>n!==i);if(cb.checked)a.push(i);localStorage.setItem("elektro"+structuredCurrent.id+"Checklist",JSON.stringify(a))});label.append(cb,document.createTextNode(" "+t.de+" / "+t.fa));parent.appendChild(label)});
+ const weakTitle=document.createElement("h3");weakTitle.textContent="Schwachstellen-Analyse / تحلیل نقاط ضعف";parent.appendChild(weakTitle);
+ const weakPanel=document.createElement("div");weakPanel.className="lf-module";weakPanel.setAttribute("aria-live","polite");parent.appendChild(weakPanel);
+ function refreshWeakPanel(){
+  weakPanel.replaceChildren();
+  let results={};try{results=JSON.parse(localStorage.getItem("elektro"+structuredCurrent.id+"Results")||"{}")}catch(e){}
+  const questions=[];structuredCurrent.lessons.forEach((lesson,li)=>(lesson.checks||[]).forEach((q,qi)=>{const key=lesson.id+"-"+qi;const r=results[key];if(r)questions.push({lesson,li,qi,q,r,key})}));
+  const wrong=questions.filter(x=>!x.r.correct);
+  const summary=document.createElement("p");summary.textContent="Beantwortet: "+questions.length+" · Fehler: "+wrong.length+" · Trefferquote: "+(questions.length?Math.round((questions.length-wrong.length)/questions.length*100):0)+"%";weakPanel.appendChild(summary);
+  if(!questions.length){const p=document.createElement("p");p.textContent="Beantworte die Fragen oben. Deine Fehler werden hier gespeichert und gezielt zum Wiederholen angezeigt. / به سؤال‌های بالا پاسخ بده؛ اشتباه‌ها برای مرور هدفمند اینجا ذخیره می‌شوند.";weakPanel.appendChild(p);return;}
+  const clear=document.createElement("button");clear.type="button";clear.textContent="Lernfortschritt zurücksetzen / پاک کردن نتیجه‌ها";clear.addEventListener("click",()=>{if(confirm("Gespeicherte Antworten für "+structuredCurrent.id+" löschen?")){localStorage.removeItem("elektro"+structuredCurrent.id+"Results");refreshWeakPanel()}});weakPanel.appendChild(clear);
+  if(!wrong.length){const p=document.createElement("p");p.className="success";p.textContent="Alle bisher beantworteten Fragen richtig. Weiter mit den Prüfungsaufgaben! / همه پاسخ‌های ثبت‌شده درست‌اند؛ سراغ تمرین‌های امتحانی برو.";weakPanel.appendChild(p);return;}
+  const h=document.createElement("h4");h.textContent="Gezielt wiederholen / مرور هدفمند";weakPanel.appendChild(h);
+  wrong.forEach(x=>{const item=document.createElement("div");item.className="lf-question";const q=document.createElement("strong");q.textContent=x.lesson.title.de+" — "+x.q.q.de;item.appendChild(q);const fa=document.createElement("p");fa.className="fa";fa.textContent=x.q.q.fa;item.appendChild(fa);const why=document.createElement("p");why.textContent="Erklärung: "+x.q.why.de+" / "+x.q.why.fa;item.appendChild(why);const retry=document.createElement("button");retry.type="button";retry.textContent="Als erneut gelernt markieren / مرور شد";retry.addEventListener("click",()=>{const next={};try{Object.assign(next,JSON.parse(localStorage.getItem("elektro"+structuredCurrent.id+"Results")||"{}"))}catch(e){};delete next[x.key];localStorage.setItem("elektro"+structuredCurrent.id+"Results",JSON.stringify(next));refreshWeakPanel()});item.appendChild(retry);weakPanel.appendChild(item)});
+ }
+ refreshWeakPanel();
+ const src=document.createElement("p");src.className="lf-source";src.textContent="Quellen: "+structuredCurrent.sources.map(s=>s.title+" — "+s.url).join(" | ");parent.appendChild(src);
+}
+
 function openLesson(i){
  const l=lessons[i],d=document.getElementById("lessonDetail");
  d.classList.remove("hidden");
@@ -491,6 +589,13 @@ function openLesson(i){
  <div class="notice"><b>Lernmethode:</b> Lies das Thema, erkläre es mit eigenen Worten, rechne passende Aufgaben und begründe deine Entscheidungen.
  <p class="fa">روش یادگیری: موضوع را بخوان، با زبان خودت توضیح بده، مسئله حل کن و دلیل انتخاب‌هایت را بیان کن.</p></div>
  <button onclick="markLesson(${i})">${completed.includes(i)?"Als nicht gelernt markieren":"Als gelernt markieren"}</button>`;
+ if(i===0||i===1||i===2||i===3){
+  const existing=document.getElementById("structuredCurrent");if(existing)existing.remove();
+  const section=document.createElement("section");section.id="structuredCurrent";d.appendChild(section);
+  structuredCurrent=structuredContentByIndex[i]||null;
+  if(structuredCurrent)renderStructuredLF01(section);
+  else {const msg=document.createElement("p");msg.className="notice";msg.textContent="Lerninhalte konnten nicht geladen werden. Bitte die Anwendung über GitHub Pages oder einen Webserver öffnen. / محتوای درس بارگذاری نشد؛ برنامه را از طریق GitHub Pages یا وب‌سرور باز کن.";section.appendChild(msg);}
+ }
  d.scrollIntoView({behavior:"smooth",block:"start"});
 }
 function markLesson(i){
@@ -583,6 +688,7 @@ document.getElementById("search").addEventListener("input",e=>{
  if(currentPage==="lessons")renderLessons();
  if(currentPage==="formulas")renderFormulas();
 });
+loadStructuredLF01();
 updateProgress();
 renderLessons();
 renderFormulas();
