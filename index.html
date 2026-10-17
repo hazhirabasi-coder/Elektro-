@@ -177,6 +177,10 @@ input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-vis
 
 
 /* Photo-reference-inspired interactive installation tester dashboard */
+.fluke-scene-panel{padding:12px!important;background:linear-gradient(145deg,#f8fafc,#e0e7ef)!important}
+.fluke-scene-caption{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding:0 2px 10px;color:#1b3550;font-size:13px}
+.fluke-scene-caption span{font-size:10px;color:#60758a}
+
 .fluke-dashboard{margin:0 0 22px;background:#dce5ee;border:1px solid #b8c7d7;border-radius:18px;overflow:hidden;box-shadow:0 14px 35px #102b461c;color:#12263e}
 .fluke-topbar{display:flex;align-items:center;gap:12px;min-height:62px;padding:10px 16px;background:linear-gradient(100deg,#071e35,#143e60);color:#fff}
 .fluke-brand-mark{width:42px;height:42px;display:grid;place-items:center;background:#14558b;border-radius:9px;font-size:24px}
@@ -1856,6 +1860,7 @@ if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.
  const howto=section.querySelector('#labHowTo'); if(howto)howto.remove();
  const intro=section.querySelector('.lab-drag-intro'); if(intro)intro.remove();
  const stage=section.querySelector('#labDragStage');
+ const sceneParent=stage?stage.closest('.panel'):null;
  const equipment=section.querySelector('.lab-equipment-overview');
  const board=section.querySelector('.lab-board');
  const probes=section.querySelector('.lab-probes');
@@ -1865,7 +1870,7 @@ if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.
  if(equipment){scene.appendChild(equipment);}
  [board,probes,toolbar,meter].forEach(el=>{if(el)scene.appendChild(el);});
  main.appendChild(scene);
- originalPanels.forEach(el=>{if(el.contains(stage)||el.contains(board)||el.contains(meter)){el.remove();}else main.appendChild(el);});
+ originalPanels.forEach(el=>{if(el===sceneParent||el.contains(stage)||el.contains(board)||el.contains(meter)){el.remove();}else main.appendChild(el);});
  const modeSelect=document.getElementById('labMode'), faultSelect=document.getElementById('labFault');
  const modes={voltage:'Spannung / ولتاژ',continuity:'Durchgängigkeit / پیوستگی',insulation:'Isolationswiderstand / مقاومت عایقی',loop:'Schleifenimpedanz Zs / امپدانس حلقه',rcd:'RCD / FI-Test / تست محافظ جان',polarity:'Polarität L–N / قطبیت'};
  function chooseMode(mode,button){if(modeSelect){modeSelect.value=mode;modeSelect.dispatchEvent(new Event('change',{bubbles:true}));}root.querySelectorAll('.fluke-mode').forEach(b=>b.classList.toggle('active',b.dataset.mode===mode));const live=document.getElementById('flukeLiveMode');if(live)live.textContent='Aktive Funktion: '+(modes[mode]||mode);if(button){root.querySelectorAll('.fluke-exercise').forEach(b=>b.classList.remove('active'));button.classList.add('active');}}
