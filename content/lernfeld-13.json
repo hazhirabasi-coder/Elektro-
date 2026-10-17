@@ -1,0 +1,295 @@
+{
+  "schemaVersion": 1,
+  "id": "LF13",
+  "title": {
+    "de": "Systeme anpassen und dokumentieren",
+    "fa": "تغییر سیستم‌ها و مستندسازی"
+  },
+  "level": "Grundlagen bis Prüfungsvorbereitung",
+  "languages": [
+    "de",
+    "fa"
+  ],
+  "disclaimer": {
+    "de": "Lernmaterial zur Prüfungsvorbereitung, keine verbindliche Arbeitsanweisung. Elektrische Anlagen nur im Rahmen der Qualifikation, nach Gefährdungsbeurteilung, geltenden Normen und betrieblichen Vorgaben bearbeiten.",
+    "fa": "این مطالب برای آمادگی آزمون است و دستورالعمل اجرایی الزام‌آور نیست. کار روی تأسیسات برقی فقط در محدوده صلاحیت، پس از ارزیابی خطر و طبق استانداردها و دستورالعمل‌های محل کار انجام شود."
+  },
+  "objectives": [
+    {
+      "de": "Änderungen und Auswirkungen auf bestehende Anlagen beurteilen.",
+      "fa": "تغییرات و اثر آن بر تأسیسات موجود را ارزیابی کند."
+    },
+    {
+      "de": "Nach Änderungen notwendige Prüfungen und Dokumentation planen.",
+      "fa": "آزمون‌های لازم و مستندسازی پس از تغییر را برنامه‌ریزی کند."
+    },
+    {
+      "de": "Qualität, Kundenübergabe und offene Punkte nachvollziehbar festhalten.",
+      "fa": "کیفیت، تحویل مشتری و موارد باز را قابل پیگیری ثبت کند."
+    }
+  ],
+  "lessons": [
+    {
+      "id": "LF13-01",
+      "title": {
+        "de": "Änderungen sicher planen",
+        "fa": "برنامه‌ریزی ایمن تغییرات"
+      },
+      "explanation": {
+        "de": "Vor einer Änderung müssen Bestand, Zweck, Schnittstellen und mögliche Auswirkungen erfasst werden. Prüfe, welche Unterlagen aktualisiert werden müssen und ob Schutzkonzept, Belastung oder Abschaltbedingungen beeinflusst werden. Änderungen dürfen nur qualifiziert und nach abgestimmtem Verfahren ausgeführt werden.",
+        "fa": "پیش از تغییر، وضعیت موجود، هدف، رابط‌ها و اثرات احتمالی را ثبت کن. بررسی کن کدام مدارک باید به‌روزرسانی شوند و آیا طرح حفاظت، بار یا شرایط قطع تغییر می‌کند. تغییرات باید توسط فرد واجد صلاحیت و طبق روش هماهنگ‌شده اجرا شوند."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": [
+              "Was ist vor einer Änderung an einer bestehenden Anlage nötig?",
+              "پیش از تغییر تأسیسات موجود چه لازم است؟",
+              [
+                "Bestand und Auswirkungen beurteilen",
+                "Direkt Kabel abschneiden",
+                "Dokumentation ignorieren"
+              ],
+              0,
+              "Die Bewertung reduziert Risiken und verhindert unerwartete Auswirkungen.",
+              "ارزیابی خطر را کاهش می‌دهد و از پیامدهای پیش‌بینی‌نشده جلوگیری می‌کند."
+            ],
+            "fa": [
+              "Was kann eine Änderung beeinflussen?",
+              "تغییر چه چیزی را می‌تواند تحت تأثیر قرار دهد؟",
+              [
+                "Schutzkonzept, Belastung und Prüfbedarf",
+                "Nur die Beschriftungsfarbe",
+                "Nichts anderes"
+              ],
+              0,
+              "Änderungen können elektrische und sicherheitstechnische Eigenschaften beeinflussen.",
+              "تغییر می‌تواند ویژگی‌های الکتریکی و ایمنی را تحت تأثیر قرار دهد."
+            ]
+          },
+          "why": {}
+        },
+        {
+          "q": {},
+          "why": {}
+        }
+      ]
+    },
+    {
+      "id": "LF13-02",
+      "title": {
+        "de": "Prüfen nach Änderungen",
+        "fa": "آزمایش پس از تغییر"
+      },
+      "explanation": {
+        "de": "Nach einer Änderung ist anhand Umfang und geltender Regeln festzulegen, welche Sichtprüfungen, Messungen und Funktionsprüfungen erforderlich sind. Ergebnisse mit Sollwerten vergleichen, Abweichungen bewerten und erst nach geklärtem sicheren Zustand freigeben. Die konkrete Prüfmethode richtet sich nach Anlage und einschlägigen Normen.",
+        "fa": "پس از تغییر، بر اساس دامنه کار و مقررات جاری تعیین کن چه بازدید ظاهری، اندازه‌گیری و آزمون عملکردی لازم است. نتایج را با مقادیر مورد انتظار مقایسه و مغایرت‌ها را ارزیابی کن؛ تنها پس از روشن‌شدن وضعیت ایمن اجازه بهره‌برداری بده. روش آزمون به تأسیسات و استانداردهای مربوط بستگی دارد."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": [
+              "Was bestimmt den Umfang der Prüfung nach einer Änderung?",
+              "دامنه آزمون پس از تغییر بر چه اساس تعیین می‌شود؟",
+              [
+                "Umfang der Änderung und geltende Regeln",
+                "Nur die verfügbare Zeit",
+                "Nur der Kundenwunsch ohne Sicherheitsprüfung"
+              ],
+              0,
+              "Prüfungen müssen zum Eingriff und zu den geltenden Anforderungen passen.",
+              "آزمون باید با نوع مداخله و الزامات جاری متناسب باشد."
+            ],
+            "fa": [
+              "Was ist bei einer Abweichung vom Sollwert zu tun?",
+              "در صورت تفاوت با مقدار مورد انتظار چه باید کرد؟",
+              [
+                "Ursache prüfen, bewerten und dokumentierte Maßnahmen festlegen",
+                "Wert ignorieren",
+                "Messgerät sofort weglegen"
+              ],
+              0,
+              "Abweichungen sind fachlich zu bewerten und nachzuverfolgen.",
+              "مغایرت باید فنی ارزیابی و پیگیری شود."
+            ]
+          },
+          "why": {}
+        },
+        {
+          "q": {},
+          "why": {}
+        }
+      ]
+    },
+    {
+      "id": "LF13-03",
+      "title": {
+        "de": "Dokumentation und Qualität",
+        "fa": "مستندسازی و کیفیت"
+      },
+      "explanation": {
+        "de": "Aktualisiere Schalt- und Installationspläne, Kennzeichnungen, Prüfprotokolle und relevante Gerätedaten. Dokumentiere Datum, Umfang, Prüfergebnisse, festgestellte Mängel, Korrekturen und offene Punkte. Eine strukturierte Übergabe erklärt dem Kunden Funktionen, Grenzen und erforderliche Wartung.",
+        "fa": "نقشه‌های مدار و نصب، برچسب‌ها، گزارش آزمون و مشخصات مرتبط تجهیزات را به‌روز کن. تاریخ، دامنه کار، نتایج آزمون، نقص‌ها، اصلاحات و موارد باز را ثبت کن. تحویل ساختاریافته عملکردها، محدودیت‌ها و نگهداری لازم را برای مشتری توضیح می‌دهد."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": [
+              "Welche Unterlagen müssen nach relevanten Änderungen aktualisiert werden?",
+              "پس از تغییرات مهم کدام مدارک باید به‌روز شوند؟",
+              [
+                "Pläne, Kennzeichnungen und Prüfprotokolle nach Bedarf",
+                "Nur die Rechnung",
+                "Keine Unterlagen"
+              ],
+              0,
+              "Dokumentation muss den tatsächlichen Anlagenzustand widerspiegeln.",
+              "مستندات باید وضعیت واقعی تأسیسات را نشان دهند."
+            ],
+            "fa": [
+              "Was macht eine Übergabe nachvollziehbar?",
+              "چه چیزی تحویل را قابل پیگیری می‌کند؟",
+              [
+                "Dokumentierte Arbeiten, Prüfergebnisse und offene Punkte",
+                "Nur ein mündliches „fertig“",
+                "Versteckte Mängel"
+              ],
+              0,
+              "Eine nachvollziehbare Übergabe hält Zustand und Ergebnisse fest.",
+              "تحویل قابل پیگیری وضعیت و نتایج را ثبت می‌کند."
+            ]
+          },
+          "why": {}
+        },
+        {
+          "q": {},
+          "why": {}
+        }
+      ]
+    }
+  ],
+  "examTasks": [
+    {
+      "title": {
+        "de": "Aufgabe 1 – Fachverständnis",
+        "fa": "تمرین ۱ ـ درک فنی"
+      },
+      "question": {
+        "de": "Erkläre die wichtigsten Planungs- und Sicherheitsaspekte zum Thema „Systeme anpassen und dokumentieren“.",
+        "fa": "مهم‌ترین نکات طراحی و ایمنی درباره «تغییر سیستم‌ها و مستندسازی» را توضیح بده."
+      },
+      "solution": {
+        "de": "Beschreibe zuerst Zweck und Randbedingungen, nenne relevante Komponenten und Herstellerangaben, berücksichtige Schutzmaßnahmen und geltende Regeln und dokumentiere die erforderlichen Prüfungen. Die konkrete Ausführung hängt von Anlage, Auftrag und aktuellen Vorgaben ab.",
+        "fa": "ابتدا هدف و شرایط را شرح بده، اجزای مرتبط و دستورالعمل سازنده را نام ببر، اقدامات حفاظتی و مقررات جاری را لحاظ کن و آزمون‌های لازم را مستند کن. اجرای دقیق به تأسیسات، سفارش و الزامات جاری بستگی دارد."
+      }
+    },
+    {
+      "title": {
+        "de": "Aufgabe 2 – Fehlersuche",
+        "fa": "تمرین ۲ ـ عیب‌یابی"
+      },
+      "question": {
+        "de": "Eine Funktion arbeitet nicht wie vorgesehen. Beschreibe einen sicheren, nachvollziehbaren Ablauf zur Fehlersuche.",
+        "fa": "یک عملکرد مطابق انتظار کار نمی‌کند. روند ایمن و قابل پیگیری عیب‌یابی را توضیح بده."
+      },
+      "solution": {
+        "de": "Fehlerbild und Sollfunktion erfassen, Unterlagen prüfen, Gefährdungen beurteilen, geeignete sichere Prüfschritte festlegen, Ergebnisse mit Sollwerten vergleichen, Ursache eingrenzen und Maßnahmen sowie Prüfergebnis dokumentieren. Arbeiten nur im Rahmen der Qualifikation durchführen.",
+        "fa": "نشانه خطا و عملکرد مورد انتظار را ثبت کن، مدارک را بررسی کن، خطرها را ارزیابی کن، مراحل ایمن آزمون را تعیین کن، نتایج را مقایسه و علت را محدود کن و اقدامات و نتیجه را مستند ساز. کار فقط در محدوده صلاحیت انجام شود."
+      }
+    },
+    {
+      "title": {
+        "de": "Aufgabe 3 – Dokumentation und Übergabe",
+        "fa": "تمرین ۳ ـ مستندسازی و تحویل"
+      },
+      "question": {
+        "de": "Welche Informationen gehören in eine nachvollziehbare Dokumentation nach Planung, Prüfung oder Änderung?",
+        "fa": "پس از طراحی، آزمون یا تغییر، چه اطلاعاتی باید در مستندات قابل پیگیری ثبت شود؟"
+      },
+      "solution": {
+        "de": "Auftrag und Umfang, verwendete Unterlagen, relevante Komponenten und Einstellungen, Prüfverfahren und Ergebnisse, festgestellte Abweichungen, durchgeführte Maßnahmen, offene Punkte und verständliche Kundenübergabe festhalten.",
+        "fa": "سفارش و دامنه کار، مدارک استفاده‌شده، اجزا و تنظیمات مهم، روش و نتایج آزمون، مغایرت‌ها، اقدامات انجام‌شده، موارد باز و تحویل روشن به مشتری را ثبت کن."
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "de": "Schutzmaßnahme",
+      "fa": "اقدام حفاظتی",
+      "definition": {
+        "de": "Maßnahme zur Verringerung elektrischer Gefährdungen.",
+        "fa": "اقدامی برای کاهش خطرهای الکتریکی."
+      }
+    },
+    {
+      "de": "Prüfprotokoll",
+      "fa": "گزارش آزمون",
+      "definition": {
+        "de": "Dokumentation von Prüfbedingungen und Ergebnissen.",
+        "fa": "ثبت شرایط و نتایج آزمون."
+      }
+    },
+    {
+      "de": "Inbetriebnahme",
+      "fa": "راه‌اندازی",
+      "definition": {
+        "de": "Kontrollierter Übergang in den vorgesehenen Betrieb.",
+        "fa": "ورود کنترل‌شده به وضعیت کاری موردنظر."
+      }
+    },
+    {
+      "de": "Herstellerangabe",
+      "fa": "دستورالعمل سازنده",
+      "definition": {
+        "de": "Technische Information des Herstellers.",
+        "fa": "اطلاعات فنی سازنده."
+      }
+    },
+    {
+      "de": "Fehleranalyse",
+      "fa": "تحلیل خطا",
+      "definition": {
+        "de": "Systematisches Ermitteln möglicher Ursachen.",
+        "fa": "یافتن سیستماتیک علت‌های احتمالی."
+      }
+    },
+    {
+      "de": "Wartung",
+      "fa": "نگهداری",
+      "definition": {
+        "de": "Geplante Maßnahmen zur Erhaltung der Funktion.",
+        "fa": "اقدامات برنامه‌ریزی‌شده برای حفظ عملکرد."
+      }
+    },
+    {
+      "de": "Dokumentation",
+      "fa": "مستندسازی",
+      "definition": {
+        "de": "Nachvollziehbare Aufzeichnung von Arbeiten und Ergebnissen.",
+        "fa": "ثبت قابل پیگیری کارها و نتایج."
+      }
+    },
+    {
+      "de": "Randbedingung",
+      "fa": "شرط محدودکننده",
+      "definition": {
+        "de": "Technische oder organisatorische Vorgabe für eine Lösung.",
+        "fa": "شرط فنی یا سازمانی مؤثر بر راه‌حل."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "Ausbildungsordnung Elektroniker/Elektronikerin (ElekAusbV)",
+      "url": "https://www.gesetze-im-internet.de/elekausbv_2021/"
+    },
+    {
+      "title": "DGUV – Elektrische Gefährdungen",
+      "url": "https://www.dguv.de/"
+    },
+    {
+      "title": "VDE – Normen und Sicherheit",
+      "url": "https://www.vde.com/"
+    }
+  ]
+}
