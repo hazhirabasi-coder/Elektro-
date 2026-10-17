@@ -122,6 +122,23 @@ input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-vis
 @media(max-width:650px){#nav{flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;padding:7px;border-radius:14px}#nav button{flex:0 0 auto;white-space:nowrap;font-size:14px;padding:9px 12px}.panel{border-radius:15px}.toolbar{gap:8px}.toolbar button{flex:0 0 auto}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
 
+
+/* Interactive installation-tester training simulator */
+.lab-board{border:2px solid #8798aa;border-radius:15px;padding:14px;background:linear-gradient(180deg,#eef3f8,#dfe7ef);display:grid;gap:10px;max-width:780px;margin:16px auto}
+.lab-rail{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;padding:12px;background:#fff;border:1px solid #bccbd9;border-radius:9px}
+.lab-toggle{display:inline-block;padding:4px 10px;background:#d9f5e3;color:#14532d;border-radius:7px;font-weight:800;font-size:12px}
+.lab-toggle.off{background:#fee2e2;color:#991b1b}
+.lab-terminals{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:8px}
+.lab-terminal{min-height:125px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;background:#fff;color:#172337;border:2px solid #8ca1b5;border-radius:12px}
+.lab-terminal b{font-size:27px}.lab-terminal small{font-size:12px;font-weight:400}.lab-terminal[data-point=L]{border-top:7px solid #c93b3b}.lab-terminal[data-point=N]{border-top:7px solid #2876c7}.lab-terminal[data-point=PE]{border-top:7px solid #25965b}
+.lab-terminal.selected{outline:3px solid #f3b61f;outline-offset:2px}
+.lab-probes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:12px 0}
+.lab-socket{display:flex;justify-content:space-around;align-items:center;background:#fff;border:1px dashed #8798aa;border-radius:9px;padding:14px;color:#334155;font-weight:700}
+.lab-meter{background:#13271f;color:#b6f7c8;border:8px solid #334155;border-radius:18px;padding:18px;max-width:780px;margin:18px auto;font-family:Consolas,monospace}
+.lab-meter-top{font-size:12px;letter-spacing:.12em;color:#d3deea}.lab-display{font-size:clamp(28px,6vw,46px);font-weight:800;overflow-wrap:anywhere;margin-top:10px}.lab-unit{color:#d0ead7;font-size:14px}.lab-meter p{font-family:Arial,sans-serif;color:#e6f4ea}
+.lab-marker{font-size:11px;font-weight:800;display:inline-block;padding:2px 6px;border-radius:5px;margin:2px}.lab-marker.red{background:#fee2e2;color:#991b1b}.lab-marker.black{background:#dbeafe;color:#1d4ed8}
+@media(max-width:600px){.lab-terminals{gap:6px}.lab-terminal{min-height:105px;padding:8px 3px}.lab-rail{align-items:flex-start;flex-direction:column}.lab-probes{grid-template-columns:1fr}.lab-meter{padding:13px;border-width:5px}}
+
 </style>
 </head>
 <body>
@@ -154,6 +171,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-vis
   <button data-page="b2">Deutsch B2</button>
   <button data-page="sogeht">Lernpfade + Üben</button>
   <button data-page="adaptive">Adaptives Lernen</button>
+  <button data-page="lab">🔧 Messgerät-Labor</button>
  </nav>
 
  <section id="home" class="page">
@@ -658,6 +676,108 @@ input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-vis
    <p class="muted">این موتور آموزشی بر اساس عملکرد در همین اپ اولویت‌بندی می‌کند؛ هنوز جایگزین آزمون رسمی یا ارزیابی کامل استاد نیست.</p>
   </div>
  </section>
+<section id="lab" class="page hidden">
+ <div class="panel">
+  <h2>🔧 Virtuelles Messgeräte-Labor / آزمایشگاه مجازی دستگاه تست برق</h2>
+  <p>Trainiere mit einem simulierten Installationstester (z. B. Fluke 166x): Prüfmodus wählen, rote und schwarze Messleitung an Messpunkte setzen, Messung starten und Befund begründen.</p>
+  <p class="fa">با تستر چندکارهٔ شبیه‌سازی‌شده (مانند Fluke سری 166x) تمرین کن: حالت آزمون را انتخاب کن، پراب قرمز و مشکی را به نقاط اندازه‌گیری وصل کن، اندازه‌گیری را انجام بده و نتیجه را توضیح بده.</p>
+  <div class="notice"><b>Wichtig / مهم:</b> Dies ist ausschließlich ein Lernsimulator ohne echte Spannung und ohne Verbindung zu realer Hardware. Er ersetzt weder eine Prüfung nach DIN VDE 0100-600 noch Herstelleranleitungen, Fachaufsicht oder die fünf Sicherheitsregeln. Keine Messung an einer realen Anlage aus dieser Simulation ableiten.</div>
+  <p class="fa">این فقط شبیه‌ساز آموزشی است؛ ولتاژ واقعی ندارد و به سخت‌افزار وصل نیست. جایگزین آزمون واقعی طبق DIN VDE 0100-600، دستورالعمل سازنده، نظارت متخصص یا پنج قاعده ایمنی نیست. از نتیجهٔ شبیه‌سازی برای اندازه‌گیری روی تأسیسات واقعی استفاده نکن.</p>
+ </div>
+ <div class="panel">
+  <h2>1. Prüfstand vorbereiten / آماده‌سازی میز آزمون</h2>
+  <div class="resource-grid">
+   <div class="resource-card">
+    <label for="labFault"><b>Fehlerbild auswählen / انتخاب سناریوی عیب</b></label>
+    <select id="labFault" style="width:100%;padding:10px;margin-top:8px">
+     <option value="normal">Referenz: Anlage ohne simulierten Fehler / سیستم بدون خطای شبیه‌سازی</option>
+     <option value="mcb">LS-Schalter ausgelöst / فیوز مینیاتوری قطع کرده</option>
+     <option value="rcd">RCD löst bei Prüftaste nicht aus / RCD در آزمون شبیه‌سازی عمل نمی‌کند</option>
+     <option value="pe">PE unterbrochen / هادی حفاظتی PE قطع است</option>
+     <option value="n">Neutralleiter N unterbrochen / نول قطع است</option>
+     <option value="insulation">Isolationsfehler L–PE / خطای عایقی بین فاز و PE</option>
+     <option value="highz">Schleifenimpedanz auffällig hoch / امپدانس حلقه زیاد است</option>
+     <option value="polarity">L/N vertauscht / فاز و نول جابه‌جا هستند</option>
+    </select>
+    <p class="small muted">Im Trainingsmodus wird der gewählte Fehler als bekanntes Szenario simuliert. In der Praxis muss die Ursache durch fachgerechte Prüfung nachgewiesen werden.</p>
+    <p class="fa small">در این حالت آموزشی، سناریوی انتخاب‌شده شبیه‌سازی می‌شود. در عمل علت باید با آزمون اصولی اثبات شود.</p>
+   </div>
+   <div class="resource-card">
+    <b>Messfunktion / حالت اندازه‌گیری</b>
+    <select id="labMode" style="width:100%;padding:10px;margin-top:8px">
+     <option value="voltage">Spannung L–N / ولتاژ فاز–نول</option>
+     <option value="lpe">Spannung L–PE / ولتاژ فاز–ارت</option>
+     <option value="npe">Spannung N–PE / ولتاژ نول–ارت</option>
+     <option value="continuity">Durchgängigkeit PE / پیوستگی PE</option>
+     <option value="insulation">Isolationswiderstand / مقاومت عایقی</option>
+     <option value="loop">Schleifenimpedanz Zs / امپدانس حلقه</option>
+     <option value="rcd">RCD-Prüfung (Simulation) / آزمون RCD</option>
+     <option value="polarity">Polarität / قطبیت</option>
+    </select>
+    <p class="small muted">Messmodus und Messpunkte passend zur Lernaufgabe wählen.</p>
+   </div>
+  </div>
+ </div>
+ <div class="panel">
+  <h2>2. Verteilung und Messspitzen / تابلو و پراب‌ها</h2>
+  <p>Wähle zuerst eine Messspitze, dann einen Messpunkt auf der Tafel. Wiederhole das für die zweite Spitze.</p>
+  <p class="fa">ابتدا یک پراب را انتخاب کن، سپس نقطهٔ اندازه‌گیری روی تابلو را لمس کن. برای پراب دوم نیز همین کار را انجام بده.</p>
+  <div class="lab-board">
+   <div class="lab-rail"><b>HAUPTSCHALTER</b><span>Q0</span><span class="lab-toggle" id="labMainState">EIN</span></div>
+   <div class="lab-rail"><b>RCD / FI</b><span>F1 · 30 mA (Beispiel)</span><button id="labRcdToggle" class="secondary" type="button">RCD EIN/AUS</button><span id="labRcdState" class="lab-toggle">EIN</span></div>
+   <div class="lab-rail"><b>LS / Sicherung</b><span>F2 · B16 (Beispiel)</span><button id="labMcbToggle" class="secondary" type="button">LS EIN/AUS</button><span id="labMcbState" class="lab-toggle">EIN</span></div>
+   <div class="lab-terminals">
+    <button class="lab-terminal" data-point="L" type="button"><b>L</b><small>Außenleiter</small><span id="labRedL"></span><span id="labBlackL"></span></button>
+    <button class="lab-terminal" data-point="N" type="button"><b>N</b><small>Neutralleiter</small><span id="labRedN"></span><span id="labBlackN"></span></button>
+    <button class="lab-terminal" data-point="PE" type="button"><b>PE</b><small>Schutzleiter</small><span id="labRedPE"></span><span id="labBlackPE"></span></button>
+   </div>
+   <div class="lab-socket"><span>Verbraucher / بار</span><span>⏚</span><span>◉ ◉ ◉</span></div>
+  </div>
+  <div class="lab-probes">
+   <div class="resource-card"><b>Rote Messspitze / پراب قرمز</b><p id="labRedPoint">Nicht angeschlossen / وصل نشده</p><button id="labChooseRed" type="button">Rote Spitze wählen</button></div>
+   <div class="resource-card"><b>Schwarze Messspitze / پراب مشکی</b><p id="labBlackPoint">Nicht angeschlossen / وصل نشده</p><button id="labChooseBlack" class="secondary" type="button">Schwarze Spitze wählen</button></div>
+  </div>
+  <div class="toolbar">
+   <button id="labMeasure" type="button">▶ Messung durchführen / اندازه‌گیری</button>
+   <button id="labClear" class="secondary" type="button">Messspitzen lösen / جداکردن پراب‌ها</button>
+   <button id="labDiagnose" class="secondary" type="button">Fehlerdiagnose anzeigen / نمایش عیب‌یابی</button>
+  </div>
+  <div id="labMeter" class="lab-meter" aria-live="polite">
+   <div class="lab-meter-top">INSTALLATION TESTER · SIMULATION</div>
+   <div id="labDisplay" class="lab-display">Bereit / آماده</div>
+   <div id="labUnit" class="lab-unit">Messfunktion auswählen</div>
+   <p id="labResult" class="muted">Messspitzen setzen und Messung starten.</p>
+   <p id="labResultFa" class="fa">پراب‌ها را وصل کن و اندازه‌گیری را شروع کن.</p>
+  </div>
+ </div>
+ <div class="panel">
+  <h2>3. Sicherung und RCD prüfen / بررسی فیوز و RCD</h2>
+  <div class="resource-grid">
+   <article class="resource-card">
+    <h3>LS-Schalter / فیوز مینیاتوری</h3>
+    <p>Prüfe den Zustand und miss anschließend im gewählten Szenario. Ein eingeschalteter Hebel allein beweist nicht die korrekte Funktion oder Abschaltbedingung.</p>
+    <p class="fa">وضعیت را بررسی کن و سپس در سناریوی انتخابی اندازه‌گیری انجام بده. روشن بودن اهرم به‌تنهایی عملکرد صحیح یا شرایط قطع را ثابت نمی‌کند.</p>
+    <button type="button" class="secondary" id="labCheckMcb">Status prüfen / بررسی وضعیت</button><p id="labMcbFeedback" aria-live="polite"></p>
+   </article>
+   <article class="resource-card">
+    <h3>RCD / FI-Schutzschalter</h3>
+    <p>Im realen Betrieb gehören zur Prüfung die vorgeschriebenen Prüfverfahren und Messungen. Die Prüftaste allein ersetzt keine vollständige Erst- oder Wiederholungsprüfung.</p>
+    <p class="fa">در عمل آزمون باید با روش‌ها و اندازه‌گیری‌های لازم انجام شود. دکمهٔ تست به‌تنهایی جایگزین آزمون کامل اولیه یا دوره‌ای نیست.</p>
+    <button type="button" class="secondary" id="labCheckRcd">RCD-Szenario prüfen / بررسی سناریوی RCD</button><p id="labRcdFeedback" aria-live="polite"></p>
+   </article>
+  </div>
+ </div>
+ <div class="panel">
+  <h2>4. Fehler finden und beheben / پیدا کردن و رفع خطا</h2>
+  <p>Nutze zuerst Messungen und Sichtprüfung im Simulator. Danach kannst du die Diagnose öffnen. Die Lösung ist eine Lernhilfe und muss bei realen Anlagen fachlich verifiziert werden.</p>
+  <p class="fa">ابتدا در شبیه‌ساز اندازه‌گیری و بازدید را انجام بده؛ سپس عیب‌یابی را باز کن. راه‌حل آموزشی است و در تأسیسات واقعی باید توسط فرد صلاحیت‌دار تأیید شود.</p>
+  <div id="labDiagnosis" class="notice" aria-live="polite">Diagnose noch gesperrt: erst mindestens eine Messung durchführen. / عیب‌یابی هنوز قفل است؛ ابتدا حداقل یک اندازه‌گیری انجام بده.</div>
+  <h3>Messprotokoll / گزارش اندازه‌گیری</h3>
+  <div id="labLog"><p class="muted">Noch keine Messungen / هنوز اندازه‌گیری انجام نشده</p></div>
+  <button id="labReset" class="secondary" type="button">Labor zurücksetzen / شروع دوباره</button>
+ </div>
+</section>
+
 
 </main>
 
@@ -1428,6 +1548,67 @@ document.getElementById("finalExamModulesDone").textContent=Object.values(p.done
 
 loadB2ProContent();
 loadFinalExamContent();
+
+/* Offline virtual installation-tester lab. All values are illustrative simulations. */
+(function initVirtualLab(){
+ const $=id=>document.getElementById(id); if(!$('lab'))return;
+ const state={active:'red',red:null,black:null,measurements:[],mcbOn:true,rcdOn:true,mainOn:true};
+ const points={L:'L / Außenleiter / فاز',N:'N / Neutralleiter / نول',PE:'PE / Schutzleiter / ارت'};
+ const modes={voltage:'Spannung L–N',lpe:'Spannung L–PE',npe:'Spannung N–PE',continuity:'PE-Durchgängigkeit',insulation:'Isolationswiderstand',loop:'Schleifenimpedanz Zs',rcd:'RCD-Prüfung',polarity:'Polarität'};
+ function fault(){return $('labFault').value}
+ function updateProbes(){
+  $('labRedPoint').textContent=state.red?points[state.red]:'Nicht angeschlossen / وصل نشده';
+  $('labBlackPoint').textContent=state.black?points[state.black]:'Nicht angeschlossen / وصل نشده';
+  ['L','N','PE'].forEach(p=>{const r=$('labRed'+p),b=$('labBlack'+p);r.innerHTML=state.red===p?'<span class="lab-marker red">ROT</span>':'';b.innerHTML=state.black===p?'<span class="lab-marker black">SCHWARZ</span>':'';const btn=document.querySelector('.lab-terminal[data-point="'+p+'"]');btn.classList.toggle('selected',(state.red===p||state.black===p));});
+  $('labChooseRed').classList.toggle('active',state.active==='red');$('labChooseBlack').classList.toggle('active',state.active==='black');
+ }
+ function switchUI(){[['labMcbState',state.mcbOn],['labRcdState',state.rcdOn],['labMainState',state.mainOn]].forEach(([id,on])=>{const el=$(id);el.textContent=on?'EIN':'AUS';el.classList.toggle('off',!on)});}
+ function record(title,value,unit,ok,de,fa){state.measurements.unshift({title,value,unit,ok,de,fa});renderLog();$('labDisplay').textContent=value;$('labUnit').textContent=unit;$('labResult').textContent=de;$('labResultFa').textContent=fa;$('labMeter').style.borderColor=ok===false?'#c0392b':ok===true?'#16834a':'#334155';}
+ function renderLog(){const root=$('labLog');root.innerHTML='';if(!state.measurements.length){root.innerHTML='<p class="muted">Noch keine Messungen / هنوز اندازه‌گیری انجام نشده</p>';return}state.measurements.forEach((m,i)=>{const d=document.createElement('article');d.className='resource-card';d.innerHTML='<b></b><p class="formula"></p><p></p><p class="fa"></p>';d.children[0].textContent=(state.measurements.length-i)+'. '+m.title;d.children[1].textContent=m.value+' '+m.unit;d.children[2].textContent=m.de;d.children[3].textContent=m.fa;root.appendChild(d)})}
+ function requirePair(){if(!state.red||!state.black){record('Messung nicht möglich','—','',null,'Beide Messspitzen an Messpunkte anschließen.','هر دو پراب را به نقاط اندازه‌گیری وصل کن.');return false}return true}
+ function measure(){
+  if(!requirePair())return;const mode=$('labMode').value, f=fault();let v='—',u='',ok=null,de='',fa='';
+  if(mode==='voltage'||mode==='lpe'||mode==='npe'){
+   const pair=mode==='voltage'?['L','N']:mode==='lpe'?['L','PE']:['N','PE'];if(!((state.red===pair[0]&&state.black===pair[1])||(state.red===pair[1]&&state.black===pair[0]))){record(modes[mode],'—','',null,'Für diese Lernmessung die vorgesehenen Messpunkte '+pair.join('–')+' wählen.','برای این اندازه‌گیری آموزشی، نقاط '+pair.join('–')+' را انتخاب کن.');return}
+   if(!state.mainOn||!state.rcdOn||!state.mcbOn||f==='mcb'||(f==='n'&&mode==='voltage')||(f==='pe'&&mode==='lpe'))v='0';else if(mode==='voltage'||mode==='lpe')v='230';else v=(f==='insulation'||f==='highz')?'18':'0.4';u='V';ok=(v==='230'||(mode==='npe'&&Number(v)<5));de=ok?'Wert im vereinfachten Modell plausibel. Mit weiteren Prüfungen fortfahren.':'Abweichung im Modell: Versorgung/Leiterzustand und Schutzorgane prüfen.';fa=ok?'مقدار در مدل ساده‌شده قابل انتظار است؛ آزمون‌های دیگر را ادامه بده.':'در مدل انحراف وجود دارد؛ تغذیه، وضعیت هادی و تجهیزات حفاظتی را بررسی کن.';
+  } else if(mode==='continuity'){
+   if(!((state.red==='PE'&&state.black==='PE'))){record(modes[mode],'—','',null,'Für die Simulation beide Spitzen an die zwei PE-Prüfpunkte setzen; hier wird ein vereinfachter PE-Test gezeigt.','برای شبیه‌سازی هر دو پراب را به دو نقطهٔ آزمون PE وصل کن؛ اینجا آزمون ساده‌شده است.');return}
+   v=f==='pe'?'OL':'0.18';u='Ω';ok=f!=='pe';de=ok?'Niedriger Widerstand im Modell: Durchgängigkeit plausibel; reale Grenzwerte und Messleitungsnullung beachten.':'OL: PE-Unterbrechung simuliert. Anlage nicht freigeben; Ursache fachgerecht lokalisieren.';fa=ok?'مقاومت کم در مدل: پیوستگی محتمل است؛ در عمل حدود مجاز و صفرکردن سیم‌ها را رعایت کن.':'OL: قطع‌شدن PE شبیه‌سازی شده است. سیستم را تأیید نکن؛ علت باید اصولی پیدا شود.';
+  } else if(mode==='insulation'){
+   v=f==='insulation'?'0.12':f==='pe'?'OL':'>200';u='MΩ';ok=f!=='insulation';de=ok?'Isolationswert im Modell unauffällig. Reale Prüfspannung und Grenzwerte nach geltenden Vorgaben festlegen.':'Niedriger Isolationswiderstand simuliert: betroffenen Stromkreis sicher außer Betrieb halten und Fehlerursache fachgerecht eingrenzen.';fa=ok?'مقاومت عایقی در مدل طبیعی است؛ ولتاژ آزمون و حد مجاز واقعی باید طبق مقررات تعیین شود.':'مقاومت عایقی پایین شبیه‌سازی شده: مدار را ایمن از سرویس خارج کن و علت را اصولی محدود کن.';
+  } else if(mode==='loop'){
+   v=f==='highz'?'3.8':f==='pe'?'OL':(!state.mainOn||!state.mcbOn?'OL':'0.72');u='Ω';ok=f!=='highz'&&f!=='pe'&&v!=='OL';de=ok?'Modellwert unauffällig; die tatsächliche Abschaltbedingung muss anhand Schutzorgan, Netzform und geltenden Grenzwerten bewertet werden.':'Auffällig: Schleifenimpedanz/PE-Pfad prüfen; Abschaltbedingung ist im realen Netz fachlich zu berechnen und zu messen.';fa=ok?'مقدار مدل طبیعی است؛ شرط قطع واقعی باید با نوع حفاظت، سیستم شبکه و حدود معتبر ارزیابی شود.':'مقدار غیرعادی: امپدانس حلقه و مسیر PE را بررسی کن؛ شرط قطع واقعی باید محاسبه و اندازه‌گیری شود.';
+  } else if(mode==='rcd'){
+   v=(f==='rcd'||!state.rcdOn)?'KEINE AUSLÖSUNG':'23';u='ms (Modell)';ok=f!=='rcd'&&state.rcdOn;de=ok?'RCD reagiert im vereinfachten Szenario. Reale Auslösezeit und Auslösestrom nach vorgeschriebenem Prüfverfahren messen.':'RCD-Fehler simuliert: Schutzfunktion nicht nachgewiesen. Nicht durch Überbrücken beheben; Anlage sichern und fachgerecht prüfen lassen.';fa=ok?'RCD در سناریوی ساده‌شده عمل می‌کند؛ زمان و جریان قطع واقعی باید طبق روش آزمون اندازه‌گیری شود.':'خطای RCD شبیه‌سازی شده: عملکرد حفاظتی اثبات نشده. با پل‌زدن رفع نکن؛ سیستم را ایمن و اصولی بررسی کن.';
+  } else {
+   v=f==='polarity'?'FEHLER':'OK';u='';ok=f!=='polarity';de=ok?'Polarität im Modell plausibel. Anschlusslage und Kennzeichnung real fachgerecht prüfen.':'Falsche Zuordnung L/N simuliert: Verdrahtung anhand Plan und sicherem Prüfverfahren kontrollieren.';fa=ok?'قطبیت در مدل قابل انتظار است؛ اتصال و برچسب واقعی باید اصولی بررسی شود.':'جابه‌جایی L/N شبیه‌سازی شده؛ سیم‌بندی را طبق نقشه و روش ایمن بررسی کن.';
+  }
+  record(modes[mode],v,u,ok,de,fa);
+ }
+ function diagnose(){
+  if(!state.measurements.length){$('labDiagnosis').textContent='Zuerst mindestens eine Messung durchführen. / ابتدا حداقل یک اندازه‌گیری انجام بده.';return}
+  const d={
+   normal:['Kein Fehler im gewählten Referenzszenario. Trotzdem sind die vorgeschriebenen Sicht-, Mess- und Funktionsprüfungen nötig.','در سناریوی مرجع خطایی انتخاب نشده؛ بااین‌حال آزمون‌های ظاهری، اندازه‌گیری و عملکرد لازم‌اند.'],
+   mcb:['Simulierter Befund: LS ausgelöst oder Stromkreis ohne Versorgung. Last und Ursache klären; Schutzorgan nicht wiederholt blind einschalten. Nach Beseitigung Ursache und erforderliche Prüfungen dokumentieren.','یافتهٔ شبیه‌سازی‌شده: فیوز قطع کرده یا مدار تغذیه ندارد. بار و علت را بررسی کن؛ فیوز را بدون تشخیص مرتب وصل نکن. پس از رفع علت، آزمون‌های لازم را ثبت کن.'],
+   rcd:['Simulierter Befund: RCD-Schutzfunktion nicht nachgewiesen. Anlage sichern und RCD, Verdrahtung, angeschlossene Stromkreise sowie vorgeschriebene Prüfungen durch eine qualifizierte Person kontrollieren lassen. Nie überbrücken.','یافتهٔ شبیه‌سازی‌شده: عملکرد RCD اثبات نشده. سیستم را ایمن کن و RCD، سیم‌بندی، مدارها و آزمون‌های لازم را به فرد صلاحیت‌دار بسپار. هرگز پل نزن.'],
+   pe:['Simulierter Befund: Schutzleiter unterbrochen. Anlage nicht in Betrieb nehmen/freigeben; Schutzleiterweg, Klemmen und Verbindungen nach sicherem Verfahren prüfen und nach Instandsetzung erneut messen.','یافتهٔ شبیه‌سازی‌شده: PE قطع است. سیستم را راه‌اندازی یا تأیید نکن؛ مسیر PE، ترمینال‌ها و اتصالات را طبق روش ایمن بررسی و پس از تعمیر دوباره اندازه‌گیری کن.'],
+   n:['Simulierter Befund: Neutralleiter unterbrochen. Stromkreis sicher freischalten und Neutralleiterweg/Anschlüsse durch Fachpersonal prüfen; mögliche gefährliche Spannungsverhältnisse beachten.','یافتهٔ شبیه‌سازی‌شده: نول قطع است. مدار را ایمن قطع کن و مسیر و اتصالات N را به فرد متخصص بسپار؛ امکان وضعیت‌های ولتاژ خطرناک را در نظر بگیر.'],
+   insulation:['Simulierter Befund: Isolationsfehler L–PE. Betroffenen Stromkreis sichern, Verbraucher/Leitungsabschnitte fachgerecht eingrenzen und nach Reparatur Isolationsprüfung sowie weitere erforderliche Prüfungen durchführen.','یافتهٔ شبیه‌سازی‌شده: خطای عایقی L–PE. مدار را ایمن کن، مصرف‌کننده و بخش‌های کابل را اصولی محدود کن و پس از تعمیر آزمون عایقی و سایر آزمون‌های لازم را انجام بده.'],
+   highz:['Simulierter Befund: Schleifenimpedanz auffällig hoch. Netzform, PE-/Fehlerschleifenpfad, Verbindungen und Schutzorgan anhand der geltenden Anforderungen untersuchen; Abschaltbedingung rechnerisch und messtechnisch bewerten.','یافتهٔ شبیه‌سازی‌شده: امپدانس حلقه زیاد است. نوع شبکه، مسیر خطا و PE، اتصالات و حفاظت را طبق الزامات بررسی و شرط قطع را محاسباتی و اندازه‌گیری ارزیابی کن.'],
+   polarity:['Simulierter Befund: L/N vertauscht. Anlage sicher freischalten, Anschluss anhand des Plans korrigieren lassen und anschließend Polarität, Schutzmaßnahmen und Funktion erneut prüfen.','یافتهٔ شبیه‌سازی‌شده: L و N جابه‌جا هستند. سیستم را ایمن قطع کن، اتصال را طبق نقشه اصلاح کن و سپس قطبیت، حفاظت و عملکرد را دوباره بررسی کن.']
+  }[fault()];
+  $('labDiagnosis').innerHTML='';const h=document.createElement('h3');h.textContent='Befund / نتیجه';$('labDiagnosis').appendChild(h);const de=document.createElement('p');de.textContent=d[0];$('labDiagnosis').appendChild(de);const fa=document.createElement('p');fa.className='fa';fa.textContent=d[1];$('labDiagnosis').appendChild(fa);const note=document.createElement('p');note.className='small';note.textContent='Simulator-Hinweis: Diagnose bezieht sich auf das ausgewählte Übungsszenario, nicht auf eine echte Anlage.';$('labDiagnosis').appendChild(note);
+ }
+ function reset(){state.red=null;state.black=null;state.active='red';state.measurements=[];state.mcbOn=true;state.rcdOn=true;state.mainOn=true;$('labDiagnosis').textContent='Diagnose noch gesperrt: erst mindestens eine Messung durchführen. / عیب‌یابی هنوز قفل است؛ ابتدا حداقل یک اندازه‌گیری انجام بده.';$('labDisplay').textContent='Bereit / آماده';$('labUnit').textContent='Messfunktion auswählen';$('labResult').textContent='Messspitzen setzen und Messung starten.';$('labResultFa').textContent='پراب‌ها را وصل کن و اندازه‌گیری را شروع کن.';$('labMeter').style.borderColor='#334155';$('labMcbFeedback').textContent='';$('labRcdFeedback').textContent='';updateProbes();switchUI();renderLog()}
+ $('labChooseRed').addEventListener('click',()=>{state.active='red';updateProbes()});$('labChooseBlack').addEventListener('click',()=>{state.active='black';updateProbes()});
+ document.querySelectorAll('.lab-terminal').forEach(b=>b.addEventListener('click',()=>{state[state.active]=b.dataset.point;updateProbes()}));
+ $('labMeasure').addEventListener('click',measure);$('labDiagnose').addEventListener('click',diagnose);$('labClear').addEventListener('click',()=>{state.red=null;state.black=null;updateProbes()});$('labReset').addEventListener('click',reset);
+ $('labMcbToggle').addEventListener('click',()=>{state.mcbOn=!state.mcbOn;switchUI()});$('labRcdToggle').addEventListener('click',()=>{state.rcdOn=!state.rcdOn;switchUI()});
+ $('labCheckMcb').addEventListener('click',()=>{$('labMcbFeedback').textContent=(fault()==='mcb'||!state.mcbOn)?'Auffällig: LS ist im Szenario ausgelöst/ausgeschaltet. Ursache prüfen, bevor wieder eingeschaltet wird. / غیرعادی: فیوز در سناریو قطع/خاموش است؛ پیش از وصل مجدد علت را بررسی کن.':'LS-Schalter im Modell eingeschaltet. Das allein beweist keine vollständige Schutzfunktion. / فیوز در مدل روشن است؛ این به‌تنهایی عملکرد کامل حفاظت را ثابت نمی‌کند.'});
+ $('labCheckRcd').addEventListener('click',()=>{$('labRcdFeedback').textContent=(fault()==='rcd'||!state.rcdOn)?'Fehlerhinweis: RCD-Schutzfunktion im Szenario nicht nachgewiesen. Nicht überbrücken. / عملکرد RCD در سناریو اثبات نشده؛ پل نزن.':'RCD im Modell eingeschaltet. Für die echte Prüfung sind vorgeschriebene Messungen erforderlich. / RCD در مدل روشن است؛ آزمون واقعی به اندازه‌گیری‌های مقرر نیاز دارد.'});
+ updateProbes();switchUI();
+})();
+
 loadStructuredLF01();
 updateProgress();
 renderLessons();
