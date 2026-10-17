@@ -451,7 +451,7 @@ th{background:#edf4fc}
     <h3 id="b2Question">...</h3><p id="b2Persian" class="fa"></p>
     <textarea id="b2Answer" rows="2" placeholder="Schreibe deine Antwort auf Deutsch …"></textarea>
     <div class="toolbar"><button onclick="checkB2()">پاسخ و توضیح</button><button class="secondary" onclick="speakB2()">🔊 شنیدن آلمانی</button><button class="secondary" onclick="nextB2()">کارت بعدی</button></div>
-    <div id="b2Feedback" aria-live="polite"></div>
+    <div id="b2Feedback" aria-live="polite"></div><div id="b2SelfRate" class="toolbar hidden"><button type="button" onclick="rateB2(true)">بلدم ✓</button><button type="button" class="secondary" onclick="rateB2(false)">باید مرور کنم ↻</button></div>
    </div>
   </div>
   <div class="panel">
@@ -1012,8 +1012,8 @@ const b2Deck=[
  {type:"Grammatik · weil",de:"Ergänze: „Ich dokumentiere den Messwert, weil …“",fa:"جمله را با weil کامل کن؛ فعل در آخر می‌آید.",answer:"Ich dokumentiere den Messwert, weil die Ergebnisse nachvollziehbar sein müssen.",example:"..., weil die Dokumentation für die sichere Übergabe wichtig ist."},
  {type:"Sprechen · B2",de:"Erkläre in 3 Sätzen, wie du bei einer Fehlersuche systematisch vorgehst.",fa:"در سه جمله روش اصولی عیب‌یابی را توضیح بده.",answer:"Zuerst grenze ich den Fehler anhand der Symptome ein. Danach prüfe ich die Anlage unter Beachtung der Sicherheitsregeln. Abschließend dokumentiere ich Ursache und Lösung.",example:"Sprich langsam, nutze Fachbegriffe und begründe deine Entscheidungen."}
 ];
-let b2Position=0,b2Score=0;
-function todayKey(){return new Date().toISOString().slice(0,10)}
+let b2Position=0,b2Score=Number(localStorage.getItem("elektroB2SelfScoreV1")||0);
+function todayKey(){const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0") }
 function buildDailyPlan(){
  const minutes=Number(document.getElementById("dailyMinutes").value||60);
  const key="elektroDailyPlanV1-"+todayKey();
@@ -1040,14 +1040,15 @@ function renderB2(){
  document.getElementById("b2Index").textContent=(b2Position+1)+"/"+b2Deck.length;
  document.getElementById("b2Type").textContent=c.type;document.getElementById("b2Question").textContent=c.de;
  document.getElementById("b2Persian").textContent=c.fa;document.getElementById("b2Answer").value="";
- document.getElementById("b2Feedback").textContent="";
+ document.getElementById("b2Feedback").textContent="";document.getElementById("b2SelfRate").classList.add("hidden");
  document.getElementById("b2Correct").textContent=b2Score;
 }
 function checkB2(){
  const c=b2Deck[b2Position%b2Deck.length],answer=document.getElementById("b2Answer").value.trim();
  const fb=document.getElementById("b2Feedback");if(!answer){fb.textContent="اول پاسخ خودت را بنویس؛ حتی یک جمله.";return}
- fb.innerHTML="<p><b>نمونه پاسخ / Musterlösung:</b></p><p>"+c.answer+"</p><p><b>Beispiel:</b> "+c.example+"</p><p>مقایسه کن: آیا معنی، ترتیب فعل و دلیل یا مثال را درست بیان کردی؟</p>";
+ fb.innerHTML="<p><b>نمونه پاسخ / Musterlösung:</b></p><p>"+c.answer+"</p><p><b>Beispiel:</b> "+c.example+"</p><p>مقایسه کن: آیا معنی، ترتیب فعل و دلیل یا مثال را درست بیان کردی؟ سپس میزان تسلطت را صادقانه ثبت کن.</p>";document.getElementById("b2SelfRate").classList.remove("hidden");
 }
+function rateB2(known){if(known)b2Score++;else b2Score=Math.max(0,b2Score-1);localStorage.setItem("elektroB2SelfScoreV1",String(b2Score));document.getElementById("b2Correct").textContent=b2Score;document.getElementById("b2SelfRate").classList.add("hidden");document.getElementById("b2Feedback").innerHTML+="<p>"+(known?"✓ Als bekannt markiert.":"↻ Für die nächste Wiederholung markiert.")+"</p>"}
 function nextB2(){b2Position=(b2Position+1)%b2Deck.length;renderB2()}
 function speakB2(){const text=b2Deck[b2Position%b2Deck.length].de;if("speechSynthesis" in window){const u=new SpeechSynthesisUtterance(text);u.lang="de-DE";speechSynthesis.cancel();speechSynthesis.speak(u)}else alert("Die Sprachausgabe wird in diesem Browser nicht unterstützt.")}
 function saveB2Writing(){
