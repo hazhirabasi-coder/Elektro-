@@ -9,6 +9,8 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Elektro Lernen | EGT Prüfungsvorbereitung</title>
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icon.svg" type="image/svg+xml">
 <style>
 :root {
   --blue:#123b70; --blue2:#1769aa; --bg:#f3f6fb;
@@ -1337,6 +1339,15 @@ renderFormulas();
 renderPlan();
 renderCard();
 startQuiz();
+</script>
+<script>
+if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(error => {
+      console.warn('Offline-Funktion konnte nicht aktiviert werden:', error);
+    });
+  });
+}
 </script>
 </body>
 </html>
