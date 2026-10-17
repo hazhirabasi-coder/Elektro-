@@ -175,6 +175,48 @@ input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-vis
 @media(max-width:900px){.lab-equipment-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.lab-equipment-overview{padding:15px}}
 @media(max-width:600px){.lab-equipment-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.lab-equipment-card{padding:10px}.lab-equipment-card>b{font-size:13px}.lab-equipment-card small{font-size:10px}.lab-equipment-heading{flex-direction:column}.lab-drag-stage{max-width:none}}
 
+
+/* Photo-reference-inspired interactive installation tester dashboard */
+.fluke-dashboard{margin:0 0 22px;background:#dce5ee;border:1px solid #b8c7d7;border-radius:18px;overflow:hidden;box-shadow:0 14px 35px #102b461c;color:#12263e}
+.fluke-topbar{display:flex;align-items:center;gap:12px;min-height:62px;padding:10px 16px;background:linear-gradient(100deg,#071e35,#143e60);color:#fff}
+.fluke-brand-mark{width:42px;height:42px;display:grid;place-items:center;background:#14558b;border-radius:9px;font-size:24px}
+.fluke-brand{display:flex;flex-direction:column;min-width:180px}.fluke-brand b{font-size:19px}.fluke-brand small{font-size:9px;letter-spacing:.12em;color:#bfd5e8}
+.fluke-top-links{display:flex;align-items:center;gap:18px;margin:auto;font-size:12px;color:#d9e7f4}.fluke-live-pill{font-size:10px;font-weight:900;border:1px solid #f6c94c;color:#ffdf75;padding:6px 9px;border-radius:20px;white-space:nowrap}
+.fluke-dashboard-grid{display:grid;grid-template-columns:205px minmax(0,1fr) 245px;gap:12px;padding:12px;background:linear-gradient(135deg,#e5ebf2,#cfd9e4);align-items:start}
+.fluke-side-menu{background:linear-gradient(180deg,#0a2945,#183d5e);border-radius:14px;padding:10px;color:#fff;position:sticky;top:8px}
+.fluke-side-menu h3{font-size:15px;margin:2px 4px 10px;color:#fff}.fluke-side-menu h3 small{display:block;font-size:11px;color:#c5d9e9;font-weight:500}
+.fluke-mode{display:grid;grid-template-columns:35px 1fr;grid-template-rows:auto auto;align-items:center;text-align:left;gap:0 8px;width:100%;padding:9px 7px;margin:4px 0;border:1px solid #ffffff12;border-radius:8px;background:#ffffff0b;color:#f8fbff;cursor:pointer}
+.fluke-mode>span{grid-row:1/3;display:grid;place-items:center;width:32px;height:32px;border:1px solid #d6e3ee;border-radius:50%;font-weight:900;font-size:13px}
+.fluke-mode b{font-size:11px;line-height:1.25}.fluke-mode small{font-size:10px;color:#c5d9e9;line-height:1.25}.fluke-mode.active{background:#ffd55a;color:#182a3c;border-color:#ffe9a0}.fluke-mode.active small{color:#334155}.fluke-mode.active>span{border-color:#273c50}
+.fluke-side-note{font-size:10px;line-height:1.5;color:#d3e3f0;padding:10px 5px 2px}
+.fluke-dashboard-main{min-width:0;display:flex;flex-direction:column;gap:12px}.fluke-dashboard-main>.panel{margin:0;min-width:0;box-shadow:0 3px 12px #102b4610}
+.fluke-dashboard-main>.panel:first-child h2{font-size:17px}
+.fluke-dashboard-main .lab-drag-stage{max-width:none;width:100%;margin:0 auto 12px;background:#d9e1ea;border:2px solid #b3c1cf;box-shadow:0 5px 15px #102b4615}
+.fluke-dashboard-main .lab-drag-stage svg{width:100%;height:auto}
+.fluke-dashboard-main .lab-howto{display:none!important}.fluke-dashboard-main .lab-drag-intro{display:none!important}
+.fluke-dashboard-main .lab-equipment-overview{margin:0;padding:12px;border-radius:12px}
+.fluke-dashboard-main .lab-equipment-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}
+.fluke-dashboard-main .lab-equipment-card{padding:8px;box-shadow:0 2px 0 #9aaec1}
+.fluke-dashboard-main .lab-equipment-card>b{font-size:11px}.fluke-dashboard-main .lab-equipment-card .fa{font-size:10px}.fluke-dashboard-main .lab-equipment-card small{font-size:9px}
+.fluke-result-side{min-width:0;display:flex;flex-direction:column;gap:9px}
+.fluke-result-heading{padding:12px 13px;background:#ffd35a;border:1px solid #e7b52b;border-radius:11px;font-size:15px;font-weight:900}
+.fluke-result-heading small{display:block;font-size:11px;font-weight:600}
+.fluke-result-screen,.fluke-result-points,.fluke-result-status,.fluke-result-explain{padding:13px;background:#fff;border:1px solid #c5d1dc;border-radius:11px;box-shadow:0 2px 5px #102b460a}
+.fluke-result-screen{display:grid;grid-template-columns:36px 1fr;align-items:center;gap:4px 9px}.fluke-result-icon{grid-row:1/3;width:34px;height:34px;display:grid;place-items:center;background:#163956;color:white;border-radius:6px;font-size:24px}
+.fluke-result-screen strong{font-size:clamp(19px,2vw,28px);line-height:1.15;overflow-wrap:anywhere}.fluke-result-screen small{font-size:10px;color:#5a6c7f}
+.fluke-result-points>b,.fluke-result-status>b,.fluke-result-explain>b{display:block;font-size:12px;margin-bottom:6px}.fluke-result-points p,.fluke-result-status p,.fluke-result-explain p{margin:4px 0;font-size:12px;line-height:1.5;overflow-wrap:anywhere}.fluke-result-points small{font-size:10px;color:#53657a}
+.fluke-result-status{background:linear-gradient(135deg,#d8f2df,#f4fff6);border-color:#b7dfc2}.fluke-result-status b{font-size:16px;color:#17633b}
+.fluke-result-explain{background:#edf5ff;border-color:#c1d7f0}.fluke-result-explain p{white-space:pre-line}
+.fluke-next{border:0;border-radius:9px;background:#ffc928;color:#182a3d;padding:12px 8px;font-weight:900;cursor:pointer}
+.fluke-exercise-strip{display:grid;grid-template-columns:repeat(10,minmax(100px,1fr));gap:7px;padding:10px;background:#071f36;overflow-x:auto}
+.fluke-exercise-title{grid-column:1/-1;color:#fff;font-size:14px;font-weight:900}.fluke-exercise-title small{display:block;font-size:10px;color:#b8cfe2;font-weight:500}
+.fluke-exercise{min-width:100px;display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;padding:8px;border:1px solid #516b83;border-radius:9px;background:#173a57;color:#fff;cursor:pointer;font-size:10px}
+.fluke-exercise b{font-size:10px;line-height:1.3}.fluke-exercise span{font-size:9px;color:#c7d8e6}.fluke-exercise i{font-style:normal;font-size:20px;align-self:center;min-height:28px}
+.fluke-exercise.active{border:2px solid #ffd347;background:#244d6e}.fluke-exercise .fault-x{color:#ff7474;font-size:27px;font-weight:900}.cee-mini{width:28px;height:28px;border:4px solid #e4eaf0;border-radius:50%;align-self:center}.cee-mini.red{background:#d62828}.cee-mini.blue{background:#1682d4}
+.fluke-dashboard .notice{font-size:12px}
+@media(max-width:1150px){.fluke-dashboard-grid{grid-template-columns:175px minmax(0,1fr)}.fluke-result-side{grid-column:2;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.fluke-result-heading,.fluke-next{grid-column:1/-1}.fluke-top-links{gap:9px}.fluke-top-links span:nth-child(3){display:none}.fluke-exercise-strip{grid-template-columns:repeat(10,112px)}}
+@media(max-width:680px){.fluke-topbar{padding:9px;gap:8px;flex-wrap:wrap}.fluke-brand{min-width:0;flex:1}.fluke-brand b{font-size:16px}.fluke-brand small{font-size:8px}.fluke-top-links{display:none}.fluke-live-pill{font-size:9px}.fluke-dashboard-grid{grid-template-columns:minmax(0,1fr);padding:7px;gap:8px}.fluke-side-menu{position:static;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;padding:8px}.fluke-side-menu h3,.fluke-side-note{grid-column:1/-1}.fluke-mode{margin:0;padding:7px;grid-template-columns:29px 1fr;gap:0 6px}.fluke-mode>span{width:27px;height:27px;font-size:11px}.fluke-mode b{font-size:10px}.fluke-mode small{font-size:9px}.fluke-result-side{grid-column:1;display:flex;flex-direction:column}.fluke-dashboard-main .lab-equipment-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.fluke-dashboard-main>.panel{padding:12px}.fluke-exercise-strip{grid-template-columns:repeat(10,118px)}}
+
 </style>
 </head>
 <body>
@@ -713,6 +755,41 @@ input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-vis
   </div>
  </section>
 <section id="lab" class="page hidden">
+ <div class="fluke-dashboard" id="flukeDashboard">
+  <div class="fluke-topbar"><div class="fluke-brand-mark">⚡</div><div class="fluke-brand"><b>Messgerät-Labor</b><small>ELEKTRO LERNEN · DEUTSCH / فارسی</small></div><div class="fluke-top-links"><span>▦ Übungen</span><span>◉ Fehlerdiagnose</span><span>▤ Theorie</span><span>❔ Hilfe</span></div><span class="fluke-live-pill">● SIMULATION</span></div>
+  <div class="fluke-dashboard-grid">
+   <aside class="fluke-side-menu"><h3>Messfunktionen <small>حالت اندازه‌گیری</small></h3>
+    <button class="fluke-mode active" data-mode="voltage"><span>V</span><b>Spannung</b><small>ولتاژ</small></button>
+    <button class="fluke-mode" data-mode="continuity"><span>Ω</span><b>Durchgängigkeit</b><small>پیوستگی</small></button>
+    <button class="fluke-mode" data-mode="insulation"><span>MΩ</span><b>Isolationswiderstand</b><small>مقاومت عایقی</small></button>
+    <button class="fluke-mode" data-mode="loop"><span>Zs</span><b>Schleifenimpedanz</b><small>امپدانس حلقه</small></button>
+    <button class="fluke-mode" data-mode="rcd"><span>◉</span><b>RCD / FI-Test</b><small>تست محافظ جان</small></button>
+    <button class="fluke-mode" data-mode="polarity"><span>⇄</span><b>Polarität / L–N</b><small>قطبیت</small></button>
+    <div class="fluke-side-note">Wähle eine Funktion und verbinde die Prüfspitzen. / حالت را انتخاب و پراب‌ها را وصل کن.</div>
+   </aside>
+   <main class="fluke-dashboard-main" id="flukeDashboardMain"></main>
+   <aside class="fluke-result-side"><div class="fluke-result-heading">Messung / Ergebnis <small>نتیجهٔ اندازه‌گیری</small></div>
+    <div class="fluke-result-screen"><span class="fluke-result-icon">∿</span><strong id="flukeLiveValue">Bereit</strong><small id="flukeLiveUnit">Messung starten / شروع اندازه‌گیری</small></div>
+    <div class="fluke-result-points"><b>Anschluss / اتصال</b><p id="flukeLiveConnection">Rot → L<br>Schwarz → N</p><small id="flukeLiveMode">Aktive Funktion: Spannung</small></div>
+    <div class="fluke-result-status" id="flukeLiveStatus"><b>✓ Bereit / آماده</b><p>Verbinde beide Prüfspitzen und starte die Messung. / پراب‌ها را وصل کن و اندازه‌گیری را شروع کن.</p></div>
+    <div class="fluke-result-explain"><b>Erklärung / توضیح</b><p id="flukeLiveExplanation">Das Ergebnis erscheint nach der simulierten Messung. / نتیجه پس از اندازه‌گیری شبیه‌سازی‌شده نمایش داده می‌شود.</p></div>
+    <button class="fluke-next" id="flukeNextExercise">Nächste Übung → تمرین بعدی</button>
+   </aside>
+  </div>
+  <div class="fluke-exercise-strip"><div class="fluke-exercise-title">Übungen / تمرین‌ها <small>Wähle einen Prüfstand</small></div>
+   <button class="fluke-exercise active" data-fault="normal" data-mode="voltage"><b>1. Steckdose</b><span>230 V · L–N</span><i>◉</i></button>
+   <button class="fluke-exercise" data-fault="normal" data-mode="voltage"><b>2. CEE rot</b><span>400 V · 16 A</span><i class="cee-mini red"></i></button>
+   <button class="fluke-exercise" data-fault="normal" data-mode="voltage"><b>3. CEE blau</b><span>230 V · 16 A</span><i class="cee-mini blue"></i></button>
+   <button class="fluke-exercise" data-fault="normal" data-mode="rcd"><b>4. Verteilung</b><span>RCD / LS</span><i>▥</i></button>
+   <button class="fluke-exercise" data-fault="normal" data-mode="continuity"><b>5. Lichtkreis</b><span>Schalter / PE</span><i>💡</i></button>
+   <button class="fluke-exercise" data-fault="normal" data-mode="voltage"><b>6. Drehstrom</b><span>3~ · 400 V</span><i>ϟ</i></button>
+   <button class="fluke-exercise" data-fault="pe" data-mode="continuity"><b>7. Fehler: PE</b><span>PE unterbrochen</span><i class="fault-x">×</i></button>
+   <button class="fluke-exercise" data-fault="highz" data-mode="loop"><b>8. Hoher Zs</b><span>Schleifenimpedanz</span><i class="fault-x">×</i></button>
+   <button class="fluke-exercise" data-fault="rcd" data-mode="rcd"><b>9. RCD-Fehler</b><span>Auslösung prüfen</span><i class="fault-x">×</i></button>
+   <button class="fluke-exercise" data-fault="polarity" data-mode="polarity"><b>10. L / N vertauscht</b><span>Polaritätsfehler</span><i class="fault-x">×</i></button>
+  </div>
+ </div>
+
  <div class="panel">
   <h2>🔧 Virtuelles Messgeräte-Labor / آزمایشگاه مجازی دستگاه تست برق</h2>
   <p>Trainiere mit einem simulierten Installationstester (z. B. Fluke 166x): Prüfmodus wählen, rote und schwarze Messleitung an Messpunkte setzen, Messung starten und Befund begründen.</p>
@@ -1767,5 +1844,44 @@ if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.
   });
 }
 </script>
+
+<script>
+(function initFlukeDashboard(){
+ const root=document.getElementById('flukeDashboard');
+ const section=document.getElementById('lab');
+ if(!root||!section)return;
+ const main=document.getElementById('flukeDashboardMain');
+ const originalPanels=Array.from(section.children).filter(el=>el.classList&&el.classList.contains('panel'));
+ const scene=document.createElement('div'); scene.className='panel fluke-scene-panel'; scene.innerHTML='<div class="fluke-scene-caption"><b>Prüfstand / میز آزمون</b><span>Installationstester · Verteiler · Steckdosen</span></div>';
+ const howto=section.querySelector('#labHowTo'); if(howto)howto.remove();
+ const intro=section.querySelector('.lab-drag-intro'); if(intro)intro.remove();
+ const stage=section.querySelector('#labDragStage');
+ const equipment=section.querySelector('.lab-equipment-overview');
+ const board=section.querySelector('.lab-board');
+ const probes=section.querySelector('.lab-probes');
+ const toolbar=section.querySelector('.toolbar');
+ const meter=section.querySelector('#labMeter');
+ if(stage){scene.appendChild(stage);}
+ if(equipment){scene.appendChild(equipment);}
+ [board,probes,toolbar,meter].forEach(el=>{if(el)scene.appendChild(el);});
+ main.appendChild(scene);
+ originalPanels.forEach(el=>{if(el.contains(stage)||el.contains(board)||el.contains(meter)){el.remove();}else main.appendChild(el);});
+ const modeSelect=document.getElementById('labMode'), faultSelect=document.getElementById('labFault');
+ const modes={voltage:'Spannung / ولتاژ',continuity:'Durchgängigkeit / پیوستگی',insulation:'Isolationswiderstand / مقاومت عایقی',loop:'Schleifenimpedanz Zs / امپدانس حلقه',rcd:'RCD / FI-Test / تست محافظ جان',polarity:'Polarität L–N / قطبیت'};
+ function chooseMode(mode,button){if(modeSelect){modeSelect.value=mode;modeSelect.dispatchEvent(new Event('change',{bubbles:true}));}root.querySelectorAll('.fluke-mode').forEach(b=>b.classList.toggle('active',b.dataset.mode===mode));const live=document.getElementById('flukeLiveMode');if(live)live.textContent='Aktive Funktion: '+(modes[mode]||mode);if(button){root.querySelectorAll('.fluke-exercise').forEach(b=>b.classList.remove('active'));button.classList.add('active');}}
+ root.querySelectorAll('.fluke-mode').forEach(b=>b.addEventListener('click',()=>chooseMode(b.dataset.mode)));
+ root.querySelectorAll('.fluke-exercise').forEach(b=>b.addEventListener('click',()=>{if(faultSelect){faultSelect.value=b.dataset.fault;faultSelect.dispatchEvent(new Event('change',{bubbles:true}));}chooseMode(b.dataset.mode,b);const msg=document.getElementById('labExampleMessage');if(msg)msg.textContent='Übung ausgewählt: '+b.innerText.replace(/\n/g,' · ')+' / تمرین انتخاب شد';}));
+ const measure=document.getElementById('labMeasure');
+ function syncResult(){const display=document.getElementById('labDisplay'),unit=document.getElementById('labUnit'),result=document.getElementById('labResult'),fa=document.getElementById('labResultFa');const value=document.getElementById('flukeLiveValue'),u=document.getElementById('flukeLiveUnit'),ex=document.getElementById('flukeLiveExplanation'),status=document.getElementById('flukeLiveStatus');if(display&&value)value.textContent=display.textContent.trim();if(unit&&u)u.textContent=unit.textContent.trim();if(result&&ex)ex.textContent=result.textContent.trim()+(fa&&fa.textContent?'\n'+fa.textContent.trim():'');const red=document.getElementById('labRedPoint'),black=document.getElementById('labBlackPoint'),connection=document.getElementById('flukeLiveConnection');if(connection)connection.innerHTML='Rot → '+(red?red.textContent.replace('Messpunkt:','').trim():'—')+'<br>Schwarz → '+(black?black.textContent.replace('Messpunkt:','').trim():'—');if(status){const t=(result?result.textContent:'').toLowerCase();status.innerHTML=(t.includes('fehler')||t.includes('nicht')?'⚠️':'✓')+' <b>'+((t.includes('fehler')||t.includes('nicht'))?'Prüfergebnis beachten / توجه به نتیجه':'Auswertung / ارزیابی')+'</b><p>'+(result?result.textContent:'Messung starten')+'</p>';}}
+ if(measure)measure.addEventListener('click',()=>setTimeout(syncResult,30));
+ ['labClear','labDiagnose','labRcdToggle','labMcbToggle','labCheckMcb','labCheckRcd'].forEach(id=>{const el=document.getElementById(id);if(el)el.addEventListener('click',()=>setTimeout(syncResult,30));});
+ const next=document.getElementById('flukeNextExercise');if(next)next.addEventListener('click',()=>{const cards=Array.from(root.querySelectorAll('.fluke-exercise'));const active=Math.max(0,cards.findIndex(b=>b.classList.contains('active')));cards[(active+1)%cards.length].click();});
+ const oldExample=document.getElementById('labStartExample');if(oldExample)oldExample.addEventListener('click',()=>{chooseMode('voltage');setTimeout(syncResult,50);});
+ const screen=document.getElementById('labDisplay');if(screen){new MutationObserver(syncResult).observe(screen,{childList:true,subtree:true,characterData:true});}
+ const cap=document.createElement('div');cap.className='fluke-scene-caption';cap.innerHTML='<b>Verteiler & Installationstester / تابلو و دستگاه تست</b><span>Messspitzen per Touch oder Auswahlknopf bewegen</span>';scene.insertBefore(cap,scene.firstChild);
+ syncResult();
+})();
+</script>
+
 </body>
 </html>
