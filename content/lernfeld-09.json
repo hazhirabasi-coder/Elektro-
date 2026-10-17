@@ -1,0 +1,295 @@
+{
+  "schemaVersion": 1,
+  "id": "LF09",
+  "title": {
+    "de": "Kommunikation in Wohn- und Zweckbauten",
+    "fa": "سیستم‌های ارتباطی ساختمان"
+  },
+  "level": "Grundlagen bis Prüfungsvorbereitung",
+  "languages": [
+    "de",
+    "fa"
+  ],
+  "disclaimer": {
+    "de": "Lernmaterial zur Prüfungsvorbereitung, keine verbindliche Arbeitsanweisung. Elektrische Anlagen nur im Rahmen der Qualifikation, nach Gefährdungsbeurteilung, geltenden Normen und betrieblichen Vorgaben bearbeiten.",
+    "fa": "این مطالب برای آمادگی آزمون است و دستورالعمل اجرایی الزام‌آور نیست. کار روی تأسیسات برقی فقط در محدوده صلاحیت، پس از ارزیابی خطر و طبق استانداردها و دستورالعمل‌های محل کار انجام شود."
+  },
+  "objectives": [
+    {
+      "de": "Grundlagen von Bus- und Gebäudekommunikationssystemen erklären.",
+      "fa": "مبانی باس و ارتباطات ساختمان را توضیح دهد."
+    },
+    {
+      "de": "Netzwerk- und Türkommunikationskomponenten unterscheiden.",
+      "fa": "اجزای شبکه و ارتباط در را تشخیص دهد."
+    },
+    {
+      "de": "Konfiguration, Prüfung und Übergabe dokumentieren.",
+      "fa": "پیکربندی، آزمایش و تحویل را مستند کند."
+    }
+  ],
+  "lessons": [
+    {
+      "id": "LF09-01",
+      "title": {
+        "de": "Bus-Systeme und KNX-Grundlagen",
+        "fa": "مبانی باس و KNX"
+      },
+      "explanation": {
+        "de": "Bei Bussystemen kommunizieren Geräte über ein gemeinsames Übertragungsmedium nach definierten Regeln. KNX-Geräte benötigen passende Planung, Versorgung, Topologie und Parametrierung. Adressen, Gruppenfunktionen und Projektdokumentation müssen konsistent sein; konkrete Installationsregeln sind anhand aktueller Hersteller- und Normunterlagen zu prüfen.",
+        "fa": "در سیستم باس، دستگاه‌ها طبق قواعد مشخص از یک رسانه مشترک ارتباط برقرار می‌کنند. تجهیزات KNX به طراحی، تغذیه، توپولوژی و پارامترگذاری مناسب نیاز دارند. آدرس‌ها، عملکرد گروهی و مستندات پروژه باید سازگار باشند؛ مقررات نصب باید از اسناد به‌روز سازنده و استاندارد بررسی شوند."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": [
+              "Was ist eine typische Eigenschaft eines Bussystems?",
+              "ویژگی معمول سیستم باس چیست؟",
+              [
+                "Mehrere Geräte kommunizieren über ein gemeinsames Medium nach Regeln",
+                "Jedes Gerät benötigt immer ein eigenes Kabel direkt zur Zentrale",
+                "Es braucht keine Konfiguration"
+              ],
+              0,
+              "Die Kommunikation erfolgt nach einem definierten Protokoll.",
+              "ارتباط طبق پروتکل مشخص انجام می‌شود."
+            ],
+            "fa": [
+              "Wozu dient die Parametrierung?",
+              "پارامترگذاری چه کاربردی دارد؟",
+              [
+                "Gerätefunktionen und Zuordnungen konfigurieren",
+                "Die Schutzleiterprüfung ersetzen",
+                "Leitungen automatisch dimensionieren"
+              ],
+              0,
+              "Parameter legen Funktionen und Zuordnungen fest.",
+              "پارامترها عملکردها و تخصیص‌ها را مشخص می‌کنند."
+            ]
+          },
+          "why": {}
+        },
+        {
+          "q": {},
+          "why": {}
+        }
+      ]
+    },
+    {
+      "id": "LF09-02",
+      "title": {
+        "de": "Türkommunikation und Netzwerke",
+        "fa": "ارتباط در و شبکه"
+      },
+      "explanation": {
+        "de": "Türsprechsysteme verbinden beispielsweise Außenstation, Innenstation und Türöffner. In IP-Netzen werden Endgeräte über geeignete Switches und strukturierte Verkabelung verbunden. Prüfe Versorgung, Anschlussplan, Adressierung und Funktion; Datenschutz und Zugangsschutz gehören zur Planung.",
+        "fa": "سیستم آیفون تصویری یا صوتی، پنل بیرونی، واحد داخلی و قفل برقی را متصل می‌کند. در شبکه IP، تجهیزات با سوئیچ مناسب و کابل‌کشی ساختاریافته متصل می‌شوند. تغذیه، نقشه اتصال، آدرس‌دهی و عملکرد را بررسی کن؛ حریم خصوصی و کنترل دسترسی نیز بخشی از طراحی است."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": [
+              "Welche Komponente verbindet mehrere Ethernet-Endgeräte im lokalen Netz?",
+              "کدام قطعه چند دستگاه اترنت را در شبکه محلی متصل می‌کند؟",
+              [
+                "Switch",
+                "RCD",
+                "Transformator als Standardlösung"
+              ],
+              0,
+              "Ein Switch leitet Ethernet-Frames im lokalen Netz weiter.",
+              "سوئیچ فریم‌های اترنت را در شبکه محلی هدایت می‌کند."
+            ],
+            "fa": [
+              "Was muss bei einer Türkommunikationsanlage zusätzlich bedacht werden?",
+              "در سیستم ارتباط در، علاوه بر اتصال چه چیزی باید در نظر گرفته شود؟",
+              [
+                "Zutrittsberechtigung und Datenschutz",
+                "Nur die Gehäusefarbe",
+                "Keine Funktionsprüfung"
+              ],
+              0,
+              "Zugangsschutz und Datenschutz sind Teil der Systemplanung.",
+              "کنترل دسترسی و حریم خصوصی بخشی از طراحی‌اند."
+            ]
+          },
+          "why": {}
+        },
+        {
+          "q": {},
+          "why": {}
+        }
+      ]
+    },
+    {
+      "id": "LF09-03",
+      "title": {
+        "de": "Inbetriebnahme und Dokumentation",
+        "fa": "راه‌اندازی و مستندسازی"
+      },
+      "explanation": {
+        "de": "Vor der Übergabe prüfe die vorgesehenen Funktionen anhand des Auftrags und der Herstellerangaben. Dokumentiere Einstellungen, Adressen, Prüfergebnisse, offene Mängel und Einweisung. Verwende nur autorisierte Zugangsdaten und übergib sie nach dem vereinbarten sicheren Verfahren.",
+        "fa": "پیش از تحویل، عملکردهای مورد انتظار را بر اساس سفارش و دستورالعمل سازنده بررسی کن. تنظیمات، آدرس‌ها، نتایج آزمایش، نقص‌های باقی‌مانده و آموزش کاربر را ثبت کن. فقط از اطلاعات ورود مجاز استفاده کن و آن‌ها را طبق روش امن توافق‌شده تحویل بده."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": [
+              "Was gehört zu einer fachgerechten Übergabe?",
+              "تحویل حرفه‌ای شامل چیست؟",
+              [
+                "Funktionsprüfung, Dokumentation und Einweisung",
+                "Nur das Ausschalten der Baustellenbeleuchtung",
+                "Nur die Rechnung"
+              ],
+              0,
+              "Die Übergabe macht Funktion und Bedienung nachvollziehbar.",
+              "تحویل باید عملکرد و روش استفاده را روشن کند."
+            ],
+            "fa": [
+              "Warum müssen Netzwerkkonfigurationen dokumentiert werden?",
+              "چرا پیکربندی شبکه باید مستند شود؟",
+              [
+                "Damit Wartung und Fehlersuche nachvollziehbar bleiben",
+                "Damit Passwörter öffentlich werden",
+                "Damit Prüfungen entfallen"
+              ],
+              0,
+              "Dokumentation erleichtert Wartung, Änderungen und Fehlersuche.",
+              "مستندسازی نگهداری، تغییرات و عیب‌یابی را آسان می‌کند."
+            ]
+          },
+          "why": {}
+        },
+        {
+          "q": {},
+          "why": {}
+        }
+      ]
+    }
+  ],
+  "examTasks": [
+    {
+      "title": {
+        "de": "Aufgabe 1 – Fachverständnis",
+        "fa": "تمرین ۱ ـ درک فنی"
+      },
+      "question": {
+        "de": "Erkläre die wichtigsten Planungs- und Sicherheitsaspekte zum Thema „Kommunikation in Wohn- und Zweckbauten“.",
+        "fa": "مهم‌ترین نکات طراحی و ایمنی درباره «سیستم‌های ارتباطی ساختمان» را توضیح بده."
+      },
+      "solution": {
+        "de": "Beschreibe zuerst Zweck und Randbedingungen, nenne relevante Komponenten und Herstellerangaben, berücksichtige Schutzmaßnahmen und geltende Regeln und dokumentiere die erforderlichen Prüfungen. Die konkrete Ausführung hängt von Anlage, Auftrag und aktuellen Vorgaben ab.",
+        "fa": "ابتدا هدف و شرایط را شرح بده، اجزای مرتبط و دستورالعمل سازنده را نام ببر، اقدامات حفاظتی و مقررات جاری را لحاظ کن و آزمون‌های لازم را مستند کن. اجرای دقیق به تأسیسات، سفارش و الزامات جاری بستگی دارد."
+      }
+    },
+    {
+      "title": {
+        "de": "Aufgabe 2 – Fehlersuche",
+        "fa": "تمرین ۲ ـ عیب‌یابی"
+      },
+      "question": {
+        "de": "Eine Funktion arbeitet nicht wie vorgesehen. Beschreibe einen sicheren, nachvollziehbaren Ablauf zur Fehlersuche.",
+        "fa": "یک عملکرد مطابق انتظار کار نمی‌کند. روند ایمن و قابل پیگیری عیب‌یابی را توضیح بده."
+      },
+      "solution": {
+        "de": "Fehlerbild und Sollfunktion erfassen, Unterlagen prüfen, Gefährdungen beurteilen, geeignete sichere Prüfschritte festlegen, Ergebnisse mit Sollwerten vergleichen, Ursache eingrenzen und Maßnahmen sowie Prüfergebnis dokumentieren. Arbeiten nur im Rahmen der Qualifikation durchführen.",
+        "fa": "نشانه خطا و عملکرد مورد انتظار را ثبت کن، مدارک را بررسی کن، خطرها را ارزیابی کن، مراحل ایمن آزمون را تعیین کن، نتایج را مقایسه و علت را محدود کن و اقدامات و نتیجه را مستند ساز. کار فقط در محدوده صلاحیت انجام شود."
+      }
+    },
+    {
+      "title": {
+        "de": "Aufgabe 3 – Dokumentation und Übergabe",
+        "fa": "تمرین ۳ ـ مستندسازی و تحویل"
+      },
+      "question": {
+        "de": "Welche Informationen gehören in eine nachvollziehbare Dokumentation nach Planung, Prüfung oder Änderung?",
+        "fa": "پس از طراحی، آزمون یا تغییر، چه اطلاعاتی باید در مستندات قابل پیگیری ثبت شود؟"
+      },
+      "solution": {
+        "de": "Auftrag und Umfang, verwendete Unterlagen, relevante Komponenten und Einstellungen, Prüfverfahren und Ergebnisse, festgestellte Abweichungen, durchgeführte Maßnahmen, offene Punkte und verständliche Kundenübergabe festhalten.",
+        "fa": "سفارش و دامنه کار، مدارک استفاده‌شده، اجزا و تنظیمات مهم، روش و نتایج آزمون، مغایرت‌ها، اقدامات انجام‌شده، موارد باز و تحویل روشن به مشتری را ثبت کن."
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "de": "Schutzmaßnahme",
+      "fa": "اقدام حفاظتی",
+      "definition": {
+        "de": "Maßnahme zur Verringerung elektrischer Gefährdungen.",
+        "fa": "اقدامی برای کاهش خطرهای الکتریکی."
+      }
+    },
+    {
+      "de": "Prüfprotokoll",
+      "fa": "گزارش آزمون",
+      "definition": {
+        "de": "Dokumentation von Prüfbedingungen und Ergebnissen.",
+        "fa": "ثبت شرایط و نتایج آزمون."
+      }
+    },
+    {
+      "de": "Inbetriebnahme",
+      "fa": "راه‌اندازی",
+      "definition": {
+        "de": "Kontrollierter Übergang in den vorgesehenen Betrieb.",
+        "fa": "ورود کنترل‌شده به وضعیت کاری موردنظر."
+      }
+    },
+    {
+      "de": "Herstellerangabe",
+      "fa": "دستورالعمل سازنده",
+      "definition": {
+        "de": "Technische Information des Herstellers.",
+        "fa": "اطلاعات فنی سازنده."
+      }
+    },
+    {
+      "de": "Fehleranalyse",
+      "fa": "تحلیل خطا",
+      "definition": {
+        "de": "Systematisches Ermitteln möglicher Ursachen.",
+        "fa": "یافتن سیستماتیک علت‌های احتمالی."
+      }
+    },
+    {
+      "de": "Wartung",
+      "fa": "نگهداری",
+      "definition": {
+        "de": "Geplante Maßnahmen zur Erhaltung der Funktion.",
+        "fa": "اقدامات برنامه‌ریزی‌شده برای حفظ عملکرد."
+      }
+    },
+    {
+      "de": "Dokumentation",
+      "fa": "مستندسازی",
+      "definition": {
+        "de": "Nachvollziehbare Aufzeichnung von Arbeiten und Ergebnissen.",
+        "fa": "ثبت قابل پیگیری کارها و نتایج."
+      }
+    },
+    {
+      "de": "Randbedingung",
+      "fa": "شرط محدودکننده",
+      "definition": {
+        "de": "Technische oder organisatorische Vorgabe für eine Lösung.",
+        "fa": "شرط فنی یا سازمانی مؤثر بر راه‌حل."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "title": "Ausbildungsordnung Elektroniker/Elektronikerin (ElekAusbV)",
+      "url": "https://www.gesetze-im-internet.de/elekausbv_2021/"
+    },
+    {
+      "title": "DGUV – Elektrische Gefährdungen",
+      "url": "https://www.dguv.de/"
+    },
+    {
+      "title": "VDE – Normen und Sicherheit",
+      "url": "https://www.vde.com/"
+    }
+  ]
+}
