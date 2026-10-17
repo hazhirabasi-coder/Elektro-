@@ -42,36 +42,35 @@
       "checks": [
         {
           "q": {
-            "de": [
-              "Was ist eine typische Eigenschaft eines Bussystems?",
-              "ویژگی معمول سیستم باس چیست؟",
-              [
-                "Mehrere Geräte kommunizieren über ein gemeinsames Medium nach Regeln",
-                "Jedes Gerät benötigt immer ein eigenes Kabel direkt zur Zentrale",
-                "Es braucht keine Konfiguration"
-              ],
-              0,
-              "Die Kommunikation erfolgt nach einem definierten Protokoll.",
-              "ارتباط طبق پروتکل مشخص انجام می‌شود."
-            ],
-            "fa": [
-              "Wozu dient die Parametrierung?",
-              "پارامترگذاری چه کاربردی دارد؟",
-              [
-                "Gerätefunktionen und Zuordnungen konfigurieren",
-                "Die Schutzleiterprüfung ersetzen",
-                "Leitungen automatisch dimensionieren"
-              ],
-              0,
-              "Parameter legen Funktionen und Zuordnungen fest.",
-              "پارامترها عملکردها و تخصیص‌ها را مشخص می‌کنند."
-            ]
+            "de": "Was ist eine typische Eigenschaft eines Bussystems?",
+            "fa": "ویژگی معمول سیستم باس چیست؟"
           },
-          "why": {}
+          "options": [
+            "Mehrere Geräte kommunizieren über ein gemeinsames Medium nach Regeln",
+            "Jedes Gerät benötigt immer ein eigenes Kabel direkt zur Zentrale",
+            "Es braucht keine Konfiguration"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Die Kommunikation erfolgt nach einem definierten Protokoll.",
+            "fa": "ارتباط طبق پروتکل مشخص انجام می‌شود."
+          }
         },
         {
-          "q": {},
-          "why": {}
+          "q": {
+            "de": "Wozu dient die Parametrierung?",
+            "fa": "پارامترگذاری چه کاربردی دارد؟"
+          },
+          "options": [
+            "Gerätefunktionen und Zuordnungen konfigurieren",
+            "Die Schutzleiterprüfung ersetzen",
+            "Leitungen automatisch dimensionieren"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Parameter legen Funktionen und Zuordnungen fest.",
+            "fa": "پارامترها عملکردها و تخصیص‌ها را مشخص می‌کنند."
+          }
         }
       ]
     },
@@ -88,36 +87,35 @@
       "checks": [
         {
           "q": {
-            "de": [
-              "Welche Komponente verbindet mehrere Ethernet-Endgeräte im lokalen Netz?",
-              "کدام قطعه چند دستگاه اترنت را در شبکه محلی متصل می‌کند؟",
-              [
-                "Switch",
-                "RCD",
-                "Transformator als Standardlösung"
-              ],
-              0,
-              "Ein Switch leitet Ethernet-Frames im lokalen Netz weiter.",
-              "سوئیچ فریم‌های اترنت را در شبکه محلی هدایت می‌کند."
-            ],
-            "fa": [
-              "Was muss bei einer Türkommunikationsanlage zusätzlich bedacht werden?",
-              "در سیستم ارتباط در، علاوه بر اتصال چه چیزی باید در نظر گرفته شود؟",
-              [
-                "Zutrittsberechtigung und Datenschutz",
-                "Nur die Gehäusefarbe",
-                "Keine Funktionsprüfung"
-              ],
-              0,
-              "Zugangsschutz und Datenschutz sind Teil der Systemplanung.",
-              "کنترل دسترسی و حریم خصوصی بخشی از طراحی‌اند."
-            ]
+            "de": "Welche Komponente verbindet mehrere Ethernet-Endgeräte im lokalen Netz?",
+            "fa": "کدام قطعه چند دستگاه اترنت را در شبکه محلی متصل می‌کند؟"
           },
-          "why": {}
+          "options": [
+            "Switch",
+            "RCD",
+            "Transformator als Standardlösung"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Ein Switch leitet Ethernet-Frames im lokalen Netz weiter.",
+            "fa": "سوئیچ فریم‌های اترنت را در شبکه محلی هدایت می‌کند."
+          }
         },
         {
-          "q": {},
-          "why": {}
+          "q": {
+            "de": "Was muss bei einer Türkommunikationsanlage zusätzlich bedacht werden?",
+            "fa": "در سیستم ارتباط در، علاوه بر اتصال چه چیزی باید در نظر گرفته شود؟"
+          },
+          "options": [
+            "Zutrittsberechtigung und Datenschutz",
+            "Nur die Gehäusefarbe",
+            "Keine Funktionsprüfung"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Zugangsschutz und Datenschutz sind Teil der Systemplanung.",
+            "fa": "کنترل دسترسی و حریم خصوصی بخشی از طراحی‌اند."
+          }
         }
       ]
     },
@@ -134,36 +132,35 @@
       "checks": [
         {
           "q": {
-            "de": [
-              "Was gehört zu einer fachgerechten Übergabe?",
-              "تحویل حرفه‌ای شامل چیست؟",
-              [
-                "Funktionsprüfung, Dokumentation und Einweisung",
-                "Nur das Ausschalten der Baustellenbeleuchtung",
-                "Nur die Rechnung"
-              ],
-              0,
-              "Die Übergabe macht Funktion und Bedienung nachvollziehbar.",
-              "تحویل باید عملکرد و روش استفاده را روشن کند."
-            ],
-            "fa": [
-              "Warum müssen Netzwerkkonfigurationen dokumentiert werden?",
-              "چرا پیکربندی شبکه باید مستند شود؟",
-              [
-                "Damit Wartung und Fehlersuche nachvollziehbar bleiben",
-                "Damit Passwörter öffentlich werden",
-                "Damit Prüfungen entfallen"
-              ],
-              0,
-              "Dokumentation erleichtert Wartung, Änderungen und Fehlersuche.",
-              "مستندسازی نگهداری، تغییرات و عیب‌یابی را آسان می‌کند."
-            ]
+            "de": "Was gehört zu einer fachgerechten Übergabe?",
+            "fa": "تحویل حرفه‌ای شامل چیست؟"
           },
-          "why": {}
+          "options": [
+            "Funktionsprüfung, Dokumentation und Einweisung",
+            "Nur das Ausschalten der Baustellenbeleuchtung",
+            "Nur die Rechnung"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Die Übergabe macht Funktion und Bedienung nachvollziehbar.",
+            "fa": "تحویل باید عملکرد و روش استفاده را روشن کند."
+          }
         },
         {
-          "q": {},
-          "why": {}
+          "q": {
+            "de": "Warum müssen Netzwerkkonfigurationen dokumentiert werden?",
+            "fa": "چرا پیکربندی شبکه باید مستند شود؟"
+          },
+          "options": [
+            "Damit Wartung und Fehlersuche nachvollziehbar bleiben",
+            "Damit Passwörter öffentlich werden",
+            "Damit Prüfungen entfallen"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Dokumentation erleichtert Wartung, Änderungen und Fehlersuche.",
+            "fa": "مستندسازی نگهداری، تغییرات و عیب‌یابی را آسان می‌کند."
+          }
         }
       ]
     }
