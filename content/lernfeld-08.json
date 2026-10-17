@@ -42,36 +42,35 @@
       "checks": [
         {
           "q": {
-            "de": [
-              "Welche Einheit hat die Wirkleistung P?",
-              "واحد توان اکتیو P چیست؟",
-              [
-                "Watt (W)",
-                "var",
-                "VA ausschließlich"
-              ],
-              0,
-              "Wirkleistung wird in Watt angegeben.",
-              "توان اکتیو با وات بیان می‌شود."
-            ],
-            "fa": [
-              "Welche Größe beschreibt cos φ?",
-              "cos φ چه کمیتی را توصیف می‌کند؟",
-              [
-                "Leistungsfaktor im entsprechenden Wechselstrommodell",
-                "Leiterquerschnitt",
-                "Isolationswiderstand"
-              ],
-              0,
-              "cos φ hängt mit dem Verhältnis von Wirk- zu Scheinleistung zusammen.",
-              "cos φ با نسبت توان اکتیو به توان ظاهری ارتباط دارد."
-            ]
+            "de": "Welche Einheit hat die Wirkleistung P?",
+            "fa": "واحد توان اکتیو P چیست؟"
           },
-          "why": {}
+          "options": [
+            "Watt (W)",
+            "var",
+            "VA ausschließlich"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Wirkleistung wird in Watt angegeben.",
+            "fa": "توان اکتیو با وات بیان می‌شود."
+          }
         },
         {
-          "q": {},
-          "why": {}
+          "q": {
+            "de": "Welche Größe beschreibt cos φ?",
+            "fa": "cos φ چه کمیتی را توصیف می‌کند؟"
+          },
+          "options": [
+            "Leistungsfaktor im entsprechenden Wechselstrommodell",
+            "Leiterquerschnitt",
+            "Isolationswiderstand"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "cos φ hängt mit dem Verhältnis von Wirk- zu Scheinleistung zusammen.",
+            "fa": "cos φ با نسبت توان اکتیو به توان ظاهری ارتباط دارد."
+          }
         }
       ]
     },
@@ -88,36 +87,35 @@
       "checks": [
         {
           "q": {
-            "de": [
-              "Wozu dient ein Transformator typischerweise?",
-              "ترانسفورماتور معمولاً چه کاربردی دارد؟",
-              [
-                "Spannungsanpassung durch elektromagnetische Induktion",
-                "Mechanische Drehzahl direkt messen",
-                "Leitungen gegen Überlast schützen"
-              ],
-              0,
-              "Der Transformator überträgt Energie zwischen Wicklungen über ein magnetisches Feld.",
-              "ترانسفورماتور از طریق میدان مغناطیسی انرژی را بین سیم‌پیچ‌ها منتقل می‌کند."
-            ],
-            "fa": [
-              "Welche Angabe ist für die Motorauswahl wichtig?",
-              "کدام مشخصه برای انتخاب موتور مهم است؟",
-              [
-                "Typenschilddaten und Betriebsbedingungen",
-                "Nur die Gehäusefarbe",
-                "Nur das Herstellungsjahr"
-              ],
-              0,
-              "Leistungs-, Spannungs- und Betriebsdaten müssen zur Anwendung passen.",
-              "توان، ولتاژ و شرایط کاری باید با کاربرد متناسب باشند."
-            ]
+            "de": "Wozu dient ein Transformator typischerweise?",
+            "fa": "ترانسفورماتور معمولاً چه کاربردی دارد؟"
           },
-          "why": {}
+          "options": [
+            "Spannungsanpassung durch elektromagnetische Induktion",
+            "Mechanische Drehzahl direkt messen",
+            "Leitungen gegen Überlast schützen"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Der Transformator überträgt Energie zwischen Wicklungen über ein magnetisches Feld.",
+            "fa": "ترانسفورماتور از طریق میدان مغناطیسی انرژی را بین سیم‌پیچ‌ها منتقل می‌کند."
+          }
         },
         {
-          "q": {},
-          "why": {}
+          "q": {
+            "de": "Welche Angabe ist für die Motorauswahl wichtig?",
+            "fa": "کدام مشخصه برای انتخاب موتور مهم است؟"
+          },
+          "options": [
+            "Typenschilddaten und Betriebsbedingungen",
+            "Nur die Gehäusefarbe",
+            "Nur das Herstellungsjahr"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Leistungs-, Spannungs- und Betriebsdaten müssen zur Anwendung passen.",
+            "fa": "توان، ولتاژ و شرایط کاری باید با کاربرد متناسب باشند."
+          }
         }
       ]
     },
@@ -134,36 +132,35 @@
       "checks": [
         {
           "q": {
-            "de": [
-              "Welche Stromart liefert ein PV-Modul typischerweise?",
-              "پنل خورشیدی معمولاً چه نوع جریانی تولید می‌کند؟",
-              [
-                "Gleichstrom",
-                "Drehstrom direkt",
-                "Nur Blindstrom"
-              ],
-              0,
-              "PV-Zellen liefern Gleichstrom; der Wechselrichter übernimmt die Umwandlung.",
-              "سلول خورشیدی DC تولید می‌کند و اینورتر تبدیل را انجام می‌دهد."
-            ],
-            "fa": [
-              "Wie wird der Wirkungsgrad definiert?",
-              "بازده چگونه تعریف می‌شود؟",
-              [
-                "Nutzleistung / zugeführte Leistung",
-                "Spannung × Frequenz",
-                "Widerstand / Strom"
-              ],
-              0,
-              "Der Wirkungsgrad ist das Verhältnis von Nutz- zu zugeführter Leistung.",
-              "بازده نسبت توان مفید به توان ورودی است."
-            ]
+            "de": "Welche Stromart liefert ein PV-Modul typischerweise?",
+            "fa": "پنل خورشیدی معمولاً چه نوع جریانی تولید می‌کند؟"
           },
-          "why": {}
+          "options": [
+            "Gleichstrom",
+            "Drehstrom direkt",
+            "Nur Blindstrom"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "PV-Zellen liefern Gleichstrom; der Wechselrichter übernimmt die Umwandlung.",
+            "fa": "سلول خورشیدی DC تولید می‌کند و اینورتر تبدیل را انجام می‌دهد."
+          }
         },
         {
-          "q": {},
-          "why": {}
+          "q": {
+            "de": "Wie wird der Wirkungsgrad definiert?",
+            "fa": "بازده چگونه تعریف می‌شود؟"
+          },
+          "options": [
+            "Nutzleistung / zugeführte Leistung",
+            "Spannung × Frequenz",
+            "Widerstand / Strom"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Der Wirkungsgrad ist das Verhältnis von Nutz- zu zugeführter Leistung.",
+            "fa": "بازده نسبت توان مفید به توان ورودی است."
+          }
         }
       ]
     }
