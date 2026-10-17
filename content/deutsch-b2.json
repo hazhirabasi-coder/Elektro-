@@ -1,0 +1,423 @@
+{
+  "schemaVersion": 1,
+  "level": "B2",
+  "title": {
+    "de": "Deutsch B2 – systematischer Aufbau",
+    "fa": "آلمانی B2 ـ آموزش ساختاریافته"
+  },
+  "disclaimer": {
+    "de": "Eigenständiges Lernmaterial zur Vorbereitung. Es ist keine offizielle Goethe-/telc-Prüfung und ersetzt keine Bewertung durch eine Lehrkraft.",
+    "fa": "این محتوای آموزشی مستقل برای آمادگی است؛ آزمون رسمی گوته یا تلک نیست و جای ارزیابی معلم را نمی‌گیرد."
+  },
+  "modules": [
+    {
+      "id": "b2-argumentation",
+      "skill": "Schreiben · Argumentation",
+      "title": {
+        "de": "Argumentieren und abwägen",
+        "fa": "استدلال و بررسی دیدگاه‌های مختلف"
+      },
+      "goal": {
+        "de": "Eine Position begründen, Gegenargumente fair darstellen und zu einem klaren Schluss kommen.",
+        "fa": "از یک دیدگاه دفاع کن، نظر مخالف را منصفانه بیان کن و به نتیجه‌ای روشن برس."
+      },
+      "lesson": {
+        "de": "Ein überzeugender B2-Text besteht aus Einleitung, begründeter Position, Abwägung und Schluss. Behaupte nicht nur, sondern erkläre warum und gib ein konkretes Beispiel.",
+        "fa": "متن قانع‌کنندهٔ B2 شامل مقدمه، دیدگاه همراه با دلیل، بررسی دو طرف و نتیجه‌گیری است. فقط ادعا نکن؛ دلیل و مثال مشخص بیاور."
+      },
+      "example": {
+        "de": "Einerseits spart digitales Lernen Zeit, andererseits fehlt manchmal der direkte Austausch. Meiner Ansicht nach ist eine Kombination aus beiden Formen am sinnvollsten.",
+        "fa": "از یک سو یادگیری دیجیتال در زمان صرفه‌جویی می‌کند؛ از سوی دیگر گاهی ارتباط مستقیم کم است. به نظر من ترکیب هر دو روش منطقی‌تر است."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Welche Formulierung leitet eine ausgewogene Gegenüberstellung ein?",
+            "fa": "کدام عبارت مقایسهٔ متعادل دو دیدگاه را شروع می‌کند؟"
+          },
+          "options": [
+            "Einerseits … andererseits …",
+            "Weil … deshalb …",
+            "Obwohl … trotzdem …"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "„Einerseits … andererseits …“ stellt zwei Seiten eines Themas gegenüber.",
+            "fa": "عبارت «Einerseits … andererseits …» دو جنبهٔ یک موضوع را روبه‌روی هم قرار می‌دهد."
+          }
+        },
+        {
+          "q": {
+            "de": "Was macht ein Argument überzeugender?",
+            "fa": "چه چیزی یک استدلال را قانع‌کننده‌تر می‌کند؟"
+          },
+          "options": [
+            "Eine Behauptung ohne Erklärung",
+            "Begründung und konkretes Beispiel",
+            "Viele schwierige Wörter ohne Zusammenhang"
+          ],
+          "answer": 1,
+          "why": {
+            "de": "Eine klare Begründung und ein passendes Beispiel machen die Aussage nachvollziehbar.",
+            "fa": "دلیل روشن و مثال مرتبط، حرف را قابل‌فهم و قابل‌قبول می‌کند."
+          }
+        }
+      ]
+    },
+    {
+      "id": "b2-connectors",
+      "skill": "Grammatik · Konnektoren",
+      "title": {
+        "de": "Konnektoren und Satzbau",
+        "fa": "حروف ربط و ساختار جمله"
+      },
+      "goal": {
+        "de": "Nebensätze, Hauptsätze und Konnektoren sicher verbinden.",
+        "fa": "جمله‌های اصلی و وابسته را با حروف ربط درست به هم وصل کن."
+      },
+      "lesson": {
+        "de": "Bei „obwohl“, „während“, „sobald“ und „damit“ steht das konjugierte Verb im Nebensatz am Ende. „Deshalb“, „trotzdem“ und „daher“ stehen oft im Hauptsatz; danach folgt das Verb direkt.",
+        "fa": "با «obwohl»، «während»، «sobald» و «damit» فعل صرف‌شده در پایان جملهٔ وابسته می‌آید. با «deshalb»، «trotzdem» و «daher» معمولاً فعل بلافاصله پس از این واژه می‌آید."
+      },
+      "example": {
+        "de": "Obwohl die Messung ungewöhnlich war, überprüfte ich zuerst die Messleitungen. Die Werte waren trotzdem plausibel.",
+        "fa": "با اینکه اندازه‌گیری غیرعادی بود، ابتدا سیم‌های اندازه‌گیری را بررسی کردم. بااین‌حال مقادیر منطقی بودند."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Welche Wortstellung ist richtig?",
+            "fa": "کدام ترتیب کلمات درست است؟"
+          },
+          "options": [
+            "Obwohl ich war müde, arbeitete ich weiter.",
+            "Obwohl ich müde war, arbeitete ich weiter.",
+            "Obwohl müde ich war, arbeitete ich weiter."
+          ],
+          "answer": 1,
+          "why": {
+            "de": "Im Nebensatz mit „obwohl“ steht das finite Verb am Ende: „war“.",
+            "fa": "در جملهٔ وابسته با «obwohl»، فعل صرف‌شده در پایان می‌آید: «war»."
+          }
+        },
+        {
+          "q": {
+            "de": "Er war krank. ___ nahm er am Unterricht teil.",
+            "fa": "او بیمار بود. بااین‌حال در کلاس شرکت کرد."
+          },
+          "options": [
+            "Trotzdem",
+            "Obwohl",
+            "Damit"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "„Trotzdem“ verbindet hier zwei Hauptsätze; danach steht das Verb auf Position 2.",
+            "fa": "«Trotzdem» دو جملهٔ اصلی را وصل می‌کند؛ پس از آن فعل در جایگاه دوم می‌آید."
+          }
+        }
+      ]
+    },
+    {
+      "id": "b2-passive",
+      "skill": "Grammatik · Passiv",
+      "title": {
+        "de": "Passiv und Vorgänge beschreiben",
+        "fa": "مجهول و توضیح فرایندها"
+      },
+      "goal": {
+        "de": "Arbeitsabläufe sachlich und präzise im Passiv beschreiben.",
+        "fa": "مراحل کار را دقیق و بی‌طرفانه با ساختار مجهول توضیح بده."
+      },
+      "lesson": {
+        "de": "Vorgangspassiv: werden + Partizip II. Im Präteritum: wurde/wurden + Partizip II. Mit Modalverb: Modalverb + Partizip II + werden.",
+        "fa": "مجهول فرایندی: werden + قسمت سوم فعل. در گذشته: wurde/wurden + قسمت سوم فعل. با فعل وجهی: فعل وجهی + قسمت سوم فعل + werden."
+      },
+      "example": {
+        "de": "Die Anlage wird freigeschaltet. Danach wurde die Spannungsfreiheit festgestellt. Vor der Übergabe muss die Funktion geprüft werden.",
+        "fa": "تأسیسات بی‌برق می‌شود. سپس بی‌برقی بررسی شد. پیش از تحویل، عملکرد باید آزمایش شود."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Wie lautet das Passiv von „Der Techniker prüft die Anlage“?",
+            "fa": "مجهول جملهٔ «تکنسین تأسیسات را آزمایش می‌کند» چیست؟"
+          },
+          "options": [
+            "Die Anlage wird geprüft.",
+            "Die Anlage prüft den Techniker.",
+            "Die Anlage ist prüfen."
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Präsens Passiv: werden im Präsens + Partizip II („geprüft“).",
+            "fa": "مجهول زمان حال: werden در زمان حال + قسمت سوم فعل («geprüft»)."
+          }
+        },
+        {
+          "q": {
+            "de": "Welche Form ist korrekt?",
+            "fa": "کدام ساختار درست است؟"
+          },
+          "options": [
+            "Die Leitung muss geprüft werden.",
+            "Die Leitung muss werden geprüft.",
+            "Die Leitung wird müssen geprüft."
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Mit Modalverb steht am Satzende „Partizip II + werden“.",
+            "fa": "با فعل وجهی در پایان جمله «قسمت سوم فعل + werden» می‌آید."
+          }
+        }
+      ]
+    },
+    {
+      "id": "b2-reported",
+      "skill": "Grammatik · Indirekte Rede",
+      "title": {
+        "de": "Indirekte Fragen und höfliche Sprache",
+        "fa": "پرسش غیرمستقیم و زبان مؤدبانه"
+      },
+      "goal": {
+        "de": "Nachfragen, Unsicherheit ausdrücken und beruflich höflich kommunizieren.",
+        "fa": "در محیط کار مؤدبانه سؤال بپرس و عدم اطمینان را بیان کن."
+      },
+      "lesson": {
+        "de": "Indirekte Fragen beginnen oft mit „ob“ oder einem Fragewort. Das Verb steht im Nebensatz am Ende. Höfliche Bitten funktionieren mit „Könnten Sie …?“ oder „Wären Sie so freundlich, …?“",
+        "fa": "پرسش غیرمستقیم معمولاً با «ob» یا واژهٔ پرسشی شروع می‌شود و فعل در پایان می‌آید. درخواست مؤدبانه با «Könnten Sie …?» یا «Wären Sie so freundlich, …?» ساخته می‌شود."
+      },
+      "example": {
+        "de": "Könnten Sie mir bitte erklären, warum der Leitungsschutzschalter ausgelöst hat? Ich möchte außerdem wissen, ob die Messung dokumentiert wurde.",
+        "fa": "ممکن است لطفاً توضیح دهید چرا کلید مینیاتوری قطع کرده است؟ همچنین می‌خواهم بدانم آیا اندازه‌گیری ثبت شده است."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Welche indirekte Frage ist richtig?",
+            "fa": "کدام پرسش غیرمستقیم درست است؟"
+          },
+          "options": [
+            "Ich möchte wissen, ob die Anlage sicher ist.",
+            "Ich möchte wissen, ob ist die Anlage sicher.",
+            "Ich möchte wissen, ist ob die Anlage sicher."
+          ],
+          "answer": 0,
+          "why": {
+            "de": "Im indirekten Fragesatz steht das Verb am Ende: „… ob die Anlage sicher ist“.",
+            "fa": "در پرسش غیرمستقیم، فعل در پایان می‌آید: «… ob die Anlage sicher ist»."
+          }
+        },
+        {
+          "q": {
+            "de": "Welche Bitte klingt im beruflichen Kontext am höflichsten?",
+            "fa": "کدام درخواست در محیط کار مؤدبانه‌تر است؟"
+          },
+          "options": [
+            "Erklär das sofort!",
+            "Könnten Sie mir den Ablauf bitte erläutern?",
+            "Du musst mir das sagen."
+          ],
+          "answer": 1,
+          "why": {
+            "de": "Konjunktiv II mit „Könnten Sie … bitte?“ klingt höflich und professionell.",
+            "fa": "ساختار «Könnten Sie … bitte?» با کونیوکتیو ۲ مؤدبانه و حرفه‌ای است."
+          }
+        }
+      ]
+    },
+    {
+      "id": "b2-nominal",
+      "skill": "Grammatik · Nominalisierung",
+      "title": {
+        "de": "Nominalisierung und formeller Stil",
+        "fa": "اسمی‌سازی و سبک رسمی"
+      },
+      "goal": {
+        "de": "Formelle Texte kompakter und sachlicher formulieren.",
+        "fa": "متن رسمی را فشرده‌تر و دقیق‌تر بنویس."
+      },
+      "lesson": {
+        "de": "Formelle Sprache nutzt häufig Nomen: „weil die Anlage geprüft wurde“ → „nach der Prüfung der Anlage“. Achte auf Artikel, Kasus und Präpositionen; nicht jede Umformung ist in jedem Kontext gleich natürlich.",
+        "fa": "در زبان رسمی از اسم‌ها زیاد استفاده می‌شود: «چون تأسیسات آزمایش شد» ← «پس از آزمایش تأسیسات». به حرف تعریف، حالت دستوری و حرف اضافه دقت کن؛ هر تبدیل در هر بافتی طبیعی نیست."
+      },
+      "example": {
+        "de": "Nach der Durchführung der Messung wurden die Ergebnisse dokumentiert. Aufgrund einer beschädigten Leitung musste der Auftrag unterbrochen werden.",
+        "fa": "پس از انجام اندازه‌گیری، نتایج ثبت شدند. به دلیل کابل آسیب‌دیده، کار باید متوقف می‌شد."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Welche Formulierung klingt formell und korrekt?",
+            "fa": "کدام عبارت رسمی و درست است؟"
+          },
+          "options": [
+            "Nach die Prüfung wurde alles gut.",
+            "Nach der Prüfung wurden die Ergebnisse dokumentiert.",
+            "Nachdem der Prüfung, dokumentiert."
+          ],
+          "answer": 1,
+          "why": {
+            "de": "„Nach“ steht hier mit Dativ: „nach der Prüfung“.",
+            "fa": "«Nach» در این کاربرد با حالت داتیو می‌آید: «nach der Prüfung»."
+          }
+        },
+        {
+          "q": {
+            "de": "Was bedeutet „aufgrund einer Beschädigung“?",
+            "fa": "«aufgrund einer Beschädigung» یعنی چه؟"
+          },
+          "options": [
+            "به دلیل یک آسیب",
+            "با وجود یک آسیب",
+            "بعد از تعمیر"
+          ],
+          "answer": 0,
+          "why": {
+            "de": "„Aufgrund“ bedeutet „wegen“ und steht standardsprachlich mit Genitiv.",
+            "fa": "«Aufgrund» به معنی «به دلیل» است و در زبان معیار با حالت گنیتیو می‌آید."
+          }
+        }
+      ]
+    },
+    {
+      "id": "b2-work",
+      "skill": "Beruf · Fachgespräch",
+      "title": {
+        "de": "Begründen, erklären, Ergebnisse präsentieren",
+        "fa": "دلیل‌آوردن، توضیح و ارائهٔ نتیجه"
+      },
+      "goal": {
+        "de": "Eine technische Entscheidung begründen und Messergebnisse strukturiert erklären.",
+        "fa": "تصمیم فنی را توجیه کن و نتایج اندازه‌گیری را منظم توضیح بده."
+      },
+      "lesson": {
+        "de": "Strukturiere eine Erklärung: Ausgangslage → Vorgehen → Begründung → Ergebnis → Empfehlung. Trenne Beobachtung und Vermutung. Verwende präzise Verben wie überprüfen, eingrenzen, nachweisen, dokumentieren und beurteilen.",
+        "fa": "توضیح را این‌طور مرتب کن: وضعیت اولیه ← روش کار ← دلیل ← نتیجه ← پیشنهاد. مشاهده را از حدس جدا کن. از فعل‌های دقیق مثل بررسی‌کردن، محدودکردن محدودهٔ خطا، اثبات، مستندسازی و ارزیابی استفاده کن."
+      },
+      "example": {
+        "de": "Zunächst habe ich den Stromkreis anhand der Unterlagen eingegrenzt. Anschließend wurden die erforderlichen Prüfungen durchgeführt. Die Messwerte lagen im erwarteten Bereich; deshalb konnte ich die Ergebnisse dokumentieren und den nächsten Arbeitsschritt empfehlen.",
+        "fa": "ابتدا محدودهٔ مدار را با توجه به مستندات مشخص کردم. سپس آزمون‌های لازم انجام شدند. مقادیر اندازه‌گیری در محدودهٔ مورد انتظار بودند؛ بنابراین توانستم نتایج را ثبت و مرحلهٔ بعدی کار را پیشنهاد کنم."
+      },
+      "checks": [
+        {
+          "q": {
+            "de": "Welche Struktur eignet sich für eine technische Erklärung?",
+            "fa": "کدام ساختار برای توضیح فنی مناسب است؟"
+          },
+          "options": [
+            "Ergebnis zuerst ohne Kontext, dann Vermutungen",
+            "Ausgangslage, Vorgehen, Begründung, Ergebnis",
+            "Nur Fachwörter auflisten"
+          ],
+          "answer": 1,
+          "why": {
+            "de": "Die Struktur macht die Entscheidung nachvollziehbar und trennt Schritte und Ergebnis.",
+            "fa": "این ساختار تصمیم را قابل‌پیگیری می‌کند و مراحل را از نتیجه جدا نگه می‌دارد."
+          }
+        },
+        {
+          "q": {
+            "de": "Welche Aussage trennt Beobachtung und Vermutung am klarsten?",
+            "fa": "کدام جمله مشاهده را از حدس بهتر جدا می‌کند؟"
+          },
+          "options": [
+            "Der RCD ist sicher kaputt.",
+            "Der RCD hat ausgelöst; die Ursache muss noch geprüft werden.",
+            "Irgendwas stimmt nicht."
+          ],
+          "answer": 1,
+          "why": {
+            "de": "Die Auslösung ist eine Beobachtung; die Ursache wird erst nach Prüfung bewertet.",
+            "fa": "قطع‌کردن مشاهده است؛ علت فقط پس از بررسی ارزیابی می‌شود."
+          }
+        }
+      ]
+    }
+  ],
+  "examTasks": [
+    {
+      "type": "Schreiben",
+      "title": {
+        "de": "Stellungnahme",
+        "fa": "بیان دیدگاه"
+      },
+      "prompt": {
+        "de": "Schreibe 150–180 Wörter zum Thema: „Sollte die Berufsschule mehr digitale Lernmaterialien einsetzen?“ Nenne Vorteile, Nachteile und eine begründete Schlussfolgerung.",
+        "fa": "در ۱۵۰ تا ۱۸۰ کلمه دربارهٔ این موضوع بنویس: «آیا مدرسهٔ فنی باید از مطالب آموزشی دیجیتال بیشتری استفاده کند؟» مزایا، معایب و نتیجه‌ای همراه با دلیل بیاور."
+      },
+      "criteria": [
+        {
+          "de": "Klare Einleitung und erkennbare Position",
+          "fa": "مقدمهٔ روشن و دیدگاه مشخص"
+        },
+        {
+          "de": "Mindestens zwei begründete Argumente und ein Gegenargument",
+          "fa": "حداقل دو استدلال همراه با دلیل و یک نظر مخالف"
+        },
+        {
+          "de": "Konnektoren und passende Satzstellung",
+          "fa": "حروف ربط و ترتیب درست جمله"
+        },
+        {
+          "de": "Schlussfolgerung, Rechtschreibung und Register",
+          "fa": "نتیجه‌گیری، املاء و لحن مناسب"
+        }
+      ]
+    },
+    {
+      "type": "Sprechen",
+      "title": {
+        "de": "Kurzvortrag und Rückfragen",
+        "fa": "ارائهٔ کوتاه و پرسش‌های تکمیلی"
+      },
+      "prompt": {
+        "de": "Sprich 2 Minuten: Beschreibe ein Problem im Arbeitsablauf, erkläre zwei mögliche Lösungen, begründe deine Entscheidung und beantworte anschließend eine kritische Rückfrage.",
+        "fa": "دو دقیقه صحبت کن: مشکلی در روند کار را شرح بده، دو راه‌حل ممکن را توضیح بده، انتخابت را توجیه کن و سپس به یک پرسش انتقادی پاسخ بده."
+      },
+      "criteria": [
+        {
+          "de": "Strukturierter Einstieg und roter Faden",
+          "fa": "شروع منظم و انسجام مطلب"
+        },
+        {
+          "de": "Begründungen und konkrete Beispiele",
+          "fa": "دلیل و مثال مشخص"
+        },
+        {
+          "de": "Flüssigkeit, Wortschatz und grammatische Kontrolle",
+          "fa": "روانی، واژگان و کنترل گرامر"
+        },
+        {
+          "de": "Auf Rückfragen eingehen",
+          "fa": "پاسخ‌دادن به پرسش‌های تکمیلی"
+        }
+      ]
+    },
+    {
+      "type": "Lesen",
+      "title": {
+        "de": "Leseverstehen mit Begründung",
+        "fa": "درک مطلب همراه با دلیل"
+      },
+      "prompt": {
+        "de": "Lies die sechs Lernmodule. Wähle danach eine Aussage aus jedem Modul und erkläre in eigenen Worten, warum sie richtig ist. Markiere außerdem zwei Fachbegriffe, die du aktiv verwenden kannst.",
+        "fa": "شش درس را بخوان. سپس از هر درس یک گزاره انتخاب کن و با کلمات خودت توضیح بده چرا درست است. همچنین دو اصطلاح تخصصی را که می‌توانی فعالانه به کار ببری مشخص کن."
+      },
+      "criteria": [
+        {
+          "de": "Kernaussage korrekt wiedergeben",
+          "fa": "بیان درست نکتهٔ اصلی"
+        },
+        {
+          "de": "Antwort mit Textbezug begründen",
+          "fa": "دلیل‌آوردن با اتکا به متن"
+        },
+        {
+          "de": "Fachwortschatz sinnvoll einsetzen",
+          "fa": "استفادهٔ مناسب از واژگان تخصصی"
+        }
+      ]
+    }
+  ]
+}
