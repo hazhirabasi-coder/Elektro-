@@ -145,6 +145,36 @@ input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-vis
 @media(max-width:600px){.lab-drag-stage{border-radius:10px}.lab-drag-intro b{font-size:14px}}
 
 .lab-howto{border:2px solid #8bb7df;border-radius:16px;padding:16px;margin:16px 0;background:var(--card-bg,#f8fbff)}.lab-howto h3{margin-top:0}.lab-howto-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.lab-howto-grid article{position:relative;border:1px solid #cbd5e1;border-radius:12px;padding:12px 12px 8px 48px;background:rgba(255,255,255,.78)}.lab-step{position:absolute;left:12px;top:12px;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:#1769aa;color:#fff;font-weight:800}.red-step{background:#d62929}.black-step{background:#222}.lab-word-red{color:#c81e1e;font-weight:800}.lab-word-black{color:#111;font-weight:800}.lab-tip-note{margin:12px 0;padding:12px;border-radius:10px;background:#fff3cd;color:#493b10}.lab-drag-intro{padding:10px;border-radius:12px;background:#eaf4ff;border:1px solid #8bb7df}.lab-drag-intro b{font-size:1.05rem}.lab-drag-tip{stroke-width:6;cursor:grab;touch-action:none;filter:drop-shadow(0 0 4px #fff) drop-shadow(0 2px 3px #475569)}.lab-drag-tip:focus{stroke:#00a6ff;stroke-width:9}@media(max-width:620px){.lab-howto-grid{grid-template-columns:1fr}.lab-howto{padding:10px}.lab-howto-grid article{padding-left:46px}}
+
+/* Expanded Fluke installation tester training dashboard */
+.lab-drag-stage{max-width:1320px;width:100%;margin:0 auto 22px;border:2px solid #cbd5e1;box-shadow:0 10px 28px rgba(15,39,67,.12)}
+.lab-equipment-overview{margin:24px 0;padding:20px;border-radius:20px;background:linear-gradient(145deg,#102a43,#183e5c);color:#f8fafc;box-shadow:0 12px 28px rgba(15,39,67,.18)}
+.lab-equipment-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:16px}
+.lab-equipment-heading h3{margin:3px 0 2px;font-size:clamp(20px,3vw,28px);color:#fff}
+.lab-equipment-heading p{margin:0;color:#d4e4f3}
+.lab-eyebrow{font-size:11px;letter-spacing:.12em;font-weight:800;color:#fbbf24}
+.lab-sim-badge{flex-shrink:0;border:1px solid #fbbf24;background:#fbbf2420;color:#fde68a;border-radius:999px;padding:5px 10px;font-size:11px;font-weight:800}
+.lab-equipment-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.lab-equipment-card{min-width:0;display:flex;flex-direction:column;gap:4px;padding:13px;border-radius:13px;background:#f8fafc;color:#172337;border:1px solid #cbd5e1;box-shadow:0 3px 0 #9aaec1}
+.lab-card-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:5px}
+.lab-part-icon{height:38px;min-width:42px;padding:0 7px;display:inline-flex;align-items:center;justify-content:center;border-radius:9px;background:#e2e8f0;color:#123b70;font-weight:900;font-size:15px}
+.lab-part-tag{font-size:10px;font-weight:900;color:#475569;background:#e8eef5;padding:4px 7px;border-radius:6px}
+.lab-equipment-card>b{font-size:14px;line-height:1.25}
+.lab-equipment-card .fa{font-size:13px;color:#24588a;font-weight:700}
+.lab-equipment-card small{font-size:11px;line-height:1.45;color:#64748b;margin-top:3px}
+.lab-socket-card{align-items:flex-start}
+.lab-outlet{width:64px;height:56px;border:3px solid #94a3b8;border-radius:12px;margin:0 0 7px;display:flex;align-items:center;justify-content:center;gap:7px;position:relative;box-shadow:inset 0 0 0 4px #e2e8f0}
+.lab-outlet.schuko{background:#fff;color:#334155}
+.lab-outlet.schuko span{width:6px;height:13px;border-radius:5px;background:#334155}
+.lab-outlet.schuko i{position:absolute;bottom:2px;font-style:normal;font-size:10px}
+.lab-outlet.cee-red,.lab-outlet.cee-blue{border-radius:50%;width:58px;height:58px;flex-direction:column;gap:0;color:white;border:4px solid #e2e8f0;font-size:10px;font-weight:900}
+.lab-outlet.cee-red{background:#d62828;box-shadow:0 0 0 2px #b91c1c}
+.lab-outlet.cee-blue{background:#1674c8;box-shadow:0 0 0 2px #145da0}
+.lab-outlet.cee-red i,.lab-outlet.cee-blue i{font-style:normal;font-size:9px}
+.lab-equipment-note{margin:16px 0 0;padding:12px 14px;border-left:4px solid #fbbf24;background:#ffffff12;border-radius:7px;color:#dce9f5;font-size:12px;line-height:1.6}
+@media(max-width:900px){.lab-equipment-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.lab-equipment-overview{padding:15px}}
+@media(max-width:600px){.lab-equipment-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.lab-equipment-card{padding:10px}.lab-equipment-card>b{font-size:13px}.lab-equipment-card small{font-size:10px}.lab-equipment-heading{flex-direction:column}.lab-drag-stage{max-width:none}}
+
 </style>
 </head>
 <body>
@@ -784,6 +814,24 @@ input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-vis
     <text x="650" y="415" text-anchor="middle" font-size="12" fill="#334155">Tippen & ziehen / لمس و جابه‌جا کن</text>
    </svg>
   </div>
+  <section class="lab-equipment-overview" aria-labelledby="labEquipmentTitle">
+   <div class="lab-equipment-heading"><div><span class="lab-eyebrow">MESSPLATZ · INSTALLATIONSTECHNIK</span><h3 id="labEquipmentTitle">Komplette Übungstafel / تابلو آموزشی کامل</h3><p>Bauteile ansehen und typische Prüfaufgaben üben · قطعات را ببین و آزمون‌های متداول را تمرین کن</p></div><span class="lab-sim-badge">SIMULATION</span></div>
+   <div class="lab-equipment-grid">
+    <article class="lab-equipment-card"><div class="lab-card-top"><span class="lab-part-icon">⏻</span><span class="lab-part-tag">Q0</span></div><b>Hauptschalter</b><span class="fa">کلید اصلی</span><small>2-polig / 4-polig · Trennen der Anlage</small></article>
+    <article class="lab-equipment-card"><div class="lab-card-top"><span class="lab-part-icon">⚡</span><span class="lab-part-tag">SPD</span></div><b>Überspannungsschutz</b><span class="fa">محافظ اضافه‌ولتاژ</span><small>Typ 1 · Typ 2 · Typ 3</small></article>
+    <article class="lab-equipment-card"><div class="lab-card-top"><span class="lab-part-icon">FI</span><span class="lab-part-tag">30 mA</span></div><b>RCD / FI</b><span class="fa">محافظ جان</span><small>Typ AC · A · F · B</small></article>
+    <article class="lab-equipment-card"><div class="lab-card-top"><span class="lab-part-icon">B16</span><span class="lab-part-tag">LS</span></div><b>Leitungsschutzschalter</b><span class="fa">فیوز مینیاتوری</span><small>B6 · B10 · B16 · C16 · C20 · C32</small></article>
+    <article class="lab-equipment-card"><div class="lab-card-top"><span class="lab-part-icon">RC</span><span class="lab-part-tag">RCBO</span></div><b>FI/LS-Kombination</b><span class="fa">فیوز ترکیبی محافظ جان</span><small>Überstrom- und Fehlerstromschutz</small></article>
+    <article class="lab-equipment-card"><div class="lab-card-top"><span class="lab-part-icon">AF</span><span class="lab-part-tag">AFDD</span></div><b>Brandschutzschalter</b><span class="fa">محافظ خطای قوس الکتریکی</span><small>Ergänzender Schutz gegen Fehlerlichtbögen</small></article>
+    <article class="lab-equipment-card lab-socket-card"><div class="lab-outlet schuko"><span>●</span><span>●</span><i>⏚</i></div><b>Schuko-Steckdose</b><span class="fa">پریز معمولی 230 V</span><small>L · N · PE prüfen</small></article>
+    <article class="lab-equipment-card lab-socket-card"><div class="lab-outlet cee-red"><span>CEE</span><i>16 A</i></div><b>CEE rot</b><span class="fa">پریز صنعتی سه‌فاز</span><small>400 V · 5-polig · 16/32/63 A</small></article>
+    <article class="lab-equipment-card lab-socket-card"><div class="lab-outlet cee-blue"><span>CEE</span><i>16 A</i></div><b>CEE blau</b><span class="fa">پریز صنعتی تک‌فاز</span><small>230 V · 3-polig</small></article>
+    <article class="lab-equipment-card"><div class="lab-card-top"><span class="lab-part-icon">L1</span><span class="lab-part-tag">N / PE</span></div><b>Verteilerklemmen</b><span class="fa">ترمینال‌های تابلو</span><small>L1 · L2 · L3 · N · PE</small></article>
+    <article class="lab-equipment-card"><div class="lab-card-top"><span class="lab-part-icon">M</span><span class="lab-part-tag">3~</span></div><b>Drehstrommotor</b><span class="fa">موتور سه‌فاز</span><small>Drehfeld · Phasenfolge · Schutzleiter</small></article>
+    <article class="lab-equipment-card"><div class="lab-card-top"><span class="lab-part-icon">💡</span><span class="lab-part-tag">Licht</span></div><b>Beleuchtung & Schalter</b><span class="fa">روشنایی و کلید</span><small>Schaltfunktion · Durchgängigkeit · PE</small></article>
+   </div>
+   <p class="lab-equipment-note">Hinweis: Die dargestellten Geräte und Werte dienen nur zum Lernen. Auswahl, Bemessung und Prüfung richten sich nach Anlage, Herstellerangaben und den geltenden DIN-VDE-Regeln. / توجه: این تجهیزات و مقادیر فقط آموزشی هستند؛ انتخاب و آزمون واقعی باید طبق مشخصات مدار، دستورالعمل سازنده و مقررات معتبر انجام شود.</p>
+  </section>
   <div class="lab-board">
    <div class="lab-rail"><b>HAUPTSCHALTER</b><span>Q0</span><span class="lab-toggle" id="labMainState">EIN</span></div>
    <div class="lab-rail"><b>RCD / FI</b><span>F1 · 30 mA (Beispiel)</span><button id="labRcdToggle" class="secondary" type="button">RCD EIN/AUS</button><span id="labRcdState" class="lab-toggle">EIN</span></div>
