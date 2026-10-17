@@ -1,0 +1,433 @@
+{
+  "schemaVersion": 1,
+  "title": {
+    "de": "B2 Lesen und Sprechen – Alltag und Beruf",
+    "fa": "خواندن و مکالمه B2 ـ زندگی روزمره و محیط کار"
+  },
+  "note": {
+    "de": "Lies zuerst ohne Übersetzung. Markiere unbekannte Wörter, fasse den Text mit eigenen Worten zusammen und sprich anschließend laut. Die persische Übersetzung ist eine Hilfe, kein Ersatz für das Lesen auf Deutsch.",
+    "fa": "اول بدون ترجمه بخوان. واژه‌های ناآشنا را مشخص کن، متن را با کلمات خودت خلاصه کن و بعد با صدای بلند صحبت کن. ترجمه فارسی کمک‌کننده است، اما جای خواندن آلمانی را نمی‌گیرد."
+  },
+  "readings": [
+    {
+      "id": "r1",
+      "title": {
+        "de": "Eine neue Aufgabe im Betrieb",
+        "fa": "یک وظیفهٔ جدید در محل کار"
+      },
+      "level": "B2",
+      "text": "Als Amir von seinem Ausbilder den Auftrag bekam, eine Beleuchtungsanlage zu überprüfen, war er zunächst unsicher. Er kannte die einzelnen Bauteile, hatte aber noch wenig Erfahrung mit der systematischen Fehlersuche. Statt sofort etwas auszutauschen, fragte er nach dem bisherigen Fehlerbild und las die vorhandene Dokumentation. Danach besprach er mit seinem Ausbilder, welche Prüfungen unter den geltenden Sicherheitsregeln durchgeführt werden durften. Schritt für Schritt grenzten sie die mögliche Ursache ein. Am Ende stellte sich heraus, dass nicht die Leuchte selbst, sondern eine lose Verbindung das Problem verursacht hatte. Amir dokumentierte die Ergebnisse und erklärte dem Kunden in verständlicher Sprache, was gefunden und behoben worden war. Aus der Aufgabe nahm er mit, dass fachliches Wissen wichtig ist, sorgfältiges Vorgehen und klare Kommunikation aber genauso entscheidend sind.",
+      "translation": "وقتی امیر از مربی‌اش مأموریت گرفت سیستم روشنایی را بررسی کند، ابتدا مطمئن نبود. قطعات را می‌شناخت، اما هنوز تجربهٔ زیادی در عیب‌یابی منظم نداشت. به‌جای تعویض فوری قطعه‌ای، دربارهٔ نشانه‌های خطای قبلی پرسید و مستندات موجود را خواند. سپس با مربی‌اش بررسی کرد که طبق مقررات ایمنی چه آزمایش‌هایی مجاز است. آن‌ها قدم‌به‌قدم علت احتمالی را محدود کردند. در پایان مشخص شد مشکل از خود چراغ نیست، بلکه یک اتصال شل باعث آن شده است. امیر نتایج را ثبت کرد و به زبان قابل‌فهم برای مشتری توضیح داد چه چیزی پیدا و برطرف شده است. او آموخت که دانش فنی مهم است، اما روش دقیق و ارتباط روشن نیز به همان اندازه اهمیت دارد.",
+      "vocab": [
+        [
+          "zunächst",
+          "در ابتدا"
+        ],
+        [
+          "die Fehlersuche",
+          "عیب‌یابی"
+        ],
+        [
+          "etwas eingrenzen",
+          "محدودهٔ احتمالات را محدود کردن"
+        ],
+        [
+          "die Verbindung",
+          "اتصال"
+        ],
+        [
+          "etwas beheben",
+          "برطرف کردن"
+        ],
+        [
+          "entscheidend",
+          "تعیین‌کننده"
+        ]
+      ],
+      "prompts": [
+        "Warum tauschte Amir nicht sofort ein Bauteil aus?",
+        "Welche Schritte halfen ihm, die Ursache zu finden?",
+        "Fasse den Text in drei bis vier eigenen Sätzen zusammen."
+      ],
+      "promptsFa": [
+        "چرا امیر فوراً قطعه‌ای را عوض نکرد؟",
+        "چه مراحلی به او کمک کرد علت را پیدا کند؟",
+        "متن را در سه یا چهار جمله با زبان خودت خلاصه کن."
+      ]
+    },
+    {
+      "id": "r2",
+      "title": {
+        "de": "Digitale Medien beim Lernen",
+        "fa": "رسانه‌های دیجیتال در یادگیری"
+      },
+      "level": "B2",
+      "text": "Digitale Lernangebote können den Alltag von Auszubildenden erleichtern. Wer eine Aufgabe nicht sofort versteht, kann ein Erklärvideo erneut ansehen oder einen Begriff nachschlagen. Außerdem lassen sich kurze Übungen auch unterwegs erledigen. Trotzdem führt der Zugang zu vielen Informationen nicht automatisch zu besseren Ergebnissen. Wer ständig zwischen Apps wechselt, verliert leicht die Konzentration. Sinnvoll ist deshalb ein klarer Lernplan mit kleinen, erreichbaren Zielen. Besonders hilfreich ist es, neue Inhalte aktiv zu verwenden: Man kann einen Ablauf laut erklären, eine Zusammenfassung schreiben oder einer anderen Person eine Frage stellen. Digitale Medien sind also kein Ersatz für eigenes Denken und regelmäßiges Üben. Richtig eingesetzt, bieten sie jedoch zusätzliche Möglichkeiten, selbstständiger zu lernen und den eigenen Fortschritt sichtbar zu machen.",
+      "translation": "ابزارهای آموزشی دیجیتال می‌توانند زندگی روزمرهٔ کارآموزان را آسان‌تر کنند. اگر کسی مطلبی را فوراً نفهمد، می‌تواند ویدیوی توضیحی را دوباره ببیند یا معنی اصطلاحی را جست‌وجو کند. همچنین می‌توان تمرین‌های کوتاه را در مسیر انجام داد. بااین‌حال، دسترسی به اطلاعات زیاد خودبه‌خود به نتیجهٔ بهتر منجر نمی‌شود. کسی که مرتب بین برنامه‌ها جابه‌جا می‌شود، به‌راحتی تمرکز خود را از دست می‌دهد. بنابراین برنامه‌ای روشن با هدف‌های کوچک و قابل‌دستیابی مفید است. به‌ویژه استفادهٔ فعال از مطالب جدید کمک می‌کند: می‌توان روندی را با صدای بلند توضیح داد، خلاصه نوشت یا از شخص دیگری سؤال کرد. رسانه‌های دیجیتال جایگزین فکرکردن و تمرین منظم نیستند؛ اما اگر درست استفاده شوند، امکان یادگیری مستقل‌تر و مشاهدهٔ پیشرفت را فراهم می‌کنند.",
+      "vocab": [
+        [
+          "der Lernplan",
+          "برنامهٔ یادگیری"
+        ],
+        [
+          "erreichbar",
+          "قابل‌دستیابی"
+        ],
+        [
+          "die Konzentration",
+          "تمرکز"
+        ],
+        [
+          "etwas nachschlagen",
+          "معنی یا اطلاعات را جست‌وجو کردن"
+        ],
+        [
+          "selbstständig",
+          "مستقل"
+        ],
+        [
+          "der Fortschritt",
+          "پیشرفت"
+        ]
+      ],
+      "prompts": [
+        "Welche Vorteile digitaler Lernangebote nennt der Text?",
+        "Warum können zu viele Apps problematisch sein?",
+        "Welche Lernmethode würdest du selbst ausprobieren und warum?"
+      ],
+      "promptsFa": [
+        "متن چه مزایایی برای آموزش دیجیتال بیان می‌کند؟",
+        "چرا استفاده از برنامه‌های زیاد می‌تواند مشکل‌ساز باشد؟",
+        "کدام روش یادگیری را خودت امتحان می‌کنی و چرا؟"
+      ]
+    },
+    {
+      "id": "r3",
+      "title": {
+        "de": "Missverständnisse im Team vermeiden",
+        "fa": "جلوگیری از سوءتفاهم در تیم"
+      },
+      "level": "B2",
+      "text": "In einem Arbeitsteam entstehen Missverständnisse häufig nicht, weil jemand absichtlich unhöflich ist, sondern weil Erwartungen unausgesprochen bleiben. Eine kurze Anweisung kann für eine erfahrene Fachkraft eindeutig sein, während eine neue Person wichtige Details nicht kennt. Deshalb ist es sinnvoll, bei unklaren Aufträgen gezielt nachzufragen. Statt zu sagen: „Ich habe das nicht verstanden“, kann man präzisieren: „Könnten Sie bitte erklären, welcher Stromkreis gemeint ist und wo ich die Angaben finde?“ Ebenso wichtig ist es, Absprachen kurz zusammenzufassen, bevor man mit der Arbeit beginnt. Dadurch lassen sich Fehler vermeiden und alle Beteiligten wissen, wer für welchen Schritt verantwortlich ist. Gute Kommunikation bedeutet nicht, alles bereits zu wissen. Sie bedeutet, aufmerksam zuzuhören, respektvoll nachzufragen und Unsicherheiten rechtzeitig anzusprechen.",
+      "translation": "سوءتفاهم در یک تیم کاری اغلب به این دلیل رخ می‌دهد که انتظارها گفته نمی‌شوند، نه اینکه کسی عمداً بی‌ادب باشد. یک دستور کوتاه ممکن است برای متخصص باتجربه روشن باشد، اما فرد تازه‌کار جزئیات مهمی را نداند. بنابراین بهتر است دربارهٔ وظایف نامشخص دقیق سؤال کنیم. به‌جای اینکه بگوییم «متوجه نشدم»، می‌توان پرسید: «ممکن است توضیح دهید منظور کدام مدار است و اطلاعات را کجا پیدا کنم؟» همچنین مهم است پیش از شروع کار، توافق‌ها را کوتاه مرور کنیم. به این ترتیب خطاها کمتر می‌شوند و همه می‌دانند مسئول هر مرحله چه کسی است. ارتباط خوب به معنای دانستن همه‌چیز نیست؛ یعنی با دقت گوش بدهیم، محترمانه سؤال کنیم و ابهام‌ها را به‌موقع مطرح کنیم.",
+      "vocab": [
+        [
+          "unausgesprochen",
+          "ناگفته"
+        ],
+        [
+          "eindeutig",
+          "روشن و بدون ابهام"
+        ],
+        [
+          "gezielt nachfragen",
+          "دقیق و هدفمند سؤال کردن"
+        ],
+        [
+          "die Absprache",
+          "توافق"
+        ],
+        [
+          "Beteiligte",
+          "افراد درگیر"
+        ],
+        [
+          "rechtzeitig",
+          "به‌موقع"
+        ]
+      ],
+      "prompts": [
+        "Wie entstehen laut Text Missverständnisse?",
+        "Formuliere eine höfliche Rückfrage zu einem unklaren Arbeitsauftrag.",
+        "Erzähle von einer Situation, in der Nachfragen hilfreich war."
+      ],
+      "promptsFa": [
+        "طبق متن سوءتفاهم‌ها چگونه به وجود می‌آیند؟",
+        "برای یک دستور کاری نامشخص، پرسشی مؤدبانه بساز.",
+        "از موقعیتی بگو که سؤال‌کردن در آن مفید بوده است."
+      ]
+    },
+    {
+      "id": "r4",
+      "title": {
+        "de": "Wohnen, Energie und Verantwortung",
+        "fa": "مسکن، انرژی و مسئولیت‌پذیری"
+      },
+      "level": "B2",
+      "text": "Steigende Energiekosten führen dazu, dass viele Haushalte ihren Verbrauch genauer beobachten. Oft helfen bereits einfache Maßnahmen: Räume müssen nicht dauerhaft stark beheizt werden, Geräte sollten nicht unnötig im Stand-by bleiben, und regelmäßiges Lüften ist besser als dauerhaft gekippte Fenster. Allerdings hängt der tatsächliche Energiebedarf auch vom Gebäude, von der Heizungsanlage und von der Zahl der Bewohner ab. Deshalb sollte man pauschale Ratschläge kritisch betrachten. Wer eine größere Veränderung plant, etwa den Austausch einer Heizung oder die Installation einer Photovoltaikanlage, sollte Kosten, technische Voraussetzungen und langfristigen Nutzen vergleichen. Wichtig ist außerdem, Angebote und Abrechnungen genau zu lesen und bei Unklarheiten nachzufragen. Energiesparen ist nicht nur eine Frage des Geldes; es verbindet persönliche Entscheidungen mit dem verantwortungsvollen Umgang mit Ressourcen.",
+      "translation": "افزایش هزینه‌های انرژی باعث شده بسیاری از خانواده‌ها مصرف خود را دقیق‌تر بررسی کنند. گاهی اقدامات ساده کمک می‌کنند: لازم نیست اتاق‌ها همیشه خیلی گرم باشند، دستگاه‌ها نباید بی‌دلیل در حالت آماده‌به‌کار بمانند و تهویهٔ کوتاه و منظم بهتر از بازگذاشتن طولانی پنجره در حالت کج است. بااین‌حال، نیاز واقعی انرژی به ساختمان، سیستم گرمایش و تعداد ساکنان نیز بستگی دارد. بنابراین توصیه‌های کلی را باید با دید انتقادی بررسی کرد. کسی که تغییر بزرگی مانند تعویض سیستم گرمایش یا نصب سامانهٔ خورشیدی را برنامه‌ریزی می‌کند، باید هزینه، شرایط فنی و سود بلندمدت را مقایسه کند. همچنین لازم است پیشنهادها و صورتحساب‌ها را دقیق بخواند و دربارهٔ موارد نامشخص سؤال کند. صرفه‌جویی انرژی فقط مسئلهٔ پول نیست؛ بلکه تصمیم‌های فردی را به استفادهٔ مسئولانه از منابع پیوند می‌دهد.",
+      "vocab": [
+        [
+          "der Verbrauch",
+          "مصرف"
+        ],
+        [
+          "im Stand-by bleiben",
+          "در حالت آماده‌به‌کار ماندن"
+        ],
+        [
+          "pauschal",
+          "کلی و بدون توجه به شرایط"
+        ],
+        [
+          "die Voraussetzung",
+          "پیش‌شرط"
+        ],
+        [
+          "langfristig",
+          "بلندمدت"
+        ],
+        [
+          "die Ressource",
+          "منبع"
+        ]
+      ],
+      "prompts": [
+        "Welche einfachen Maßnahmen werden genannt?",
+        "Warum sollte man pauschale Ratschläge kritisch prüfen?",
+        "Welche Faktoren würdest du vor einer energetischen Modernisierung vergleichen?"
+      ],
+      "promptsFa": [
+        "چه اقدامات ساده‌ای در متن ذکر شده است؟",
+        "چرا باید توصیه‌های کلی را با دید انتقادی بررسی کرد؟",
+        "پیش از نوسازی انرژی، چه عواملی را مقایسه می‌کنی؟"
+      ]
+    }
+  ],
+  "speaking": [
+    {
+      "id": "s1",
+      "title": {
+        "de": "Im Betrieb nachfragen",
+        "fa": "سؤال‌کردن در محل کار"
+      },
+      "situation": {
+        "de": "Du hast einen Arbeitsauftrag nur teilweise verstanden. Bitte deinen Ausbilder höflich um genauere Informationen.",
+        "fa": "دستور کار را فقط تا حدی فهمیده‌ای. با لحنی مؤدبانه از مربی‌ات اطلاعات دقیق‌تر بخواه."
+      },
+      "roles": {
+        "de": "Du bist Auszubildender. Dein Partner ist der Ausbilder.",
+        "fa": "تو کارآموز هستی و طرف مقابل مربی توست."
+      },
+      "steps": [
+        "Erkläre kurz, was du verstanden hast.",
+        "Stelle zwei konkrete Rückfragen.",
+        "Wiederhole die vereinbarten nächsten Schritte."
+      ],
+      "stepsFa": [
+        "کوتاه بگو چه چیزی را فهمیده‌ای.",
+        "دو سؤال مشخص بپرس.",
+        "مراحل بعدی مورد توافق را تکرار کن."
+      ],
+      "phrases": [
+        [
+          "Könnten Sie mir bitte genauer erklären, …?",
+          "ممکن است دقیق‌تر توضیح دهید…؟"
+        ],
+        [
+          "Habe ich richtig verstanden, dass …?",
+          "درست فهمیده‌ام که…؟"
+        ],
+        [
+          "Damit ich nichts übersehe, fasse ich kurz zusammen: …",
+          "برای اینکه چیزی را از قلم نیندازم، کوتاه جمع‌بندی می‌کنم: …"
+        ]
+      ]
+    },
+    {
+      "id": "s2",
+      "title": {
+        "de": "Ein Problem erklären",
+        "fa": "توضیح یک مشکل"
+      },
+      "situation": {
+        "de": "Erkläre einem Kollegen ein technisches Problem, ohne vorschnell eine Ursache zu behaupten. Beschreibe Beobachtung, Prüfung und nächsten Schritt.",
+        "fa": "یک مشکل فنی را برای همکارت توضیح بده، بدون اینکه زود علت قطعی اعلام کنی. مشاهده، بررسی و مرحلهٔ بعدی را شرح بده."
+      },
+      "roles": {
+        "de": "Du berichtest; dein Partner stellt Rückfragen.",
+        "fa": "تو گزارش می‌دهی و طرف مقابل سؤال تکمیلی می‌پرسد."
+      },
+      "steps": [
+        "Beschreibe, was genau beobachtet wurde.",
+        "Erkläre, was bereits überprüft wurde.",
+        "Nenne den nächsten sicheren und sinnvollen Schritt."
+      ],
+      "stepsFa": [
+        "دقیقاً بگو چه چیزی مشاهده شده است.",
+        "توضیح بده چه چیزهایی بررسی شده‌اند.",
+        "مرحلهٔ بعدی ایمن و منطقی را بیان کن."
+      ],
+      "phrases": [
+        [
+          "Bisher konnte ich feststellen, dass …",
+          "تا اینجا توانسته‌ام مشخص کنم که…"
+        ],
+        [
+          "Die Ursache ist noch nicht eindeutig geklärt.",
+          "علت هنوز به‌طور قطعی مشخص نشده است."
+        ],
+        [
+          "Als Nächstes würde ich … überprüfen.",
+          "در مرحلهٔ بعد … را بررسی می‌کنم."
+        ]
+      ]
+    },
+    {
+      "id": "s3",
+      "title": {
+        "de": "Eine Meinung begründen",
+        "fa": "دلیل‌آوردن برای یک نظر"
+      },
+      "situation": {
+        "de": "Diskutiere: Sollten Auszubildende täglich zehn Minuten Fachdeutsch üben? Nenne Vorteile, mögliche Nachteile und deine eigene Position.",
+        "fa": "بحث کن: آیا کارآموزان باید هر روز ده دقیقه آلمانی تخصصی تمرین کنند؟ مزایا، معایب احتمالی و نظر خودت را بیان کن."
+      },
+      "roles": {
+        "de": "Zwei Personen vertreten unterschiedliche Positionen und suchen einen Kompromiss.",
+        "fa": "دو نفر دیدگاه‌های متفاوت دارند و به‌دنبال راه‌حل میانه هستند."
+      },
+      "steps": [
+        "Nenne deine Position.",
+        "Gib mindestens zwei Gründe oder Beispiele.",
+        "Reagiere respektvoll auf ein Gegenargument."
+      ],
+      "stepsFa": [
+        "دیدگاهت را بیان کن.",
+        "حداقل دو دلیل یا مثال بیاور.",
+        "به یک استدلال مخالف محترمانه پاسخ بده."
+      ],
+      "phrases": [
+        [
+          "Meiner Ansicht nach …, weil …",
+          "از نظر من…، چون…"
+        ],
+        [
+          "Ich verstehe deinen Punkt, allerdings …",
+          "منظورت را می‌فهمم، بااین‌حال…"
+        ],
+        [
+          "Ein möglicher Kompromiss wäre, dass …",
+          "یک راه‌حل میانه می‌تواند این باشد که…"
+        ]
+      ]
+    },
+    {
+      "id": "s4",
+      "title": {
+        "de": "Mit einem Kunden sprechen",
+        "fa": "صحبت با مشتری"
+      },
+      "situation": {
+        "de": "Ein Kunde meldet, dass eine Lampe nicht funktioniert. Stelle höfliche Fragen, fasse das Anliegen zusammen und erkläre, wie du weiter vorgehst, ohne eine Reparatur zu versprechen, bevor du geprüft hast.",
+        "fa": "مشتری اطلاع می‌دهد چراغی کار نمی‌کند. مؤدبانه سؤال بپرس، درخواستش را جمع‌بندی کن و روش ادامهٔ کار را توضیح بده، بدون اینکه پیش از بررسی قول تعمیر بدهی."
+      },
+      "roles": {
+        "de": "Eine Person ist Kunde, die andere erklärt den Ablauf.",
+        "fa": "یک نفر مشتری است و دیگری روند کار را توضیح می‌دهد."
+      },
+      "steps": [
+        "Frage nach Zeitpunkt und Umständen.",
+        "Fasse das Problem zusammen.",
+        "Erkläre Prüfung und Rückmeldung."
+      ],
+      "stepsFa": [
+        "دربارهٔ زمان و شرایط بروز مشکل سؤال کن.",
+        "مشکل را جمع‌بندی کن.",
+        "بررسی و اطلاع‌رسانی بعدی را توضیح بده."
+      ],
+      "phrases": [
+        [
+          "Seit wann tritt das Problem auf?",
+          "این مشکل از چه زمانی رخ می‌دهد؟"
+        ],
+        [
+          "Wenn ich Sie richtig verstehe, …",
+          "اگر درست متوجه شده باشم…"
+        ],
+        [
+          "Ich prüfe das zunächst und informiere Sie anschließend über das Ergebnis.",
+          "ابتدا آن را بررسی می‌کنم و سپس نتیجه را به شما اطلاع می‌دهم."
+        ]
+      ]
+    },
+    {
+      "id": "s5",
+      "title": {
+        "de": "Über den eigenen Lernfortschritt sprechen",
+        "fa": "صحبت دربارهٔ پیشرفت یادگیری"
+      },
+      "situation": {
+        "de": "Erzähle deinem Lernpartner, was dir beim Deutschlernen leichter fällt, was schwierig bleibt und wie du in den nächsten zwei Wochen üben möchtest.",
+        "fa": "برای هم‌تمرینی‌ات بگو چه چیزی در یادگیری آلمانی برایت آسان‌تر شده، چه چیزی هنوز دشوار است و در دو هفتهٔ آینده چگونه می‌خواهی تمرین کنی."
+      },
+      "roles": {
+        "de": "Stellt euch gegenseitig Nachfragen und gebt euch konkrete Vorschläge.",
+        "fa": "از هم سؤال تکمیلی بپرسید و پیشنهادهای مشخص بدهید."
+      },
+      "steps": [
+        "Nenne eine konkrete Stärke und eine Schwierigkeit.",
+        "Beschreibe eine Lernroutine.",
+        "Bitte um einen konkreten Tipp."
+      ],
+      "stepsFa": [
+        "یک نقطهٔ قوت و یک دشواری مشخص بگو.",
+        "روال یادگیری‌ات را توضیح بده.",
+        "یک پیشنهاد مشخص بخواه."
+      ],
+      "phrases": [
+        [
+          "Mir fällt es inzwischen leichter, …",
+          "اکنون برایم آسان‌تر شده که…"
+        ],
+        [
+          "Schwierigkeiten habe ich noch mit …",
+          "هنوز در … مشکل دارم."
+        ],
+        [
+          "Was würdest du mir empfehlen, damit …?",
+          "چه پیشنهادی می‌دهی تا…؟"
+        ]
+      ]
+    },
+    {
+      "id": "s6",
+      "title": {
+        "de": "Ein Gespräch höflich unterbrechen und klären",
+        "fa": "قطع مؤدبانهٔ صحبت و روشن‌کردن موضوع"
+      },
+      "situation": {
+        "de": "In einer Besprechung werden mehrere Aufgaben gleichzeitig besprochen. Unterbrich höflich, bitte um Klärung und fasse die Prioritäten zusammen.",
+        "fa": "در یک جلسه چند کار هم‌زمان مطرح می‌شود. مؤدبانه صحبت را قطع کن، درخواست شفاف‌سازی بده و اولویت‌ها را جمع‌بندی کن."
+      },
+      "roles": {
+        "de": "Eine Person erklärt mehrere Aufgaben; die andere strukturiert und klärt die Reihenfolge.",
+        "fa": "یک نفر چند وظیفه را توضیح می‌دهد و دیگری ترتیب و اولویت را روشن می‌کند."
+      },
+      "steps": [
+        "Unterbrich respektvoll.",
+        "Frage nach Priorität und Frist.",
+        "Fasse die Reihenfolge in eigenen Worten zusammen."
+      ],
+      "stepsFa": [
+        "با احترام صحبت را قطع کن.",
+        "دربارهٔ اولویت و مهلت سؤال کن.",
+        "ترتیب کارها را با کلمات خودت جمع‌بندی کن."
+      ],
+      "phrases": [
+        [
+          "Entschuldigen Sie bitte, darf ich kurz nachfragen?",
+          "ببخشید، می‌توانم یک سؤال کوتاه بپرسم؟"
+        ],
+        [
+          "Was hat Vorrang und bis wann wird es benötigt?",
+          "کدام کار اولویت دارد و تا چه زمانی لازم است؟"
+        ],
+        [
+          "Dann kümmere ich mich zuerst um … und danach um …, richtig?",
+          "پس ابتدا … و بعد … را انجام می‌دهم، درست است؟"
+        ]
+      ]
+    }
+  ]
+}
