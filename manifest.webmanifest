@@ -1,0 +1,20 @@
+{
+  "id": "./",
+  "name": "Elektro Lernen – EGT Prüfungsvorbereitung",
+  "short_name": "Elektro Lernen",
+  "description": "Deutsch-persische Lernhilfe für Elektronikerinnen und Elektroniker für Energie- und Gebäudetechnik.",
+  "lang": "de",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f3f6fb",
+  "theme_color": "#102b46",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
