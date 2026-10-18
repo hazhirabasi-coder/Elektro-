@@ -67,7 +67,7 @@ test('measurement lab prioritizes a clear interactive workflow over decorative m
   assert.match(html, /id="labQuickStart"/);
   assert.match(html, /id="labQuickStartStatus"/);
   assert.match(html, /state\.red='L';state\.black='N'/);
-  assert.match(html, /Noch kein vollständiger Stromkreis-Simulator/);
+  assert.match(html, /noch kein vollständiger Stromkreis-Simulator/i);
 });
 
 test('HTML element IDs are unique to avoid broken controls and navigation', () => {
