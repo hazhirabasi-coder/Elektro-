@@ -115,7 +115,7 @@ test('workshop provides selectable DIN-rail protection devices and guided buildi
     assert.ok(lab.includes(marker), 'missing workbench feature: ' + marker);
   }
   assert.match(lab, /p\.y=isRailPart\(p\.type\)\?Math\.max\(105,Math\.min\(190/);
-  assert.match(lab, /p\.type==='rcbo'\)&&p\.on\)links=\[\[0,1\],\[2,3\]\]/);
+  assert.ok(lab.includes("(p.type==='rcd'||p.type==='rcbo')&&p.on)links=[[0,1],[2,3]]"), 'RCBO must connect its poles only when switched on');
 });
 test('standalone virtual lab JavaScript parses successfully', () => {
   const lab = readFileSync(new URL('../virtual-lab.html', import.meta.url), 'utf8');
