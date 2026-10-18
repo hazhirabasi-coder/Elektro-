@@ -70,7 +70,7 @@ test('measurement lab prioritizes a clear interactive workflow over decorative m
   assert.match(html, /noch kein vollständiger Stromkreis-Simulator/i);
 });
 
-test('HTML element IDs are unique to avoid broken controls and navigation', () => {
+test('B1 exam simulator is linked and its inline JavaScript parses', () => {\n  assert.ok(html.includes('b1-pruefung.html'));\n  const exam = readFileSync(new URL('../b1-pruefung.html', import.meta.url), 'utf8');\n  for (const section of ['Hören', 'Lesen', 'Sprachbausteine', 'Schreiben', 'Sprechen']) assert.ok(exam.includes(section));\n  assert.ok(exam.includes('startPartner'));\n  const start = exam.indexOf('<script>') + 8;\n  const end = exam.indexOf('</script>', start);\n  assert.ok(start >= 8 && end > start, 'B1 exam inline script should exist');\n  assert.doesNotThrow(() => new vm.Script(exam.slice(start, end)), 'B1 exam JavaScript should parse');\n});\n\ntest('HTML element IDs are unique to avoid broken controls and navigation', () => {
   const ids = [...html.matchAll(/\bid=["']([^"']+)["']/g)].map(match => match[1]);
   const seen = new Set();
   const duplicates = new Set();
