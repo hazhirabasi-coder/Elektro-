@@ -1,5 +1,5 @@
-const CACHE_NAME = 'elektro-lernen-v2';
-const APP_SHELL = ['./', './index.html', './virtual-lab.html', './manifest.webmanifest', './icon.svg'];
+const CACHE_NAME = 'elektro-lernen-v3';
+const APP_SHELL = ['./', './index.html', './virtual-lab.html', './b1-pruefung.html', './brief-b1.html', './manifest.webmanifest', './icon.svg'];
 
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(APP_SHELL)));

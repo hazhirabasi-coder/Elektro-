@@ -58,7 +58,7 @@ test('PWA shell and service worker are configured for offline use', () => {
   assert.ok(worker.includes("caches.match(request).then(cached => cached || caches.match('./index.html'))"), "offline navigation should return the cached requested page first");
   assert.ok(worker.includes("caches.open(CACHE_NAME).then(cache => cache.put(request, copy))"), "online navigation should cache the page under its own request URL");
   assert.ok(!worker.includes("cache.put(" + "'./index.html'" + ", copy)"), "navigation must not overwrite the cached home page with another document");
-  assert.match(worker, /const CACHE_NAME = 'elektro-lernen-v2'/);
+  assert.match(worker, /const CACHE_NAME = 'elektro-lernen-v3'/);
   assert.match(worker, /APP_SHELL = \[[^\]]*'\.\/virtual-lab\.html'/, 'standalone circuit lab should be cached for offline use');
 });
 
@@ -68,6 +68,17 @@ test('measurement lab prioritizes a clear interactive workflow over decorative m
   assert.match(html, /id="labQuickStartStatus"/);
   assert.match(html, /state\.red='L';state\.black='N'/);
   assert.match(html, /noch kein vollständiger Stromkreis-Simulator/i);
+});
+
+test('B1 exam simulator is linked and its inline JavaScript parses', () => {
+  assert.ok(html.includes('b1-pruefung.html'));
+  const exam = readFileSync(new URL('../b1-pruefung.html', import.meta.url), 'utf8');
+  for (const section of ['Hören', 'Lesen', 'Sprachbausteine', 'Schreiben', 'Sprechen']) assert.ok(exam.includes(section));
+  assert.ok(exam.includes('startPartner'));
+  const start = exam.indexOf('<script>') + 8;
+  const end = exam.indexOf('</script>', start);
+  assert.ok(start >= 8 && end > start, 'B1 exam inline script should exist');
+  assert.doesNotThrow(() => new vm.Script(exam.slice(start, end)), 'B1 exam JavaScript should parse');
 });
 
 test('HTML element IDs are unique to avoid broken controls and navigation', () => {
