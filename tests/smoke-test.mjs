@@ -102,6 +102,12 @@ test('standalone lab offers a manual distribution-board and installation-wall wo
   }
 });
 
+test('component placement works over the DIN-rail and installation-wall backdrops', () => {
+  const lab = readFileSync(new URL('../virtual-lab.html', import.meta.url), 'utf8');
+  assert.match(lab, /const inParts=e\.target\.closest\?\.\('#parts'\),inWires=e\.target\.closest\?\.\('#wires'\),onPin=e\.target\.classList\?\.contains\('pin'\)/);
+  assert.match(lab, /if\(!inParts&&!inWires&&!onPin\)/);
+});
+
 test('standalone virtual lab JavaScript parses successfully', () => {
   const lab = readFileSync(new URL('../virtual-lab.html', import.meta.url), 'utf8');
   const script = lab.match(/<script\b[^>]*>([\s\S]*?)<\/script>/i)?.[1];
