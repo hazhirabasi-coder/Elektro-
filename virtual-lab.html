@@ -47,7 +47,11 @@ const specs={
  cee:{name:'CEE 400 V',w:108,h:82,pins:[['L1',-25,-18],['L2',-8,-18],['L3',9,-18],['N',26,-18],['PE',0,22]],color:'#fee2e2'},
  motor:{name:'Drehstrommotor',w:116,h:82,pins:[['U',-24,-20],['V',0,-20],['W',24,-20],['PE',0,22]],color:'#dcecf7'},
  resistor:{name:'Widerstand',w:100,h:68,pins:[['A',0,-15],['B',0,15]],color:'#f4e8d5'},
- terminal:{name:'Klemmenblock',w:110,h:80,pins:[['L',-28,-15],['N',0,-15],['PE',28,-15],['L out',-28,17],['N out',0,17],['PE out',28,17]],color:'#dceee3'}
+ terminal:{name:'Klemmenblock',w:110,h:80,pins:[['L',-28,-15],['N',0,-15],['PE',28,-15],['L out',-28,17],['N out',0,17],['PE out',28,17]],color:'#dceee3'},
+ rcbo:{name:'FI/LS B16 30 mA',w:108,h:84,pins:[['L in',-18,-19],['L out',-18,19],['N in',18,-19],['N out',18,19]],color:'#e5e9ed'},
+ junction:{name:'Abzweigdose',w:112,h:80,pins:[['L in',-30,-17],['N in',0,-17],['PE in',30,-17],['L out',-30,17],['N out',0,17],['PE out',30,17]],color:'#f2eadb'},
+ pebar:{name:'PE-Schiene',w:120,h:56,pins:[['PE in',-45,0],['PE 1',-15,0],['PE 2',15,0],['PE 3',45,0]],color:'#dff3df'},
+ neutralbar:{name:'N-Schiene',w:120,h:56,pins:[['N in',-45,0],['N 1',-15,0],['N 2',15,0],['N 3',45,0]],color:'#dceeff'}
 };
 function el(tag,attrs={},parent){const n=document.createElementNS(NS,tag);Object.entries(attrs).forEach(([k,v])=>n.setAttribute(k,v));if(parent)parent.appendChild(n);return n}
 function txt(parent,x,y,s,size=12,fill='#20354a',weight='600',anchor='middle'){const t=el('text',{x,y,'font-size':size,fill,'font-weight':weight,'text-anchor':anchor,'font-family':'system-ui, sans-serif'},parent);t.textContent=s;return t}
@@ -72,7 +76,9 @@ function render(){
  else if(p.type==='cee'){el('circle',{cx:0,cy:-2,r:24,fill:'#d92d35',stroke:'#8c2226','stroke-width':3},g);txt(g,0,3,'CEE',11,'#fff','900');txt(g,0,31,'400 V · 5P',9)}
  else if(p.type==='motor'){el('circle',{cx:0,cy:-2,r:25,fill:'#2d7eaf',stroke:'#164c6f','stroke-width':3},g);txt(g,0,5,'M 3~',15,'#fff','900');txt(g,0,31,'400 V',10)}
  else if(p.type==='resistor'){el('path',{d:'M -32 0 L -20 0 L -13 -11 L 0 11 L 13 -11 L 20 0 L 32 0',fill:'none',stroke:'#9b6427','stroke-width':4},g);txt(g,0,-21,p.value+' Ω',10);txt(g,0,25,'R',10)}
- else if(p.type==='terminal'){txt(g,0,-23,'KLEMMEN',10);['L','N','PE'].forEach((s,i)=>{el('rect',{x:-39+i*27,y:-12,width:23,height:36,rx:3,fill:['#d92d35','#2378bd','#2e9b59'][i]},g);txt(g,-27+i*27,9,s,10,'#fff','900')})}
+ else if(p.type==='terminal'||p.type==='junction'){txt(g,0,-23,p.type==='terminal'?'KLEMMEN':'ABZWEIGDOSE',10);['L','N','PE'].forEach((s,i)=>{el('rect',{x:-39+i*27,y:-12,width:23,height:36,rx:3,fill:['#d92d35','#2378bd','#2e9b59'][i]},g);txt(g,-27+i*27,9,s,10,'#fff','900')})}
+ else if(p.type==='rcbo'){txt(g,0,-27,'FI / LS',11);txt(g,0,-11,'B'+(p.value||16)+' · 30 mA',9);el('rect',{x:-12,y:-5,width:24,height:31,rx:4,fill:p.on?'#3b82b8':'#687789'},g);txt(g,0,39,p.on?'EIN':'AUS',10,p.on?'#16834b':'#a12c2c')}
+ else if(p.type==='pebar'||p.type==='neutralbar'){const isPE=p.type==='pebar';txt(g,0,-14,isPE?'PE-SCHIENE':'N-SCHIENE',10);el('rect',{x:-48,y:-5,width:96,height:10,rx:3,fill:isPE?'#e4bf28':'#4d9ad3',stroke:'#6b7c8c'},g);for(let i=0;i<4;i++)el('circle',{cx:-45+i*30,cy:0,r:4,fill:isPE?'#2e9b59':'#2378bd',stroke:'#fff','stroke-width':1},g)}
  specs[p.type].pins.forEach((pin,i)=>{const [px,py]=specs[p.type].pins[i].slice(1);const c=el('circle',{cx:px,cy:py,r:7,fill:pinColor(pin[0]),stroke:'#fff','stroke-width':2,class:'pin','data-part':p.id,'data-pin':i},g);el('title',{},c).textContent=pin[0]+' · Anschluss';});
  const label=el('text',{x:0,y:sp.h/2+14,'font-size':10,'font-family':'system-ui','text-anchor':'middle',fill:'#40566c','font-weight':'700'},g);label.textContent=p.id+' · '+sp.name;
  g.addEventListener('pointerdown',e=>{if(e.target.classList.contains('pin'))return;e.preventDefault();state.selected=p.id;const pt=svgPoint(e);state.drag={id:p.id,dx:pt.x-p.x,dy:pt.y-p.y};stage.setPointerCapture?.(e.pointerId);renderProperties();});
