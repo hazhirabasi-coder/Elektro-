@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Live Electrical Passport — آزمایشگاه نمونه</title>
+<style>
+:root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#18212f;background:#f3f6fa}
+*{box-sizing:border-box}body{margin:0}header{background:#14263d;color:white;padding:24px 18px}header p{color:#cbd5e1;max-width:760px;line-height:1.8}main{max-width:1000px;margin:20px auto;padding:0 14px 36px}.notice{background:#fff4d6;border:1px solid #f0d58a;padding:12px 14px;border-radius:12px;line-height:1.7}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:12px;margin:16px 0}.card{background:white;border:1px solid #dce3ec;border-radius:14px;padding:15px;box-shadow:0 3px 12px #1b2c4210}.card h3{margin:0 0 8px}.muted{color:#617084;font-size:14px;line-height:1.7}.status{display:inline-block;padding:4px 8px;border-radius:999px;background:#e8f6ec;color:#17643a;font-size:12px}.status.warn{background:#fff0dc;color:#8a4b00}.status.bad{background:#fde8e8;color:#9b2222}button{font:inherit;border:0;border-radius:9px;padding:10px 12px;background:#175cd3;color:white;cursor:pointer;margin:5px 0}button.secondary{background:#e9eef5;color:#18212f}button:focus{outline:3px solid #95baff}.line{display:flex;justify-content:space-between;align-items:center;gap:8px}.results{padding:0;list-style:none}.results li{border-top:1px solid #e5eaf0;padding:11px 0;line-height:1.6}.meter{height:8px;background:#e7edf4;border-radius:99px;overflow:hidden;margin:10px 0}.meter span{display:block;height:100%;background:#23834b;width:100%}footer{color:#617084;font-size:13px;line-height:1.8;margin-top:18px}
+</style>
+</head>
+<body>
+<header>
+  <h1>حافظهٔ زندهٔ برق ساختمان</h1>
+  <div>Live Electrical Passport · نمونهٔ مفهومی v0.1</div>
+  <p>آزمایش می‌کنیم آیا می‌توان تغییرات در یک نقشهٔ ثبت‌شده را با داده‌های اندازه‌گیری‌شده تشخیص داد، شواهد را نگه داشت و موارد نامطمئن را صادقانه علامت زد.</p>
+</header>
+<main>
+  <div class="notice"><strong>فقط شبیه‌سازی آموزشی:</strong> این صفحه به هیچ حسگر یا تابلوی واقعی وصل نیست. داده‌ها ساختگی‌اند. برای برق شهر، حفاظت یا تشخیص ایمنی استفاده نکنید.</div>
+  <section class="grid" id="circuits"></section>
+  <section class="card">
+    <div class="line"><h2>گزارش اختلاف با نقشه</h2><button id="scan">بررسی مجدد داده‌ها</button></div>
+    <p class="muted">در این نمونه، سامانه «نقشهٔ ثبت‌شده» را با «مشاهدهٔ شبیه‌سازی‌شده» مقایسه می‌کند. نتیجه فقط به همین دادهٔ ساختگی مربوط است.</p>
+    <div class="meter"><span id="meter"></span></div>
+    <ul class="results" id="results"></ul>
+  </section>
+  <footer>مرحلهٔ بعد از این نمونه: تعریف روش اندازه‌گیری واقعی و قابل‌اعتماد، بررسی محصولات مشابه، سپس آزمون با متخصص. این نمونه هیچ ادعایی دربارهٔ تازگی اختراع یا عملکرد در ساختمان واقعی ندارد.</footer>
+</main>
+<script>
+const circuits=[
+{id:"C1",name:"روشنایی آشپزخانه",recorded:"تابلو → مدار C1 → روشنایی",observed:"تابلو → مدار C1 → روشنایی",confidence:98,changed:false,evidence:"الگوی جریان شبیه‌سازی‌شده مطابق سابقه است."},
+{id:"C2",name:"پریز اتاق نشیمن",recorded:"تابلو → مدار C2 → پریز نشیمن",observed:"تابلو → مدار C2 → پریز نشیمن",confidence:96,changed:false,evidence:"دادهٔ آزمایشی با نقشه مطابقت دارد."},
+{id:"C3",name:"پریز اتاق خواب",recorded:"تابلو → مدار C3 → پریز خواب",observed:"تابلو → مدار C3 → بار ناشناخته",confidence:62,changed:true,evidence:"الگوی داده با سابقه متفاوت است؛ علت هنوز مشخص نیست."},
+{id:"C4",name:"پمپ حرارتی (مدل)",recorded:"تابلو → مدار C4 → پمپ حرارتی",observed:"تابلو → مدار C4 → پمپ حرارتی",confidence:94,changed:false,evidence:"در دادهٔ ساختگی تغییر قابل‌توجهی دیده نشد."},
+{id:"C5",name:"Wallbox (مدل)",recorded:"تابلو → مدار C5 → Wallbox",observed:"تابلو → مدار C5 → Wallbox",confidence:91,changed:false,evidence:"الگوی آزمایشی با سابقه مطابقت دارد."},
+{id:"C6",name:"مدار ذخیره",recorded:"تابلو → مدار C6 → نامشخص",observed:"دادهٔ کافی نیست",confidence:28,changed:null,evidence:"اطلاعات برای نتیجه‌گیری کافی نیست؛ بررسی بیشتر لازم است."}
+];
+function renderCards(){document.getElementById("circuits").innerHTML=circuits.map(c=>'<article class="card"><div class="line"><h3>'+c.id+' · '+c.name+'</h3><span class="status '+(c.changed===true?'warn':c.changed===null?'bad':'')+'">'+(c.changed===true?'اختلاف احتمالی':c.changed===null?'نامطمئن':'مطابق سابقه')+'</span></div><p class="muted"><strong>ثبت‌شده:</strong> '+c.recorded+'</p><p class="muted"><strong>مشاهده:</strong> '+c.observed+'</p><p class="muted">اطمینان تخمینی نمونه: '+c.confidence+'%</p><button class="secondary" onclick="toggleChange(\''+c.id+'\')">شبیه‌سازی تغییر / بازگردانی</button></article>').join('')}
+function renderResults(){const changed=circuits.filter(c=>c.changed===true),unknown=circuits.filter(c=>c.changed===null);let items=[];changed.forEach(c=>items.push('<li><span class="status warn">نیاز به بررسی</span> <strong>'+c.id+' · '+c.name+'</strong><br>'+c.evidence+'<br><span class="muted">این اختلاف محل دقیق خرابی یا علت آن را اثبات نمی‌کند.</span></li>'));unknown.forEach(c=>items.push('<li><span class="status bad">داده ناکافی</span> <strong>'+c.id+' · '+c.name+'</strong><br>'+c.evidence+'</li>'));if(!items.length)items.push('<li>در داده‌های فعلی اختلافی شناسایی نشد. این به معنی ایمن‌بودن مدار واقعی نیست.</li>');document.getElementById("results").innerHTML=items.join("");document.getElementById("meter").style.width=Math.max(8,100-unknown.length*18-changed.length*10)+"%"}
+function toggleChange(id){const c=circuits.find(x=>x.id===id);if(!c)return;if(c.changed===true){c.changed=false;c.observed=c.recorded;c.confidence=95;c.evidence="وضعیت شبیه‌سازی‌شده به نقشهٔ ثبت‌شده برگشت."}else{c.changed=true;c.observed="تابلو → "+id+" → الگوی بار متفاوت";c.confidence=64;c.evidence="الگوی داده با سابقه متفاوت است؛ علت هنوز مشخص نیست."}renderCards();renderResults()}
+document.getElementById("scan").addEventListener("click",()=>{renderResults();document.getElementById("results").scrollIntoView({behavior:"smooth",block:"nearest"})});renderCards();renderResults();
+</script>
+</body>
+</html>
