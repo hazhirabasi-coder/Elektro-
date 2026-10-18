@@ -117,6 +117,12 @@ test('workshop provides selectable DIN-rail protection devices and guided buildi
   assert.match(lab, /p\.y=isRailPart\(p\.type\)\?Math\.max\(105,Math\.min\(190/);
   assert.ok(lab.includes("(p.type==='rcd'||p.type==='rcbo')&&p.on)links=[[0,1],[2,3]]"), 'RCBO must connect its poles only when switched on');
 });
+
+test('wire mode toggle disables terminal connections outside cable mode', () => {
+  const lab = readFileSync(new URL('../virtual-lab.html', import.meta.url), 'utf8');
+  assert.ok(lab.includes("if(!state.wireMode){state.selected=id;state.wireStart=null;render();"));
+  assert.ok(lab.includes("state.wireMode=!state.wireMode;state.wireStart=null;draftLayer.replaceChildren();"));
+});
 test('standalone virtual lab JavaScript parses successfully', () => {
   const lab = readFileSync(new URL('../virtual-lab.html', import.meta.url), 'utf8');
   const script = lab.match(/<script\b[^>]*>([\s\S]*?)<\/script>/i)?.[1];
