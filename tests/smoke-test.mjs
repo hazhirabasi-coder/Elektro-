@@ -82,6 +82,26 @@ test('HTML element IDs are unique to avoid broken controls and navigation', () =
 });
 
 
+test('standalone lab offers a manual distribution-board and installation-wall workshop', () => {
+  const lab = readFileSync(new URL('../virtual-lab.html', import.meta.url), 'utf8');
+  for (const marker of [
+    'id="workshopBackdrop"',
+    'data-type="main"',
+    'data-type="breaker"',
+    'data-type="rcd"',
+    'data-type="switch"',
+    'data-type="lamp"',
+    'data-type="socket"',
+    'id="measureTarget"',
+    "function connected(a,b,blockedId=null)",
+    "const src=addPart('supply',85,150),main=addPart('main'",
+    "a:main.id,ap:1,b:rcd.id,bp:0",
+    "a:rcd.id,ap:1,b:br.id,bp:0"
+  ]) {
+    assert.ok(lab.includes(marker), 'expected realistic workshop feature: ' + marker);
+  }
+});
+
 test('standalone virtual lab JavaScript parses successfully', () => {
   const lab = readFileSync(new URL('../virtual-lab.html', import.meta.url), 'utf8');
   const script = lab.match(/<script\b[^>]*>([\s\S]*?)<\/script>/i)?.[1];
