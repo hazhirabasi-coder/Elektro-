@@ -3,42 +3,75 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Live Electrical Passport — آزمایشگاه نمونه</title>
+<meta name="theme-color" content="#14263d">
+<title>حافظهٔ زندهٔ برق ساختمان | آزمایشگاه v0.2</title>
 <style>
-:root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#18212f;background:#f3f6fa}
-*{box-sizing:border-box}body{margin:0}header{background:#14263d;color:white;padding:24px 18px}header p{color:#cbd5e1;max-width:760px;line-height:1.8}main{max-width:1000px;margin:20px auto;padding:0 14px 36px}.notice{background:#fff4d6;border:1px solid #f0d58a;padding:12px 14px;border-radius:12px;line-height:1.7}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:12px;margin:16px 0}.card{background:white;border:1px solid #dce3ec;border-radius:14px;padding:15px;box-shadow:0 3px 12px #1b2c4210}.card h3{margin:0 0 8px}.muted{color:#617084;font-size:14px;line-height:1.7}.status{display:inline-block;padding:4px 8px;border-radius:999px;background:#e8f6ec;color:#17643a;font-size:12px}.status.warn{background:#fff0dc;color:#8a4b00}.status.bad{background:#fde8e8;color:#9b2222}button{font:inherit;border:0;border-radius:9px;padding:10px 12px;background:#175cd3;color:white;cursor:pointer;margin:5px 0}button.secondary{background:#e9eef5;color:#18212f}button:focus{outline:3px solid #95baff}.line{display:flex;justify-content:space-between;align-items:center;gap:8px}.results{padding:0;list-style:none}.results li{border-top:1px solid #e5eaf0;padding:11px 0;line-height:1.6}.meter{height:8px;background:#e7edf4;border-radius:99px;overflow:hidden;margin:10px 0}.meter span{display:block;height:100%;background:#23834b;width:100%}footer{color:#617084;font-size:13px;line-height:1.8;margin-top:18px}
+:root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#18212f;background:#f3f6fa}*{box-sizing:border-box}body{margin:0}header{background:#14263d;color:#fff;padding:24px 18px}header p{color:#d2dbea;max-width:850px;line-height:1.9}main{max-width:1100px;margin:20px auto;padding:0 14px 40px}.notice{background:#fff4d6;border:1px solid #f0d58a;padding:12px 14px;border-radius:12px;line-height:1.8}.toolbar{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:12px;margin:14px 0}.card{background:#fff;border:1px solid #dce3ec;border-radius:14px;padding:15px;box-shadow:0 3px 12px #1b2c420d}.card h3{margin:0 0 8px;font-size:17px}.muted{color:#617084;font-size:14px;line-height:1.8}.status{display:inline-block;padding:4px 8px;border-radius:999px;background:#e8f6ec;color:#17643a;font-size:12px;white-space:nowrap}.status.warn{background:#fff0dc;color:#8a4b00}.status.bad{background:#fde8e8;color:#9b2222}.status.info{background:#e9efff;color:#294e9b}button{font:inherit;border:0;border-radius:9px;padding:10px 12px;background:#175cd3;color:white;cursor:pointer}button.secondary{background:#e9eef5;color:#18212f}button.danger{background:#a52b2b;color:white}button:focus-visible{outline:3px solid #95baff;outline-offset:2px}.line{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}.meter{height:8px;background:#e7edf4;border-radius:99px;overflow:hidden;margin:10px 0}.meter span{display:block;height:100%;background:#23834b;width:100%;transition:width .2s}.results{padding:0;list-style:none}.results li{border-top:1px solid #e5eaf0;padding:11px 0;line-height:1.8}.controls{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:10px;margin:14px 0}.stat{background:#fff;border:1px solid #dce3ec;border-radius:12px;padding:12px}.stat strong{display:block;font-size:24px}.history{max-height:300px;overflow:auto}.history li{padding:8px 0;border-top:1px solid #e5eaf0;line-height:1.7}footer{color:#617084;font-size:13px;line-height:1.9;margin-top:18px}code{direction:ltr;unicode-bidi:embed;background:#eef2f7;padding:2px 5px;border-radius:4px}@media print{header{background:#fff;color:#111;border-bottom:2px solid #222}header p{color:#333}.toolbar,.controls,button{display:none!important}body{background:white}.card,.stat{box-shadow:none;break-inside:avoid}main{max-width:none}.history{max-height:none}}
 </style>
 </head>
 <body>
 <header>
-  <h1>حافظهٔ زندهٔ برق ساختمان</h1>
-  <div>Live Electrical Passport · نمونهٔ مفهومی v0.1</div>
-  <p>آزمایش می‌کنیم آیا می‌توان تغییرات در یک نقشهٔ ثبت‌شده را با داده‌های اندازه‌گیری‌شده تشخیص داد، شواهد را نگه داشت و موارد نامطمئن را صادقانه علامت زد.</p>
+<h1>حافظهٔ زندهٔ برق ساختمان</h1>
+<div>Live Electrical Passport · نمونهٔ مفهومی v0.2</div>
+<p>هدف این نمونه: ثبت نقشهٔ مرجع، شبیه‌سازی تغییر مدار، نگهداری سابقهٔ رویدادها و صادرکردن گزارش قابل بررسی. این نسخه فقط منطق محصول را آزمایش می‌کند؛ هنوز سخت‌افزار یا روش اندازه‌گیری واقعی ندارد.</p>
 </header>
 <main>
-  <div class="notice"><strong>فقط شبیه‌سازی آموزشی:</strong> این صفحه به هیچ حسگر یا تابلوی واقعی وصل نیست. داده‌ها ساختگی‌اند. برای برق شهر، حفاظت یا تشخیص ایمنی استفاده نکنید.</div>
-  <section class="grid" id="circuits"></section>
-  <section class="card">
-    <div class="line"><h2>گزارش اختلاف با نقشه</h2><button id="scan">بررسی مجدد داده‌ها</button></div>
-    <p class="muted">در این نمونه، سامانه «نقشهٔ ثبت‌شده» را با «مشاهدهٔ شبیه‌سازی‌شده» مقایسه می‌کند. نتیجه فقط به همین دادهٔ ساختگی مربوط است.</p>
-    <div class="meter"><span id="meter"></span></div>
-    <ul class="results" id="results"></ul>
-  </section>
-  <footer>مرحلهٔ بعد از این نمونه: تعریف روش اندازه‌گیری واقعی و قابل‌اعتماد، بررسی محصولات مشابه، سپس آزمون با متخصص. این نمونه هیچ ادعایی دربارهٔ تازگی اختراع یا عملکرد در ساختمان واقعی ندارد.</footer>
+<div class="notice"><strong>مهم — فقط شبیه‌سازی:</strong> داده‌ها ساختگی‌اند و این صفحه به هیچ حسگر یا تابلوی واقعی وصل نیست. برای تشخیص ایمنی، کار روی برق شهر یا تصمیم‌گیری دربارهٔ مدار واقعی استفاده نکنید.</div>
+<div class="toolbar">
+<button id="export">خروجی پرونده (JSON)</button>
+<button id="print" class="secondary">چاپ / ذخیره PDF</button>
+<button id="reset" class="danger">بازنشانی نمونه</button>
+</div>
+<section class="stats" aria-label="خلاصه وضعیت">
+<div class="stat"><span class="muted">مدارهای نمونه</span><strong id="count">6</strong></div>
+<div class="stat"><span class="muted">اختلاف احتمالی</span><strong id="changedCount">1</strong></div>
+<div class="stat"><span class="muted">داده ناکافی</span><strong id="unknownCount">1</strong></div>
+<div class="stat"><span class="muted">رویدادهای ثبت‌شده</span><strong id="eventCount">0</strong></div>
+</section>
+<section class="grid" id="circuits" aria-live="polite"></section>
+<section class="card">
+<div class="line"><h2>گزارش اختلاف با نقشهٔ مرجع</h2><button id="scan">بررسی دوباره</button></div>
+<p class="muted">«اختلاف» یعنی دادهٔ شبیه‌سازی‌شده با سابقه یکی نیست؛ این به‌تنهایی علت، محل خرابی یا خطر را مشخص نمی‌کند. «داده ناکافی» باید نامطمئن باقی بماند.</p>
+<div class="meter" aria-label="شاخص نمایشی کیفیت داده"><span id="meter"></span></div>
+<ul class="results" id="results"></ul>
+</section>
+<section class="card">
+<div class="line"><h2>دفتر ثبت رویدادها</h2><span class="status info">در همین مرورگر</span></div>
+<p class="muted">تغییرات این شبیه‌سازی در حافظهٔ محلی مرورگر ذخیره می‌شوند. خروجی JSON برای نگهداری یا بررسی بعدی است.</p>
+<ul class="results history" id="history"></ul>
+</section>
+<footer>محدودیت علمی: درصد اطمینان و «مشاهده» در این نسخه ساختگی‌اند و خروجی اندازه‌گیری نیستند. مرحلهٔ بعدی تحقیق باید تعیین کند چه سیگنال کم‌ولتاژ و چه روش آزمونی می‌تواند تغییر واقعی را با نرخ خطای معلوم تشخیص دهد. هر نمونهٔ سخت‌افزاری باید از برق شهر جدا بماند.</footer>
 </main>
 <script>
-const circuits=[
-{id:"C1",name:"روشنایی آشپزخانه",recorded:"تابلو → مدار C1 → روشنایی",observed:"تابلو → مدار C1 → روشنایی",confidence:98,changed:false,evidence:"الگوی جریان شبیه‌سازی‌شده مطابق سابقه است."},
-{id:"C2",name:"پریز اتاق نشیمن",recorded:"تابلو → مدار C2 → پریز نشیمن",observed:"تابلو → مدار C2 → پریز نشیمن",confidence:96,changed:false,evidence:"دادهٔ آزمایشی با نقشه مطابقت دارد."},
-{id:"C3",name:"پریز اتاق خواب",recorded:"تابلو → مدار C3 → پریز خواب",observed:"تابلو → مدار C3 → بار ناشناخته",confidence:62,changed:true,evidence:"الگوی داده با سابقه متفاوت است؛ علت هنوز مشخص نیست."},
-{id:"C4",name:"پمپ حرارتی (مدل)",recorded:"تابلو → مدار C4 → پمپ حرارتی",observed:"تابلو → مدار C4 → پمپ حرارتی",confidence:94,changed:false,evidence:"در دادهٔ ساختگی تغییر قابل‌توجهی دیده نشد."},
-{id:"C5",name:"Wallbox (مدل)",recorded:"تابلو → مدار C5 → Wallbox",observed:"تابلو → مدار C5 → Wallbox",confidence:91,changed:false,evidence:"الگوی آزمایشی با سابقه مطابقت دارد."},
-{id:"C6",name:"مدار ذخیره",recorded:"تابلو → مدار C6 → نامشخص",observed:"دادهٔ کافی نیست",confidence:28,changed:null,evidence:"اطلاعات برای نتیجه‌گیری کافی نیست؛ بررسی بیشتر لازم است."}
+"use strict";
+const STORE_KEY="live-electrical-passport-demo-v2";
+const initialCircuits=[
+{id:"C1",name:"روشنایی آشپزخانه",recorded:"تابلو → مدار C1 → روشنایی",observed:"تابلو → مدار C1 → روشنایی",confidence:98,changed:false,evidence:"الگوی ساختگی با نقشهٔ مرجع مطابقت دارد."},
+{id:"C2",name:"پریز اتاق نشیمن",recorded:"تابلو → مدار C2 → پریز نشیمن",observed:"تابلو → مدار C2 → پریز نشیمن",confidence:96,changed:false,evidence:"الگوی ساختگی با نقشهٔ مرجع مطابقت دارد."},
+{id:"C3",name:"پریز اتاق خواب",recorded:"تابلو → مدار C3 → پریز خواب",observed:"تابلو → مدار C3 → بار ناشناخته",confidence:62,changed:true,evidence:"الگوی ساختگی با سابقه متفاوت است؛ علت مشخص نیست."},
+{id:"C4",name:"پمپ حرارتی (مدل)",recorded:"تابلو → مدار C4 → پمپ حرارتی",observed:"تابلو → مدار C4 → پمپ حرارتی",confidence:94,changed:false,evidence:"در دادهٔ ساختگی اختلافی دیده نمی‌شود."},
+{id:"C5",name:"Wallbox (مدل)",recorded:"تابلو → مدار C5 → Wallbox",observed:"تابلو → مدار C5 → Wallbox",confidence:91,changed:false,evidence:"الگوی ساختگی با نقشهٔ مرجع مطابقت دارد."},
+{id:"C6",name:"مدار ذخیره",recorded:"تابلو → مدار C6 → نامشخص",observed:"دادهٔ کافی نیست",confidence:28,changed:null,evidence:"اطلاعات کافی برای نتیجه‌گیری وجود ندارد."}
 ];
-function renderCards(){document.getElementById("circuits").innerHTML=circuits.map(c=>'<article class="card"><div class="line"><h3>'+c.id+' · '+c.name+'</h3><span class="status '+(c.changed===true?'warn':c.changed===null?'bad':'')+'">'+(c.changed===true?'اختلاف احتمالی':c.changed===null?'نامطمئن':'مطابق سابقه')+'</span></div><p class="muted"><strong>ثبت‌شده:</strong> '+c.recorded+'</p><p class="muted"><strong>مشاهده:</strong> '+c.observed+'</p><p class="muted">اطمینان تخمینی نمونه: '+c.confidence+'%</p><button class="secondary" onclick="toggleChange(\''+c.id+'\')">شبیه‌سازی تغییر / بازگردانی</button></article>').join('')}
-function renderResults(){const changed=circuits.filter(c=>c.changed===true),unknown=circuits.filter(c=>c.changed===null);let items=[];changed.forEach(c=>items.push('<li><span class="status warn">نیاز به بررسی</span> <strong>'+c.id+' · '+c.name+'</strong><br>'+c.evidence+'<br><span class="muted">این اختلاف محل دقیق خرابی یا علت آن را اثبات نمی‌کند.</span></li>'));unknown.forEach(c=>items.push('<li><span class="status bad">داده ناکافی</span> <strong>'+c.id+' · '+c.name+'</strong><br>'+c.evidence+'</li>'));if(!items.length)items.push('<li>در داده‌های فعلی اختلافی شناسایی نشد. این به معنی ایمن‌بودن مدار واقعی نیست.</li>');document.getElementById("results").innerHTML=items.join("");document.getElementById("meter").style.width=Math.max(8,100-unknown.length*18-changed.length*10)+"%"}
-function toggleChange(id){const c=circuits.find(x=>x.id===id);if(!c)return;if(c.changed===true){c.changed=false;c.observed=c.recorded;c.confidence=95;c.evidence="وضعیت شبیه‌سازی‌شده به نقشهٔ ثبت‌شده برگشت."}else{c.changed=true;c.observed="تابلو → "+id+" → الگوی بار متفاوت";c.confidence=64;c.evidence="الگوی داده با سابقه متفاوت است؛ علت هنوز مشخص نیست."}renderCards();renderResults()}
-document.getElementById("scan").addEventListener("click",()=>{renderResults();document.getElementById("results").scrollIntoView({behavior:"smooth",block:"nearest"})});renderCards();renderResults();
+let circuits,events;
+function fresh(){circuits=structuredClone(initialCircuits);events=[{at:new Date().toISOString(),type:"شروع نمونه",detail:"داده‌های اولیهٔ ساختگی بارگذاری شد."}];save();render();}
+function save(){try{localStorage.setItem(STORE_KEY,JSON.stringify({circuits,events}));}catch(e){}}
+function load(){try{const x=JSON.parse(localStorage.getItem(STORE_KEY));if(x&&Array.isArray(x.circuits)&&x.circuits.length===6&&Array.isArray(x.events)){circuits=x.circuits;events=x.events;return;}}catch(e){}circuits=structuredClone(initialCircuits);events=[];events.push({at:new Date().toISOString(),type:"شروع نمونه",detail:"داده‌های اولیهٔ ساختگی بارگذاری شد."});}
+function el(tag,cls,text){const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;}
+function status(c){return c.changed===null?["bad","داده ناکافی"]:c.changed?["warn","اختلاف احتمالی"]:["","مطابق مرجع"];}
+function addEvent(type,detail){events.unshift({at:new Date().toISOString(),type,detail});if(events.length>100)events=events.slice(0,100);save();}
+function renderCards(){const root=document.getElementById("circuits");root.replaceChildren();circuits.forEach(c=>{const card=el("article","card"),top=el("div","line"),heading=el("h3","",c.id+" · "+c.name),s=status(c);top.append(heading,el("span","status "+s[0],s[1]));card.append(top);card.append(el("p","muted","مرجع ثبت‌شده: "+c.recorded),el("p","muted","مشاهدهٔ نمونه: "+c.observed),el("p","muted","امتیاز نمایشی اطمینان: "+c.confidence+"% — دادهٔ واقعی نیست."));const controls=el("div","controls");const change=el("button","", "شبیه‌سازی تغییر");change.addEventListener("click",()=>simulate(c.id));const unknown=el("button","secondary","کمبود داده");unknown.addEventListener("click",()=>setUnknown(c.id));const restore=el("button","secondary","بازگردانی به مرجع");restore.addEventListener("click",()=>restoreCircuit(c.id));controls.append(change,unknown,restore);card.append(controls);root.append(card);});}
+function renderResults(){const root=document.getElementById("results");root.replaceChildren();const changed=circuits.filter(c=>c.changed===true),unknown=circuits.filter(c=>c.changed===null);const items=[...changed.map(c=>({c,cls:"warn",label:"نیاز به بررسی"})),...unknown.map(c=>({c,cls:"bad",label:"داده ناکافی"}))];if(!items.length){root.append(el("li","","در داده‌های فعلی اختلافی شناسایی نشد؛ این نتیجه ایمنی هیچ مدار واقعی را تأیید نمی‌کند."));}else items.forEach(({c,cls,label})=>{const li=el("li","");li.append(el("span","status "+cls,label),document.createTextNode(" "+c.id+" · "+c.name+" — "+c.evidence));root.append(li);});document.getElementById("meter").style.width=Math.max(8,100-unknown.length*18-changed.length*10)+"%";document.getElementById("changedCount").textContent=changed.length;document.getElementById("unknownCount").textContent=unknown.length;document.getElementById("count").textContent=circuits.length;document.getElementById("eventCount").textContent=events.length;}
+function renderHistory(){const root=document.getElementById("history");root.replaceChildren();events.slice(0,30).forEach(e=>{const li=el("li","");li.append(el("strong","",e.type+" — "),document.createTextNode(e.detail+" "),el("span","muted",new Date(e.at).toLocaleString("fa-IR")));root.append(li);});}
+function render(){renderCards();renderResults();renderHistory();}
+function simulate(id){const c=circuits.find(x=>x.id===id);if(!c)return;c.changed=true;c.observed="تابلو → "+id+" → الگوی بار متفاوت (ساختگی)";c.confidence=64;c.evidence="الگوی ساختگی با سابقه متفاوت است؛ علت مشخص نیست.";addEvent("شبیه‌سازی اختلاف",id+" · "+c.name+" به حالت اختلاف احتمالی رفت.");render();}
+function setUnknown(id){const c=circuits.find(x=>x.id===id);if(!c)return;c.changed=null;c.observed="دادهٔ کافی نیست";c.confidence=25;c.evidence="نمونهٔ کافی برای مقایسه وجود ندارد؛ نتیجه‌گیری نمی‌شود.";addEvent("ثبت دادهٔ ناکافی",id+" · "+c.name+" نامطمئن علامت خورد.");render();}
+function restoreCircuit(id){const c=circuits.find(x=>x.id===id);if(!c)return;const base=initialCircuits.find(x=>x.id===id);Object.assign(c,structuredClone(base));addEvent("بازگردانی نمونه",id+" · "+c.name+" به دادهٔ اولیهٔ شبیه‌سازی برگشت.");render();}
+document.getElementById("scan").addEventListener("click",()=>{addEvent("بررسی دوباره","وضعیت مدارهای شبیه‌سازی‌شده دوباره فهرست شد؛ اندازه‌گیری واقعی انجام نشد.");render();});
+document.getElementById("reset").addEventListener("click",()=>{if(confirm("داده‌های محلی این نمونه به حالت اولیه برگردند؟"))fresh();});
+document.getElementById("print").addEventListener("click",()=>window.print());
+document.getElementById("export").addEventListener("click",()=>{const report={title:"Live Electrical Passport — Simulation v0.2",exportedAt:new Date().toISOString(),warning:"Simulation only. Synthetic data; not a safety tool and not connected to real electrical equipment.",circuits,events};const blob=new Blob([JSON.stringify(report,null,2)],{type:"application/json;charset=utf-8"});const url=URL.createObjectURL(blob),a=el("a");a.href=url;a.download="live-electrical-passport-report.json";document.body.append(a);a.click();a.remove();URL.revokeObjectURL(url);addEvent("خروجی پرونده","گزارش JSON از وضعیت شبیه‌سازی صادر شد.");render();});
+load();render();
 </script>
 </body>
 </html>
