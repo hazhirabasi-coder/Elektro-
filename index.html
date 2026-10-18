@@ -298,6 +298,10 @@ body:has(#lab:not(.hidden)) #lab{padding:0 8px}
 body:has(#lab:not(.hidden)) .lab-pro-dashboard{margin:0 auto 14px;max-width:1800px;border-radius:0 0 12px 12px}
 .lab-pro-menu button:focus-visible,.lab-pro-scenarios button:focus-visible,.lab-pro-result>button:focus-visible{outline:3px solid #ffca28;outline-offset:2px}
 
+/* Usable lab mode: hide the decorative dashboard; the interactive measurement bench below is the actual workspace. */
+.lab-pro-dashboard,.lab-pro-scenarios{display:none!important}
+.lab-quickstart{border:2px solid #e5b91c;background:#fff9df;border-radius:12px;padding:16px;margin:12px 0;color:#172b3f}
+.lab-quickstart h3{margin:0 0 8px;font-size:18px}.lab-quickstart p{margin:6px 0}.lab-quickstart button{background:#ffd34e;border:1px solid #d5a800;border-radius:8px;padding:12px 16px;font-weight:800;margin-top:8px;color:#172b3f}
 </style>
 </head>
 <body>
@@ -843,6 +847,15 @@ body:has(#lab:not(.hidden)) .lab-pro-dashboard{margin:0 auto 14px;max-width:1800
   <p class="fa">با تستر چندکارهٔ شبیه‌سازی‌شده (مانند Fluke سری 166x) تمرین کن: حالت آزمون را انتخاب کن، پراب قرمز و مشکی را به نقاط اندازه‌گیری وصل کن، اندازه‌گیری را انجام بده و نتیجه را توضیح بده.</p>
   <div class="notice"><b>Wichtig / مهم:</b> Dies ist ausschließlich ein Lernsimulator ohne echte Spannung und ohne Verbindung zu realer Hardware. Er ersetzt weder eine Prüfung nach DIN VDE 0100-600 noch Herstelleranleitungen, Fachaufsicht oder die fünf Sicherheitsregeln. Keine Messung an einer realen Anlage aus dieser Simulation ableiten.</div>
   <p class="fa">این فقط شبیه‌ساز آموزشی است؛ ولتاژ واقعی ندارد و به سخت‌افزار وصل نیست. جایگزین آزمون واقعی طبق DIN VDE 0100-600، دستورالعمل سازنده، نظارت متخصص یا پنج قاعده ایمنی نیست. از نتیجهٔ شبیه‌سازی برای اندازه‌گیری روی تأسیسات واقعی استفاده نکن.</p>
+ </div>
+ <div class="lab-quickstart">
+  <h3>شروع ساده — فقط سه کار / Schnellstart — nur drei Schritte</h3>
+  <p><b>۱.</b> تمرین «ولتاژ L–N» را انتخاب کن. / Messfunktion „Spannung L–N“ auswählen.</p>
+  <p><b>۲.</b> دکمهٔ زیر را بزن تا پراب قرمز به L و پراب مشکی به N وصل شوند. / Die Taste verbindet die Prüfspitzen im Modell mit L und N.</p>
+  <p><b>۳.</b> سپس «اندازه‌گیری» را بزن. نتیجه بر اساس نقاط انتخاب‌شده و سناریوی خطا نمایش داده می‌شود. / Danach „Messung durchführen“ drücken.</p>
+  <button type="button" id="labQuickStart">▶ آماده‌کردن تمرین اول: L–N / Erste Übung vorbereiten</button>
+  <p id="labQuickStartStatus" aria-live="polite">هنوز شروع نشده است. / Noch nicht gestartet.</p>
+  <p><b>محدودیت مهم:</b> این بخش، مدل آموزشی اندازه‌گیری با پراب و سناریوی خطاست؛ هنوز شبیه‌ساز کامل سیم‌کشی و محاسبهٔ تمام مدارهای واقعی نیست. / Dies ist ein Mess- und Fehlerszenario-Lernmodell, noch kein vollständiger Stromkreis-Simulator.</p>
  </div>
 
  <section class="lab-pro-dashboard" aria-label="Virtuelles Fluke-Messlabor im Referenzlayout">
@@ -1951,6 +1964,7 @@ loadFinalExamContent();
  $('labChooseRed').addEventListener('click',()=>{state.active='red';updateProbes()});$('labChooseBlack').addEventListener('click',()=>{state.active='black';updateProbes()});
  setupDragProbes();
  $('labStartExample').addEventListener('click',()=>{$('labMode').value='voltage';$('labFault').value='normal';state.red=null;state.black=null;state.active='red';state.tipRed={x:650,y:135};state.tipBlack={x:650,y:265};updateProbes();$('labExampleMessage').textContent='Schritt 2: Ziehe den roten Griff auf L. Danach ziehst du den schwarzen Griff auf N und klickst auf „Messung durchführen“. / مرحلهٔ ۲: پراب قرمز را روی L بکش؛ سپس پراب مشکی را روی N بکش و اندازه‌گیری را بزن.';$('labDragStage').scrollIntoView({behavior:'smooth',block:'center'});});
+ $('labQuickStart').addEventListener('click',()=>{$('labMode').value='voltage';$('labFault').value='normal';state.red='L';state.black='N';state.active='red';state.tipRed={x:130,y:300};state.tipBlack={x:280,y:300};updateProbes();$('labQuickStartStatus').textContent='آماده است: قرمز روی L و مشکی روی N. حالا «اندازه‌گیری» را بزن. / Bereit: Rot an L, Schwarz an N. Jetzt „Messung durchführen“ drücken.';$('labMeasure').scrollIntoView({behavior:'smooth',block:'center'});});
  
  document.querySelectorAll('.lab-terminal').forEach(b=>b.addEventListener('click',()=>{state[state.active]=b.dataset.point;updateProbes()}));
  $('labMeasure').addEventListener('click',measure);$('labDiagnose').addEventListener('click',diagnose);$('labClear').addEventListener('click',()=>{state.red=null;state.black=null;updateProbes()});$('labReset').addEventListener('click',reset);

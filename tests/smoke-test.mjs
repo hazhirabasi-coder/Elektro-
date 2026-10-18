@@ -62,6 +62,14 @@ test('PWA shell and service worker are configured for offline use', () => {
   assert.match(worker, /APP_SHELL = \[[^\]]*'\.\/virtual-lab\.html'/, 'standalone circuit lab should be cached for offline use');
 });
 
+test('measurement lab prioritizes a clear interactive workflow over decorative mock hardware', () => {
+  assert.match(html, /\.lab-pro-dashboard,\.lab-pro-scenarios\{display:none!important\}/);
+  assert.match(html, /id="labQuickStart"/);
+  assert.match(html, /id="labQuickStartStatus"/);
+  assert.match(html, /state\.red='L';state\.black='N'/);
+  assert.match(html, /noch kein vollständiger Stromkreis-Simulator/i);
+});
+
 test('HTML element IDs are unique to avoid broken controls and navigation', () => {
   const ids = [...html.matchAll(/\bid=["']([^"']+)["']/g)].map(match => match[1]);
   const seen = new Set();
