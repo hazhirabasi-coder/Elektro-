@@ -123,6 +123,14 @@ test('wire mode toggle disables terminal connections outside cable mode', () => 
   assert.ok(lab.includes("if(!state.wireMode){state.selected=id;state.wireStart=null;render();"));
   assert.ok(lab.includes("state.wireMode=!state.wireMode;state.wireStart=null;draftLayer.replaceChildren();"));
 });
+test('standalone workshop provides selectable DIN components and interactive wiring', () => {
+  const lab = readFileSync(new URL('../virtual-lab.html', import.meta.url), 'utf8');
+  for (const marker of ['data-type="mcb3"','data-type="fuse"','data-type="contactor"','LS C16 3-polig','Schmelzsicherung gG','Schütz 3-polig','function connected','data-pin']) {
+    assert.ok(lab.includes(marker), `expected workshop feature marker: ${marker}`);
+  }
+  assert.match(lab, /p\.type==='mcb3'&&p\.on\)links=\[\[0,1\],\[2,3\],\[4,5\]\]/);
+});
+
 test('standalone virtual lab JavaScript parses successfully', () => {
   const lab = readFileSync(new URL('../virtual-lab.html', import.meta.url), 'utf8');
   const script = lab.match(/<script\b[^>]*>([\s\S]*?)<\/script>/i)?.[1];
