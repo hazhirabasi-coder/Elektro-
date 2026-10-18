@@ -108,6 +108,15 @@ test('component placement works over the DIN-rail and installation-wall backdrop
   assert.match(lab, /if\(!inParts&&!inWires&&!onPin\)/);
 });
 
+
+test('workshop provides selectable DIN-rail protection devices and guided building circuits', () => {
+  const lab = readFileSync(new URL('../virtual-lab.html', import.meta.url), 'utf8');
+  for (const marker of ['data-type="rcbo"','data-type="junction"','data-type="pebar"','data-type="neutralbar"','id="templateLamp"','id="templateSocket"','id="templateBoard"','id="newBoard"',"function loadWorkshop(kind)",'function isRailPart(type)']) {
+    assert.ok(lab.includes(marker), 'missing workbench feature: ' + marker);
+  }
+  assert.match(lab, /p\.y=isRailPart\(p\.type\)\?Math\.max\(105,Math\.min\(190/);
+  assert.ok(lab.includes("(p.type==='rcd'||p.type==='rcbo')&&p.on)links=[[0,1],[2,3]]"), 'RCBO must connect its poles only when switched on');
+});
 test('standalone virtual lab JavaScript parses successfully', () => {
   const lab = readFileSync(new URL('../virtual-lab.html', import.meta.url), 'utf8');
   const script = lab.match(/<script\b[^>]*>([\s\S]*?)<\/script>/i)?.[1];
