@@ -115,6 +115,29 @@ else if(mode==='polarity'){value=leads==='LN'?'L / N':'Anschlüsse prüfen';ok=l
 else if(mode==='phase'){value=has('cee')||has('motor')?'L1-L2-L3':'3~ fehlt';ok=has('cee')||has('motor');sub='Drehfeld · Modell';diagnosis=ok?'Drehstrombauteil vorhanden; Phasenfolge ist nicht real berechnet.':'CEE oder Motor hinzufügen.';explain='Die reale Phasenfolge muss mit einem geeigneten Messgerät geprüft werden.'}
 else{value=closed?'0.26 A':'0.00 A';ok=closed;sub='Strom · vereinfachte Schätzung';diagnosis=closed?'Lastkreis als geschlossen erkannt.':'Lastkreis offen oder nicht vollständig verdrahtet.';explain='Stromwert ist ein didaktischer Beispielwert.'}
 document.getElementById('readout').textContent=value;document.getElementById('verdict').textContent=ok?'✓':'!';document.getElementById('verdict').style.color=ok?'#16834b':'#c04435';document.getElementById('subreadout').textContent=sub+' · '+mode;document.getElementById('diagnosis').textContent=diagnosis;const log=document.getElementById('log');if(log.children.length===1&&log.textContent.includes('Noch keine'))log.replaceChildren();const row=document.createElement('div');row.textContent=new Date().toLocaleTimeString()+' · '+mode+': '+value+' · '+(ok?'OK':'Prüfen');log.prepend(row);setStatus('Messung beendet. Ergebnisse sind nur Lernsimulationen.');}
+function loadWorkshop(kind){
+ saveUndo();state.parts=[];state.wires=[];state.next=1;state.selected=null;state.adding=null;state.wireStart=null;
+ const make=(type,x,y)=>{const p={id:state.next++,type,x,y,rot:0,on:true,value:type==='lamp'?60:type==='breaker'||type==='rcbo'?16:type==='rcd'?30:type==='resistor'?1000:230};state.parts.push(p);return p};
+ const link=(a,ap,b,bp)=>state.wires.push({a:a.id,ap,b:b.id,bp,color:pinColor(specs[a.type].pins[ap][0])});
+ const src=make('supply',75,145),main=make('main',205,145),rcd=make('rcd',335,145),ls1=make('breaker',465,145);
+ link(src,0,main,0);link(main,1,rcd,0);link(src,1,main,2);link(main,3,rcd,2);
+ let neutral=null,earth=null;
+ if(kind==='lamp'){
+  const sw=make('switch',345,390),lamp=make('lamp',535,390),nbar=make('neutralbar',720,170);
+  link(rcd,1,ls1,0);link(ls1,1,sw,0);link(sw,1,lamp,0);link(rcd,3,nbar,0);link(nbar,1,lamp,1);state.selected=sw.id;
+ }else if(kind==='socket'){
+  const sock=make('socket',610,405),nbar=make('neutralbar',720,170),pebar=make('pebar',850,170);
+  link(rcd,1,ls1,0);link(ls1,1,sock,0);link(rcd,3,nbar,0);link(nbar,1,sock,1);link(src,2,pebar,0);link(pebar,1,sock,2);state.selected=ls1.id;
+ }else{
+  const ls2=make('breaker',585,145),sw=make('switch',345,390),lamp=make('lamp',520,390),sock=make('socket',800,430),nbar=make('neutralbar',720,170),pebar=make('pebar',870,170);
+  link(rcd,1,ls1,0);link(rcd,1,ls2,0);link(ls1,1,sw,0);link(sw,1,lamp,0);link(ls2,1,sock,0);link(rcd,3,nbar,0);link(nbar,1,lamp,1);link(nbar,2,sock,1);link(src,2,pebar,0);link(pebar,1,sock,2);state.selected=sw.id;
+ }
+ render();const labels={lamp:'Beleuchtung aufgebaut: Netz → Hauptschalter → RCD → LS → Schalter → Leuchte. / مدار روشنایی آماده است؛ سیم‌ها را بررسی و کلید را تغییر بده.',socket:'Steckdosenkreis aufgebaut: Netz → Hauptschalter → RCD → LS → Schuko; N und PE getrennt geführt. / مدار پریز با RCD و PE/N جدا آماده است.',board:'Verteilung mit zwei Stromkreisen aufgebaut: LS 1 für Beleuchtung, LS 2 für Schuko. / تابلو دو مداره آماده است؛ هر دو مدار را تغییر بده و اندازه‌گیری کن.'};setStatus(labels[kind]||labels.board);document.getElementById('hint').textContent=labels[kind]||labels.board;
+}
+document.getElementById('templateLamp').onclick=()=>loadWorkshop('lamp');
+document.getElementById('templateSocket').onclick=()=>loadWorkshop('socket');
+document.getElementById('templateBoard').onclick=()=>loadWorkshop('board');
+document.getElementById('newBoard').onclick=()=>{saveUndo();state.parts=[];state.wires=[];state.next=1;state.selected=null;state.adding=null;render();setStatus('Leere Tafel bereit. Wähle links Komponenten und platziere sie selbst. / تابلو خالی آماده است؛ قطعات را خودت انتخاب کن.');};
 document.getElementById('measure').onclick=test;
 document.getElementById('stage').addEventListener('contextmenu',e=>{e.preventDefault();state.wireStart=null;render();setStatus('Auswahl zurückgesetzt.')});
 document.addEventListener('keydown',e=>{if(e.key==='Delete'||e.key==='Backspace')document.getElementById('deleteSelected').click();if(e.key==='Escape'){state.adding=null;state.wireStart=null;render();}});
