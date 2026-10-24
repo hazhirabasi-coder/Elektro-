@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 
 const html = readFileSync(new URL("../elektropilot.html", import.meta.url), "utf8");
 const cases = JSON.parse(readFileSync(new URL("../data/demo-cases.json", import.meta.url), "utf8"));
+const boxscanDemo = JSON.parse(readFileSync(new URL("../data/boxscan-demo.json", import.meta.url), "utf8"));
 const firmware = readFileSync(new URL("../hardware/boxscan-b/boxscan_b.ino", import.meta.url), "utf8");
 const api = readFileSync(new URL("../server/index.mjs", import.meta.url), "utf8");
 const contract = readFileSync(new URL("../docs/boxscan-data-contract.md", import.meta.url), "utf8");
@@ -17,6 +18,9 @@ assert.match(html, /BoxScan B Daten importieren/);
 assert.match(html, /Mit KI analysieren/);
 assert.match(html, /API-Basisadresse/);
 assert.equal(cases.cases.length, 10);
+assert.equal(boxscanDemo.schemaVersion, "1.0");
+assert.equal(boxscanDemo.quality.measurementValid, false);
+assert.equal(boxscanDemo.quality.registerMapVerified, false);
 assert.equal(new Set(cases.cases.map(c => c.id)).size, cases.cases.length);
 for (const c of cases.cases) {
   assert.ok(c.id && c.title && c.reviewQuestion, `Case missing required fields: ${JSON.stringify(c)}`);
