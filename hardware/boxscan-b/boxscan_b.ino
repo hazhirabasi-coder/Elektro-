@@ -112,6 +112,7 @@ void setup() {
   meter.postTransmission(postTransmission);
   WiFi.mode(WIFI_STA);
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+  configTime(0, 0, "pool.ntp.org", "time.nist.gov");
   Serial.println("BoxScan B bench scaffold starting.");
   Serial.println("No readings until a verified register map is configured.");
 }
