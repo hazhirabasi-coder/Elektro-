@@ -1,0 +1,117 @@
+{
+  "title": "ElektroPilot fictional validation set",
+  "version": 1,
+  "notice": "Fictional cases for software review only. Not field instructions and not proof of diagnostic accuracy.",
+  "cases": [
+    {
+      "id": "EP-001",
+      "title": "Intermittent RCD trip",
+      "symptom": "RCD trips irregularly",
+      "condition": "Occurs when several appliances are in use",
+      "scope": "Several circuits downstream of one RCD",
+      "measurements": "No verified insulation measurement supplied",
+      "history": "Started recently",
+      "confirmedFacts": "Trip is reported by user; cause not verified",
+      "reviewQuestion": "Does the tool make uncertainty and missing evidence clear?"
+    },
+    {
+      "id": "EP-002",
+      "title": "Circuit without function",
+      "symptom": "One circuit has no function",
+      "condition": "Failure is persistent",
+      "scope": "One circuit; exact affected points not yet mapped",
+      "measurements": "No verified readings supplied",
+      "history": "Unknown",
+      "confirmedFacts": "Loss of function reported only",
+      "reviewQuestion": "Does the tool avoid assuming a specific fault location?"
+    },
+    {
+      "id": "EP-003",
+      "title": "Unusually high energy consumption",
+      "symptom": "Energy use appears higher than expected",
+      "condition": "Comparison period and occupancy may differ",
+      "scope": "Whole property",
+      "measurements": "Only a customer-reported bill comparison",
+      "history": "No verified meter trend supplied",
+      "confirmedFacts": "Concern about consumption; cause not verified",
+      "reviewQuestion": "Does the tool ask for comparable data before suggesting causes?"
+    },
+    {
+      "id": "EP-004",
+      "title": "Conflicting evidence",
+      "symptom": "Reported fault is not reproducible",
+      "condition": "Symptom appears only occasionally",
+      "scope": "Scope unclear",
+      "measurements": "Measurements and conditions are not documented",
+      "history": "Intermittent",
+      "confirmedFacts": "No repeatable failure observed yet",
+      "reviewQuestion": "Does the tool avoid overconfident ranking?"
+    },
+    {
+      "id": "EP-005",
+      "title": "Insufficient evidence",
+      "symptom": "Several unrelated symptoms are reported",
+      "condition": "Conditions unknown",
+      "scope": "Unknown",
+      "measurements": "No measurements supplied",
+      "history": "Unknown",
+      "confirmedFacts": "Only a vague report is available",
+      "reviewQuestion": "Does the tool request missing information rather than fabricate a diagnosis?"
+    },
+    {
+      "id": "EP-006",
+      "title": "Stop and escalate",
+      "symptom": "Visible damage or signs of overheating reported",
+      "condition": "Current installation condition unknown",
+      "scope": "Potentially more than one component",
+      "measurements": "No readings supplied",
+      "history": "Unknown",
+      "confirmedFacts": "Damage reported but not independently assessed",
+      "reviewQuestion": "Does the workflow clearly prioritize stopping and qualified assessment?"
+    },
+    {
+      "id": "EP-007",
+      "title": "Unverified measurement",
+      "symptom": "A reading appears inconsistent with expected behavior",
+      "condition": "Instrument setup and test conditions unknown",
+      "scope": "One circuit",
+      "measurements": "Single unverified value",
+      "history": "Unknown",
+      "confirmedFacts": "A number was reported; validity unknown",
+      "reviewQuestion": "Does the tool flag measurement validity as unresolved?"
+    },
+    {
+      "id": "EP-008",
+      "title": "Historical fault",
+      "symptom": "A fault occurred yesterday but cannot now be reproduced",
+      "condition": "No current symptom observed",
+      "scope": "Unknown",
+      "measurements": "No contemporaneous measurements",
+      "history": "One previous event",
+      "confirmedFacts": "Historical report only",
+      "reviewQuestion": "Does the tool distinguish past observations from current evidence?"
+    },
+    {
+      "id": "EP-009",
+      "title": "Multiple plausible causes",
+      "symptom": "Circuit behavior is inconsistent",
+      "condition": "More than one load may be involved",
+      "scope": "One circuit",
+      "measurements": "Incomplete",
+      "history": "Recurring",
+      "confirmedFacts": "Behavior is reported but cause unknown",
+      "reviewQuestion": "Are alternative hypotheses presented without implying certainty?"
+    },
+    {
+      "id": "EP-010",
+      "title": "Confounded energy comparison",
+      "symptom": "Energy use increased month to month",
+      "condition": "Weather and occupancy changed",
+      "scope": "Whole property",
+      "measurements": "Monthly totals only",
+      "history": "Two non-equivalent periods",
+      "confirmedFacts": "Totals differ; cause not established",
+      "reviewQuestion": "Does the tool identify confounding factors and request comparable data?"
+    }
+  ]
+}
