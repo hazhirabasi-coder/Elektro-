@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: elektropilot-api
+    runtime: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: APP_ORIGIN
+        value: https://hazhirabasi-coder.github.io
+      - key: OPENAI_MODEL
+        value: gpt-5.5
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: BOXSCAN_DEVICE_TOKEN
+        sync: false
