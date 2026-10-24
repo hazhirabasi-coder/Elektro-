@@ -75,6 +75,11 @@ const server = http.createServer(async (req, res) => {
     return json(res, 200, { ok: true, service: "elektropilot-api", aiConfigured: Boolean(API_KEY), model: MODEL }, allowedOrigin);
   }
   if (origin && !allowedOrigin) return json(res, 403, { error: "ORIGIN_NOT_ALLOWED" });
+  if (req.method === "GET" && url.pathname === "/api/boxscan/latest") {
+    if (!VIEW_TOKEN || !sameSecret((req.headers.authorization || "").replace(/^Bearer\\s+/i, ""), VIEW_TOKEN))
+      return json(res, 401, { error: "VIEW_AUTH_FAILED" }, allowedOrigin);
+    return json(res, 200, { readings: Array.from(latestReadings.values()), persistence: "memory-only" }, allowedOrigin);
+  }
   if (req.method !== "POST") return json(res, 404, { error: "NOT_FOUND" }, allowedOrigin);
   if (rateLimited(req.socket.remoteAddress || "unknown")) return json(res, 429, { error: "RATE_LIMITED" }, allowedOrigin);
 
