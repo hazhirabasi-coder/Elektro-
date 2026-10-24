@@ -43,7 +43,7 @@
 <h2>04 / Echte KI-Analyse (Backend)</h2>
 <p class="sub">Optionaler Server-Endpunkt. Der API-Schlüssel gehört nur auf den Server, niemals in diese Webseite.</p>
 <div class="field"><label for="apiBase">API-Basisadresse</label><input id="apiBase" placeholder="z. B. http://localhost:8787" autocomplete="url"></div>
-<div class="btns"><button class="btn primary" id="liveAI">Mit KI analysieren</button><button class="btn ghost" id="checkApi">Verbindung prüfen</button></div>
+<div class="field"><label for="boxscanViewToken">BoxScan Lesetoken (nur für Live-Daten)</label><input id="boxscanViewToken" type="password" autocomplete="off" placeholder="Vom API-Administrator erhalten"></div><div class="btns"><button class="btn primary" id="liveAI">Mit KI analysieren</button><button class="btn ghost" id="checkApi">Verbindung prüfen</button><button class="btn" id="loadLiveBoxScan">Live-BoxScan laden</button></div>
 <div id="aiStatus" class="alert" style="margin-top:12px">Nicht verbunden. Der bestehende Analyseknopf verwendet weiterhin die lokale Regel-Demo.</div>
 <pre id="aiOutput" class="hidden" style="white-space:pre-wrap;overflow-wrap:anywhere;background:#0b1424;border:1px solid var(--line);border-radius:11px;padding:12px;font-size:12px"></pre>
 </section>
@@ -139,6 +139,29 @@ async function apiRequest(path,body){
  return data;
 }
 $("checkApi").onclick=async()=>{ $("aiStatus").textContent="Prüfe API …";try{const d=await apiRequest("/health");$("aiStatus").textContent="API erreichbar. Live-AI konfiguriert: "+(d.aiConfigured?"ja":"nein")+"; Modell: "+d.model+"."; }catch(e){$("aiStatus").textContent="API nicht erreichbar: "+e.message}};
+$("loadLiveBoxScan").onclick=async()=>{
+ $("aiStatus").textContent="Lade letzte BoxScan-Messwerte …";
+ try{
+  const base=$("apiBase").value.trim().replace(/\\/+$/,"");
+  const token=$("boxscanViewToken").value;
+  if(!base)throw new Error("Gib zuerst die API-Basisadresse ein.");
+  if(!token)throw new Error("Gib den Lesetoken ein, den du auf dem API-Server eingerichtet hast.");
+  const response=await fetch(base+"/api/boxscan/latest",{headers:{authorization:"Bearer "+token}});
+  const data=await response.json().catch(()=>({error:"INVALID_SERVER_RESPONSE"}));
+  if(!response.ok)throw new Error(data.error||("HTTP "+response.status));
+  if(!Array.isArray(data.readings)||!data.readings.length)throw new Error("Noch keine Messwerte empfangen. Das Gerät muss korrekt eingerichtet und mit dem API-Server verbunden sein.");
+  const p=data.readings.sort((a,b)=>Date.parse(b.capturedAt)-Date.parse(a.capturedAt))[0];
+  window.boxScanImport=p;
+  const s=boxscanSummary(p);
+  $("boxscanStatus").className="empty";
+  $("boxscanStatus").innerHTML="<b>"+(s.valid?"Live-Daten geladen · validiert markiert":"Live-Daten geladen · NICHT verifiziert")+"</b>";
+  const detail=document.createElement("div");detail.style.marginTop="8px";detail.textContent="Gerät: "+s.device+" | Quelle: "+s.source+" | Zeitpunkt: "+s.capturedAt+" | Kommunikation: "+(p.quality?.communicationOk?"OK":"Fehler")+" | "+s.fields;
+  $("boxscanStatus").appendChild(detail);
+  $("measurements").value="BoxScan Live-Import (Quelle: "+s.source+"; Zeit: "+s.capturedAt+"; Gerät: "+s.device+"). Qualitätsstatus: communicationOk="+Boolean(p.quality?.communicationOk)+", measurementValid="+(p.quality?.measurementValid===true)+", registerMapVerified="+(p.quality?.registerMapVerified===true)+". Werte: "+s.fields+". Werte vor einer fachlichen Schlussfolgerung prüfen.";
+  $("history").value=($("history").value?$("history").value+"\\n":"")+"BoxScan-Livedaten abgerufen; Gerät "+s.device+", Zeit "+s.capturedAt+".";
+  $("aiStatus").textContent="Letzte BoxScan-Daten geladen. API-Speicherung ist nur temporär im Arbeitsspeicher; Server-Neustart löscht sie.";
+ }catch(e){$("aiStatus").textContent="Live-BoxScan nicht verfügbar: "+e.message}
+};
 $("liveAI").onclick=async()=>{
  $("aiStatus").textContent="Sende Fall an den konfigurierten Server …";$("aiOutput").classList.add("hidden");
  try{
