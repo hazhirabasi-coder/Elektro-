@@ -6,12 +6,18 @@ on:
       - "elektropilot.html"
       - "data/**"
       - "scripts/**"
+      - "hardware/**"
+      - "server/**"
+      - "docs/**"
       - ".github/workflows/validate.yml"
   pull_request:
     paths:
       - "elektropilot.html"
       - "data/**"
       - "scripts/**"
+      - "hardware/**"
+      - "server/**"
+      - "docs/**"
       - ".github/workflows/validate.yml"
   workflow_dispatch:
 
@@ -28,5 +34,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Run smoke tests
+      - name: Run application smoke tests
         run: node scripts/smoke-test.mjs
+      - name: Check backend syntax
+        run: node --check server/index.mjs
+      - name: Run backend contract tests
+        run: node --test server/test.mjs
