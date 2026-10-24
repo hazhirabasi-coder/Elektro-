@@ -76,7 +76,7 @@ const server = http.createServer(async (req, res) => {
   }
   if (origin && !allowedOrigin) return json(res, 403, { error: "ORIGIN_NOT_ALLOWED" });
   if (req.method === "GET" && url.pathname === "/api/boxscan/latest") {
-    if (!VIEW_TOKEN || !sameSecret((req.headers.authorization || "").replace(/^Bearer\\s+/i, ""), VIEW_TOKEN))
+    if (!VIEW_TOKEN || !sameSecret((req.headers.authorization || "").replace(/^Bearer\s+/i, ""), VIEW_TOKEN))
       return json(res, 401, { error: "VIEW_AUTH_FAILED" }, allowedOrigin);
     return json(res, 200, { readings: Array.from(latestReadings.values()), persistence: "memory-only" }, allowedOrigin);
   }
