@@ -13,7 +13,7 @@ The GitHub Pages app is static and cannot safely hold an OpenAI API key or accep
   - PORT (optional; default 8787)
 - Health check: GET /health.
 - AI analysis: POST /api/analyze with JSON body {"case":{"title":"...","symptoms":"...","measurements":"..."}}.
-- Device ingestion: POST /api/boxscan/measurements with a v1.0 payload and Authorization: Bearer <device-token>.
+- Device ingestion: POST /api/boxscan/measurements with a v1.0 payload and Authorization: Bearer <device-token>.\n- Latest reading: GET /api/boxscan/latest with Authorization: Bearer <BOXSCAN_VIEW_TOKEN>. The browser app has a field for this read token.
 
 ## Prototype limitations
 - No database, user accounts, tenant isolation, persistent measurement storage, audit log, billing, or production-grade abuse prevention is configured.
