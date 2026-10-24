@@ -17,3 +17,5 @@ services:
         sync: false
       - key: BOXSCAN_DEVICE_TOKEN
         sync: false
+      - key: BOXSCAN_VIEW_TOKEN
+        sync: false
