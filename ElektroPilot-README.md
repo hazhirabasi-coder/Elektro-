@@ -1,6 +1,6 @@
 # ElektroPilot AI — Evidence Engine
 
-**Prototype status:** early, browser-only proof of concept. This is not a validated diagnostic product and does not contain a real AI model.
+**Prototype status:** early software + firmware scaffold. The static browser app includes fixed-rule demo analysis, JSON import for BoxScan data, and an optional live-AI/API client. The backend and firmware are source code only until separately configured, deployed and tested. This is not a validated diagnostic product.
 
 ## Open the prototype
 
@@ -17,10 +17,21 @@ If that URL is not yet available, open the [HTML file in the repository](./elekt
 - Suggests next investigative steps for a qualified electrician to review.
 - Saves cases in the browser's local storage, and supports copy/print-to-PDF.
 - Includes three demo scenarios: intermittent RCD trips, a circuit without function, and unusually high energy consumption.
+- Imports BoxScan B JSON exports and displays source/time/quality flags.
+- Can call the optional server-side AI endpoint after the API is deployed and configured; the browser never stores an OpenAI API key.
+- Includes a BoxScan B ESP32/isolated-RS-485 firmware scaffold with polling disabled by default, plus a data contract.
+
+## Added project files
+
+- [BoxScan B hardware/firmware guide](./hardware/boxscan-b/README.md)
+- [BoxScan data contract](./docs/boxscan-data-contract.md)
+- [Optional API server](./server/README.md)
+- [Render deployment blueprint](./render.yaml)
 
 ## Important limitations
 
-- The current logic is **rule-based**, not an AI model.
+- The default in-page analysis remains **rule-based**. Live model analysis works only after the optional API is deployed, configured with a valid API key, and connected in the UI.
+- The BoxScan firmware is not flashed or field-tested. A real meter register map and trusted TLS CA must be configured first.
 - Demo outputs are hypotheses, not confirmed diagnoses.
 - It does not connect to test instruments, sensors, building-management systems or electrical installations.
 - Never use it as a substitute for electrical training, risk assessment, applicable DIN/VDE requirements, lockout/isolation procedures, or approved measuring equipment. Work on electrical installations must be performed only by appropriately qualified persons.
