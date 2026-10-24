@@ -42,7 +42,7 @@ function safeCase(c) {
   if (!c || typeof c !== "object" || Array.isArray(c)) return false;
   const allowed = ["title", "symptoms", "when", "scope", "measurements", "history", "confirmed", "scenario", "boxScan"];
   return allowed.some(k => typeof c[k] === "string" && c[k].length > 0) &&
-    allowed.every(k => c[k] === undefined || (typeof c[k] === "string" && c[k].length <= 6000) || (k === "boxScan" && c[k] && typeof c[k] === "object"));
+    allowed.every(k => c[k] === undefined || (k === "boxScan" && c[k] === null) || (typeof c[k] === "string" && c[k].length <= 6000) || (k === "boxScan" && c[k] && typeof c[k] === "object"));
 }
 const instructions = `You are ElektroPilot, an evidence-organizing assistant for qualified electrical professionals in Germany.
 Safety rules:
@@ -120,8 +120,8 @@ const server = http.createServer(async (req, res) => {
       });
       const data = await response.json().catch(() => ({}));
       if (!response.ok) return json(res, 502, { error: "MODEL_REQUEST_FAILED", status: response.status, requestId: data?.id || null }, allowedOrigin);
-      const output = data.output_text;
-      if (typeof output !== "string") return json(res, 502, { error: "MODEL_EMPTY_RESPONSE" }, allowedOrigin);
+      const output = typeof data.output_text === "string" ? data.output_text : Array.isArray(data.output) ? data.output.flatMap(item => Array.isArray(item.content) ? item.content : []).filter(part => part.type === "output_text" && typeof part.text === "string").map(part => part.text).join("\\n") : "";
+      if (!output) return json(res, 502, { error: "MODEL_EMPTY_RESPONSE" }, allowedOrigin);
       let analysis;
       try { analysis = JSON.parse(output); } catch { return json(res, 502, { error: "MODEL_INVALID_JSON" }, allowedOrigin); }
       return json(res, 200, { analysis, model: MODEL, responseId: data.id || null, disclaimer: "AI-generated hypotheses only; not a diagnosis or safety approval." }, allowedOrigin);
