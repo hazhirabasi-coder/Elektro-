@@ -25,7 +25,7 @@ assert.match(firmware, /METER_REGISTER_MAP_CONFIGURED 0/);
 assert.match(firmware, /GALVANICALLY ISOLATED RS-485/);
 assert.match(firmware, /setInsecure\(\)/);
 assert.match(api, /AI_NOT_CONFIGURED/);
-assert.match(api, /stored: false/);
+assert.match(api, /stored: true/);\nassert.match(api, /\/api\/boxscan\/latest/);\nassert.match(api, /persistence: "memory-only"/);
 assert.match(api, /store: false/);
 assert.match(contract, /schemaVersion/);
 
