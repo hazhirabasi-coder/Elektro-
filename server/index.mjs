@@ -5,6 +5,8 @@ const PORT = Number(process.env.PORT || 8787);
 const API_KEY = process.env.OPENAI_API_KEY || "";
 const MODEL = process.env.OPENAI_MODEL || "gpt-5.5";
 const DEVICE_TOKEN = process.env.BOXSCAN_DEVICE_TOKEN || "";
+const VIEW_TOKEN = process.env.BOXSCAN_VIEW_TOKEN || "";
+const latestReadings = new Map();
 const ALLOWED_ORIGIN = process.env.APP_ORIGIN || "http://localhost:8787";
 const MAX_BODY = 24 * 1024;
 const requestCounts = new Map();
@@ -94,8 +96,10 @@ const server = http.createServer(async (req, res) => {
           return json(res, 400, { error: "INVALID_MEASUREMENT", field: key }, allowedOrigin);
         }
       }
-      // Validates and acknowledges only; no persistence configured.
-      return json(res, 202, { accepted: true, stored: false, requestId: randomUUID(), note: "Validated in memory only; persistence is not configured." }, allowedOrigin);
+      // Stores the latest reading in process memory only. Restart/redeploy clears it.
+      const storedPayload = { ...payload, receivedAt: new Date().toISOString() };
+      latestReadings.set(payload.deviceId, storedPayload);
+      return json(res, 202, { accepted: true, stored: true, persistence: "memory-only", requestId: randomUUID() }, allowedOrigin);
     } catch (err) {
       return json(res, err.message === "BODY_TOO_LARGE" ? 413 : 400, { error: err.message || "BAD_REQUEST" }, allowedOrigin);
     }
