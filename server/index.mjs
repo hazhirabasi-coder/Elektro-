@@ -129,7 +129,7 @@ const server = http.createServer(async (req, res) => {
       });
       const data = await response.json().catch(() => ({}));
       if (!response.ok) return json(res, 502, { error: "MODEL_REQUEST_FAILED", status: response.status, requestId: data?.id || null }, allowedOrigin);
-      const output = typeof data.output_text === "string" ? data.output_text : Array.isArray(data.output) ? data.output.flatMap(item => Array.isArray(item.content) ? item.content : []).filter(part => part.type === "output_text" && typeof part.text === "string").map(part => part.text).join("\\n") : "";
+      const output = typeof data.output_text === "string" ? data.output_text : Array.isArray(data.output) ? data.output.flatMap(item => Array.isArray(item.content) ? item.content : []).filter(part => part.type === "output_text" && typeof part.text === "string").map(part => part.text).join("\n") : "";
       if (!output) return json(res, 502, { error: "MODEL_EMPTY_RESPONSE" }, allowedOrigin);
       let analysis;
       try { analysis = JSON.parse(output); } catch { return json(res, 502, { error: "MODEL_INVALID_JSON" }, allowedOrigin); }
