@@ -32,6 +32,21 @@
 </main>
 <aside>
 <section class="card"><h2>02 / Evidenzanalyse</h2><p class="sub">Die Anzeige ordnet mögliche Erklärungen. Sie bestätigt keine elektrische Ursache.</p><div id="result" class="empty"><b>Bereit für die Analyse</b>Erfasse einen Fall und wähle „Fall analysieren“.</div><div id="results" class="results hidden"></div><div id="next" class="next hidden"></div><div id="safety" class="alert">Sicherheitsgrenze: Diese Demo ist kein Prüfgerät und keine Arbeitsanweisung für Arbeiten unter Spannung. Prüfungen an elektrischen Anlagen gehören in die Hände qualifizierter Fachkräfte unter Einhaltung der geltenden Sicherheitsregeln.</div><div class="btns" style="margin-top:14px"><button class="btn" id="export">Bericht drucken / PDF</button><button class="btn ghost" id="copy">Falltext kopieren</button></div></section>
+<section class="card">
+<h2>03 / BoxScan B Daten importieren</h2>
+<p class="sub">Importiert eine JSON-Datei lokal. Das ist noch keine Live-Verbindung zur Hardware.</p>
+<div class="field"><label for="boxscanFile">BoxScan JSON-Datei</label><input id="boxscanFile" type="file" accept=".json,application/json"></div>
+<div id="boxscanStatus" class="empty"><b>Noch keine Daten importiert</b>Erwarte schemaVersion 1.0 mit Quelle, Zeitstempel, Messwerten und Qualitätskennzeichen.</div>
+<div class="btns" style="margin-top:12px"><button class="btn" id="clearBoxscan">Import entfernen</button></div>
+</section>
+<section class="card">
+<h2>04 / Echte KI-Analyse (Backend)</h2>
+<p class="sub">Optionaler Server-Endpunkt. Der API-Schlüssel gehört nur auf den Server, niemals in diese Webseite.</p>
+<div class="field"><label for="apiBase">API-Basisadresse</label><input id="apiBase" placeholder="z. B. http://localhost:8787" autocomplete="url"></div>
+<div class="btns"><button class="btn primary" id="liveAI">Mit KI analysieren</button><button class="btn ghost" id="checkApi">Verbindung prüfen</button></div>
+<div id="aiStatus" class="alert" style="margin-top:12px">Nicht verbunden. Der bestehende Analyseknopf verwendet weiterhin die lokale Regel-Demo.</div>
+<pre id="aiOutput" class="hidden" style="white-space:pre-wrap;overflow-wrap:anywhere;background:#0b1424;border:1px solid var(--line);border-radius:11px;padding:12px;font-size:12px"></pre>
+</section>
 <section class="card"><h2>03 / Was macht einen guten Befund aus?</h2><div class="sideMetric"><b>Beobachtung</b><span>Was wurde tatsächlich gesehen oder gemessen?</span></div><div class="sideMetric"><b>Hypothese</b><span>Welche Ursache könnte dazu passen?</span></div><div class="sideMetric"><b>Gegenbeleg</b><span>Welche Information passt nicht oder fehlt?</span></div><div class="sideMetric"><b>Bestätigung</b><span>Welche fachgerechte Prüfung entscheidet?</span></div></section>
 </aside>
 </div>
@@ -47,7 +62,7 @@ load:{title:"Ungewöhnlich hoher Verbrauch",symptoms:"Der dokumentierte Stromver
 $("scenario").addEventListener("change",()=>{const s=scenarios[$("scenario").value];if(!s)return;for(const k of ["title","symptoms","when","scope","measurements","history","confirmed"])$(k).value=s[k]});
 function makeHyp(title,score,forText,againstText,missing){return {title,score,forText,againstText,missing}}
 function analyze(){
- const s={title:$("title").value.trim(),symptoms:$("symptoms").value.trim(),when:$("when").value.trim(),scope:$("scope").value.trim(),measurements:$("measurements").value.trim(),history:$("history").value.trim(),confirmed:$("confirmed").value.trim(),scenario:$("scenario").value};
+ const s={title:$("title").value.trim(),symptoms:$("symptoms").value.trim(),when:$("when").value.trim(),scope:$("scope").value.trim(),measurements:$("measurements").value.trim(),history:$("history").value.trim(),confirmed:$("confirmed").value.trim(),scenario:$("scenario").value,boxScan:window.boxScanImport||null};
  const text=Object.values(s).join(" ").toLowerCase();
  let hs=[],steps=[];
  if(s.scenario==="rcd"||/rcd|fi-schalter|fehlerstrom|auslös/.test(text)){
@@ -79,13 +94,62 @@ function analyze(){
 }
 function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
 function caseText(c){return "ELEKTROPILOT AI — FALLBERICHT (DEMO)\n"+c.title+"\nErstellt: "+new Date(c.created||Date.now()).toLocaleString("de-DE")+"\n\nSYMPTOME\n"+c.symptoms+"\n\nBEDINGUNG / ZEITPUNKT\n"+c.when+"\n\nBETROFFENER BEREICH\n"+c.scope+"\n\nMESSWERTE\n"+c.measurements+"\n\nBISHERIGE PRÜFUNGEN\n"+c.history+"\n\nGESICHERTE FAKTEN\n"+c.confirmed+"\n\nHYPOTHESEN — NICHT BESTÄTIGT\n"+(c.hypotheses||[]).map(h=>"- "+h.title+"\n  Dafür: "+h.forText+"\n  Grenze: "+h.againstText+"\n  Benötigt: "+h.missing).join("\n")+"\n\nVORGESCHLAGENE NÄCHSTE SCHRITTE\n"+(c.steps||[]).map((x,i)=>(i+1)+". "+x).join("\n")+"\n\nWICHTIG: KI-/Regel-Demo. Keine bestätigte Diagnose, kein Prüfprotokoll, keine Freigabe. Ergebnisse müssen durch qualifizierte Fachkräfte verifiziert werden."}
-function getCurrent(){return {title:$("title").value.trim(),symptoms:$("symptoms").value.trim(),when:$("when").value.trim(),scope:$("scope").value.trim(),measurements:$("measurements").value.trim(),history:$("history").value.trim(),confirmed:$("confirmed").value.trim(),scenario:$("scenario").value,created:new Date().toISOString(),hypotheses:window.lastCase?.hypotheses||[],steps:window.lastCase?.steps||[]}}
+function getCurrent(){return {title:$("title").value.trim(),symptoms:$("symptoms").value.trim(),when:$("when").value.trim(),scope:$("scope").value.trim(),measurements:$("measurements").value.trim(),history:$("history").value.trim(),confirmed:$("confirmed").value.trim(),scenario:$("scenario").value,boxScan:window.boxScanImport||null,created:new Date().toISOString(),hypotheses:window.lastCase?.hypotheses||[],steps:window.lastCase?.steps||[]}}
 function renderCases(){let arr=[];try{arr=JSON.parse(localStorage.getItem("elektropilot_cases")||"[]")}catch{};const el=$("cases");if(!arr.length){el.innerHTML='<div class="empty">Noch keine gespeicherten Fälle.</div>';return}el.innerHTML=arr.map((c,i)=>'<div class="caseItem"><div><b>'+esc(c.title)+'</b><div class="tiny">'+new Date(c.created).toLocaleString("de-DE")+'</div></div><div><button data-open="'+i+'">Öffnen</button> <button data-delete="'+i+'" aria-label="Fall löschen">Löschen</button></div></div>').join("");el.querySelectorAll("[data-open]").forEach(b=>b.onclick=()=>{const c=arr[+b.dataset.open];for(const k of ["title","symptoms","when","scope","measurements","history","confirmed","scenario"])if(c[k]!==undefined)$(k).value=c[k];window.lastCase=c;if(c.hypotheses?.length){$("result").classList.add("hidden");$("results").classList.remove("hidden");$("next").classList.remove("hidden");$("results").innerHTML=c.hypotheses.map((h,i)=>'<article class="hypothesis"><h3>'+esc(h.title)+'</h3><p>'+esc(h.forText)+'</p><p>'+esc(h.againstText)+'</p><p>'+esc(h.missing)+'</p></article>').join("");$("next").innerHTML="<h3>Nächste Schritte</h3><ol>"+(c.steps||[]).map(x=>"<li>"+esc(x)+"</li>").join("")+"</ol>"}else analyze()});el.querySelectorAll("[data-delete]").forEach(b=>b.onclick=()=>{arr.splice(+b.dataset.delete,1);localStorage.setItem("elektropilot_cases",JSON.stringify(arr));renderCases()})}
 $("analyze").onclick=analyze;
 $("save").onclick=()=>{if(!window.lastCase||window.lastCase.title!==$("title").value.trim())analyze();const c=getCurrent();c.hypotheses=window.lastCase?.hypotheses||[];c.steps=window.lastCase?.steps||[];let arr=[];try{arr=JSON.parse(localStorage.getItem("elektropilot_cases")||"[]")}catch{};arr.unshift(c);arr=arr.slice(0,20);try{localStorage.setItem("elektropilot_cases",JSON.stringify(arr));renderCases();$("save").textContent="Gespeichert ✓";setTimeout(()=>$("save").textContent="Fall lokal speichern",1600)}catch{$("save").textContent="Speichern nicht möglich"}};
 $("reset").onclick=()=>{if(!confirm("Eingaben wirklich zurücksetzen?"))return; $("scenario").value="custom";for(const id of ["title","symptoms","when","scope","measurements","history","confirmed"])$(id).value="";$("result").classList.remove("hidden");$("results").classList.add("hidden");$("next").classList.add("hidden");window.lastCase=null};
 $("export").onclick=()=>{if(!window.lastCase)analyze();window.print()};
 $("copy").onclick=async()=>{const c=getCurrent();c.hypotheses=window.lastCase?.hypotheses||[];c.steps=window.lastCase?.steps||[];try{await navigator.clipboard.writeText(caseText(c));$("copy").textContent="Kopiert ✓";setTimeout(()=>$("copy").textContent="Falltext kopieren",1500)}catch{const t=document.createElement("textarea");t.value=caseText(c);document.body.appendChild(t);t.select();document.execCommand("copy");t.remove()}};
+
+function boxscanSummary(p){
+ const m=p.measurements||{}, q=p.quality||{};
+ const fields=Object.entries(m).filter(([k,v])=>v!==null&&v!==undefined).map(([k,v])=>k+": "+v).join(" · ")||"Keine numerischen Messwerte";
+ const valid=q.measurementValid===true&&q.registerMapVerified===true;
+ return {valid,fields,source:p.source||"unbekannt",capturedAt:p.capturedAt||"kein Zeitstempel",device:p.deviceId||"unbekannt"};
+}
+$("boxscanFile").addEventListener("change", async ev=>{
+ const file=ev.target.files?.[0]; if(!file)return;
+ try{
+  if(file.size>1000000)throw new Error("Datei ist größer als 1 MB.");
+  const p=JSON.parse(await file.text());
+  if(!p||p.schemaVersion!=="1.0"||typeof p.deviceId!=="string"||typeof p.capturedAt!=="string"||!Number.isFinite(Date.parse(p.capturedAt))||!p.measurements||typeof p.measurements!=="object"||!p.quality||typeof p.quality.communicationOk!=="boolean")throw new Error("Ungültiges Format. Erforderlich: schemaVersion 1.0, deviceId, capturedAt, measurements und quality.communicationOk.");
+  const numeric=["voltageV","currentA","activePowerW","energyKWh","frequencyHz","powerFactor"];
+  for(const k of numeric)if(p.measurements[k]!==undefined&&p.measurements[k]!==null&&(typeof p.measurements[k]!=="number"||!Number.isFinite(p.measurements[k])))throw new Error("Ungültiger Messwert: "+k);
+  window.boxScanImport=p;
+  const s=boxscanSummary(p);
+  $("boxscanStatus").className="empty";
+  $("boxscanStatus").innerHTML="<b>"+(s.valid?"Importiert · als validiert markiert":"Importiert · NICHT verifiziert")+"</b>";
+  const detail=document.createElement("div");detail.style.marginTop="8px";detail.textContent="Gerät: "+s.device+" | Quelle: "+s.source+" | Zeitpunkt: "+s.capturedAt+" | Kommunikation: "+(p.quality.communicationOk?"OK":"Fehler")+" | "+s.fields;
+  $("boxscanStatus").appendChild(detail);
+  $("measurements").value="BoxScan-Import (Quelle: "+s.source+"; Zeit: "+s.capturedAt+"; Gerät: "+s.device+"). Qualitätsstatus: communicationOk="+p.quality.communicationOk+", measurementValid="+(p.quality.measurementValid===true)+", registerMapVerified="+(p.quality.registerMapVerified===true)+". Werte: "+s.fields+". Rohdaten sind im Importobjekt gespeichert; Werte nur verwenden, wenn Messquelle und Messbedingungen geprüft wurden.";
+  $("history").value=($("history").value?$("history").value+"\n":"")+"BoxScan-JSON lokal importiert; Gerät "+s.device+", Zeit "+s.capturedAt+".";
+  $("aiStatus").textContent="BoxScan-Daten importiert. Noch keine Live-Hardware-Verbindung. Ungeprüfte Messwerte bleiben als ungeprüft markiert.";
+ }catch(err){$("boxscanStatus").className="alert";$("boxscanStatus").textContent="Import fehlgeschlagen: "+err.message;window.boxScanImport=null}
+});
+$("clearBoxscan").onclick=()=>{window.boxScanImport=null;$("boxscanFile").value="";$("boxscanStatus").className="empty";$("boxscanStatus").innerHTML="<b>Noch keine Daten importiert</b>Erwarte schemaVersion 1.0 mit Quelle, Zeitstempel, Messwerten und Qualitätskennzeichen."};
+$("apiBase").value=localStorage.getItem("elektropilot_api_base")||"";
+$("apiBase").addEventListener("change",()=>localStorage.setItem("elektropilot_api_base",$("apiBase").value.trim()));
+async function apiRequest(path,body){
+ const base=$("apiBase").value.trim().replace(/\/+$/,"");
+ if(!base)throw new Error("Gib zuerst die Basisadresse des separat gestarteten API-Servers ein.");
+ const response=await fetch(base+path,{method:body?"POST":"GET",headers:body?{"content-type":"application/json"}:{},body:body?JSON.stringify(body):undefined});
+ const data=await response.json().catch(()=>({error:"INVALID_SERVER_RESPONSE"}));
+ if(!response.ok)throw new Error(data.message||data.error||("HTTP "+response.status));
+ return data;
+}
+$("checkApi").onclick=async()=>{ $("aiStatus").textContent="Prüfe API …";try{const d=await apiRequest("/health");$("aiStatus").textContent="API erreichbar. Live-AI konfiguriert: "+(d.aiConfigured?"ja":"nein")+"; Modell: "+d.model+"."; }catch(e){$("aiStatus").textContent="API nicht erreichbar: "+e.message}};
+$("liveAI").onclick=async()=>{
+ $("aiStatus").textContent="Sende Fall an den konfigurierten Server …";$("aiOutput").classList.add("hidden");
+ try{
+  if(!window.lastCase)analyze();
+  const c=getCurrent();c.boxScan=window.boxScanImport||null;
+  const d=await apiRequest("/api/analyze",{case:c});
+  $("aiOutput").textContent=JSON.stringify(d.analysis,null,2);$("aiOutput").classList.remove("hidden");
+  $("aiStatus").textContent="KI-Antwort erhalten ("+d.model+"). Hypothesen, keine bestätigte Diagnose oder Sicherheitsfreigabe.";
+ }catch(e){$("aiStatus").textContent="KI-Analyse nicht verfügbar: "+e.message}
+};
+
 renderCases();
 </script>
 </body></html>
