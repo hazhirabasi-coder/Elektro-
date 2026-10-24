@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0",
+  "deviceId": "BOXSCAN-DEMO-ONLY",
+  "panelId": "DEMO-PANEL",
+  "capturedAt": "2026-10-25T12:00:00Z",
+  "source": "demo_fixture",
+  "meterModel": "FICTIONAL-DEMO",
+  "dataMode": "demo",
+  "circuit": {
+    "id": "DEMO-C07",
+    "label": "Steckdosen Küche (Beispiel)",
+    "labelVerified": false
+  },
+  "measurements": {
+    "voltageV": 230.4,
+    "currentA": 4.2,
+    "activePowerW": 910,
+    "energyKWh": 125.7,
+    "frequencyHz": 50.0,
+    "powerFactor": 0.94
+  },
+  "quality": {
+    "communicationOk": true,
+    "measurementValid": false,
+    "registerMapVerified": false
+  },
+  "notice": "FIKTIVE TESTDATEN. KEINE MESSUNG. Nicht für Diagnose oder Sicherheitsentscheidungen verwenden."
+}
