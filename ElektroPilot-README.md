@@ -25,6 +25,7 @@ If that URL is not yet available, open the [HTML file in the repository](./elekt
 
 - [BoxScan B hardware/firmware guide](./hardware/boxscan-b/README.md)
 - [BoxScan data contract](./docs/boxscan-data-contract.md)
+- [Fictional BoxScan JSON import example](./data/boxscan-demo.json)
 - [Optional API server](./server/README.md)
 - [Render deployment blueprint](./render.yaml)
 
