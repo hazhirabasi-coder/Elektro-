@@ -142,7 +142,7 @@ $("checkApi").onclick=async()=>{ $("aiStatus").textContent="Prüfe API …";try{
 $("loadLiveBoxScan").onclick=async()=>{
  $("aiStatus").textContent="Lade letzte BoxScan-Messwerte …";
  try{
-  const base=$("apiBase").value.trim().replace(/\\/+$/,"");
+  const base=$("apiBase").value.trim().replace(/\/+$/,"");
   const token=$("boxscanViewToken").value;
   if(!base)throw new Error("Gib zuerst die API-Basisadresse ein.");
   if(!token)throw new Error("Gib den Lesetoken ein, den du auf dem API-Server eingerichtet hast.");
@@ -158,7 +158,7 @@ $("loadLiveBoxScan").onclick=async()=>{
   const detail=document.createElement("div");detail.style.marginTop="8px";detail.textContent="Gerät: "+s.device+" | Quelle: "+s.source+" | Zeitpunkt: "+s.capturedAt+" | Kommunikation: "+(p.quality?.communicationOk?"OK":"Fehler")+" | "+s.fields;
   $("boxscanStatus").appendChild(detail);
   $("measurements").value="BoxScan Live-Import (Quelle: "+s.source+"; Zeit: "+s.capturedAt+"; Gerät: "+s.device+"). Qualitätsstatus: communicationOk="+Boolean(p.quality?.communicationOk)+", measurementValid="+(p.quality?.measurementValid===true)+", registerMapVerified="+(p.quality?.registerMapVerified===true)+". Werte: "+s.fields+". Werte vor einer fachlichen Schlussfolgerung prüfen.";
-  $("history").value=($("history").value?$("history").value+"\\n":"")+"BoxScan-Livedaten abgerufen; Gerät "+s.device+", Zeit "+s.capturedAt+".";
+  $("history").value=($("history").value?$("history").value+"\n":"")+"BoxScan-Livedaten abgerufen; Gerät "+s.device+", Zeit "+s.capturedAt+".";
   $("aiStatus").textContent="Letzte BoxScan-Daten geladen. API-Speicherung ist nur temporär im Arbeitsspeicher; Server-Neustart löscht sie.";
  }catch(e){$("aiStatus").textContent="Live-BoxScan nicht verfügbar: "+e.message}
 };
