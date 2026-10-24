@@ -40,3 +40,15 @@ GitHub Actions führt diese Smoke-Tests bei Push und Pull Request aus. Sie prüf
 ## Hinweis zu Lerninhalten
 
 Die App ist eine Lernhilfe. Sicherheitsrelevante elektrische Arbeiten müssen nach den geltenden Normen, betrieblichen Vorgaben und durch qualifizierte Personen geprüft werden.
+
+
+## Neues Projekt: ElektroPilot AI — Evidence Engine
+
+Ein separates, experimentelles Werkzeug zur strukturierten Fehlersuche:
+
+- [ElektroPilot-Prototyp öffnen](./elektropilot.html)
+- [Projektbeschreibung, Grenzen und Roadmap](./ElektroPilot-README.md)
+- [30-Tage-Validierungs- und Sicherheitsplan](./docs/validation-plan.md)
+- [Fiktive Testfälle](./data/demo-cases.json)
+
+**Wichtig:** ElektroPilot ist derzeit ein regelbasierter Prototyp, kein validiertes Diagnosegerät und kein echtes KI-Modell. Er ersetzt weder qualifizierte Fachkräfte noch sichere Arbeitsverfahren, geeignete Messgeräte oder geltende DIN/VDE-Anforderungen.
